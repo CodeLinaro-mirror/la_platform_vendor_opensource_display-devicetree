@@ -1,0 +1,439 @@
+//SPDX-License-Identifier: BSD-3-Clause
+/*
+ *Copyright (c) 2025 Qualcomm Innovation Center, Inc. All rights reserved
+ */
+
+#include <dt-bindings/clock/qcom,gcc-sm6150.h>
+#include <dt-bindings/clock/qcom,dispcc-sm6150.h>
+#include <dt-bindings/interconnect/qcom,sm6150.h>
+#include <dt-bindings/interrupt-controller/arm-gic.h>
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/interconnect/qcom,icc.h>
+#include <dt-bindings/clock/qcom,rpmh.h>
+#include <dt-bindings/soc/qcom,rpmh-rsc.h>
+#include <dt-bindings/regulator/qcom,rpmh-regulator-levels.h>
+#include "dsi-panel-ili988c-dual-video.dtsi"
+#include "dsi-panel-ext-bridge-1080p.dtsi"
+
+&soc {
+	dsi_panel_pwr_supply: dsi_panel_pwr_supply {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		qcom,panel-supply-entry@0 {
+			reg = <0>;
+			qcom,supply-name = "vddio";
+			qcom,supply-min-voltage = <1800000>;
+			qcom,supply-max-voltage = <1800000>;
+			qcom,supply-enable-load = <62000>;
+			qcom,supply-disable-load = <80>;
+			qcom,supply-post-on-sleep = <20>;
+		};
+
+		qcom,panel-supply-entry@1 {
+			reg = <1>;
+			qcom,supply-name = "lab";
+			qcom,supply-min-voltage = <4600000>;
+			qcom,supply-max-voltage = <6000000>;
+			qcom,supply-enable-load = <100000>;
+			qcom,supply-disable-load = <100>;
+		};
+
+		qcom,panel-supply-entry@2 {
+			reg = <2>;
+			qcom,supply-name = "ibb";
+			qcom,supply-min-voltage = <4600000>;
+			qcom,supply-max-voltage = <6000000>;
+			qcom,supply-enable-load = <100000>;
+			qcom,supply-disable-load = <100>;
+			qcom,supply-post-on-sleep = <20>;
+		};
+	};
+
+	dsi_panel_pwr_supply_no_labibb: dsi_panel_pwr_supply_no_labibb {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		qcom,panel-supply-entry@0 {
+			reg = <0>;
+			qcom,supply-name = "vddio";
+			qcom,supply-min-voltage = <1800000>;
+			qcom,supply-max-voltage = <1800000>;
+			qcom,supply-enable-load = <62000>;
+			qcom,supply-disable-load = <80>;
+			qcom,supply-post-on-sleep = <20>;
+		};
+	};
+
+	dsi_panel_pwr_supply_labibb_amoled: dsi_panel_pwr_supply_labibb_amoled {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		qcom,panel-supply-entry@0 {
+			reg = <0>;
+			qcom,supply-name = "vddio";
+			qcom,supply-min-voltage = <1800000>;
+			qcom,supply-max-voltage = <1800000>;
+			qcom,supply-enable-load = <62000>;
+			qcom,supply-disable-load = <80>;
+			qcom,supply-post-on-sleep = <20>;
+		};
+
+		qcom,panel-supply-entry@1 {
+			reg = <1>;
+			qcom,supply-name = "vdda-3p3";
+			qcom,supply-min-voltage = <3000000>;
+			qcom,supply-max-voltage = <3000000>;
+			qcom,supply-enable-load = <13200>;
+			qcom,supply-disable-load = <80>;
+		};
+	};
+
+	sde_dsi: qcom,dsi-display {
+		compatible = "qcom,dsi-display";
+		label = "primary";
+
+		qcom,dsi-ctrl = <&mdss_dsi0>;
+		qcom,dsi-phy = <&mdss_dsi_phy0>;
+		clocks = <&mdss_dsi_phy0 0>,
+			<&mdss_dsi_phy0 1>,
+			/*
+			 * Currently the dsi clock handles are under the dsi
+			 * controller DT node. As soon as the controller probe
+			 * finishes, the dispcc sync state can get called before
+			 * the dsi_display probe potentially disturbing the clock
+			 * votes for cont_splash use case. Hence we are no longer
+			 * protected by the component model in this case against the
+			 * disp cc sync state getting triggered after the dsi_ctrl
+			 * probe. To protect against this incorrect sync state trigger
+			 * add this dummy MDP clk vote handle to the dsi_display
+			 * DT node. Since the dsi_display driver does not parse
+			 * MDP clock nodes, no actual vote shall be added and this
+			 * change is done just to satisfy sync state requirements.
+			 */
+			<&dispcc DISP_CC_MDSS_MDP_CLK>;
+
+		 clock-names = "pll_byte_clk0", "pll_dsi_clk0",
+				"mdp_core_clk";
+
+		pinctrl-names = "panel_active", "panel_suspend";
+		pinctrl-0 = <&sde_dsi_active &sde_te_active>;
+		pinctrl-1 = <&sde_dsi_suspend &sde_te_suspend>;
+
+		qcom,platform-te-gpio = <&tlmm 90 0>;
+		qcom,panel-te-source = <0>;
+
+		vddio-supply = <&pm6150_l13>;
+		vdda-3p3-supply = <&pm6150_l18>;
+		lab-supply = <&lcdb_ldo_vreg>;
+		ibb-supply = <&lcdb_ncp_vreg>;
+
+		qcom,dsi-default-panel = <&dsi_ili9881c_720p_video>;
+		qcom,mdp = <&mdss_mdp>;
+	};
+
+	sde_wb: qcom,wb-display@0 {
+		compatible = "qcom,wb-display";
+		cell-index = <0>;
+		label = "wb_display";
+	};
+};
+
+&sde_dp {
+	qcom,dp-usbpd-detection = <&pm6150_pdphy>;
+	hpd-pwr-supply = <&pm6150_l17>;
+	qcom,phy-supply-entries {
+		#address-cells = <1>;
+		#size-cells = <0>;
+		qcom,phy-supply-entry@0 {
+			reg = <0>;
+			qcom,supply-name = "vdda-0p9";
+			qcom,supply-min-voltage = <880000>;
+			qcom,supply-max-voltage = <975000>;
+			qcom,supply-enable-load = <36000>;
+			qcom,supply-disable-load = <0>;
+		};
+		qcom,phy-supply-entry@1 {
+			reg = <1>;
+			qcom,supply-name = "hpd-pwr";
+			qcom,supply-min-voltage = <3000000>;
+			qcom,supply-max-voltage = <3230000>;
+			qcom,supply-enable-load = <30000>;
+			qcom,supply-disable-load = <0>;
+		};
+	};
+};
+
+&mdss_mdp {
+	connectors = <&smmu_sde_unsec &smmu_sde_sec &sde_rscc &sde_wb &sde_dsi>;
+};
+
+&dsi_ili9881c_720p_video {
+	qcom,dsi-select-clocks = "mux_byte_clk0", "mux_pixel_clk0",
+			"src_byte_clk0", "src_pixel_clk0",
+			"shadow_byte_clk0", "shadow_pixel_clk0";
+	qcom,mdss-dsi-t-clk-post = <0x0a>;
+	qcom,mdss-dsi-t-clk-pre = <0x21>;
+	qcom,mdss-dsi-display-timings {
+		timing@0 {
+			qcom,mdss-dsi-panel-timings =
+				[1F 1C 04 06 03 02 0a
+				1F 1C 04 06 03 02 0a
+				1F 1C 04 06 03 02 0a
+				1F 1C 04 06 03 02 0a
+				1F 10 04 06 03 02 0a];
+
+			qcom,display-topology = <1 0 1>;
+			qcom,default-topology-index = <0>;
+		};
+	};
+};
+
+&dsi_ext_bridge_1080p {
+        qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
+	qcom,mdss-dsi-display-timings {
+		timing@0{
+			qcom,mdss-dsi-panel-phy-timings =
+				[24 1f 08 09 05 03 04 a0
+				24 1f 08 09 05 03 04 a0
+				24 1f 08 09 05 03 04 a0
+				24 1f 08 09 05 03 04 a0
+				24 1b 08 09 05 03 04 a0];
+
+			qcom,display-topology = <1 0 1>;
+			qcom,default-topology-index = <0>;
+		};
+	};
+};
+
+&tlmm {
+	pmx_sde: pmx_sde {
+		sde_dsi_active: sde_dsi_active {
+			mux {
+				pins = "gpio91";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio91";
+				drive-strength = <8>;   /* 8 mA */
+				bias-disable = <0>;     /* no pull */
+			};
+		};
+
+		sde_dsi_suspend: sde_dsi_suspend {
+			mux {
+				pins = "gpio91";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio91";
+				drive-strength = <2>;   /* 2 mA */
+				bias-pull-down;         /* PULL DOWN */
+			};
+		};
+	};
+
+	pmx_sde_te: pmx_sde_te {
+		sde_te_active: sde_te_active {
+			mux {
+				pins = "gpio90";
+				function = "mdp_vsync";
+			};
+
+			config {
+				pins = "gpio90";
+				drive-strength = <2>;   /* 2 mA */
+				bias-pull-down;         /* PULL DOWN */
+			};
+		};
+
+		sde_te_suspend: sde_te_suspend {
+			mux {
+				pins = "gpio90";
+				function = "mdp_vsync";
+			};
+
+			config {
+				pins = "gpio90";
+				drive-strength = <2>;   /* 2 mA */
+				bias-pull-down;         /* PULL DOWN */
+			};
+		};
+	};
+
+	pmx_dp: pmx_dp {
+		sde_dp_usbplug_cc_active: sde_dp_usbplug_cc_active {
+			mux {
+				pins = "gpio104";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio104";
+				bias-disable;
+				drive-strength = <16>;
+			};
+		};
+
+		sde_dp_usbplug_cc_suspend: sde_dp_usbplug_cc_suspend {
+			mux {
+				pins = "gpio104";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio104";
+				bias-pull-down;
+				drive-strength = <2>;
+			};
+		};
+
+
+		sde_dp_switch_active: sde_dp_switch_active {
+			mux {
+				pins = "gpio49";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio49";
+				bias-pull-up;           /* pull up */
+				output-high;
+				drive-strength = <2>;
+			};
+		};
+
+		sde_dp_switch_suspend: sde_dp_switch_suspend {
+			mux {
+				pins = "gpio49";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio49";
+				bias-pull-down;
+				output-low;
+				drive-strength = <2>;
+			};
+		};
+
+		sde_dp_connector_enable: sde_dp_connector_enable {
+			mux {
+				pins = "gpio44";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio44";
+				bias-pull-up;
+				output-high;
+				drive-strength = <2>;
+			};
+		};
+
+		sde_dp_hotplug_ctrl: sde_dp_hotplug_ctrl {
+			mux {
+				pins = "gpio103";
+				function = "debug_hot";
+			};
+
+			config {
+				pins = "gpio103";
+				bias-disable;
+				input-enable;
+				drive-strength = <2>;
+			 };
+		};
+
+		sde_dp_hotplug_tlmm: sde_dp_hotplug_tlmm {
+			mux {
+				pins = "gpio103";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio103";
+				bias-disable;
+				input-enable;
+				drive-strength = <2>;
+			};
+		};
+	};
+
+	pmx_ts_int_active {
+		ts_int_active: ts_int_active {
+			mux {
+				pins = "gpio89";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio89";
+				drive-strength = <8>;
+				bias-pull-up;
+			};
+		};
+	};
+
+	pmx_ts_int_suspend {
+		ts_int_suspend: ts_int_suspend {
+			mux {
+				pins = "gpio89";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio89";
+				drive-strength = <2>;
+				bias-pull-down;
+			};
+		};
+	};
+
+	pmx_ts_reset_active {
+		ts_reset_active: ts_reset_active {
+			mux {
+				pins = "gpio88";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio88";
+				drive-strength = <8>;
+				bias-pull-up;
+			};
+		};
+	};
+
+	pmx_ts_reset_suspend {
+		ts_reset_suspend: ts_reset_suspend {
+			mux {
+				pins = "gpio88";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio88";
+				drive-strength = <2>;
+				bias-pull-down;
+			};
+		};
+	};
+
+	pmx_ts_release {
+		ts_release: ts_release {
+			mux {
+				pins = "gpio89", "gpio88";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio89", "gpio88";
+				drive-strength = <2>;
+				bias-pull-down;
+			};
+		};
+	};
+};
