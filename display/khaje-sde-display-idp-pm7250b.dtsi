@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 &sde_dsi {
         pinctrl-0 = <&sde_dsi_active &sde_te_active &disp_lcd_bias_en_default>;
 };
