@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 &mdss_mdp {
 	dsi_nt36672_truly_video: qcom,mdss_dsi_nt36672_truly_video {
 		qcom,mdss-dsi-panel-name =
