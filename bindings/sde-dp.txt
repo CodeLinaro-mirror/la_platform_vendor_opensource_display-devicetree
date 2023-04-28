@@ -135,6 +135,8 @@ Optional properties:
 - qcom,display-type:		A property to make the edp or dp display as primary.
 - qcom,no-backlight-support:	A property to denote that there is no backlight support for eDP interface.
 - qcom,dp-ext-hpd:		A property to enable hpd support for externally pluggable sink.
+- qcom,edp-default-panel:	Specifies the default eDP panel.
+- qcom,panel-notifier-support:	To enable panel notifier support for eDP panel.
 
 [Optional child nodes]: These nodes are for devices which are
 dependent on msm_ext_disp. If msm_ext_disp is disabled then
