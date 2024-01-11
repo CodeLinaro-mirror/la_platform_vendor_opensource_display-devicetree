@@ -1,11 +1,23 @@
 // SPDX-License-Identifier: BSD-3-Clause
 /*
- * Copyright (c) 2023 Qualcomm Innovation Center, Inc. All rights reserved.
+ * Copyright (c) 2023-2024 Qualcomm Innovation Center, Inc. All rights reserved.
  */
 
 #include "dsi-panel-ext-bridge-4k30p.dtsi"
 #include "dsi-panel-ext-bridge-1080p.dtsi"
 #include "qcm6490-sde-display.dtsi"
+
+&redriver {
+	vcc-supply = <&vreg_l7c_3p0>;
+};
+
+&mdss_dp0 {
+	usb-phy = <&usb_1_qmpphy>;
+	usb-controller = <&usb_1>;
+	qcom,dp-aux-switch = <&redriver>;
+	vdda-1p2-supply = <&vreg_l6b_1p2>;
+	vdda-0p9-supply = <&vreg_l1b_0p912>;
+};
 
 &i2c0 {
 	status = "ok";
@@ -61,5 +73,5 @@
 };
 
 &mdss_mdp0 {
-	connectors = <&smmu_sde_unsec &sde_dsi>;
+	connectors = <&smmu_sde_unsec &sde_dsi &mdss_dp0>;
 };
