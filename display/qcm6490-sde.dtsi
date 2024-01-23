@@ -259,7 +259,7 @@
 	mdss_dp0: qcom,dp_display@ae90000 {
 		cell-index = <0>;
 		compatible = "qcom,dp-display";
-		status = "disabled";
+		qcom,altmode-dev = <&pmic_glink>;
 
 		reg =   <0 0xae90000 0 0x0fc>,
 			<0 0xae90200 0 0x0c0>,
