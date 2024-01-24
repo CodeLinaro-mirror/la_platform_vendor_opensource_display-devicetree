@@ -47,3 +47,26 @@
         vdda-1p2-supply = <&vreg_l6b_1p2>;
         vdda-0p9-supply = <&vreg_l1b_0p8>;
 };
+
+&i2c13 {
+	status = "ok";
+	qcom,i2c-touch-active="novatek,NVT-ts";
+
+	novatek@62 {
+		compatible = "novatek,NVT-ts";
+		reg = <0x62>;
+
+		interrupt-parent = <&tlmm>;
+		interrupts = <81 0x2008>;
+
+		novatek,reset-gpio = <&tlmm 105 0x00>;
+		novatek,irq-gpio = <&tlmm 81 0x2008>;
+
+		panel = <&dsi_nt36672e_fhd_plus_60_video
+			&dsi_nt36672e_fhd_plus_90hz_video
+			&dsi_nt36672e_fhd_plus_120_video
+			&dsi_nt36672e_fhd_plus_144_video>;
+
+		novatek,touch-environment = "pvm";
+	};
+};
