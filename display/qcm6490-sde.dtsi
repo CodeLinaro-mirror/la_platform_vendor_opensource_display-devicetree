@@ -463,7 +463,7 @@
 		qcom,dsi-pll-ssc-en;
 		qcom,dsi-pll-ssc-mode = "down-spread";
 
-		vdda-0p9-supply = <&vreg_l10c_0p8>;
+		vdda-0p9-supply = <&vreg_l10c_0p88>;
 
 		qcom,phy-supply-entries {
 			#address-cells = <1>;
