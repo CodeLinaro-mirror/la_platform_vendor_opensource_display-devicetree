@@ -23,6 +23,21 @@ dtbo-$(CONFIG_ARCH_CANOE) += display/trustedvm-canoe-sde-display-mtp-overlay.dtb
 		display/trustedvm-alor-interposer-sde-display-mtp-overlay.dtbo \
 		display/trustedvm-alor-interposer-sde-display-rcm-overlay.dtbo \
 		display/trustedvm-alor-interposer-sde-display-qrd-overlay.dtbo
+dtbo-$(CONFIG_ARCH_KALAMA) += display/trustedvm-kalama-sde-display-mtp-overlay.dtbo \
+                  display/trustedvm-kalama-sde-display-mtp-nfc-overlay.dtbo \
+                  display/trustedvm-kalama-sde-display-cdp-nfc-overlay.dtbo \
+		  display/trustedvm-kalama-sde-display-cdp-overlay.dtbo \
+		  display/trustedvm-kalama-sde-display-cdp-wsa883x-overlay.dtbo \
+		  display/trustedvm-kalama-sde-display-rumi-overlay.dtbo \
+		  display/trustedvm-kalama-sde-display-qrd-overlay.dtbo \
+		  display/trustedvm-kalama-sde-display-atp-overlay.dtbo
+endif
+
+dtbo-$(CONFIG_ARCH_BENGAL) += display/bengal-sde.dtbo \
+			display/bengal-sde-display-idp-overlay.dtbo \
+			display/bengal-sde-display-qrd-overlay.dtbo \
+			display/bengal-sde-display-idp-nopmi-overlay.dtbo
+
 endif
 
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
