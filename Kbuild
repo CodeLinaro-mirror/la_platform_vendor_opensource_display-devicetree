@@ -171,6 +171,11 @@ dtbo-$(CONFIG_ARCH_KHAJE) += display/khaje-sde.dtbo \
 		display/khaje-sde-display-qrd-nopmi-overlay.dtbo \
 		display/khaje-sde-display-qrd-nowcd9375-overlay.dtbo
 
+dtbo-$(CONFIG_ARCH_BENGAL) += display/bengal-sde.dtbo \
+		display/bengal-sde-display-idp-overlay.dtbo \
+		display/bengal-sde-display-qrd-overlay.dtbo \
+		display/bengal-sde-display-idp-nopmi-overlay.dtbo
+
 always-y    := $(dtb-y) $(dtbo-y)
 subdir-y    := $(dts-dirs)
 clean-files    := *.dtb *.dtbo
