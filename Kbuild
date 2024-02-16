@@ -189,6 +189,11 @@ ifneq ($(CONFIG_ARCH_QTI_VM), y)
 		endif
 endif
 
+dtbo-$(CONFIG_ARCH_BENGAL) += display/bengal-sde.dtbo \
+		display/bengal-sde-display-idp-overlay.dtbo \
+		display/bengal-sde-display-qrd-overlay.dtbo \
+		display/bengal-sde-display-idp-nopmi-overlay.dtbo
+
 always-y    := $(dtb-y) $(dtbo-y)
 subdir-y    := $(dts-dirs)
 clean-files    := *.dtb *.dtbo
