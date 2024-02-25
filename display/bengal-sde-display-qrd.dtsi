@@ -6,7 +6,7 @@
 #include "bengal-sde-display.dtsi"
 
 &dsi_td4330_truly_v2_video {
-	qcom,panel-supply-entries = <&dsi_panel_pwr_supply_no_labibb>;
+	qcom,panel-supply-entries = <&dsi_panel_pwr_supply>;
 	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_pwm";
 	pwms = <&pm6125_pwm 0 0>;
 	qcom,bl-pmic-pwm-period-usecs = <100>;
@@ -17,7 +17,7 @@
 };
 
 &dsi_td4330_truly_v2_cmd {
-	qcom,panel-supply-entries = <&dsi_panel_pwr_supply_no_labibb>;
+	qcom,panel-supply-entries = <&dsi_panel_pwr_supply>;
 	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_pwm";
 	pwms = <&pm6125_pwm 0 0>;
 	qcom,bl-pmic-pwm-period-usecs = <100>;
