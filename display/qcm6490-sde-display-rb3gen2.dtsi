@@ -69,6 +69,9 @@
 };
 
 &mdss_dsi_phy0 {
+	/delete-property/ qcom,dsi-pll-ssc-en;
+	/delete-property/ qcom,dsi-pll-ssc-mode;
+
 	vdda-0p9-supply = <&vreg_l10c_0p88>;
 };
 
