@@ -49,6 +49,7 @@
 
 		interrupts-extended = <&tlmm 24 IRQ_TYPE_EDGE_FALLING>;
 		reset-gpios = <&pm7250b_gpios 2 0>;
+		lt,preferred-mode = "1920x1080";
 
 		vcc-supply = <&vreg_l11c_2p8>;
 
