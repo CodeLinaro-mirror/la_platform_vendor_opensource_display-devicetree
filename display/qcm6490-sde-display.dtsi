@@ -97,7 +97,7 @@
 
 		qcom,panel-te-source = <0>;
 
-		vddio-supply = <&vreg_l8c_1p8>;
+		vddio-supply = <&vreg_l8c_1p62>;
 	};
 };
 

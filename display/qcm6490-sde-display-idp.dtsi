@@ -45,7 +45,7 @@
 
 &mdss_dp0 {
         vdda-1p2-supply = <&vreg_l6b_1p2>;
-        vdda-0p9-supply = <&vreg_l1b_0p8>;
+        vdda-0p9-supply = <&vreg_l1b_0p912>;
 };
 
 &i2c13 {
