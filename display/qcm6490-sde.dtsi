@@ -425,6 +425,9 @@
 		clock-names = "byte_clk", "byte_clk_rcg", "byte_intf_clk",
 				"pixel_clk", "pixel_clk_rcg", "esc_clk";
 
+		operating-points-v2 = <&dsi_opp_table>;
+		power-domains = <&rpmhpd SC7280_CX>;
+
 		vdda-1p2-supply = <&vreg_l6b_1p2>;
 
 		qcom,ctrl-supply-entries {
@@ -437,6 +440,25 @@
 				qcom,supply-max-voltage = <1200000>;
 				qcom,supply-enable-load = <8350>;
 				qcom,supply-disable-load = <0>;
+			};
+		};
+
+		dsi_opp_table: opp-table {
+			compatible = "operating-points-v2";
+
+			opp-187500000 {
+				opp-hz = /bits/ 64 <187500000>;
+				required-opps = <&rpmhpd_opp_low_svs>;
+			};
+
+			opp-300000000 {
+				opp-hz = /bits/ 64 <300000000>;
+				required-opps = <&rpmhpd_opp_svs>;
+			};
+
+			opp-358000000 {
+				opp-hz = /bits/ 64 <358000000>;
+				required-opps = <&rpmhpd_opp_svs_l1>;
 			};
 		};
 	};
