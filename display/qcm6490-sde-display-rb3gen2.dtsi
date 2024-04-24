@@ -107,6 +107,42 @@
 	reg-names = "dsi_ctrl", "disp_cc_base", "mdp_intf_base", "disp_conf";
 };
 
+&mdss_edp0 {
+	qcom,display-type = "primary";
+	qcom,dp-low-power-hw-hpd;
+	vdda-1p2-supply = <&vreg_l6b_1p2>;
+	vdda-0p9-supply = <&vreg_l10c_0p88>;
+	pinctrl-names = "mdss_dp_hpd_active", "mdss_dp_hpd_tlmm",
+			"mdss_dp_hpd_ctrl", "mdss_dp_active", "mdss_dp_sleep";
+	pinctrl-0 = <&edp_hpd_ctrl>;
+	pinctrl-1 = <&edp_hpd_ctrl>;
+	pinctrl-2 = <&edp_hpd_ctrl>;
+	pinctrl-3 = <&edp_hpd_ctrl>;
+	pinctrl-4 = <&edp_hpd_ctrl>;
+	qcom,dp-hpd-gpio = <&tlmm 60 0>;
+	qcom,dp-gpio-aux-switch;
+	qcom,edp-vcc-en-gpio = <&tlmm 80 0>;
+	qcom,no-backlight-support;
+	qcom,dp-ext-hpd;
+
+};
+
+&tlmm {
+	edp_hpd_ctrl: hpd_ctrl@60 {
+		mux {
+			pins = "gpio60";
+			function = "edp_hot";
+		};
+
+		config {
+			pins = "gpio60";
+			bias-disable;
+			input-enable;
+			drive-strength = <2>;
+		};
+	};
+};
+
 &mdss_mdp0 {
 	connectors = <&smmu_sde_unsec &sde_dsi &mdss_dp0>;
 };

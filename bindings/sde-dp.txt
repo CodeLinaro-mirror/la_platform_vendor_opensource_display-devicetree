@@ -1,7 +1,9 @@
 Qualcomm Technologies, Inc.
 sde-dp is the master Display Port device which supports DP host controllers that are compatible with VESA Display Port interface specification.
 DP Controller: Required properties:
-- compatible:           Should be "qcom,dp-display".
+- compatible:           one of the following
+			"qcom,dp-display"
+			"qcom,edp-display"
 - reg:                  Base address and length of DP hardware's memory mapped regions.
 - reg-names:            A list of strings that name the list of regs. "dp_ctrl" - DP controller memory region.
 			"dp_ahb" - AHB memory region.
@@ -128,6 +130,9 @@ Optional properties:
 - qcom,hbr-rbr-pre-emphasis: Specifies the pre-emphasis levels for HBR and RBR rates.
 - qcom,hbr2-3-voltage-swing: Specifies the voltage swing levels for HBR2 and HBR3 rates.
 - qcom,hbr2-3-pre-emphasis: Specifies the pre-emphasis levels for HBR2 and HBR3 rates.
+- qcom,display-type:		A property to make the edp or dp display as primary.
+- qcom,no-backlight-support:	A property to denote that there is no backlight support for eDP interface.
+- qcom,dp-ext-hpd:		A property to enable hpd support for externally pluggable sink.
 
 [Optional child nodes]: These nodes are for devices which are
 dependent on msm_ext_disp. If msm_ext_disp is disabled then
