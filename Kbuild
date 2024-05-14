@@ -80,6 +80,18 @@ dtbo-$(CONFIG_ARCH_SUN) += display/trustedvm-sun-sde-display-cdp-overlay.dtbo \
 endif
 
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
+dtbo-$(CONFIG_ARCH_PARROT) += display/parrot-sde.dtbo \
+		display/parrot-sde-display-atp-overlay.dtbo \
+		display/parrot-sde-display-idp-overlay.dtbo \
+		display/parrot-sde-display-idp-amoled-overlay.dtbo \
+		display/parrot-sde-display-rumi-overlay.dtbo \
+		display/parrot-sde-display-qrd-overlay.dtbo
+else
+dtbo-$(CONFIG_ARCH_PARROT) += display/trustedvm-parrot-sde-display-idp-overlay.dtbo
+endif
+
+
+ifneq ($(CONFIG_ARCH_QTI_VM), y)
 dtbo-$(CONFIG_ARCH_TUNA) += display/tuna-sde.dtbo \
 		display/tuna-sde-display-atp-overlay.dtbo \
 		display/tuna-sde-display-cdp-overlay.dtbo \
