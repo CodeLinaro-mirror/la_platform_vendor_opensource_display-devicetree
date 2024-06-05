@@ -105,6 +105,34 @@
 			drive-strength = <2>;
 		};
 	};
+
+	edp1_hpd_pin: hpd_pin@102 {
+		mux {
+			pins = "gpio102";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio102";
+			bias-disable;
+			input-enable;
+			drive-strength = <2>;
+		};
+	};
+
+	edp1_hpd_ctrl: hpd_ctrl@102 {
+		mux {
+			pins = "gpio102";
+			function = "edp1_hot";
+		};
+
+		config {
+			pins = "gpio102";
+			bias-disable;
+			input-enable;
+			drive-strength = <2>;
+		};
+	};
 };
 
 &sde_edp0 {
@@ -122,6 +150,23 @@
 	pinctrl-2 = <&edp0_hpd_ctrl>;
 	pinctrl-3 = <&edp0_hpd_ctrl>;
 	pinctrl-4 = <&edp0_hpd_pin>;
+};
+
+&sde_edp1 {
+	vdda-1p2-supply = <&vreg_l1c>;
+	vdda-0p9-supply = <&vreg_l4a>;
+
+	qcom,dp-aux-switch = <&sde_edp1>;
+	qcom,dp-hpd-gpio = <&tlmm 102 0>;
+	qcom,mst-fixed-topology-ports = <1 2>;
+	qcom,dp-low-power-hw-hpd;
+	pinctrl-names = "mdss_dp_hpd_active", "mdss_dp_hpd_tlmm", "mdss_dp_hpd_ctrl",
+			"mdss_dp_active", "mdss_dp_sleep";
+	pinctrl-0 = <&edp1_hpd_pin>;
+	pinctrl-1 = <&edp1_hpd_pin>;
+	pinctrl-2 = <&edp1_hpd_ctrl>;
+	pinctrl-3 = <&edp1_hpd_ctrl>;
+	pinctrl-4 = <&edp1_hpd_pin>;
 };
 
 &i2c18 {
