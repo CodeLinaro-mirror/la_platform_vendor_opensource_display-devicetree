@@ -566,6 +566,8 @@
 
 		vdda-1p2-supply = <&vreg_l6b_1p2>;
 
+		refgen-supply = <&refgen>;
+
 		qcom,ctrl-supply-entries {
 			#address-cells = <1>;
 			#size-cells = <0>;
@@ -578,6 +580,19 @@
 				qcom,supply-disable-load = <0>;
 			};
 		};
+
+		qcom,core-supply-entries {
+         		#address-cells = <1>;
+         		#size-cells = <0>;
+         		qcom,core-supply-entry@0 {
+                 		 reg = <0>;
+                 		 qcom,supply-name = "refgen";
+		                 qcom,supply-min-voltage = <0>;
+                		 qcom,supply-max-voltage = <0>;
+		                 qcom,supply-enable-load = <0>;
+                		 qcom,supply-disable-load = <0>;
+         		};
+ 		};
 
 		dsi_opp_table: opp-table {
 			compatible = "operating-points-v2";
