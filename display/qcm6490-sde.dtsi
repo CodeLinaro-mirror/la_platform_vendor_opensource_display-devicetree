@@ -350,10 +350,9 @@
 		qcom,aux-cfg8-settings = [44 37];
 		qcom,aux-cfg9-settings = [4c 03];
 
-		qcom,max-pclk-frequency-khz = <675000>;
+		qcom,max-pclk-frequency-khz = <185625>;
 		qcom,display-type = "primary";
 
-		qcom,widebus-enable;
 		qcom,ssc-feature-enable;
 		qcom,dsc-feature-enable;
 		qcom,fec-feature-enable;
