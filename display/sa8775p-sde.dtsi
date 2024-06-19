@@ -439,6 +439,9 @@
 		reg-names = "dsi_phy", "pll_base", "dyn_refresh_base";
 		pll-label = "dsi_pll_5nm";
 
+		qcom,dsi-pll-ssc-en;
+		qcom,dsi-pll-ssc-mode = "down-spread";
+
 		qcom,platform-strength-ctrl = [55 03
 						55 03
 						55 03
@@ -475,6 +478,9 @@
 			<0x0 0xae96200 0x0 0x9c>;
 		reg-names = "dsi_phy", "pll_base", "dyn_refresh_base";
 		pll-label = "dsi_pll_5nm";
+
+		qcom,dsi-pll-ssc-en;
+		qcom,dsi-pll-ssc-mode = "down-spread";
 
 		qcom,platform-strength-ctrl = [55 03
 						55 03
