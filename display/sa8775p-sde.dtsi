@@ -21,6 +21,31 @@
 		dma-coherent;
 	};
 
+	mdp_opp_table: opp-table {
+		compatible = "operating-points-v2";
+
+		opp-375000000 {
+			opp-hz = /bits/ 64 <375000000>;
+			required-opps = <&rpmhpd_opp_svs_l1>;
+		};
+
+		opp-500000000 {
+			opp-hz = /bits/ 64 <500000000>;
+			required-opps = <&rpmhpd_opp_nom>;
+		};
+
+		opp-575000000 {
+			opp-hz = /bits/ 64 <575000000>;
+			required-opps = <&rpmhpd_opp_turbo>;
+		};
+
+		opp-650000000 {
+			opp-hz = /bits/ 64 <650000000>;
+			required-opps = <&rpmhpd_opp_turbo_l1>;
+		};
+	};
+
+
 	mdss_mdp0: qcom,mdss_mdp0@ae00000 {
 		compatible = "qcom,sde-kms";
 
@@ -38,8 +63,9 @@
 				<&dispcc0 MDSS_DISP_CC_MDSS_MDP_LUT_CLK>;
 		clock-names = "gcc_bus", "iface_clk",
 				"core_clk", "vsync_clk", "lut_clk";
-		clock-rate = <0 0 300000000 19200000 300000000>;
-		clock-max-rate = <0 0 460000000 19200000 460000000>;
+		clock-rate = <0 0 500000000 19200000 500000000>;
+		clock-max-rate = <0 0 650000000 19200000 650000000>;
+		operating-points-v2 = <&mdp_opp_table>;
 
 		power-domains = <&dispcc0 MDSS_DISP_CC_MDSS_CORE_GDSC>;
 		#power-domain-cells = <1>;
