@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: BSD-3-Clause
 /*
- * Copyright (c) 2023 Qualcomm Innovation Center, Inc. All rights reserved.
+ * Copyright (c) 2023-2024 Qualcomm Innovation Center, Inc. All rights reserved.
  */
 
 &mdss_mdp0 {
-	dsi_ext_bridge_4k30p: qcom,mdss_dsi_ext_bridge_4k30p {
+	dsi_ext_bridge_rb3gen2: qcom,mdss_dsi_ext_bridge_rb3gen2 {
 		qcom,mdss-dsi-panel-name = "ext video mode dsi bridge";
 		qcom,mdss-dsi-panel-type = "dsi_video_mode";
 
