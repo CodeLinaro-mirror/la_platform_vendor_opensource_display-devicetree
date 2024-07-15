@@ -187,6 +187,9 @@ dtbo-$(CONFIG_ARCH_KHAJE) += display/khaje-sde.dtbo \
 		display/khaje-sde-display-qrd-nopmi-overlay.dtbo \
 		display/khaje-sde-display-qrd-nowcd9375-overlay.dtbo
 
+dtbo-$(CONFIG_ARCH_SCUBA) += display/scuba-iot-sde.dtbo \
+                display/scuba-iot-sde-display-idp-overlay.dtbo
+
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
 		CONFIG_OS_DTS := false
 		ifeq ($(shell [[ $(VERSION) -eq 6 && $(PATCHLEVEL) -ge 6 ]] && echo true), true)
