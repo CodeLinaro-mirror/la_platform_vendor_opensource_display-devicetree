@@ -7,6 +7,7 @@
 #include "dsi-panel-nt36672e-fhd-plus-90hz-video.dtsi"
 #include "dsi-panel-nt36672e-fhd-plus-120-video.dtsi"
 #include "dsi-panel-nt36672e-fhd-plus-144-video.dtsi"
+#include "dsi-panel-r66451-dsc-fhd-plus-video-cphy.dtsi"
 
 #include "qcm6490-sde-display-pinctrl.dtsi"
 
@@ -57,6 +58,31 @@
 			qcom,supply-enable-load = <0>;
 			qcom,supply-disable-load = <0>;
 			qcom,supply-post-on-sleep = <20>;
+		};
+	};
+
+	dsi_panel_pwr_supply_amoled: dsi_panel_pwr_supply_amoled {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		qcom,panel-supply-entry@1 {
+			reg = <1>;
+			qcom,supply-name = "vddio";
+			qcom,supply-min-voltage = <1820000>;
+			qcom,supply-max-voltage = <2000000>;
+			qcom,supply-enable-load = <60700>;
+			qcom,supply-disable-load = <80>;
+			qcom,supply-post-on-sleep = <20>;
+		};
+
+		qcom,panel-supply-entry@0 {
+			reg = <0>;
+			qcom,supply-name = "vdd";
+			qcom,supply-min-voltage = <3000000>;
+			qcom,supply-max-voltage = <3000000>;
+			qcom,supply-enable-load = <30000>;
+			qcom,supply-disable-load = <0>;
+			qcom,supply-post-on-sleep = <0>;
 		};
 	};
 
@@ -143,6 +169,21 @@
 		timing@0 {
 			qcom,mdss-dsi-panel-phy-timings = [00 20 08 08 24 23 08
 				08 08 02 04 00 1c 18];
+			qcom,display-topology = <1 1 1>;
+			qcom,default-topology-index = <0>;
+		};
+	};
+};
+
+&dsi_r66451_amoled_120hz_video_cphy {
+	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
+	qcom,dsi-supported-dfps-list = <120 90 60>;
+	qcom,mdss-dsi-pan-enable-dynamic-fps;
+	qcom,mdss-dsi-pan-fps-update = "dfps_immediate_porch_mode_vfp";
+	qcom,mdss-dsi-display-timings {
+		timing@0 {
+			qcom,mdss-dsi-panel-phy-timings = [00 00 00 00 20 1b 05
+					19 06 02 04 00 00 00];
 			qcom,display-topology = <1 1 1>;
 			qcom,default-topology-index = <0>;
 		};
