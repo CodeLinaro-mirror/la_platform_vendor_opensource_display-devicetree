@@ -47,6 +47,7 @@ dtbo-$(CONFIG_ARCH_TUNA) += display/trustedvm-tuna-sde-display-atp-overlay.dtbo 
 		display/trustedvm-tuna-sde-display-qrd-overlay.dtbo \
 		display/trustedvm-tuna-sde-display-rumi-overlay.dtbo \
 		display/trustedvm-tuna-sde-display-rcm-overlay.dtbo
+dtbo-y += display/nordy-sde-hwvirt-vm.dtbo
 endif
 
 always-y    := $(dtb-y) $(dtbo-y)
