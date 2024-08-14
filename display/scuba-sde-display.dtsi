@@ -1,6 +1,14 @@
 #include "scuba-sde.dtsi"
 #include "scuba-sde-display-common.dtsi"
 
+&soc{
+	disp_rdump_memory: disp_rdump_region@5c000000 {
+        reg = <0x0 0x5c000000 0x0 0x00f00000>;
+        label = "disp_rdump_region";
+        };
+
+};
+
 &sde_dsi {
 	clocks = <&mdss_dsi_phy0 0>,
 		<&mdss_dsi_phy0 1>,
@@ -24,4 +32,11 @@
 			"mdp_core_clk";
 
 	vddio-supply = <&L15A>;
+};
+
+&reserved_memory {
+	splash_memory: splash_region@5c000000 {
+		reg = <0x0 0x5c000000 0x0 0x00f00000>;
+		label = "cont_splash_region";
+	};
 };
