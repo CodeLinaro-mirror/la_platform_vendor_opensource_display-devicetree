@@ -1,6 +1,9 @@
-%:
-	${CC} -undef -x assembler-with-cpp $(shell pwd)/display/$@.dtso -I ${KERNEL_INCLUDE} -E -o $(shell pwd)/display/$@.dtso.preprocessed
-	${DTC} -O dtb -o $(shell pwd)/display/$@.dtbo $(shell pwd)/display/$@.dtso.preprocessed
+KBUILD_OPTIONS+=KBUILD_EXTMOD_DTS=.
+
+all: dtbs
 
 clean:
-	rm -rf *.preprocessed
+	$(MAKE) -C $(KERNEL_SRC) M=$(M) clean
+
+%:
+	$(MAKE) -C $(KERNEL_SRC) M=$(M) $@ $(KBUILD_OPTIONS)

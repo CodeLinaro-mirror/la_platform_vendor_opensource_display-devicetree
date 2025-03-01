@@ -1,9 +1,4 @@
-// SPDX-License-Identifier: BSD-3-Clause
-/*
- * Copyright (c) 2023 Qualcomm Innovation Center, Inc. All rights reserved.
- */
-
-&mdss_mdp0 {
+&mdss_mdp {
 	dsi_nt36672e_fhd_plus_120_video: qcom,mdss_dsi_nt36672e_fhd_plus_120_video {
 		qcom,mdss-dsi-panel-name =
 			"nt36672e lcd video mode dsi novatek panel with DSC";
