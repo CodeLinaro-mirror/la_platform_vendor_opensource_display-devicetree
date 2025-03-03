@@ -450,6 +450,7 @@
 			<&gcc GCC_AHB2PHY_WEST_CLK>,
 			<&gcc GCC_USB3_SEC_CLKREF_CLK>,
 			<&dispcc DISP_CC_MDSS_DP_LINK_CLK>,
+                        <&dispcc DISP_CC_MDSS_DP_LINK_CLK_SRC>,
 			<&dispcc DISP_CC_MDSS_DP_LINK_INTF_CLK>,
 			<&dispcc DISP_CC_MDSS_DP_PIXEL_CLK>,
 			<&dispcc DISP_CC_MDSS_DP_PIXEL1_CLK>,
@@ -459,12 +460,12 @@
 			<&dispcc DISP_CC_MDSS_DP_PIXEL1_CLK_SRC>,
 			<&sde_dp 1>;
 
-		clock-names = "core_aux_clk", "core_usb_ref_clk_src",
+		clock-names = "core_aux_clk", "rpmh_cxo_clk",
 			"core_usb_ahb_clk", "core_usb_sec_ref_clk",
-			"link_clk", "link_iface_clk",
+			"link_clk", "link_clk_src", "link_iface_clk",
 			"strm0_pixel_clk","strm1_pixel_clk", "crypto_clk",
-			"pixel_clk_rcg", "pixel_parent","pixel1_clk_rcg",
-			"pixel1_parent";
+			"pixel_clk_rcg", "link_parent","pixel1_clk_rcg",
+			"pixel_parent";
 
 
 		qcom,phy-version = <0x200>;
@@ -527,7 +528,7 @@
 		compatible = "qcom,smmu_sde_sec";
 		iommus = <&apps_smmu 0x801 0x0>;
 		qcom,iommu-dma-addr-pool = <0x00020000 0xfffe0000>;
-                qcom,iommu-faults = "non-fatal";
+		qcom,iommu-faults = "non-fatal";
 		qcom,iommu-vmid = <0xa>;
 	};
 
@@ -535,14 +536,14 @@
 		compatible = "qcom,smmu_sde_unsec";
 		iommus = <&apps_smmu 0x800 0x0>;
 		qcom,iommu-dma-addr-pool = <0x00020000 0xfffe0000>;
-                qcom,iommu-faults = "non-fatal";
+		qcom,iommu-faults = "non-fatal";
 		qcom,iommu-earlymap; /* for cont-splash */
 	};
 };
 
-&disp_rsc_0_drv0 {
-         sde_rsc_rpmh {
-                 compatible = "qcom,sde-rsc-rpmh";
-                 cell-index = <0>;
-         };
+&disp_rsc_drv0 {
+	sde_rsc_rpmh {
+		compatible = "qcom,sde-rsc-rpmh";
+		cell-index = <0>;
+	};
 };
