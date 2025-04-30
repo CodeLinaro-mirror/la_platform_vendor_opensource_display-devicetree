@@ -1,0 +1,95 @@
+//SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) 2025 Qualcomm Innovation Center, Inc. All rights reserved
+ */
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+#include <dt-bindings/input/input.h>
+#include <dt-bindings/clock/qcom,rpmh.h>
+#include <dt-bindings/iio/qti_power_supply_iio.h>
+
+#include "sm6150-sde-display.dtsi"
+
+&sde_dp {
+	status="disabled";
+};
+
+&mdss_mdp {
+	connectors = <&smmu_sde_unsec &sde_dsi &sde_rscc &sde_wb>;
+};
+
+&dsi_ili9881c_720p_video {
+	qcom,panel-supply-entries = <&dsi_panel_pwr_supply>;
+	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_wled";
+	qcom,mdss-dsi-bl-min-level = <1>;
+	qcom,mdss-dsi-bl-max-level = <4095>;
+	qcom,platform-reset-gpio = <&tlmm 91 0>;
+};
+
+&qupv3_se1_i2c {
+	#address-cells = <1>;
+	#size-cells = <0>;
+
+	status = "ok";
+
+	lt9611: lt,lt9611@3b {
+		compatible = "lt,lt9611";
+		reg = <0x3b>;
+
+		interrupts-extended = <&tlmm 26 IRQ_TYPE_EDGE_FALLING>;
+
+		reset-gpios = <&tlmm 20 GPIO_ACTIVE_HIGH>;
+		enable-gpios = <&tlmm 79 GPIO_ACTIVE_HIGH>;
+
+		vdd-supply = <&pm6150_l13>;
+		vcc-supply = <&pm6150_l16>;
+
+		lt,non-pluggable;
+		lt,preferred-mode = "1920x1080";
+
+		lt,customize-modes {
+			lt,customize-mode-id@0 {
+				lt,mode-h-active = <1920>;
+				lt,mode-h-front-porch = <88>;
+				lt,mode-h-pulse-width = <44>;
+				lt,mode-h-back-porch = <148>;
+				lt,mode-h-active-high;
+				lt,mode-v-active = <1080>;
+				lt,mode-v-front-porch = <4>;
+				lt,mode-v-pulse-width = <5>;
+				lt,mode-v-back-porch = <36>;
+				lt,mode-v-active-high;
+				lt,mode-refresh-rate = <60>;
+				lt,mode-clock-in-khz = <148500>;
+			};
+		};
+
+		ports {
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			port@0 {
+				reg = <0>;
+				lt9611_in: endpoint {
+					remote-endpoint = <&dsi0_out>;
+				};
+			};
+		};
+	};
+};
+
+&sde_dsi {
+	qcom,dsi-default-panel = <&dsi_ext_bridge_1080p>;
+	ports {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		port@0 {
+			reg = <0>;
+			dsi0_out: endpoint {
+				remote-endpoint = <&lt9611_in>;
+			};
+		};
+	};
+};
