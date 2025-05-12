@@ -1,0 +1,16 @@
+//SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) 2025 Qualcomm Innovation Center, Inc. All rights reserved.
+ */
+
+/dts-v1/;
+/plugin/;
+
+#include "sm6150-sde.dtsi"
+
+/ {
+	model = "Qualcomm Technologies, Inc. SM6150 SoC";
+	compatible = "qcom,sm6150";
+	qcom,msm-id = <401 0x0>, <406 0x0>;
+	qcom,board-id = <0 0>;
+};

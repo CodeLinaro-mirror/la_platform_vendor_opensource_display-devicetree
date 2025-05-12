@@ -4,12 +4,12 @@
 #include "yupik-sde-display-idp-pm7250b.dtsi"
 
 / {
-	model = "Qualcomm Technologies, Inc. Yupik";
-	compatible = "qcom,yupik", "qcom,yupik-iot",
-			"qcom,yupik-iot-idp", "qcom,yupik-iot-qrd",
-			"qcom,yupikp", "qcom,yupikp-iot",
-			"qcom,yupikp-iot-idp", "qcom,yupikp-iot-qrd";
 
-	qcom,msm-id = <475 0x10000>, <515 0x10000>,<497 0x10000>, <575 0x10000>,<576 0x10000>, <499 0x10000>,<498 0x10000>;
-	qcom,board-id = <34 1>;
+	model = "Qualcomm Technologies, Inc. Yupik IOT HSP + PM7250B";
+        compatible = "qcom,yupik-iot-idp", "qcom,yupik-iot", "qcom,idp";
+        qcom,msm-id = <497 0x10000>, <575 0x10000>, <576 0x10000>;
+        qcom,board-id = <34 1>;
+	qcom,pmic-id = <0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x2e>;
+	qcom,pmic-id-size = <9>;
+
 };
