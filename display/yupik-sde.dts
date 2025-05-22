@@ -5,18 +5,11 @@
 
 / {
 
-	/*qcom,msm-id = <497 0x10000>, <575 0x10000>, <576 0x10000>;
-	qcom,board-id = <0 0>, <34 0>, <34 1>, <0x1000B 0>; */
-
 	model = "Qualcomm Technologies, Inc. Yupik";
-	compatible = "qcom,yupik", "qcom,yupik-iot",
-			"qcom,yupik-iot-idp", "qcom,yupik-iot-qrd",
-			"qcom,yupikp", "qcom,yupikp-iot",
-			"qcom,yupikp-iot-idp", "qcom,yupikp-iot-qrd";
-	qcom,msm-id = <475 0x10000>, <515 0x10000>,
-			<497 0x10000>, <575 0x10000>,
-			<576 0x10000>, <499 0x10000>,
-			<498 0x10000>;
+	compatible = "qcom,yupik", "qcom,yupik-iot", "qcom,yupik-iot-idp", "qcom,yupik-iot-qrd", "qcom,yupikp",
+			"qcom,yupikp-iot", "qcom,yupikp-iot-idp", "qcom,yupikp-iot-qrd";
+	qcom,msm-id = <475 0x10000>, <515 0x10000>, <497 0x10000>, <575 0x10000>, <576 0x10000>, <499 0x10000>,
+			<498 0x10000>, <0x40001F1 0x10000>, <0x400023F 0x10000>, <0x4000240 0x10000>	;
 	qcom,board-id = <0 0>;
 
 };
