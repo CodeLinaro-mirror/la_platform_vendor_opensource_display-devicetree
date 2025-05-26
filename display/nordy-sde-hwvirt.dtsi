@@ -18,11 +18,18 @@
 	};
 
 
+	smmu_sde_iommu_region_partition: smmu_sde_iommu_region_partition {
+		iommu-addresses = <&smmu_sde_unsec 0xfffe0000 0x00020000>,
+					<&smmu_sde_unsec 0x0 0x00020000>,
+					<&smmu_sde_unsec1 0xfffe0000 0x00020000>,
+					<&smmu_sde_unsec1 0x0 0x00020000>;
+	};
+
 	smmu_sde_unsec: qcom,smmu_sde_unsec_cb@ae00000 {
 		compatible = "qcom,smmu_sde_unsec";
 		iommus = <&apps_smmu_1 0x03E4 0x0002>,
 				<&apps_smmu_1 0x03E6 0x0002>;
-		qcom,iommu-dma-addr-pool = <0x00020000 0xfffe0000>;
+		memory-region = <&smmu_sde_iommu_region_partition>;
 		qcom,iommu-faults = "non-fatal";
 		dma-coherent-hint-cached;
 	};
@@ -40,7 +47,7 @@
 		compatible = "qcom,smmu_sde_unsec";
 		iommus = <&apps_smmu_1 0x0404 0x0002>,
 				<&apps_smmu_1 0x0406 0x0002>;
-		qcom,iommu-dma-addr-pool = <0x00020000 0xfffe0000>;
+		memory-region = <&smmu_sde_iommu_region_partition>;
 		qcom,iommu-faults = "non-fatal";
 		dma-coherent-hint-cached;
 	};
