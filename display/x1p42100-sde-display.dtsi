@@ -3,6 +3,8 @@
  * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
  */
 
+#include <dt-bindings/clock/qcom,x1e80100-dispcc.h>
+
 &soc {
 	sde_wb0: qcom,wb-display@0 {
 		compatible = "qcom,wb-display";
@@ -21,9 +23,6 @@
 	};
 };
 
-&reserved_memory {
-};
-
 &mdss_mdp {
-	connectors = <&smmu_sde_unsec &smmu_sde_sec &sde_wb0 &sde_wb1>;
+	connectors = <&smmu_sde_unsec &smmu_sde_sec &sde_wb0 &sde_wb1 &sde_edp>;
 };
