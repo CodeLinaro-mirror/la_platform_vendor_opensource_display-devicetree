@@ -1,4 +1,53 @@
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
+dtbo-$(CONFIG_ARCH_CANOE) += display/canoe-sde.dtbo \
+		display/canoe-sde-display-rumi-overlay.dtbo\
+		display/canoe-sde-display-cdp-overlay.dtbo \
+		display/canoe-sde-display-mtp-overlay.dtbo \
+		display/canoe-sde-display-atp-overlay.dtbo \
+		display/canoe-sde-display-rcm-overlay.dtbo \
+		display/canoe-sde-display-cdp-kiwi-overlay.dtbo \
+		display/canoe-sde-display-rcm-kiwi-overlay.dtbo \
+		display/canoe-sde-display-cdp-st54l-pandeiro-overlay.dtbo \
+		display/canoe-sde-display-rcm-st54l-pandeiro-overlay.dtbo \
+		display/canoe-sde-display-qrd-sku1-overlay.dtbo \
+		display/canoe-sde-display-qrd-sku2-overlay.dtbo \
+		display/canoe-sde-display-hdk-overlay.dtbo \
+		display/alor-interposer-sde-display-mtp-overlay.dtbo \
+		display/alor-interposer-sde-display-rcm-overlay.dtbo \
+		display/alor-interposer-sde-display-qrd-overlay.dtbo \
+		display/alor-interposer-sde.dtbo
+else
+dtbo-$(CONFIG_ARCH_CANOE) += display/trustedvm-canoe-sde-display-mtp-overlay.dtbo \
+		display/trustedvm-canoe-sde-display-cdp-overlay.dtbo \
+		display/trustedvm-canoe-sde-display-qrd-overlay.dtbo \
+		display/trustedvm-alor-interposer-sde-display-mtp-overlay.dtbo \
+		display/trustedvm-alor-interposer-sde-display-rcm-overlay.dtbo \
+		display/trustedvm-alor-interposer-sde-display-qrd-overlay.dtbo
+endif
+
+ifneq ($(CONFIG_ARCH_QTI_VM), y)
+dtbo-$(CONFIG_ARCH_ALOR) += display/alor-sde.dtbo \
+		display/alor-sde-display-atp-overlay.dtbo \
+		display/alor-sde-display-cdp-overlay.dtbo \
+		display/alor-sde-display-mtp-overlay.dtbo \
+		display/alor-sde-display-qrd-overlay.dtbo \
+		display/alor-sde-display-rcm-overlay.dtbo \
+		display/alor-sde-display-rumi-overlay.dtbo
+else
+dtbo-$(CONFIG_ARCH_ALOR) += display/trustedvm-alor-sde-display-atp-overlay.dtbo \
+		display/trustedvm-alor-sde-display-cdp-overlay.dtbo \
+		display/trustedvm-alor-sde-display-mtp-overlay.dtbo \
+		display/trustedvm-alor-sde-display-qrd-overlay.dtbo \
+		display/trustedvm-alor-sde-display-rcm-overlay.dtbo \
+		display/alor-sde-display-mtp-pmih010x-smb1398-overlay.dtbo
+endif
+
+ifneq ($(CONFIG_ARCH_QTI_VM), y)
+dtbo-$(CONFIG_ARCH_X1P42100) += display/x1p42100-sde.dtbo \
+		display/x1p42100-sde-display-crd-overlay.dtbo
+endif
+
+ifneq ($(CONFIG_ARCH_QTI_VM), y)
 dtbo-$(CONFIG_ARCH_SUN) += display/sun-sde.dtbo \
 		display/sun-sde-display-cdp-overlay.dtbo \
 		display/sun-sde-display-mtp-overlay.dtbo \
@@ -65,6 +114,13 @@ dtbo-$(CONFIG_ARCH_TUNA) += display/trustedvm-kera-sde-display-atp-overlay.dtbo 
 		display/trustedvm-kera-sde-display-rumi-overlay.dtbo \
 		display/trustedvm-kera-sde-display-rcm-overlay.dtbo
 endif
+
+dtbo-$(CONFIG_ARCH_VIENNA) += display/vienna-sde.dtbo \
+		display/vienna-sde-display-wdp-overlay.dtbo \
+		display/vienna-sde-display-idp-overlay.dtbo \
+		display/vienna-sde-display-wrd-overlay.dtbo \
+		display/vienna-sde-display-atp-overlay.dtbo \
+		display/vienna-sde-display-rcm-overlay.dtbo
 
 always-y    := $(dtb-y) $(dtbo-y)
 subdir-y    := $(dts-dirs)

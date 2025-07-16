@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: BSD-3-Clause
 /*
- * Copyright (c) 2024-2025 Qualcomm Innovation Center, Inc. All rights reserved.
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
  */
 
 #include "kera-sde-display.dtsi"
@@ -67,14 +67,20 @@
 
 		timing@1 {
 			/delete-property/ qcom,mdss-dsi-panel-clockrate;
+			qcom,mdss-dsi-panel-phy-timings = [00 1c 08 07 17 22 07
+			07 08 02 04 00 19 0c];
 		};
 
 		timing@2 {
 			/delete-property/ qcom,mdss-dsi-panel-clockrate;
+			qcom,mdss-dsi-panel-phy-timings = [00 13 05 04 13 1e 05
+			05 06 02 04 00 12 0a];
 		};
 
 		timing@3 {
 			/delete-property/ qcom,mdss-dsi-panel-clockrate;
+			qcom,mdss-dsi-panel-phy-timings = [00 0f 03 03 11 1d 04
+			04 03 02 04 00 0d 09];
 		};
 	};
 };
@@ -111,10 +117,14 @@
 
 		timing@1 {
 			/delete-property/ qcom,mdss-dsi-panel-clockrate;
+			qcom,mdss-dsi-panel-phy-timings = [00 13 05 04 13 1e 05
+			05 06 02 04 00 12 0a];
 		};
 
 		timing@2 {
 			/delete-property/ qcom,mdss-dsi-panel-clockrate;
+			qcom,mdss-dsi-panel-phy-timings = [00 0f 03 03 11 1d 04
+			04 03 02 04 00 0d 09];
 		};
 	};
 };
@@ -151,6 +161,8 @@
 
 		timing@1 {
 			/delete-property/ qcom,mdss-dsi-panel-clockrate;
+			qcom,mdss-dsi-panel-phy-timings = [00 0f 03 03 11 1d 04
+			04 03 02 04 00 0d 09];
 		};
 	};
 };
@@ -169,6 +181,19 @@
 };
 
 &dsi_vtdr6130_amoled_60hz_cmd {
+	qcom,panel-supply-entries = <&dsi_panel_pwr_supply>;
+	qcom,panel-sec-supply-entries = <&dsi_panel_pwr_supply>;
+	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_dcs";
+	qcom,mdss-dsi-sec-bl-pmic-control-type = "bl_ctrl_dcs";
+	qcom,mdss-dsi-bl-min-level = <10>;
+	qcom,mdss-dsi-bl-max-level = <4095>;
+	qcom,mdss-brightness-max-level = <8191>;
+	qcom,mdss-dsi-bl-inverted-dbv;
+	qcom,platform-reset-gpio = <&tlmm 12 0>;
+	qcom,platform-sec-reset-gpio = <&tlmm 127 0>;
+};
+
+&dsi_vtdr6130_amoled_nodsc_60hz_cmd {
 	qcom,panel-supply-entries = <&dsi_panel_pwr_supply>;
 	qcom,panel-sec-supply-entries = <&dsi_panel_pwr_supply>;
 	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_dcs";
@@ -297,6 +322,7 @@
 			&dsi_vtdr6130_amoled_90hz_cmd
 			&dsi_vtdr6130_amoled_90hz_video
 			&dsi_vtdr6130_amoled_60hz_cmd
+			&dsi_vtdr6130_amoled_nodsc_60hz_cmd
 			&dsi_vtdr6130_amoled_60hz_video
 			&dsi_vtdr6130_amoled_qsync_144hz_cmd
 			&dsi_vtdr6130_amoled_qsync_144hz_video>;
