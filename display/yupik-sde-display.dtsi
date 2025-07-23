@@ -6,6 +6,9 @@
 		compatible = "qcom,wb-display";
 		cell-index = <0>;
 		label = "wb_display";
+		status = "ok";
+		clocks = <&dispcc DISP_CC_MDSS_MDP_CLK>;
+		clock-names = "mdp_core_clk";
 	};
 };
 
@@ -46,7 +49,7 @@
 };
 
 &mdss_mdp {
-	connectors = <&smmu_sde_unsec &smmu_sde_sec &sde_dsi &sde_rscc &sde_dp>;
+	connectors = <&smmu_sde_unsec &smmu_sde_sec &sde_wb &sde_dsi &sde_rscc &sde_dp>;
 };
 
 &reserved_memory {
