@@ -1,0 +1,96 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
+#include "art-sde-display-pinctrl.dtsi"
+#include "art-sde.dtsi"
+#include "art-sde-display-common.dtsi"
+
+&soc {
+	sde_wb0: qcom,wb-display@0 {
+		compatible = "qcom,wb-display";
+		cell-index = <0>;
+		label = "wb_display0";
+	};
+
+	sde_wb1: qcom,wb-display@1 {
+		compatible = "qcom,wb-display";
+		cell-index = <1>;
+		label = "wb_display1";
+	};
+
+	sde_wb2: qcom,wb-display@2 {
+		compatible = "qcom,wb-display";
+		cell-index = <2>;
+		label = "wb_display2";
+	};
+
+	display_panel_avdd: display_gpio_regulator@1 {
+		compatible = "qti-regulator-fixed";
+		regulator-name = "display_panel_avdd";
+		regulator-min-microvolt = <5500000>;
+		regulator-max-microvolt = <5500000>;
+		regulator-enable-ramp-delay = <233>;
+		gpio = <&pmh0104_gpios 7 0>;
+		enable-active-high;
+		regulator-boot-on;
+		proxy-supply = <&display_panel_avdd>;
+		qcom,proxy-consumer-enable;
+		pinctrl-names = "default";
+	};
+
+	display_panel_vdd: display_gpio_regulator@2 {
+		compatible = "qti-regulator-fixed";
+		regulator-name = "display_panel_vdd";
+		regulator-min-microvolt = <1100000>;
+		regulator-max-microvolt = <1100000>;
+		regulator-enable-ramp-delay = <233>;
+		gpio = <&pmd802x_gpios 2 0>;
+		enable-active-high;
+		regulator-boot-on;
+		proxy-supply = <&display_panel_vdd>;
+		qcom,proxy-consumer-enable;
+		pinctrl-names = "default";
+		pinctrl-0 = <&sde_disp0_vdd_active>;
+	};
+
+	disp_rdump_memory: disp_rdump_region@0xfc800000 {
+		reg = <0xfc800000 0x00800000>;
+		label = "disp_rdump_region";
+	};
+};
+
+&sde_dsi {
+	vddio-supply = <&L12B>;
+	vci-supply = <&L13B>;
+	vdd-supply = <&L11B>;
+	tvdd-supply = <&L4B>;
+
+	pinctrl-names = "panel_active", "panel_active_with_esync", "panel_suspend";
+	pinctrl-0 = <&sde_dsi_active &sde_te_active &sde_esync0_suspend
+			&sde_mdp_vsync_p_1p2_active &sde_mdp_vsync_p_1p8_active
+			&sde_disp0_rst_1p2_active &sde_disp0_rst_1p8_active>;
+	pinctrl-1 = <&sde_dsi_active &sde_te_active &sde_esync0_active
+			&sde_mdp_vsync_p_1p2_active &sde_mdp_vsync_p_1p8_active
+			&sde_disp0_rst_1p2_active &sde_disp0_rst_1p8_active>;
+	pinctrl-2 = <&sde_dsi_suspend &sde_te_suspend &sde_esync0_suspend
+			&sde_mdp_vsync_p_1p2_active &sde_mdp_vsync_p_1p8_active
+			&sde_disp0_rst_1p2_active &sde_disp0_rst_1p8_active>;
+};
+
+&sde_dsi1 {
+	vddio-supply = <&L12B>;
+	vci-supply = <&L13B>;
+	vdd-supply = <&L11B>;
+	tvdd-supply = <&L4B>;
+
+	pinctrl-names = "panel_active", "panel_active_with_esync", "panel_suspend";
+	pinctrl-0 = <&sde_dsi1_active &sde_te1_active &sde_esync1_suspend>;
+	pinctrl-1 = <&sde_dsi1_active &sde_te1_active &sde_esync1_active>;
+	pinctrl-2 = <&sde_dsi1_suspend &sde_te1_suspend &sde_esync1_suspend>;
+};
+
+&mdss_mdp {
+	connectors = <&sde_dsi &sde_dsi1 &smmu_sde_unsec &smmu_sde_sec &sde_wb0 &sde_wb1 &sde_wb2>;
+};

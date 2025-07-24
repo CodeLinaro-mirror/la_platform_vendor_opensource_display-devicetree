@@ -1,4 +1,9 @@
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
+dtbo-$(CONFIG_ARCH_ART) += display/art-sde.dtbo \
+		display/art-sde-display-rumi-overlay.dtbo
+endif
+
+ifneq ($(CONFIG_ARCH_QTI_VM), y)
 dtbo-$(CONFIG_ARCH_CANOE) += display/canoe-sde.dtbo \
 		display/canoe-sde-display-rumi-overlay.dtbo\
 		display/canoe-sde-display-cdp-overlay.dtbo \
