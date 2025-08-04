@@ -1009,6 +1009,20 @@ properties:
     description: A u32 value indicating the version of demura hardware.
     $ref: /schemas/types.yaml#/definitions/uint32
 
+  qcom,sde-dspp-qrtc-off:
+    description: |
+      Array of u32 offsets indicate the qrtc block offsets from the
+      corresponding DSPP block offset as base.
+    $ref: /schemas/types.yaml#/definitions/uint32-array
+
+  qcom,sde-dspp-qrtc-size:
+    description: A u32 value indicating the qrtc block register address range
+    $ref: /schemas/types.yaml#/definitions/uint32
+
+  qcom,sde-dspp-qrtc-version:
+    description: A u32 value indicating the version of qrtc hardware.
+    $ref: /schemas/types.yaml#/definitions/uint32
+
   qcom,sde-dspp-aiqe-off:
     description: |
       Array of u32 values indicating the offset of each AIQE block
@@ -1757,6 +1771,9 @@ examples:
       qcom,sde-dspp-demura-off = <0x15600 0x14800>;
       qcom,sde-dspp-demura-size = <0x200>;
       qcom,sde-dspp-demura-version = <0x00010000>;
+      qcom,sde-dspp-qrtc-off = <0x3c00 0x3c00 0x3c00 0x3c00>;
+      qcom,sde-dspp-qrtc-size = <0x6c>;
+      qcom,sde-dspp-qrtc-version = <0x00010000>;
       qcom,sde-lm-noise-off = <0x320>;
       qcom,sde-lm-noise-version = <0x00010000>;
 
