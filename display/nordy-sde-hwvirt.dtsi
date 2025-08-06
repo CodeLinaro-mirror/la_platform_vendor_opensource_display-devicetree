@@ -94,10 +94,11 @@
 				      0x4b000 0x4c000>;
 		qcom,sde-mixer-size = <0x400>;
 		qcom,sde-mixer-display-pref = "node", "node", "none",
-					"none", "none", "none", "none", "none";
+					"none", "none", "none", "none", "none", "none", "none";
 
 		qcom,sde-mixer-dcwb-pref = "none", "none", "none", "none",
-					"none", "none", "dcwb", "dcwb";
+					"none", "none", "none", "none",
+					"dcwb", "dcwb";
 
 		qcom,sde-dspp-top-off = <0x1300>;
 		qcom,sde-dspp-top-size = <0x80>;
@@ -458,10 +459,10 @@
 				      0x4b000 0x4c000>;
 		qcom,sde-mixer-size = <0x400>;
 		qcom,sde-mixer-display-pref = "node", "node", "none",
-					"none", "none", "none", "none", "none";
+					"none", "none", "none", "none", "none", "none", "none";
 
 		qcom,sde-mixer-dcwb-pref = "none", "none", "none", "none",
-					"none", "none", "dcwb", "dcwb";
+					"none", "none", "none", "none", "dcwb", "dcwb";
 
 		qcom,sde-dspp-top-off = <0x1300>;
 		qcom,sde-dspp-top-size = <0x80>;
