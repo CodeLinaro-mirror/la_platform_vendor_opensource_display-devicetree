@@ -48,6 +48,11 @@ dtbo-$(CONFIG_ARCH_X1P42100) += display/x1p42100-sde.dtbo \
 endif
 
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
+dtbo-$(CONFIG_ARCH_X1E80100) += display/x1e80100-sde.dtbo \
+		display/x1e80100-sde-display-crd-overlay.dtbo
+endif
+
+ifneq ($(CONFIG_ARCH_QTI_VM), y)
 dtbo-$(CONFIG_ARCH_SUN) += display/sun-sde.dtbo \
 		display/sun-sde-display-cdp-overlay.dtbo \
 		display/sun-sde-display-mtp-overlay.dtbo \

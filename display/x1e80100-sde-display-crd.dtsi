@@ -1,0 +1,57 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
+#include "x1e80100-sde-display.dtsi"
+
+
+&mdss_dsi0 {
+	status = "disabled";
+};
+
+
+&mdss_dsi1 {
+	status = "disabled";
+};
+
+&mdss_dsi_phy0 {
+	status = "disabled";
+};
+
+
+
+&tlmm {
+	edp_hpd_ctrl: hpd_ctrl@103 {
+		mux {
+			pins = "gpio119";
+			function = "edp0_hot";
+		};
+
+		config {
+			pins = "gpio119";
+			bias-disable;
+			input-enable;
+			drive-strength = <2>;
+		};
+	};
+};
+
+&sde_edp {
+	status = "ok";
+	qcom,dp-low-power-hw-hpd;
+	pinctrl-names = "mdss_dp_hpd_active", "mdss_dp_hpd_tlmm", "mdss_dp_hpd_ctrl", "mdss_dp_active", "mdss_dp_sleep";
+	pinctrl-0 = <&edp_hpd_ctrl>;
+	pinctrl-1 = <&edp_hpd_ctrl>;
+	pinctrl-2 = <&edp_hpd_ctrl>;
+	pinctrl-3 = <&edp_hpd_ctrl>;
+	pinctrl-4 = <&edp_hpd_ctrl>;
+	qcom,dp-hpd-gpio = <&tlmm 119 0>;
+	qcom,edp-vcc-en-gpio = <&tlmm 70 0>;
+	//qcom,edp-backlight-en-gpio = <&tlmm 110 0>;//PM8380VE_D
+};
+
+&sde_edp_pll {
+	status = "ok";
+};
+
