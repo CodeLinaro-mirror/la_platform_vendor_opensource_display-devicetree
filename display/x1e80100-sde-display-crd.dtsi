@@ -1,15 +1,13 @@
-// SPDX-License-Identifier: BSD-3-Clause
+// SPDX-License-Identifier: BSD-3-Clause-Clear
 /*
  * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
  */
 
 #include "x1e80100-sde-display.dtsi"
 
-
 &mdss_dsi0 {
 	status = "disabled";
 };
-
 
 &mdss_dsi1 {
 	status = "disabled";
@@ -19,22 +17,8 @@
 	status = "disabled";
 };
 
-
-
-&tlmm {
-	edp_hpd_ctrl: hpd_ctrl@103 {
-		mux {
-			pins = "gpio119";
-			function = "edp0_hot";
-		};
-
-		config {
-			pins = "gpio119";
-			bias-disable;
-			input-enable;
-			drive-strength = <2>;
-		};
-	};
+&sde_edp_pll {
+	status = "ok";
 };
 
 &sde_edp {
@@ -48,10 +32,24 @@
 	pinctrl-4 = <&edp_hpd_ctrl>;
 	qcom,dp-hpd-gpio = <&tlmm 119 0>;
 	qcom,edp-vcc-en-gpio = <&tlmm 70 0>;
-	//qcom,edp-backlight-en-gpio = <&tlmm 110 0>;//PM8380VE_D
+	qcom,edp-backlight-pwr-gpio = <&pmc8380_d_gpios 10 0>;
+	qcom,edp-pwm-en-gpio =  <&pmk8550_gpios 5 0>;
+	qcom,edp-backlight-en-gpio = <&pmc8380_d_gpios 4 0>;
 };
 
-&sde_edp_pll {
-	status = "ok";
+&tlmm {
+	edp_hpd_ctrl: hpd_ctrl@119 {
+		mux {
+			pins = "gpio119";
+			function = "edp0_hot";
+		};
+
+		config {
+			pins = "gpio119";
+			bias-disable;
+			input-enable;
+			drive-strength = <2>;
+		};
+	};
 };
 

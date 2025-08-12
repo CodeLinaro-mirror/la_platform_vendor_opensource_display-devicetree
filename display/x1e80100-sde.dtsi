@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: BSD-3-Clause
+// SPDX-License-Identifier: BSD-3-Clause-Clear
 /*
  * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
  */
@@ -82,6 +82,7 @@
 
 		qcom,dp-pll = <&sde_edp_pll>;
 		qcom,phy-version = <0x500>;
+		qcom,phy-revision = "v2";
 		qcom,phy-mode = "edp";
 		qcom,aux-cfg0-settings = [24 00];
 		//qcom,aux-cfg1-settings = [28 13];
@@ -117,8 +118,8 @@
 			qcom,ctrl-supply-entry@0 {
 				reg = <0>;
 				qcom,supply-name = "vdda-1p2";
-				qcom,supply-min-voltage = <1200000>;
-				qcom,supply-max-voltage = <1200000>;
+				qcom,supply-min-voltage = <1256000>;
+				qcom,supply-max-voltage = <1256000>;
 				qcom,supply-enable-load = <30100>;
 				qcom,supply-disable-load = <0>;
 			};
@@ -131,8 +132,8 @@
 			qcom,phy-supply-entry@0 {
 				reg = <0>;
 				qcom,supply-name = "vdda-0p9";
-				qcom,supply-min-voltage = <912000>;
-				qcom,supply-max-voltage = <912000>;
+				qcom,supply-min-voltage = <880000>;
+				qcom,supply-max-voltage = <920000>;
 				qcom,supply-enable-load = <115000>;
 				qcom,supply-disable-load = <0>;
 			};
@@ -268,5 +269,5 @@
 		"sleep_clk",
 		"iface",
 		"dp3_phy_pll_vco_div_clk";
-
 };
+
