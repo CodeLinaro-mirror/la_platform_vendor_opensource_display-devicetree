@@ -116,7 +116,7 @@
 		vdda-0p9-supply = <&L4F>;
 		vdda_usb-0p9-supply = <&L4F>;
 		vdd_mx-supply = <&VDD_MXA_LEVEL>;
-		dp_phy_gdsc-supply = <&gcc_usb3_phy_gdsc>;
+		power-domains = <&gcc GCC_USB3_PHY_GDSC>;
 
 		qcom,hbr-rbr-voltage-swing = <0x27 0x2f 0x36 0x3f>,
 					<0x31 0x3e 0x3f 0xff>,
@@ -349,7 +349,7 @@
 		<&dispcc DISP_CC_MDSS_PCLK0_CLK>,
 		<&dispcc DISP_CC_MDSS_PCLK0_CLK_SRC>,
 		<&dispcc DISP_CC_ESYNC0_CLK>,
-		<&dispcc DISP_CC_OSC_CLK>,
+		<&dispcc_mx DISP_CC_OSC_CLK>,
 		<&dispcc DISP_CC_MDSS_ESC0_CLK>,
 		<&rpmhcc RPMH_CXO_CLK>;
 	clock-names = "byte_clk", "byte_clk_rcg", "byte_intf_clk",
@@ -366,7 +366,7 @@
 		<&dispcc DISP_CC_MDSS_PCLK1_CLK>,
 		<&dispcc DISP_CC_MDSS_PCLK1_CLK_SRC>,
 		<&dispcc DISP_CC_ESYNC1_CLK>,
-		<&dispcc DISP_CC_OSC_CLK>,
+		<&dispcc_mx DISP_CC_OSC_CLK>,
 		<&dispcc DISP_CC_MDSS_ESC1_CLK>,
 		<&rpmhcc RPMH_CXO_CLK>;
 	clock-names = "byte_clk", "byte_clk_rcg", "byte_intf_clk",
