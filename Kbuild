@@ -3,6 +3,8 @@ dtbo-$(CONFIG_ARCH_YUPIK) += display/yupik-sde.dtbo \
 		display/yupik-sde-display-idp-pm7250b-overlay.dtbo \
 		display/yupikP-sde-display-iot-hsp-pm7250b-overlay.dtbo \
 		display/yupikP-sde-display-iot-idp-pm7250b-overlay.dtbo \
+		display/yupikP-sde-display-iot-idps-overlay.dtbo \
+		display/yupik-sde-display-iot-idps-overlay.dtbo \
 		display/yupik-sde-display-iot-hsp-overlay.dtbo \
 		display/yupik-sde-display-iot-idp-overlay.dtbo \
 		display/katmai-sde-display-idp-pm7250b-overlay.dtbo
