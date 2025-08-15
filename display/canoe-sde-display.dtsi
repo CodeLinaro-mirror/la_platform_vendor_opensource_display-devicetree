@@ -28,20 +28,6 @@
 		clock-names = "mdp_core_clk";
 	};
 
-	display_panel_avdd: display_gpio_regulator@1 {
-		compatible = "qti-regulator-fixed";
-		regulator-name = "display_panel_avdd";
-		regulator-min-microvolt = <5500000>;
-		regulator-max-microvolt = <5500000>;
-		regulator-enable-ramp-delay = <233>;
-		gpio = <&pmh0104_gpios 7 0>;
-		enable-active-high;
-		regulator-boot-on;
-		proxy-supply = <&display_panel_avdd>;
-		qcom,proxy-consumer-enable;
-		pinctrl-names = "default";
-	};
-
 	display_panel_vdd: display_gpio_regulator@2 {
 		compatible = "qti-regulator-fixed";
 		regulator-name = "display_panel_vdd";
