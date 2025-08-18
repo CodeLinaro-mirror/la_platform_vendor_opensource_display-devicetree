@@ -5,6 +5,10 @@
 
 #include "parrot-sde-display.dtsi"
 
+&pm6450_pwm_1 {
+	status = "ok";
+};
+
 &dsi_ft8726_fhd_plus_120_video {
 	qcom,panel-supply-entries = <&dsi_panel_pwr_supply_lcd>;
 	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_pwm";
