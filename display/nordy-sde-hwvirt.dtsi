@@ -22,7 +22,11 @@
 		iommu-addresses = <&smmu_sde_unsec 0x7ffe0000 0x80020000>,
 					<&smmu_sde_unsec 0x0 0x00020000>,
 					<&smmu_sde_unsec1 0x7ffe0000 0x80020000>,
-					<&smmu_sde_unsec1 0x0 0x00020000>;
+					<&smmu_sde_unsec1 0x0 0x00020000>,
+					<&smmu_sde_sec 0x7ffe0000 0x80020000>,
+					<&smmu_sde_sec 0x0 0x00020000>,
+					<&smmu_sde_sec1 0x7ffe0000 0x80020000>,
+					<&smmu_sde_sec1 0x0 0x00020000>;
 	};
 
 	smmu_sde_unsec: qcom,smmu_sde_unsec_cb@ae00000 {
@@ -34,14 +38,16 @@
 		dma-coherent-hint-cached;
 	};
 
-/*
 	smmu_sde_sec: qcom,smmu_sde_sec_cb@ae00000 {
 		compatible = "qcom,smmu_sde_sec";
-		iommus = <&apps_smmu_1 0x03E5 0x0002>;
-		qcom,iommu-dma-addr-pool = <0x00020000 0xfffe0000>;
+		iommus = <&apps_smmu_1 0x03E5 0x0000>;
+		memory-region = <&smmu_sde_iommu_region_partition>;
+		secure_mem_pool = <&cp_p_pt_mem>;
+		qcom,iommu-vmid = <0xA>; /* AC_VM_CP_PIXEL */
 		qcom,iommu-faults = "non-fatal";
+		dma-coherent-hint-cached;
+		qcom,secure-context-bank;
 	};
-*/
 
 	smmu_sde_unsec1: qcom,smmu_sde_unsec_cb@8c00000 {
 		compatible = "qcom,smmu_sde_unsec";
@@ -52,14 +58,16 @@
 		dma-coherent-hint-cached;
 	};
 
-/*
 	smmu_sde_sec1: qcom,smmu_sde_sec_cb@8c00000 {
 		compatible = "qcom,smmu_sde_sec";
-		iommus = <&apps_smmu_1 0x0405 0x0002>;
-		qcom,iommu-dma-addr-pool = <0x00020000 0xfffe0000>;
+		iommus = <&apps_smmu_1 0x0405 0x0000>;
+		memory-region = <&smmu_sde_iommu_region_partition>;
+		secure_mem_pool = <&cp_p_pt_mem>;
+		qcom,iommu-vmid = <0xA>; /* AC_VM_CP_PIXEL */
 		qcom,iommu-faults = "non-fatal";
+		dma-coherent-hint-cached;
+		qcom,secure-context-bank;
 	};
-*/
 
 	mdss_mdp: qcom,mdss_mdp@ae00000 {
 		compatible = "qcom,sde-kms-virt";
@@ -793,10 +801,10 @@
 };
 
 &mdss_mdp {
-        connectors = <&smmu_sde_unsec /* &smmu_sde_sec */>;
+	connectors = <&smmu_sde_unsec &smmu_sde_sec>;
 };
 
 &mdss_mdp1 {
-        connectors = <&smmu_sde_unsec1 /* &smmu_sde_sec1 */>;
+	connectors = <&smmu_sde_unsec1 &smmu_sde_sec1>;
 };
 
