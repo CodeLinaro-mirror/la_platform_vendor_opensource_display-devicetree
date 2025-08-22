@@ -415,6 +415,8 @@
 		reg-names = "dsi_phy", "pll_base", "dyn_refresh_base";
 		pll-label = "dsi_pll_5nm";
 
+		qcom,mdp = <&mdss_mdp>;
+
 		qcom,platform-strength-ctrl = [55 03
 						55 03
 						55 03
