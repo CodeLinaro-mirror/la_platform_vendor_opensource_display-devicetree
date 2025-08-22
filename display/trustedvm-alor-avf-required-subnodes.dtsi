@@ -7,17 +7,17 @@
 	required-subnodes-display = <
 						&clock_cpucc
 						&config
-						&config_299
-						&config_301
-						&config_303
-						&config_305
-						&config_307
-						&config_309
-						&config_311
-						&config_313
-						&config_315
-						&config_317
-						&config_319
+						&config_146
+						&config_148
+						&config_150
+						&config_152
+						&config_154
+						&config_156
+						&config_158
+						&config_160
+						&config_162
+						&config_164
+						&config_166
 						&dgm_0
 						&dgm_1
 						&dsi_dual_3840x2400_120hz_sim_vid
@@ -43,7 +43,6 @@
 						&dsi_nt37801_amoled_video_cphy
 						&dsi_nt37801_amoled_video_cphy_spr
 						&dsi_nt37801_amoled_video_ddicspr
-						&dsi_nt37802_amoled_video_psr_vhm
 						&dsi_panel_pwr_supply
 						&dsi_panel_pwr_supply_avdd
 						&dsi_panel_pwr_supply_raontech
@@ -53,8 +52,6 @@
 						&dsi_rdp370f_rgb_vid
 						&dsi_sharp_4k_dsc_cmd
 						&dsi_sharp_4k_dsc_video
-						&dsi_sharp_qhd_plus_dsc_cmd
-						&dsi_sharp_qhd_plus_dsc_video
 						&dsi_sim_cmd
 						&dsi_sim_dsc_10b_cmd
 						&dsi_sim_dsc_375_cmd
@@ -75,17 +72,17 @@
 						&mdss_dsi_phy1
 						&mdss_mdp
 						&mux
-						&mux_298
-						&mux_300
-						&mux_302
-						&mux_304
-						&mux_306
-						&mux_308
-						&mux_310
-						&mux_312
-						&mux_314
-						&mux_316
-						&mux_318
+						&mux_145
+						&mux_147
+						&mux_149
+						&mux_151
+						&mux_153
+						&mux_155
+						&mux_157
+						&mux_159
+						&mux_161
+						&mux_163
+						&mux_165
 						&pmx_sde
 						&pmx_sde_esync
 						&pmx_sde_te
@@ -173,12 +170,6 @@
 						&qcom_mdss_dsi_display_timings_93
 						&qcom_mdss_dsi_display_timings_95
 						&qcom_mdss_dsi_display_timings_98
-						&qcom_mdss_dsi_display_timings_320
-						&qcom_mdss_dsi_display_timings_322
-						&qcom_mdss_dsi_display_timings_324
-						&qcom_mdss_dsi_display_timings_326
-						&qcom_mdss_dsi_display_timings_328
-						&qcom_mdss_dsi_display_timings_330
 						&qcom_panel_supply_entry_0
 						&qcom_panel_supply_entry_0_11
 						&qcom_panel_supply_entry_0_5
@@ -189,7 +180,6 @@
 						&qcom_panel_supply_entry_1_7
 						&qcom_panel_supply_entry_2
 						&qcom_panel_supply_entry_2_8
-						&qcom_panel_supply_entry_3
 						&qcom_phy_supply_entries
 						&qcom_phy_supply_entries_3
 						&qcom_phy_supply_entry_0
@@ -292,12 +282,6 @@
 						&timing_0_94
 						&timing_0_96
 						&timing_0_99
-						&timing_0_321
-						&timing_0_323
-						&timing_0_325
-						&timing_0_327
-						&timing_0_329
-						&timing_0_331
 						&timing_1
 						&timing_10
 						&timing_10_109
@@ -336,16 +320,11 @@
 						&timing_17_215
 						&timing_17_262
 						&timing_18
+						&timing_18_143
 						&timing_18_216
-						&timing_18_119
 						&timing_18_241
-						&timing_19_120
+						&timing_19_144
 						&timing_19_242
-						&timing_19_217
-						&timing_20
-						&timing_20_121
-						&timing_20_243
-						&timing_20_299
 						&timing_1_100
 						&timing_1_113
 						&timing_1_126
@@ -361,8 +340,6 @@
 						&timing_1_246
 						&timing_1_275
 						&timing_1_283
-						&timing_1_322
-						&timing_1_332
 						&timing_1_38
 						&timing_1_45
 						&timing_1_59
@@ -370,6 +347,8 @@
 						&timing_1_89
 						&timing_1_97
 						&timing_2
+						&timing_20_145
+						&timing_20_243
 						&timing_2_101
 						&timing_2_114
 						&timing_2_127
@@ -385,8 +364,6 @@
 						&timing_2_276
 						&timing_2_284
 						&timing_2_39
-						&timing_2_323
-						&timing_2_333
 						&timing_2_46
 						&timing_2_60
 						&timing_2_74
