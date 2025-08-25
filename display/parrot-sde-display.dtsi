@@ -85,9 +85,3 @@
 	qcom,ulps-enabled;
 };
 
-&reserved_memory {
-	splash_memory: splash_region {
-		reg = <0x0 0xb8000000 0x0 0x02b00000>;
-		label = "cont_splash_region";
-	};
-};
