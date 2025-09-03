@@ -3,6 +3,8 @@
  * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
  */
 
+#include "x1p42100-sde-display.dtsi"
+
 &sde_edp_pll {
 	status = "ok";
 };
@@ -37,8 +39,4 @@
 			drive-strength = <2>;
 		};
 	};
-};
-
-&mdss_mdp {
-	connectors = <&sde_edp>;
 };
