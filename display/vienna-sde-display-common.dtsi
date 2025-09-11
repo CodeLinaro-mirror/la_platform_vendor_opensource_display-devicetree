@@ -118,15 +118,26 @@
 };
 
 &dsi_rm6d030_amoled_139_cmd {
-	qcom,mdss-dsi-t-clk-post = <0x07>;
-	qcom,mdss-dsi-t-clk-pre = <0x0B>;
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
-
 	qcom,skip-panel-power-off;
 	qcom,mdss-dsi-display-timings {
 		timing@0 {
 			qcom,mdss-dsi-panel-phy-timings = [00 0B 03 02 10 1C 03
 				03 02 02 04 00 0B 07];
+			qcom,display-topology = <1 0 1>;
+			qcom,default-topology-index = <0>;
+		};
+
+		timing@1 {
+			qcom,mdss-dsi-panel-phy-timings = [03 08 00 01 1E 1B 01
+				01 02 02 04 00 08 06];
+			qcom,display-topology = <1 0 1>;
+			qcom,default-topology-index = <0>;
+		};
+
+		timing@2 {
+			qcom,mdss-dsi-panel-phy-timings = [03 06 00 00 0D 1A 01
+				00 01 02 04 00 06 06];
 			qcom,display-topology = <1 0 1>;
 			qcom,default-topology-index = <0>;
 		};
