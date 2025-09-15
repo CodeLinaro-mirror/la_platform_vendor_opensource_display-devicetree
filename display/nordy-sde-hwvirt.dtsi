@@ -42,7 +42,6 @@
 		compatible = "qcom,smmu_sde_sec";
 		iommus = <&apps_smmu_1 0x03E5 0x0000>;
 		memory-region = <&smmu_sde_iommu_region_partition>;
-		secure_mem_pool = <&cp_p_pt_mem>;
 		qcom,iommu-vmid = <0xA>; /* AC_VM_CP_PIXEL */
 		qcom,iommu-faults = "non-fatal";
 		dma-coherent-hint-cached;
@@ -62,7 +61,6 @@
 		compatible = "qcom,smmu_sde_sec";
 		iommus = <&apps_smmu_1 0x0405 0x0000>;
 		memory-region = <&smmu_sde_iommu_region_partition>;
-		secure_mem_pool = <&cp_p_pt_mem>;
 		qcom,iommu-vmid = <0xA>; /* AC_VM_CP_PIXEL */
 		qcom,iommu-faults = "non-fatal";
 		dma-coherent-hint-cached;
