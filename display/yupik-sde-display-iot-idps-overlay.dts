@@ -1,7 +1,7 @@
 /dts-v1/;
 /plugin/;
 
-#include "yupikP-sde-display-idps.dtsi"
+#include "yupikp-sde-display-idps.dtsi"
 
 / {
 	model = "Qualcomm Technologies, Inc. YUPIK-IOT IDPS + AMOLED";

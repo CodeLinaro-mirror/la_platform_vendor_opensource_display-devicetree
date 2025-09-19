@@ -36,9 +36,6 @@
 	qcom,platform-reset-gpio = <&tlmm 44 0>;
 };
 
-&soc {
-};
-
 &pm8350c_l12 {
 	qcom,init-voltage = <1800000>;
 };
@@ -53,10 +50,12 @@
 	status = "disabled";
 };
 
-/*
 &qupv3_se13_spi {
-        status = "ok";
-        qcom,spi-touch-active = "focaltech,fts_ts";
+	#address-cells = <1>;
+	#size-cells = <0>;
+
+	status = "ok";
+	qcom,spi-touch-active = "focaltech,fts_ts";
 
         focaltech@0 {
 		compatible = "focaltech,fts_ts";
@@ -69,7 +68,7 @@
 		focaltech,display-coords = <0 0 1080 2340>;
 		focaltech,max-touch-number = <5>;
 		focaltech,ic-type = <0x3658D488>;
-
+		focaltech,touch-type = "primary";
 		vdd-supply = <&L3C>;
 
 		pinctrl-names = "pmx_ts_active", "pmx_ts_suspend","pmx_ts_release";
@@ -81,4 +80,4 @@
 			&dsi_r66451_amoled_120hz_cmd_cphy
 			&dsi_r66451_amoled_90hz_cmd_cphy>;
 	};
-}; */
+};
