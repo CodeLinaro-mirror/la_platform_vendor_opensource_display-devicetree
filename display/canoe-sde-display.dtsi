@@ -365,3 +365,16 @@
 	qcom,dsi-qsync-avr-step-fps = <120>;
 	qcom,mdss-dsi-qsync-min-refresh-rate = <1>;
 };
+
+&dsi_nt37802_amoled_video_vhm_cphy {
+	qcom,mdss-esync;
+	qcom,mdss-esync-hsync-milli-pulse-width = <500>;
+	qcom,mdss-esync-emsync-fps = <120>;
+	qcom,mdss-esync-emsync-milli-pulse-width = <500>;
+
+	qcom,qsync-enable;
+	qcom,vrr-enable;
+	qcom,video-psr-enable;
+	qcom,dsi-qsync-avr-step-fps = <120>;
+	qcom,mdss-dsi-qsync-min-refresh-rate = <1>;
+};
