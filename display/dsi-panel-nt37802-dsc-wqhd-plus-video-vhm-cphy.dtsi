@@ -3,20 +3,20 @@
  * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
  */
 
-&mdss_mdp{
-	dsi_nt37802_amoled_cmd_cphy: qcom,mdss_dsi_nt37802_wqhd_plus_cmd_cphy {
-		qcom,mdss-dsi-panel-name =
-			"nt37802 amoled cmd mode dsi csot panel with DSC CPHY";
-		qcom,mdss-dsi-panel-type = "dsi_cmd_mode";
+&mdss_mdp {
+	dsi_nt37802_amoled_video_vhm_cphy: qcom,mdss_dsi_nt37802_wqhd_plus_vid_vhm_cphy {
+		qcom,mdss-dsi-panel-name = "nt37802 VHM amoled video mode dsi csot panel with DSC";
+		qcom,mdss-dsi-panel-type = "dsi_video_mode";
 		qcom,mdss-dsi-panel-physical-type = "oled";
 		qcom,mdss-dsi-virtual-channel-id = <0>;
 		qcom,mdss-dsi-stream = <0>;
 		qcom,mdss-dsi-bpp = <24>;
-
+		qcom,mdss-dsi-color-order = "rgb_swap_rgb";
+		qcom,mdss-dsi-underflow-color = <0xff>;
+		qcom,mdss-dsi-border-color = <0>;
 		qcom,dsi-ctrl-num = <0>;
 		qcom,dsi-phy-num = <0>;
-
-		qcom,mdss-dsi-traffic-mode = "non_burst_sync_event";
+		qcom,mdss-dsi-traffic-mode = "burst_mode";
 		qcom,mdss-dsi-lane-map = "lane_map_0123";
 		qcom,mdss-dsi-bllp-eof-power-mode;
 		qcom,mdss-dsi-bllp-power-mode;
@@ -25,18 +25,17 @@
 		qcom,mdss-dsi-lane-2-state;
 		qcom,mdss-dsi-dma-trigger = "trigger_sw";
 		qcom,mdss-dsi-mdp-trigger = "none";
-		qcom,mdss-dsi-reset-sequence = <1 10>, <0 10>, <1 10>;
-
-		qcom,mdss-dsi-te-pin-select = <1>;
-		qcom,mdss-dsi-wr-mem-start = <0x2c>;
-		qcom,mdss-dsi-wr-mem-continue = <0x3c>;
-		qcom,mdss-dsi-te-dcs-command = <1>;
-		qcom,mdss-dsi-te-check-enable;
-		qcom,mdss-dsi-te-using-te-pin;
+		qcom,mdss-dsi-reset-sequence =<1 1>, <0 1>, <1 10>;
+		qcom,mdss-pan-physical-width-dimension = <701>;
+		qcom,mdss-pan-physical-height-dimension = <1558>;
+		qcom,mdss-dsi-tx-eot-append;
+		qcom,mdss-dsi-lp11-init;
+		qcom,mdss-dsi-panel-dimming-enabled;
+		qcom,bl-update-flag = "delay_until_first_frame";
 		qcom,panel-cphy-mode;
 
-		qcom_mdss_dsi_display_timings_351: qcom,mdss-dsi-display-timings {
-			timing_0_352: timing@0 {
+		qcom_mdss_dsi_display_timings_130: qcom,mdss-dsi-display-timings {
+			timing_0_131: timing@0 {
 				cell-index = <0>;
 				qcom,mdss-dsi-panel-framerate = <120>;
 				qcom,mdss-dsi-panel-width = <1440>;
@@ -52,6 +51,7 @@
 				qcom,mdss-dsi-h-right-border = <0>;
 				qcom,mdss-dsi-v-top-border = <0>;
 				qcom,mdss-dsi-v-bottom-border = <0>;
+				qcom,mdss-dsi-video-mode;
 
 				qcom,mdss-dsi-on-command = [
 					39 00 00 00 00 00 06 F0 55 AA 52 08 08
@@ -139,33 +139,54 @@
 					15 00 00 00 00 00 02 6F 04
 					15 00 00 00 00 00 02 B2 30
 					05 00 00 00 78 00 01 11
-					05 01 00 00 78 00 01 29
-					0a 01 00 00 00 00 80 12 00 00 89 30 80
-					   0c 80 05 a0 00 14 02 d0 02 d0 02 00
-					   02 86 00 20 02 15 00 0a 00 0d 05 7a
-					   03 d1 18 00 10 f0 03 0c 20 00 06 0b
-					   0b 33 0e 1c 2a 38 46 54 62 69 70 77
-					   79 7b 7d 7e 01 02 01 00 09 40 09 be
-					   19 fc 19 fa 19 f8 1a 38 1a 78 1a b6
-					   2a b6 2a f4 2a f4 4b 34 63 74 74 00
-					   00 00 00 00 00 00 00 00 00 00 00 00
-					   00 00 00 00 00 00 00 00 00 00 00 00
-					   00 00 00 00 00 00 00 00 00 00 00 00
-					   00 00
+					05 00 00 00 00 00 01 29
 				];
 
 				qcom,mdss-dsi-off-command = [
-					05 00 00 00 0A 00 01 28
-					05 00 00 00 78 00 01 10];
+					05 00 00 00 1E 00 01 28
+					05 00 00 00 78 00 01 10
+				];
+
+				qcom,mdss-dsi-sticky_still_en-command = [
+					39 01 00 00 00 00 14 A9 01 00 18 00 00
+					   01 01 00 35 0C 0C 18 02 00 D1 6E 6F
+					   03 C8
+				];
+
+				qcom,mdss-dsi-sticky_still_disable-command = [
+					39 01 00 00 00 00 14 A9 01 00 18 00 00
+					   00 01 00 35 0C 0C 00 02 00 D1 6E 6F
+					   03 C9
+				];
+
+				qcom,mdss-dsi-freq-step-pattern1-command = [
+					39 01 00 00 00 00 06 F0 55 AA 52 08 00
+				];
+
+				qcom,mdss-dsi-freq-step-pattern2-command = [
+					39 01 00 00 00 00 06 F0 55 AA 52 08 01
+				];
+
+				qcom,mdss-dsi-qsync-freq-pattren-needs-selfrefresh =
+					<1 1>;
+				qcom,mdss-dsi-qsync-freq-step-sequence-interval =
+					<0 120000 2>, <0 30000 1>;
+				qcom,mdss-dsi-qsync-freq-step-sequence =
+					<30000 1>, <10000 1>,
+					<10000 1>;
 				qcom,mdss-dsi-on-command-state = "dsi_lp_mode";
 				qcom,mdss-dsi-off-command-state = "dsi_hs_mode";
-				qcom,mdss-dsi-timing-switch-command-state =
-					"dsi_lp_mode";
+				qcom,mdss-dsi-sticky_still_en-command-state = "dsi_hs_mode";
+				qcom,mdss-dsi-sticky_still_disable-command-state = "dsi_hs_mode";
+				qcom,mdss-dsi-freq-step-pattern1-command-state = "dsi_hs_mode";
+				qcom,mdss-dsi-freq-step-pattern2-command-state = "dsi_hs_mode";
+
 				qcom,compression-mode = "dsc";
 				qcom,mdss-dsc-version = <0x12>;
+				qcom,mdss-dsc-scr-version = <0x0>;
 				qcom,mdss-dsc-slice-height = <20>;
 				qcom,mdss-dsc-slice-width = <720>;
-				qcom,mdss-dsc-slice-per-pkt = <1>;
+				qcom,mdss-dsc-slice-per-pkt = <2>;
 				qcom,mdss-dsc-bit-per-component = <8>;
 				qcom,mdss-dsc-bit-per-pixel = <8>;
 				qcom,mdss-dsc-block-prediction-enable;

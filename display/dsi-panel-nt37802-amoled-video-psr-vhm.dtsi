@@ -33,6 +33,7 @@
 		qcom,mdss-dsi-lp11-init;
 		qcom,mdss-dsi-panel-dimming-enabled;
 		qcom,bl-update-flag = "delay_until_first_frame";
+		qcom,mdss-disable-cesta-hw-sleep;
 
 		qcom_mdss_dsi_display_timings_330: qcom,mdss-dsi-display-timings {
 			timing_0_331: timing@0 {
@@ -339,6 +340,10 @@
 					39 01 00 00 00 00 06 F0 55 AA 52 08 01
 				];
 
+				qcom,mdss-dsi-freq-step-pattern3-command = [
+					39 01 00 00 00 00 06 F0 55 AA 52 08 01
+				];
+
 				qcom,mdss-dsi-em-pulse-switch-command = [
 					39 01 00 00 00 00 06 F0 55 AA 52 08 00
 				];
@@ -346,9 +351,10 @@
 				qcom,mdss-dsi-qsync-freq-pattren-needs-selfrefresh =
 					<1 1>;
 				qcom,mdss-dsi-qsync-freq-step-sequence-interval =
-					<0 120000 2>, <0 30000 1>;
+					<0 120000 2>, <0 30000 1>, <1 120000 1>;
 				qcom,mdss-dsi-qsync-freq-step-sequence =
 					<30000 1>, <10000 1>,
+					<10000 1>,
 					<10000 1>;
 				qcom,mdss-dsi-on-command-state = "dsi_lp_mode";
 				qcom,mdss-dsi-off-command-state = "dsi_hs_mode";
@@ -356,6 +362,7 @@
 				qcom,mdss-dsi-sticky_still_disable-command-state = "dsi_hs_mode";
 				qcom,mdss-dsi-freq-step-pattern1-command-state = "dsi_hs_mode";
 				qcom,mdss-dsi-freq-step-pattern2-command-state = "dsi_hs_mode";
+				qcom,mdss-dsi-freq-step-pattern3-command-state = "dsi_hs_mode";
 				qcom,mdss-dsi-em-pulse-switch-command-state = "dsi_hs_mode";
 
 				qcom,compression-mode = "dsc";
@@ -673,6 +680,10 @@
 					39 01 00 00 00 00 06 F0 55 AA 52 08 01
 				];
 
+				qcom,mdss-dsi-freq-step-pattern3-command = [
+					39 01 00 00 00 00 06 F0 55 AA 52 08 01
+				];
+
 				qcom,mdss-dsi-em-pulse-switch-command = [
 					39 01 00 00 00 00 06 F0 55 AA 52 08 01
 				];
@@ -680,9 +691,10 @@
 				qcom,mdss-dsi-qsync-freq-pattren-needs-selfrefresh =
 					<1 1>;
 				qcom,mdss-dsi-qsync-freq-step-sequence-interval =
-					<0 120000 2>, <0 30000 1>;
+					<0 120000 2>, <0 30000 1>, <1 120000 1>;
 				qcom,mdss-dsi-qsync-freq-step-sequence =
 					<30000 1>, <10000 1>,
+					<10000 1>,
 					<10000 1>;
 				qcom,mdss-dsi-on-command-state = "dsi_lp_mode";
 				qcom,mdss-dsi-off-command-state = "dsi_hs_mode";
@@ -690,6 +702,7 @@
 				qcom,mdss-dsi-sticky_still_disable-command-state = "dsi_hs_mode";
 				qcom,mdss-dsi-freq-step-pattern1-command-state = "dsi_hs_mode";
 				qcom,mdss-dsi-freq-step-pattern2-command-state = "dsi_hs_mode";
+				qcom,mdss-dsi-freq-step-pattern3-command-state = "dsi_hs_mode";
 				qcom,mdss-dsi-em-pulse-switch-command-state = "dsi_hs_mode";
 
 				qcom,compression-mode = "dsc";
@@ -1007,6 +1020,10 @@
 					39 01 00 00 00 00 06 F0 55 AA 52 08 01
 				];
 
+				qcom,mdss-dsi-freq-step-pattern3-command = [
+					39 01 00 00 00 00 06 F0 55 AA 52 08 01
+				];
+
 				qcom,mdss-dsi-em-pulse-switch-command = [
 					39 01 00 00 00 00 06 F0 55 AA 52 08 01
 				];
@@ -1014,9 +1031,10 @@
 				qcom,mdss-dsi-qsync-freq-pattren-needs-selfrefresh =
 					<1 1>;
 				qcom,mdss-dsi-qsync-freq-step-sequence-interval =
-					<0 120000 2>, <0 30000 1>;
+					<0 120000 2>, <0 30000 1>, <1 120000 1>;
 				qcom,mdss-dsi-qsync-freq-step-sequence =
 					<30000 1>, <10000 1>,
+					<10000 1>,
 					<10000 1>;
 				qcom,mdss-dsi-on-command-state = "dsi_lp_mode";
 				qcom,mdss-dsi-off-command-state = "dsi_hs_mode";
@@ -1024,6 +1042,7 @@
 				qcom,mdss-dsi-sticky_still_disable-command-state = "dsi_hs_mode";
 				qcom,mdss-dsi-freq-step-pattern1-command-state = "dsi_hs_mode";
 				qcom,mdss-dsi-freq-step-pattern2-command-state = "dsi_hs_mode";
+				qcom,mdss-dsi-freq-step-pattern3-command-state = "dsi_hs_mode";
 				qcom,mdss-dsi-em-pulse-switch-command-state = "dsi_hs_mode";
 
 				qcom,compression-mode = "dsc";
