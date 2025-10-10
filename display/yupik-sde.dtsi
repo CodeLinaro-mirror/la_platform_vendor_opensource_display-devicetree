@@ -1,6 +1,5 @@
 #include "yupik-sde-common.dtsi"
 #include <dt-bindings/regulator/qcom,rpmh-regulator-levels.h>
-//#include <dt-bindings/clock/mdss-5nm-pll-clk.h>
 #include <dt-bindings/clock/qcom,dispcc-sc7280.h>
 #include <dt-bindings/clock/qcom,gcc-sc7280.h>
 #include <dt-bindings/clock/qcom,rpmh.h>
@@ -10,7 +9,7 @@
 
 
 &soc {
-	disp_rdump_memory: disp_rdump_region@e1000000 {
+	disp_rdump_memory: disp_rdump_region@0xe1000000 {
 		reg = <0xe1000000 0x00800000>;
 		label = "disp_rdump_region";
 	};
@@ -318,6 +317,13 @@
 		memory-region = <&smmu_sde_iommu_region_partition>;
 		qcom,iommu-faults = "non-fatal";
 		qcom,iommu-vmid = <0xa>;
+	};
+};
+
+&reserved_memory {
+	splash_memory: splash_region {
+		reg = <0x0 0xe1000000 0x0 0x02400000>;
+		label = "cont_splash_region";
 	};
 };
 
