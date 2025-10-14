@@ -6,7 +6,7 @@
 /dts-v1/;
 /plugin/;
 
-#include "nordy-sde-hwvirt.dtsi"
+#include "nordy-sde-hwvirt-quin.dtsi"
 
 / {
 	model = "Qualcomm Technologies, Inc. SA8797 Single LA Guest Virtual Machine";
