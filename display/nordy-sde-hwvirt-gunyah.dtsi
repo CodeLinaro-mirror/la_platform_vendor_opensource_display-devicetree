@@ -1,0 +1,14 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
+#include "nordy-sde-hwvirt.dtsi"
+
+&smmu_sde_sec {
+	secure_mem_pool = <&cp_p_pt_mem>;
+};
+
+&smmu_sde_sec1 {
+	secure_mem_pool = <&cp_p_pt_mem>;
+};
