@@ -18,6 +18,7 @@
 		iommu-addresses = <&smmu_sde_unsec 0x0 0x4b000000>,
 				<&smmu_sde_unsec 0x70000000 0x1000>,
 				<&smmu_sde_unsec 0xdb000000 0x25000000>,
+				<&smmu_sde_unsec 0xb8000000 0x09600000>,
 				<&lsr_non_secure_cb 0x0 0x4b000000>,
 				<&lsr_non_secure_cb 0x70000000 0x1000>,
 				<&lsr_non_secure_cb 0xdb000000 0x25000000>,
@@ -29,6 +30,7 @@
 	non_secure_sde_lsr_cb_group: cvp_non_secure_sde_lsr_cb_group {
 			qcom,iommu-faults = "non-fatal";
 			dma-coherent;
+			qcom,iommu-earlymap; /* for cont-splash */
 	};
 
 	smmu_sde_unsec: qcom,smmu_sde_unsec_cb {
@@ -37,7 +39,6 @@
 		memory-region = <&smmu_sde_lsr_iommu_region_partition>;
 		qcom,iommu-faults = "non-fatal";
 		qcom,iommu-group = <&non_secure_sde_lsr_cb_group>;
-		qcom,iommu-earlymap; /* for cont-splash */
 		dma-coherent;
 	};
 
@@ -250,5 +251,10 @@
 	lsr_mem: lsr_region@a2c00000 {
 		no-map;
 		reg = <0x0 0xa2c00000 0x0 0x700000>;
+	};
+
+	splash_memory: splash_region {
+		reg = <0x0 0xb8000000 0x0 0x09600000>;
+		label = "cont_splash_region";
 	};
 };
