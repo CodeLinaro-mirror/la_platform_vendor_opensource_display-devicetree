@@ -176,12 +176,17 @@ dtbo-$(CONFIG_ARCH_KERA) += display/trustedvm-kera-sde-display-atp-overlay.dtbo 
 		display/trustedvm-kera-sde-display-rcm-overlay.dtbo
 endif
 
+ifeq ($(strip $(MSM_ARCH)),vienna_le)
+dtbo-$(CONFIG_ARCH_VIENNA) += display/vienna-sde.dtbo \
+		display/vienna_le-sde-no-display-overlay.dtbo
+else
 dtbo-$(CONFIG_ARCH_VIENNA) += display/vienna-sde.dtbo \
 		display/vienna-sde-display-wdp-overlay.dtbo \
 		display/vienna-sde-display-idp-overlay.dtbo \
 		display/vienna-sde-display-wrd-overlay.dtbo \
 		display/vienna-sde-display-atp-overlay.dtbo \
 		display/vienna-sde-display-rcm-overlay.dtbo
+endif
 
 dtbo-$(CONFIG_ARCH_MONACO) += display/monaco-sde.dtbo \
 		display/monaco-sde-display-idp-overlay.dtbo \
