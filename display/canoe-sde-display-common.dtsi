@@ -22,6 +22,8 @@
 #include "dsi-panel-nt37801-dsc-wqhd-plus-video-cphy-spr.dtsi"
 #include "dsi-panel-nt37802-amoled-video-psr-vhm.dtsi"
 #include "dsi-panel-nt37802-dsc-wqhd-plus-cmd-cphy.dtsi"
+#include "dsi-panel-nt37802-dsc-wqhd-plus-video-vhm-cphy.dtsi"
+#include "dsi-panel-nt37802-dsc-wqhd-plus-cmd-i2c-cphy.dtsi"
 #include "dsi-panel-sharp-dsc-4k-cmd.dtsi"
 #include "dsi-panel-sharp-dsc-4k-video.dtsi"
 #include "dsi-panel-sharp-dsc-qhd-plus-cmd.dtsi"
@@ -36,6 +38,7 @@
 #include "dsi-panel-sim-dualmipi-3840x2400-120hz-video.dtsi"
 #include "dsi-panel-sim-sec-hd-cmd.dtsi"
 #include "dsi-panel-sim-video.dtsi"
+#include "dsi-panel-sim-sl-video-vhm.dtsi"
 #include "dsi-panel-ss-video-psr-vid-vhm.dtsi"
 #include "dsi-panel-vtdr6130-dsc-fhd-plus-120hz-cmd.dtsi"
 #include "dsi-panel-vtdr6130-dsc-fhd-plus-120hz-video.dtsi"
@@ -982,6 +985,32 @@
 	};
 };
 
+&dsi_nt37802_amoled_video_vhm_cphy {
+	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
+
+	qcom_mdss_dsi_display_timings_137: qcom,mdss-dsi-display-timings {
+		timing_0_138: timing@0 {
+			qcom,mdss-dsi-panel-phy-timings = [00 00 00 00 23 23 08
+					19 08 02 04 00 00 00];
+			qcom,display-topology = <2 2 1>;
+			qcom,default-topology-index = <0>;
+		};
+	};
+};
+
+&dsi_nt37802_amoled_cmd_i2c_cphy {
+	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
+
+	qcom_mdss_dsi_display_timings_353: qcom,mdss-dsi-display-timings {
+		timing_0_354: timing@0 {
+			qcom,mdss-dsi-panel-phy-timings = [00 00 00 00 23 23 08
+				19 08 02 04 00 00 00];
+			qcom,display-topology = <2 2 1>;
+			qcom,default-topology-index = <0>;
+		};
+	};
+};
+
 &dsi_ext_bridge_1080p {
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
 	qcom_mdss_dsi_display_timings_81: qcom,mdss-dsi-display-timings {
@@ -1279,6 +1308,19 @@
 		timing_0_94: timing@0 {
 			qcom,mdss-dsi-panel-phy-timings = [00 24 0a 0a 1a 24 0a
 				0a 09 02 04 00 1e 0f];
+			qcom,display-topology = <2 2 1>;
+			qcom,default-topology-index = <0>;
+		};
+	};
+};
+
+&dsi_sim_sl_vid_vhm {
+	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
+
+	qcom_mdss_dsi_display_timings_94: qcom,mdss-dsi-display-timings {
+		timing_0_95: timing@0 {
+			qcom,mdss-dsi-panel-phy-timings = [00 1d 07 07 17 16 07
+					07 08 02 04 00 19 0c];
 			qcom,display-topology = <2 2 1>;
 			qcom,default-topology-index = <0>;
 		};

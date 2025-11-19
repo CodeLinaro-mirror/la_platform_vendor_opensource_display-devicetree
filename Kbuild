@@ -1,4 +1,12 @@
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
+dtbo-$(CONFIG_ARCH_ART) += display/art-sde.dtbo \
+		display/art-sde-display-rumi-overlay.dtbo \
+		display/art-sde-display-mtp-overlay.dtbo \
+		display/art-sde-display-rcm-overlay.dtbo \
+		display/art-sde-display-cdp-overlay.dtbo
+endif
+
+ifneq ($(CONFIG_ARCH_QTI_VM), y)
 dtbo-$(CONFIG_ARCH_CANOE) += display/canoe-sde.dtbo \
 		display/canoe-sde-display-rumi-overlay.dtbo\
 		display/canoe-sde-display-cdp-overlay.dtbo \
@@ -48,6 +56,11 @@ dtbo-$(CONFIG_ARCH_X1P42100) += display/x1p42100-sde.dtbo \
 endif
 
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
+dtbo-$(CONFIG_ARCH_X1E80100) += display/x1e80100-sde.dtbo \
+		display/x1e80100-sde-display-crd-overlay.dtbo
+endif
+
+ifneq ($(CONFIG_ARCH_QTI_VM), y)
 dtbo-$(CONFIG_ARCH_SUN) += display/sun-sde.dtbo \
 		display/sun-sde-display-cdp-overlay.dtbo \
 		display/sun-sde-display-mtp-overlay.dtbo \
@@ -80,6 +93,18 @@ dtbo-$(CONFIG_ARCH_SUN) += display/trustedvm-sun-sde-display-cdp-overlay.dtbo \
 endif
 
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
+dtbo-$(CONFIG_ARCH_PARROT) += display/parrot-sde.dtbo \
+		display/parrot-sde-display-atp-overlay.dtbo \
+		display/parrot-sde-display-idp-overlay.dtbo \
+		display/parrot-sde-display-idp-amoled-overlay.dtbo \
+		display/parrot-sde-display-rumi-overlay.dtbo \
+		display/parrot-sde-display-qrd-overlay.dtbo
+else
+dtbo-$(CONFIG_ARCH_PARROT) += display/trustedvm-parrot-sde-display-idp-overlay.dtbo
+endif
+
+
+ifneq ($(CONFIG_ARCH_QTI_VM), y)
 dtbo-$(CONFIG_ARCH_TUNA) += display/tuna-sde.dtbo \
 		display/tuna-sde-display-atp-overlay.dtbo \
 		display/tuna-sde-display-cdp-overlay.dtbo \
@@ -102,13 +127,16 @@ ifneq ($(CONFIG_ARCH_QTI_VM), y)
 dtbo-$(CONFIG_ARCH_KERA) += display/kera-sde.dtbo \
 		display/kera-sde-display-atp-overlay.dtbo \
 		display/kera-sde-display-cdp-overlay.dtbo \
+		display/kera-sde-display-idp-no-display-overlay.dtbo \
+		display/kera-sde-display-idp-overlay.dtbo \
 		display/kera-sde-display-mtp-overlay.dtbo \
 		display/kera-sde-display-qrd-overlay.dtbo \
 		display/kera-sde-display-rumi-overlay.dtbo \
 		display/kera-sde-display-rcm-overlay.dtbo \
-		display/kera-sde-display-iot-cdp-overlay.dtbo
+		display/kera-sde-display-iot-cdp-overlay.dtbo \
+		display/kera-sde-display-rcm-no-display-overlay.dtbo
 else
-dtbo-$(CONFIG_ARCH_TUNA) += display/trustedvm-kera-sde-display-atp-overlay.dtbo \
+dtbo-$(CONFIG_ARCH_KERA) += display/trustedvm-kera-sde-display-atp-overlay.dtbo \
 		display/trustedvm-kera-sde-display-cdp-overlay.dtbo \
 		display/trustedvm-kera-sde-display-mtp-overlay.dtbo \
 		display/trustedvm-kera-sde-display-qrd-overlay.dtbo \
@@ -122,6 +150,16 @@ dtbo-$(CONFIG_ARCH_VIENNA) += display/vienna-sde.dtbo \
 		display/vienna-sde-display-wrd-overlay.dtbo \
 		display/vienna-sde-display-atp-overlay.dtbo \
 		display/vienna-sde-display-rcm-overlay.dtbo
+
+dtbo-$(CONFIG_ARCH_KHAJE) += display/khaje-sde.dtbo \
+		display/khaje-sde-display-idp-overlay.dtbo \
+		display/khaje-sde-display-qrd-overlay.dtbo \
+		display/khaje-sde-display-qrd-hvdcp3p5-overlay.dtbo \
+		display/khaje-sde-display-idps-90hz-overlay.dtbo \
+		display/khaje-sde-display-atp-overlay.dtbo \
+		display/khaje-sde-display-idp-nopmi-overlay.dtbo \
+		display/khaje-sde-display-qrd-nopmi-overlay.dtbo \
+		display/khaje-sde-display-qrd-nowcd9375-overlay.dtbo
 
 always-y    := $(dtb-y) $(dtbo-y)
 subdir-y    := $(dts-dirs)
