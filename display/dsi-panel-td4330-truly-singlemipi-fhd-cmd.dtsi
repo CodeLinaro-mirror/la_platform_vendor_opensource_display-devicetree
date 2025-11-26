@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 &mdss_mdp {
 	dsi_td4330_truly_cmd: qcom,mdss_dsi_td4330_truly_cmd {
 		qcom,mdss-dsi-panel-name =
