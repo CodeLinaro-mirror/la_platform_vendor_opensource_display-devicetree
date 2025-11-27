@@ -17,6 +17,14 @@
 	status = "disabled";
 };
 
+&sde_dp_pll {
+	status = "ok";
+};
+
+&sde_dp {
+	status = "ok";
+};
+
 &sde_edp_pll {
 	status = "ok";
 };
