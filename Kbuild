@@ -155,6 +155,10 @@ dtbo-$(CONFIG_ARCH_VIENNA) += display/vienna-sde.dtbo \
 		display/vienna-sde-display-atp-overlay.dtbo \
 		display/vienna-sde-display-rcm-overlay.dtbo
 
+dtbo-$(CONFIG_ARCH_MONACO) += display/monaco-sde.dtbo \
+		display/monaco-sde-display-idp-overlay.dtbo \
+		display/monaco-sde-display-wdp-overlay.dtbo
+
 dtbo-$(CONFIG_ARCH_KHAJE) += display/khaje-sde.dtbo \
 		display/khaje-sde-display-idp-overlay.dtbo \
 		display/khaje-sde-display-qrd-overlay.dtbo \
