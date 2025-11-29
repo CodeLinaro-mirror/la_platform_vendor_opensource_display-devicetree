@@ -58,7 +58,7 @@
 	};
 
 	disp_rdump_memory: disp_rdump_region@0xfc800000 {
-		reg = <0xfc800000 0x00800000>;
+		reg = <0x0 0xfc800000 0x0 0x00800000>;
 		label = "disp_rdump_region";
 	};
 };
@@ -311,26 +311,6 @@
 };
 
 &dsi_sim_cmd {
-	qcom,ulps-enabled;
-	qcom,mdss-dsi-display-timings {
-		timing@0 { /* WQHD 60FPS cmd vid mode*/
-			qcom,panel-roi-alignment = <720 40 720 40 720 40>;
-			qcom,partial-update-enabled = "single_roi";
-		};
-
-		timing@2 { /* FHD 60FPS cmd mode*/
-			qcom,panel-roi-alignment = <540 20 540 20 540 20>;
-			qcom,partial-update-enabled = "single_roi";
-		};
-
-		timing@3 { /* HD 60FPS cmd mode*/
-			qcom,panel-roi-alignment = <360 40 360 40 360 40>;
-			qcom,partial-update-enabled = "single_roi";
-		};
-	};
-};
-
-&dsi_sim_256_cmd {
 	qcom,ulps-enabled;
 	qcom,mdss-dsi-display-timings {
 		timing@0 { /* WQHD 60FPS cmd vid mode*/
