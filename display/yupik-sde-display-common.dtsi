@@ -13,7 +13,6 @@
 #include "dsi-panel-ext-bridge-1080p.dtsi"
 #include "dsi-panel-ili9881p-720-video.dtsi"
 #include "dsi-panel-ext-bridge-4k30p.dtsi"
-//#include <dt-bindings/clock/mdss-5nm-pll-clk.h>
 #include <dt-bindings/clock/qcom,rpmh.h>
 #include "yupik-sde-display-pinctrl.dtsi"
 
