@@ -101,6 +101,16 @@
 	qcom,platform-reset-gpio = <&tlmm 98 0>;
 };
 
+&dsi_vtdr6130_amoled_60hz_cmd {
+	qcom,panel-supply-entries = <&dsi_panel_pwr_supply>;
+	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_dcs";
+	qcom,mdss-dsi-bl-min-level = <10>;
+	qcom,mdss-dsi-bl-max-level = <4095>;
+	qcom,mdss-brightness-max-level = <8191>;
+	qcom,mdss-dsi-bl-inverted-dbv;
+	qcom,platform-reset-gpio = <&tlmm 98 0>;
+};
+
 &dsi_vtdr6130_amoled_qsync_144hz_cmd {
 	qcom,panel-supply-entries = <&dsi_panel_pwr_supply>;
 	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_dcs";
@@ -287,6 +297,7 @@
 &battery_charger {
 	qcom,display-panels = <&dsi_vtdr6130_amoled_cmd
 			      &dsi_vtdr6130_amoled_video
+			      &dsi_vtdr6130_amoled_60hz_cmd
 			      &dsi_vtdr6130_amoled_120hz_cmd
 			      &dsi_vtdr6130_amoled_120hz_video
 			      &dsi_ext_bridge_1080p>;
@@ -296,6 +307,7 @@
 	goodix-berlin@0 {
 		panel = <&dsi_vtdr6130_amoled_cmd
 			&dsi_vtdr6130_amoled_video
+			&dsi_vtdr6130_amoled_60hz_cmd
 			&dsi_vtdr6130_amoled_120hz_cmd
 			&dsi_vtdr6130_amoled_120hz_video
 			&dsi_ext_bridge_1080p>;
@@ -307,6 +319,7 @@
 		amoled-ecm@f900 {
 			display-panels = <&dsi_vtdr6130_amoled_cmd
 					  &dsi_vtdr6130_amoled_video
+					  &dsi_vtdr6130_amoled_60hz_cmd
 					  &dsi_vtdr6130_amoled_120hz_cmd
 					  &dsi_vtdr6130_amoled_120hz_video
 					  &dsi_ext_bridge_1080p>;
