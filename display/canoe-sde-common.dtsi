@@ -94,6 +94,10 @@
 		qcom,sde-aiqe-has-feature-copr;
 		qcom,sde-aiqe-has-feature-aiscaler;
 
+		qcom,sde-dspp-rgb-hist-off = <0x3900 0x3900 0x3900 0x3900>;
+		qcom,sde-dspp-rgb-hist-size = <0x268>;
+		qcom,sde-dspp-rgb-hist-version = <0x00020000>;
+
 		qcom,sde-dnsc-blur-version = <0x100>;
 		qcom,sde-dnsc-blur-off = <0x1aa000>;
 		qcom,sde-dnsc-blur-size = <0x40>;
