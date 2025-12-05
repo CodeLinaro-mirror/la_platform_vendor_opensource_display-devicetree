@@ -17,6 +17,15 @@
 		qcom,kms = <&virtio_kms1>;
 	};
 
+	virtio_dprx0: qcom,virtio_dprx@a940000 {
+		compatible = "qcom,virtio-dprx";
+		cell-index = <0>;
+	};
+
+	virtio_dprx1: qcom,virtio_dprx@a980000 {
+		compatible = "qcom,virtio-dprx";
+		cell-index = <1>;
+	};
 
 	smmu_sde_iommu_region_partition: smmu_sde_iommu_region_partition {
 		iommu-addresses = <&smmu_sde_unsec 0x7ffe0000 0x80020000>,
