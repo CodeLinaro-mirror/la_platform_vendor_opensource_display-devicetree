@@ -6,7 +6,7 @@
 /dts-v1/;
 /plugin/;
 
-// #include "art-sde-display-cdp.dtsi" /* To be added after kernel changes */
+#include "art-sde-display-cdp.dtsi" /* To be added after kernel changes */
 
 / {
 	model = "Qualcomm Technologies, Inc. Art CDP";
