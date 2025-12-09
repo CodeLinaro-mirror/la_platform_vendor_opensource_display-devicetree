@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 #include "dsi-panel-nt36672e-fhd-plus-144-video.dtsi"
 #include "dsi-panel-nt36672e-fhd-plus-120-video.dtsi"
 #include "dsi-panel-nt36672e-fhd-plus-90hz-video.dtsi"
