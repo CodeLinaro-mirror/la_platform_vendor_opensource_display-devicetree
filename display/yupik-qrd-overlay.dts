@@ -9,8 +9,8 @@
 #include "yupik-sde-display-qrd.dtsi"
 
 / {
-	model = "Qualcomm Technologies, Inc. YUPIK-IOT QRD";
-	compatible = "qcom,yupik-iot-qrd", "qcom,yupik-iot", "qcom,qrd";
-	qcom,msm-id = <497 0x10000>, <498 0x10000>, <576 0x10000>, <575 0x10000>;
+	model = "Qualcomm Technologies, Inc. Yupik QRD";
+	compatible = "qcom,yupik-idp", "qcom,yupik", "qcom,qrd";
+	qcom,msm-id = <475 0x10000>, <515 0x10000>;
 	qcom,board-id = <0x1000B 0>;
 };
