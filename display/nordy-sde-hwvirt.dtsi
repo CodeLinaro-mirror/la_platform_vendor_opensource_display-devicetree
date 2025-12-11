@@ -9,6 +9,7 @@
 	virtio_kms1: qcom,virtio_kms@1 {
 		compatible = "qcom,virtio-kms";
 		qcom,client-id = "7815";
+		qcom,client-hab-id = "0";
 	};
 
 	sde_kms_hyp: qcom,sde_kms_hyp@ae00000 {
