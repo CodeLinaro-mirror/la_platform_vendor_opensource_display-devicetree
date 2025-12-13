@@ -9,10 +9,10 @@ dtbo-$(CONFIG_ARCH_ART) += display/art-sde.dtbo \
 		display/art-sde-display-mtp-peach-st54l-overlay.dtbo \
 		display/art-sde-display-mtp-peach-qmp1000-overlay.dtbo \
 		display/art-sde-display-omtp-overlay.dtbo \
-		display/art-sde-display-qrd-fig-qmp1000-overlay.dtbo \
-		display/art-sde-display-qrd-fig-harmonium-overlay.dtbo \
 		display/art-sde-display-rcm-fig-overlay.dtbo \
-		display/art-sde-display-rcm-peach-sn300u-overlay.dtbo
+		display/art-sde-display-rcm-peach-sn300u-overlay.dtbo \
+		display/art-sde-display-qrd-sku1-overlay.dtbo \
+		display/art-sde-display-qrd-sku2-overlay.dtbo
 endif
 
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
