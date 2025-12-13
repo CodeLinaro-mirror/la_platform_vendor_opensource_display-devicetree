@@ -281,8 +281,8 @@
 				<0 140000>,
 				<0 310000>;
 
-		qcom,sde-sspp-vig-blocks {
-			vcm@0 {
+		qcom_sde_sspp_vig_blocks: qcom,sde-sspp-vig-blocks {
+			vcm_0: vcm@0 {
 				cell-index = <0>;
 				qcom,sde-vig-top-off = <0x1600>;
 				qcom,sde-vig-csc-off = <0x1800>;
@@ -298,7 +298,7 @@
 				qcom,sde-ucsc-alpha-dither = <0x1600 0x00010000>;
 			};
 
-			vcm@1 {
+			vcm_1: vcm@1 {
 				cell-index = <1>;
 				qcom,sde-ucsc-igc = <0x3600 0x00010001>;
 				qcom,sde-ucsc-unmult = <0x3600 0x00010001>;
@@ -308,8 +308,8 @@
 			};
 		};
 
-		qcom,sde-sspp-dma-blocks {
-			dgm@0 {
+		qcom_sde_sspp_dma_blocks: qcom,sde-sspp-dma-blocks {
+			dgm_0: dgm@0 {
 				cell-index = <0>;
 				qcom,sde-dma-top-off = <0x1600>;
 				qcom,sde-ucsc-igc = <0x1600 0x00010001>;
@@ -319,7 +319,7 @@
 				qcom,sde-ucsc-alpha-dither = <0x1600 0x00010000>;
 			};
 
-			dgm@1 {
+			dgm_1: dgm@1 {
 				cell-index = <1>;
 				qcom,sde-ucsc-igc = <0x3600 0x00010001>;
 				qcom,sde-ucsc-unmult = <0x3600 0x00010001>;
@@ -329,7 +329,7 @@
 			};
 		};
 
-		qcom,sde-dspp-blocks {
+		qcom_sde_dspp_blocks: qcom,sde-dspp-blocks {
 			qcom,sde-dspp-igc = <0x1260 0x00050001>;
 			qcom,sde-dspp-hsic = <0x800 0x00010007>;
 			qcom,sde-dspp-memcolor = <0x880 0x00010007>;
