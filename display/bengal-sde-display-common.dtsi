@@ -66,7 +66,7 @@
 		pinctrl-names = "panel_active", "panel_suspend";
 		pinctrl-0 = <&sde_dsi_active &sde_te_active>;
 		pinctrl-1 = <&sde_dsi_suspend &sde_te_suspend>;
-
+		pwms = <&pm6125_pwm 0 0>;
 		qcom,platform-te-gpio = <&tlmm 81 0>;
 		qcom,panel-te-source = <0>;
 
