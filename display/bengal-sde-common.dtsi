@@ -26,9 +26,12 @@
 		interrupt-controller;
 		#interrupt-cells = <1>;
 
-		#power-domain-cells = <0>;
 		#list-cells = <1>;
 		#cooling-cells = <2>;
+                qcom,op-label = "hwio";
+                status = "ok";
+                qcom,sde-hw-version = <0x60030000>;
+
 
 		/* hw blocks */
 		qcom,sde-off = <0x1000>;
@@ -118,19 +121,19 @@
 		qcom,sde-vbif-qos-nrt-remap = <3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3>;
 
 		/*Pending macrotile & macrotile-qseed has the same configs */
-		qcom,sde-danger-lut = <0x000000ff 0x0000ffff
-			0x00000000 0x00000000 0x0000ffff>;
-
-		qcom,sde-safe-lut-linear = <0 0xfff0>;
-		qcom,sde-safe-lut-macrotile = <0 0xff00>;
-		/* same as safe-lut-macrotile */
-		qcom,sde-safe-lut-macrotile-qseed = <0 0xff00>;
-		qcom,sde-safe-lut-nrt = <0 0xffff>;
-
-		qcom,sde-qos-lut-linear = <0 0x00112222 0x22335777>;
-		qcom,sde-qos-lut-macrotile = <0 0x00112233 0x44556677>;
-		qcom,sde-qos-lut-macrotile-qseed = <0 0x00112233 0x66777777>;
-		qcom,sde-qos-lut-nrt = <0 0x00000000 0x00000000>;
+		qcom,sde-danger-lut = <0xff 0xffff 0x0 0x0 0x0 0x0 0x0 0x0
+                               0xff 0xffff 0x0 0x0 0x0 0x0 0x0 0x0>;
+		qcom,sde-safe-lut = <0xfff0 0xff00 0xffff 0x0 0x0 0x0 0x0 0x0
+                               0xfff0 0xff00 0xffff 0x0 0x0 0x0 0x0 0x0>;
+		qcom,sde-creq-lut = <0x00112222 0x22335777 0x0 0x0
+                               0x00112233 0x44556677 0x00112233 0x66777777
+                               0x0        0x0        0x0        0x0
+                               0x0        0x0        0x0        0x0
+                               0x0        0x0        0x0        0x0
+                               0x0        0x0        0x0        0x0
+                               0x0        0x0        0x0        0x0
+                               0x0        0x0        0x0        0x0
+                               0x0        0x0        0x0        0x0>;
 
 		qcom,sde-cdp-setting = <1 1>, <1 0>;
 
