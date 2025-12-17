@@ -20,6 +20,8 @@
 						&config_319
 						&dgm_0
 						&dgm_1
+						&dgm_2
+						&dgm_3
 						&dsi_dual_3840x2400_120hz_sim_vid
 						&dsi_dual_rdp370f_rgb_vid
 						&dsi_dual_sim_cmd
@@ -71,9 +73,14 @@
 						&dsi_vtdr6130_amoled_video
 						&mdss_dsi0
 						&mdss_dsi1
+						&mdss_dsi2
+						&mdss_dsi3
 						&mdss_dsi_phy0
 						&mdss_dsi_phy1
+						&mdss_dsi_phy2
+						&mdss_dsi_phy3
 						&mdss_mdp
+						&mdss_mdp1
 						&mux
 						&mux_298
 						&mux_300
@@ -197,10 +204,15 @@
 						&qcom_phy_supply_entry_0
 						&qcom_phy_supply_entry_0_4
 						&qcom_sde_dspp_blocks
+						&qcom_sde_dspp_blocks1
 						&qcom_sde_sspp_dma_blocks
+						&qcom_sde_sspp_dma_blocks1
 						&qcom_sde_sspp_vig_blocks
+						&qcom_sde_sspp_vig_blocks1
 						&sde_dsi
 						&sde_dsi1
+						&sde_dsi2
+						&sde_dsi3
 						&sde_dsi1_active
 						&sde_dsi1_suspend
 						&sde_dsi_active
@@ -213,7 +225,9 @@
 						&sde_te1_suspend
 						&sde_te_active
 						&sde_te_suspend
+						&smmu_sde_iommu_region_partition1
 						&smmu_sde_unsec
+						&smmu_sde_unsec1
 						&timing_0
 						&timing_0_112
 						&timing_0_123
@@ -455,5 +469,7 @@
 						&timing_9_254
 						&vcm_0
 						&vcm_1
+						&vcm_2
+						&vcm_3
 	>;
 };
