@@ -7,12 +7,12 @@
 	pmx_sde: pmx_sde {
 		sde_dsi_active: sde_dsi_active {
 			mux: mux {
-				pins = "gpio98";
+				pins = "gpio211";
 				function = "gpio";
 			};
 
 			config: config {
-				pins = "gpio98";
+				pins = "gpio211";
 				drive-strength = <8>;   /* 8 mA */
 				bias-disable = <0>;   /* no pull */
 			};
@@ -20,12 +20,12 @@
 
 		sde_dsi_suspend: sde_dsi_suspend {
 			mux_298: mux {
-				pins = "gpio98";
+				pins = "gpio211";
 				function = "gpio";
 			};
 
 			config_299: config {
-				pins = "gpio98";
+				pins = "gpio211";
 				drive-strength = <2>;   /* 2 mA */
 				bias-pull-down;         /* PULL DOWN */
 			};
@@ -33,12 +33,12 @@
 
 		sde_dsi1_active: sde_dsi1_active {
 			mux_300: mux {
-				pins = "gpio97";
+				pins = "gpio210";
 				function = "gpio";
 			};
 
 			config_301: config {
-				pins = "gpio97";
+				pins = "gpio210";
 				drive-strength = <8>;   /* 8 mA */
 				bias-disable = <0>;   /* no pull */
 			};
@@ -46,12 +46,12 @@
 
 		sde_dsi1_suspend: sde_dsi1_suspend {
 			mux_302: mux {
-				pins = "gpio97";
+				pins = "gpio210";
 				function = "gpio";
 			};
 
 			config_303: config {
-				pins = "gpio97";
+				pins = "gpio210";
 				drive-strength = <2>;   /* 2 mA */
 				bias-pull-down;         /* PULL DOWN */
 			};

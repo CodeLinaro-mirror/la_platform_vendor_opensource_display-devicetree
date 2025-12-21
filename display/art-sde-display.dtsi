@@ -64,7 +64,7 @@
 &sde_dsi {
 	vddio-supply = <&L12B>;
 	vci-supply = <&L13B>;
-	vdd-supply = <&L11B>;
+	vdd-supply = <&display_panel_vdd>;
 	tvdd-supply = <&L4B>;
 
 	pinctrl-names = "panel_active", "panel_active_with_esync", "panel_suspend";
@@ -82,7 +82,7 @@
 &sde_dsi1 {
 	vddio-supply = <&L12B>;
 	vci-supply = <&L13B>;
-	vdd-supply = <&L11B>;
+	vdd-supply = <&display_panel_vdd>;
 	tvdd-supply = <&L4B>;
 
 	pinctrl-names = "panel_active", "panel_active_with_esync", "panel_suspend";

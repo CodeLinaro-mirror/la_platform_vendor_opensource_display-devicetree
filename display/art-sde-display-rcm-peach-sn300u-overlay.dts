@@ -9,9 +9,9 @@
 #include "art-sde-display-rcm.dtsi"
 
 / {
-	model = "Qualcomm Technologies, Inc. Art RCM";
+	model = "Qualcomm Technologies, Inc. Art RCM + Peach + SN300U + Pandeiro";
 	compatible = "qcom,art-rcm", "qcom,art", "qcom,artp-rcm", "qcom,artp",
-			   "qcom,rcm";
+			"qcom,rcm";
 	qcom,msm-id = <707 0x10000>, <707 0x20000>, <708 0x10000>, <708 0x20000>;
-	qcom,board-id = <0x15 0>;
+	qcom,board-id = <0x20015 0>;
 };

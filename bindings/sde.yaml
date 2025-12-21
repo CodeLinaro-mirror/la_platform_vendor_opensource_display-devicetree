@@ -1073,6 +1073,23 @@ properties:
       AI Scaler hardware block instance.
     $ref: /schemas/types.yaml#/definitions/uint32
 
+  qcom,sde-dspp-rgb-hist-off:
+    description: |
+      Array of u32 values indicating the offset of each RGB histogram block
+      relative to its parent DSPP block.
+    $ref: /schemas/types.yaml#/definitions/uint32-array
+
+  qcom,sde-dspp-rgb-hist-size:
+    description: |
+      A u32 value indicating the shared memory size of each RGB histogram
+      hardware block instance.
+    $ref: /schemas/types.yaml#/definitions/uint32
+
+  qcom,sde-dspp-rgb-hist-version:
+    description: |
+      A u32 value indicating the version of the RGB histogram hardware.
+    $ref: /schemas/types.yaml#/definitions/uint32
+
   qcom,sde-aiqe-has-feature-mdnie:
     description: Boolean property indicating the presence of AIQE feature mDNIe hardware.
 

@@ -52,3 +52,9 @@
 &sde_wb2 {
 	status = "disabled";
 };
+
+&qupv3_se8_spi {
+	goodix-berlin@0 {
+		status = "disabled";
+	};
+};
