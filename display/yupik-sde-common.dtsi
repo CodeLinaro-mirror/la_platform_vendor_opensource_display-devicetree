@@ -1,4 +1,8 @@
-//#include <dt-bindings/clock/mdss-5nm-pll-clk.h>
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 #include <dt-bindings/interrupt-controller/arm-gic.h>
 
 &soc {
