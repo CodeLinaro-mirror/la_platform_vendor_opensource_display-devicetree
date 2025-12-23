@@ -25,6 +25,14 @@
 	status = "ok";
 };
 
+&sde_dp1_pll {
+	status = "ok";
+};
+
+&sde_dp1 {
+	status = "ok";
+};
+
 &sde_edp_pll {
 	status = "ok";
 };
