@@ -3,7 +3,7 @@
  * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
  */
 
-#include "chora-sde-display-common.dtsi"
+#include "malabar-sde-display-common.dtsi"
 
 &sde_dsi {
 	clocks = <&clock_cpucc 0>,
@@ -12,6 +12,5 @@
 };
 
 &mdss_mdp {
-	connectors = <&sde_dsi &smmu_sde_unsec>;
+	connectors = <&sde_dsi>;
 };
-

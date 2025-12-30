@@ -9,10 +9,10 @@ dtbo-$(CONFIG_ARCH_ART) += display/art-sde.dtbo \
 		display/art-sde-display-mtp-peach-st54l-overlay.dtbo \
 		display/art-sde-display-mtp-peach-qmp1000-overlay.dtbo \
 		display/art-sde-display-omtp-overlay.dtbo \
-		display/art-sde-display-qrd-fig-qmp1000-overlay.dtbo \
-		display/art-sde-display-qrd-fig-harmonium-overlay.dtbo \
 		display/art-sde-display-rcm-fig-overlay.dtbo \
-		display/art-sde-display-rcm-peach-sn300u-overlay.dtbo
+		display/art-sde-display-rcm-peach-sn300u-overlay.dtbo \
+		display/art-sde-display-qrd-sku1-overlay.dtbo \
+		display/art-sde-display-qrd-sku2-overlay.dtbo
 endif
 
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
@@ -57,16 +57,6 @@ dtbo-$(CONFIG_ARCH_ALOR) += display/trustedvm-alor-sde-display-atp-overlay.dtbo 
 		display/trustedvm-alor-sde-display-mtp-overlay.dtbo \
 		display/trustedvm-alor-sde-display-qrd-overlay.dtbo \
 		display/trustedvm-alor-sde-display-rcm-overlay.dtbo
-endif
-
-ifneq ($(CONFIG_ARCH_QTI_VM), y)
-dtbo-$(CONFIG_ARCH_CHORA) += display/chora-sde.dtbo \
-		display/chora-sde-display-cdp-overlay.dtbo \
-		display/chora-sde-display-rcm-overlay.dtbo \
-		display/chora-sde-display-qrd-overlay.dtbo \
-		display/chora-sde-display-mtp-overlay.dtbo \
-		display/chora-sde-display-atp-overlay.dtbo \
-		display/chora-sde-display-mtp-lcd-overlay.dtbo
 endif
 
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
@@ -162,16 +152,6 @@ dtbo-$(CONFIG_ARCH_KERA) += display/trustedvm-kera-sde-display-atp-overlay.dtbo 
 		display/trustedvm-kera-sde-display-qrd-overlay.dtbo \
 		display/trustedvm-kera-sde-display-rumi-overlay.dtbo \
 		display/trustedvm-kera-sde-display-rcm-overlay.dtbo
-endif
-
-ifneq ($(CONFIG_ARCH_QTI_VM), y)
-dtbo-$(CONFIG_ARCH_MALABAR) += display/malabar-sde.dtbo \
-		display/malabar-sde-display-atp-overlay.dtbo \
-		display/malabar-sde-display-cdp-overlay.dtbo \
-		display/malabar-sde-display-cdp-lcd-overlay.dtbo \
-		display/malabar-sde-display-mtp-overlay.dtbo \
-		display/malabar-sde-display-qrd-overlay.dtbo \
-		display/malabar-sde-display-rcm-overlay.dtbo
 endif
 
 dtbo-$(CONFIG_ARCH_VIENNA) += display/vienna-sde.dtbo \
