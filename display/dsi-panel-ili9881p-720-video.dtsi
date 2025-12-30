@@ -1,3 +1,8 @@
+/*
+ *Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ *SPDX-License-Identifier: BSD-3-Clause
+*/
+
 &mdss_mdp {
 	dsi_ili9881p_720p_video: qcom,mdss_dsi_ili9881c_720p_video {
 		qcom,mdss-dsi-panel-name = "ILI9881P 720p video signal panel";

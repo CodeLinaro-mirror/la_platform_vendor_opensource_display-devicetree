@@ -1,3 +1,8 @@
+/*
+ *Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ *SPDX-License-Identifier: BSD-3-Clause
+*/
+
 &mdss_mdp {
 	dsi_ext_bridge_4k30p: qcom,mdss_dsi_ext_bridge_4k30p {
 		qcom,mdss-dsi-panel-name = "ext video mode dsi bridge";
