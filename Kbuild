@@ -175,6 +175,20 @@ dtbo-$(CONFIG_ARCH_KHAJE) += display/khaje-sde.dtbo \
 		display/khaje-sde-display-qrd-nopmi-overlay.dtbo \
 		display/khaje-sde-display-qrd-nowcd9375-overlay.dtbo
 
+ifneq ($(CONFIG_ARCH_QTI_VM), y)
+		CONFIG_OS_DTS := false
+		ifeq ($(shell [[ $(VERSION) -eq 6 && $(PATCHLEVEL) -ge 6 ]] && echo true), true)
+			CONFIG_OS_DTS := true
+		endif
+
+		ifeq ($(CONFIG_OS_DTS), true)
+			dtbo-$(CONFIG_ARCH_SERAPH) += display/seraph-sde.dtbo \
+			display/seraph-sde-display-idp-overlay.dtbo \
+			display/seraph-sde-display-idp-no-display-overlay.dtbo \
+			display/seraph-sde-display-rumi-overlay.dtbo
+		endif
+endif
+
 always-y    := $(dtb-y) $(dtbo-y)
 subdir-y    := $(dts-dirs)
 clean-files    := *.dtb *.dtbo
