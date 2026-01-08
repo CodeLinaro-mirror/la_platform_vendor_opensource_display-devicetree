@@ -4,7 +4,7 @@
  */
 
 #include <dt-bindings/regulator/qcom,rpmh-regulator-levels.h>
-//#include <dt-bindings/clock/qcom,dispcc-seraph.h>
+#include <dt-bindings/clock/qcom,lsrcc-seraph.h>
 #include <dt-bindings/clock/qcom,gcc-seraph.h>
 #include <dt-bindings/interconnect/qcom,seraph.h>
 #include <dt-bindings/clock/qcom,rpmh.h>
@@ -61,10 +61,10 @@
 				"llcc_csc_layer3";
 
 		/* Supply */
-		lsr-supply = <&lsr_cc_mvs0c_gdsc>;
-		lsr-noc-supply = <&lsr_cc_lsr_noc_gdsc>;
-		lsr-core-supply = <&lsr_cc_mvs0_gdsc>;
-
+		/* framework-type: 0x0 --> Regulator framework, 0x1 --> GenPD framework */
+		framework_type = <0x1>;
+		power-domains = <&lsrcc LSR_CC_LSR_NOC_GDSC>, <&lsrcc LSR_CC_MVS0_GDSC>,
+				<&lsrcc LSR_CC_MVS0C_GDSC>;
 		/* Clocks */
 		clock-names = "lsr_axi_clock", "core_axi_clock", "sleep_clk", "lsr_freerun_clk",
 				"core_freerun_clk", "lsr_clk", "core_clk", "lsr_cc_mvs0_clk_src";
