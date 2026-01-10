@@ -7,6 +7,7 @@
 /plugin/;
 
 #include "trustedvm-canoe-sde.dtsi"
+#include "trustedvm-canoe-sde-hfi.dtsi"
 #include "trustedvm-canoe-sde-display-mtp.dtsi"
 
 / {

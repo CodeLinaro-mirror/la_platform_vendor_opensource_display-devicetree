@@ -36,6 +36,9 @@
 };
 
 &mdss_mdp1 {
+	qcom,sde-vm-exclude-reg-names = "mdp_phys", "vbif_phys",
+					"regdma_phys", "ipcc_reg",
+					"swfuse_phys";
 	qti,smmu-proxy-cb-id = <QTI_SMMU_PROXY_DISPLAY_CB>;
 
 	mmcx-supply = <&VDD_MMCX_LEVEL>;
