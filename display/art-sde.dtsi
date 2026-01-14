@@ -29,3 +29,9 @@
 		qcom,iommu-vmid = <0xa>;
 	};
 };
+
+&mdss_mdp {
+	qcom,sde-dspp-ltm-version = <0x00010004>;
+	/* offsets are based off dspp 0, 1, 2, and 3 */
+	qcom,sde-dspp-ltm-off = <0x3300 0x3300 0x3300 0x3300>;
+};
