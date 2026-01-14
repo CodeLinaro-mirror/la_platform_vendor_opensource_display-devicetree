@@ -1,4 +1,21 @@
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
+dtbo-$(CONFIG_ARCH_ART) += display/art-sde.dtbo \
+		display/art-sde-display-rumi-overlay.dtbo \
+		display/art-sde-display-cdp-overlay.dtbo \
+		display/art-sde-display-mtp-fig-st54l-overlay.dtbo \
+		display/art-sde-display-mtp-fig-bt-st54l-overlay.dtbo \
+		display/art-sde-display-mtp-fig-qmp1000-3.5mm-overlay.dtbo \
+		display/art-sde-display-mtp-fig-pro-overlay.dtbo \
+		display/art-sde-display-mtp-peach-st54l-overlay.dtbo \
+		display/art-sde-display-mtp-peach-qmp1000-overlay.dtbo \
+		display/art-sde-display-omtp-overlay.dtbo \
+		display/art-sde-display-rcm-fig-overlay.dtbo \
+		display/art-sde-display-rcm-peach-sn300u-overlay.dtbo \
+		display/art-sde-display-qrd-sku1-overlay.dtbo \
+		display/art-sde-display-qrd-sku2-overlay.dtbo
+endif
+
+ifneq ($(CONFIG_ARCH_QTI_VM), y)
 dtbo-$(CONFIG_ARCH_CANOE) += display/canoe-sde.dtbo \
 		display/canoe-sde-display-rumi-overlay.dtbo\
 		display/canoe-sde-display-cdp-overlay.dtbo \
@@ -45,6 +62,12 @@ endif
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
 dtbo-$(CONFIG_ARCH_X1P42100) += display/x1p42100-sde.dtbo \
 		display/x1p42100-sde-display-crd-overlay.dtbo
+endif
+
+ifneq ($(CONFIG_ARCH_QTI_VM), y)
+dtbo-$(CONFIG_ARCH_X1E80100) += display/x1e80100-sde.dtbo \
+		display/x1e80100-sde-display-crd-overlay.dtbo \
+		display/x1e80100-sde-display-qcb-overlay.dtbo
 endif
 
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
@@ -137,6 +160,10 @@ dtbo-$(CONFIG_ARCH_VIENNA) += display/vienna-sde.dtbo \
 		display/vienna-sde-display-wrd-overlay.dtbo \
 		display/vienna-sde-display-atp-overlay.dtbo \
 		display/vienna-sde-display-rcm-overlay.dtbo
+
+dtbo-$(CONFIG_ARCH_MONACO) += display/monaco-sde.dtbo \
+		display/monaco-sde-display-idp-overlay.dtbo \
+		display/monaco-sde-display-wdp-overlay.dtbo
 
 dtbo-$(CONFIG_ARCH_KHAJE) += display/khaje-sde.dtbo \
 		display/khaje-sde-display-idp-overlay.dtbo \
