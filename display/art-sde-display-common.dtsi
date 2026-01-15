@@ -51,6 +51,7 @@
 #include "dsi-panel-dual-rdp370f-rgb-video.dtsi"
 #include "dsi-panel-rdp370f-rgb-video.dtsi"
 #include "dsi-panel-ext-bridge-1080p.dtsi"
+#include "dsi-panel-ili97680a-dsc-10bit-cmd.dtsi"
 #include "art-sde-display-pinctrl-common.dtsi"
 
 &soc {
@@ -589,6 +590,20 @@
 			qcom,display-topology = <2 2 1>;
 			qcom,default-topology-index = <0>;
 			qcom,dsi-dyn-clk-list = <1406283648 1412167680 1418051712>;
+		};
+	};
+};
+
+&dsi_ili97680a_amoled_dsc_10b_cmd {
+	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
+	qcom,dsi-select-sec-clocks = "pll_byte_clk1", "pll_dsi_clk1";
+
+	qcom_mdss_dsi_display_timings_359:qcom,mdss-dsi-display-timings {
+		timing_0_360:timing@0 {
+			qcom,mdss-dsi-panel-phy-timings = [00 2C 0C 0C 1D 1B 0C
+					0C 0B 02 04 00 23 11];
+			qcom,display-topology = <2 2 1>;
+			qcom,default-topology-index = <0>;
 		};
 	};
 };
