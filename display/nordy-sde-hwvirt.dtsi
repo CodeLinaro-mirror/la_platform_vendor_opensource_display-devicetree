@@ -130,6 +130,9 @@
 		qcom,sde-dspp-rc-mem-size = <2720>;
 		qcom,sde-dspp-rc-min-region-width = <20>;
 
+		qcom,sde-dspp-ltm-version = <0x00010002>;
+		qcom,sde-dspp-ltm-off = <0x15300 0x14300 0x13300 0x12300>;
+
 		qcom,sde-dnsc-blur-version = <0x100>;
 		qcom,sde-dnsc-blur-off = <0x7D000>;
 		qcom,sde-dnsc-blur-size = <0x40>;
@@ -495,6 +498,9 @@
 		qcom,sde-dspp-rc-size = <0x100>;
 		qcom,sde-dspp-rc-mem-size = <2720>;
 		qcom,sde-dspp-rc-min-region-width = <20>;
+
+		qcom,sde-dspp-ltm-version = <0x00010002>;
+		qcom,sde-dspp-ltm-off = <0x15300 0x14300 0x13300 0x12300>;
 
 		qcom,sde-dnsc-blur-version = <0x100>;
 		qcom,sde-dnsc-blur-off = <0x7D000>;
