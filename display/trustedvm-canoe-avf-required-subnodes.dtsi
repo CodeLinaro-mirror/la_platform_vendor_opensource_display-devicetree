@@ -7,6 +7,7 @@
 	required-subnodes-display = <
 						&clock_cpucc
 						&config
+						&config_2
 						&config_299
 						&config_301
 						&config_303
@@ -18,19 +19,40 @@
 						&config_315
 						&config_317
 						&config_319
+						&config_4
 						&dgm_0
 						&dgm_1
 						&dgm_2
 						&dgm_3
 						&dsi_dual_3840x2400_120hz_sim_vid
+						&dsi_sharp_4k_dsc_cmd
+						&qcom_mdss_dsi_display_timings_191
+						&qcom_mdss_dsi_display_timings_83
+						&timing_0_84
+						&timing_0_192
+						&qcom_mdss_dsi_display_timings_185
+						&qcom_mdss_dsi_display_timings_351
+						&qcom_mdss_dsi_display_timings_193
+						&qcom_mdss_dsi_display_timings_57
+						&qcom_mdss_dsi_display_timings_85
+						&timing_0_186
+						&timing_1_187
+						&timing_2_188
+						&timing_0_352
+						&timing_0_194
+						&timing_0_58
+						&timing_1_59
+						&timing_2_60
+						&timing_0_86
+						&dsi_nt37801_amoled_cmd_cphy_spr
+						&dsi_nt37802_amoled_cmd_cphy
+						&dsi_sharp_4k_dsc_video
 						&dsi_dual_rdp370f_rgb_vid
 						&dsi_dual_sim_cmd
 						&dsi_dual_sim_dsc_375_cmd
 						&dsi_dual_sim_vid
-						&dsi_ext_bridge_1080p
 						&dsi_nt37801_amoled_cmd
 						&dsi_nt37801_amoled_cmd_cphy
-						&dsi_nt37801_amoled_cmd_cphy_spr
 						&dsi_nt37801_amoled_cmd_ddicspr
 						&dsi_nt37801_amoled_cmd_spr
 						&dsi_nt37801_amoled_dsc_10b_cmd
@@ -45,7 +67,7 @@
 						&dsi_nt37801_amoled_video_cphy
 						&dsi_nt37801_amoled_video_cphy_spr
 						&dsi_nt37801_amoled_video_ddicspr
-						&dsi_nt37802_amoled_video_psr_vhm
+						&dsi_nt37802_amoled_video_vhm_cphy
 						&dsi_panel_pwr_supply
 						&dsi_panel_pwr_supply_avdd
 						&dsi_panel_pwr_supply_raontech
@@ -53,17 +75,13 @@
 						&dsi_panel_pwr_supply_vtdr
 						&dsi_pll_codes_data
 						&dsi_rdp370f_rgb_vid
-						&dsi_sharp_4k_dsc_cmd
-						&dsi_sharp_4k_dsc_video
-						&dsi_sharp_qhd_plus_dsc_cmd
-						&dsi_sharp_qhd_plus_dsc_video
 						&dsi_sim_cmd
 						&dsi_sim_dsc_10b_cmd
 						&dsi_sim_dsc_375_cmd
 						&dsi_sim_panel_au
 						&dsi_sim_sec_hd_cmd
+						&dsi_sim_sl_vid_vhm
 						&dsi_sim_vid
-						&dsi_ss_video_psr_vid_vhm
 						&dsi_vtdr6130_amoled_120hz_cmd
 						&dsi_vtdr6130_amoled_120hz_video
 						&dsi_vtdr6130_amoled_cmd
@@ -71,6 +89,12 @@
 						&dsi_vtdr6130_amoled_qsync_144hz_cmd
 						&dsi_vtdr6130_amoled_qsync_144hz_video
 						&dsi_vtdr6130_amoled_video
+						&dsi_ext_bridge_1080p
+						&dsi_sharp_qhd_plus_dsc_cmd
+						&dsi_sharp_qhd_plus_dsc_video
+						&dsi_ss_video_psr_vid_vhm
+						&dsi_nt37802_amoled_cmd_i2c_cphy
+						&dsi_nt37802_amoled_video_psr_vhm
 						&mdss_dsi0
 						&mdss_dsi1
 						&mdss_dsi2
@@ -82,7 +106,9 @@
 						&mdss_mdp
 						&mdss_mdp1
 						&mux
+						&mux_1
 						&mux_298
+						&mux_3
 						&mux_300
 						&mux_302
 						&mux_304
@@ -99,9 +125,18 @@
 						&qcom_ctrl_supply_entries
 						&qcom_ctrl_supply_entries_1
 						&qcom_ctrl_supply_entry_0
+						&qcom_ctrl_supply_entry_0_1
 						&qcom_ctrl_supply_entry_0_2
+						&qcom_ctrl_supply_entry_0_3
 						&qcom_mdss_dsi_display_timings
+						&qcom_mdss_dsi_display_timings_130
+						&qcom_mdss_dsi_display_timings_137
 						&qcom_mdss_dsi_display_timings_111
+						&qcom_mdss_dsi_display_timings_330
+						&qcom_mdss_dsi_display_timings_320
+						&qcom_mdss_dsi_display_timings_353
+						&qcom_mdss_dsi_display_timings_34
+						&qcom_mdss_dsi_display_timings_271
 						&qcom_mdss_dsi_display_timings_12
 						&qcom_mdss_dsi_display_timings_122
 						&qcom_mdss_dsi_display_timings_124
@@ -124,10 +159,7 @@
 						&qcom_mdss_dsi_display_timings_18
 						&qcom_mdss_dsi_display_timings_181
 						&qcom_mdss_dsi_display_timings_183
-						&qcom_mdss_dsi_display_timings_185
 						&qcom_mdss_dsi_display_timings_189
-						&qcom_mdss_dsi_display_timings_191
-						&qcom_mdss_dsi_display_timings_193
 						&qcom_mdss_dsi_display_timings_195
 						&qcom_mdss_dsi_display_timings_197
 						&qcom_mdss_dsi_display_timings_20
@@ -141,7 +173,7 @@
 						&qcom_mdss_dsi_display_timings_265
 						&qcom_mdss_dsi_display_timings_267
 						&qcom_mdss_dsi_display_timings_269
-						&qcom_mdss_dsi_display_timings_271
+						&qcom_mdss_dsi_display_timings_270
 						&qcom_mdss_dsi_display_timings_273
 						&qcom_mdss_dsi_display_timings_277
 						&qcom_mdss_dsi_display_timings_279
@@ -153,9 +185,12 @@
 						&qcom_mdss_dsi_display_timings_292
 						&qcom_mdss_dsi_display_timings_294
 						&qcom_mdss_dsi_display_timings_296
+						&qcom_mdss_dsi_display_timings_326
+						&qcom_mdss_dsi_display_timings_328
+						&qcom_mdss_dsi_display_timings_322
+						&qcom_mdss_dsi_display_timings_324
 						&qcom_mdss_dsi_display_timings_30
 						&qcom_mdss_dsi_display_timings_32
-						&qcom_mdss_dsi_display_timings_34
 						&qcom_mdss_dsi_display_timings_36
 						&qcom_mdss_dsi_display_timings_41
 						&qcom_mdss_dsi_display_timings_43
@@ -164,7 +199,6 @@
 						&qcom_mdss_dsi_display_timings_51
 						&qcom_mdss_dsi_display_timings_53
 						&qcom_mdss_dsi_display_timings_55
-						&qcom_mdss_dsi_display_timings_57
 						&qcom_mdss_dsi_display_timings_61
 						&qcom_mdss_dsi_display_timings_63
 						&qcom_mdss_dsi_display_timings_65
@@ -174,19 +208,11 @@
 						&qcom_mdss_dsi_display_timings_77
 						&qcom_mdss_dsi_display_timings_79
 						&qcom_mdss_dsi_display_timings_81
-						&qcom_mdss_dsi_display_timings_83
-						&qcom_mdss_dsi_display_timings_85
 						&qcom_mdss_dsi_display_timings_87
 						&qcom_mdss_dsi_display_timings_93
+						&qcom_mdss_dsi_display_timings_94
 						&qcom_mdss_dsi_display_timings_95
 						&qcom_mdss_dsi_display_timings_98
-						&qcom_mdss_dsi_display_timings_320
-						&qcom_mdss_dsi_display_timings_322
-						&qcom_mdss_dsi_display_timings_324
-						&qcom_mdss_dsi_display_timings_326
-						&qcom_mdss_dsi_display_timings_328
-						&qcom_mdss_dsi_display_timings_330
-						&qcom_mdss_dsi_display_timings_400
 						&qcom_mdss_dsi_display_timings_402
 						&qcom_panel_supply_entry_0
 						&qcom_panel_supply_entry_0_11
@@ -203,6 +229,8 @@
 						&qcom_phy_supply_entries_3
 						&qcom_phy_supply_entry_0
 						&qcom_phy_supply_entry_0_4
+						&qcom_phy_supply_entry_0_5
+						&qcom_phy_supply_entry_0_6
 						&qcom_sde_dspp_blocks
 						&qcom_sde_dspp_blocks1
 						&qcom_sde_sspp_dma_blocks
@@ -215,6 +243,8 @@
 						&sde_dsi3
 						&sde_dsi1_active
 						&sde_dsi1_suspend
+						&sde_dsi2
+						&sde_dsi3
 						&sde_dsi_active
 						&sde_dsi_suspend
 						&sde_esync0_active
@@ -222,9 +252,12 @@
 						&sde_esync1_active
 						&sde_esync1_suspend
 						&sde_te1_active
+						&sde_te1_function0
 						&sde_te1_suspend
 						&sde_te_active
+						&sde_te_function0
 						&sde_te_suspend
+						&smmu_sde_iommu_region_partition
 						&smmu_sde_iommu_region_partition1
 						&smmu_sde_unsec
 						&smmu_sde_unsec1
@@ -251,12 +284,11 @@
 						&timing_0_176
 						&timing_0_182
 						&timing_0_184
-						&timing_0_186
 						&timing_0_19
 						&timing_0_190
-						&timing_0_192
-						&timing_0_194
 						&timing_0_196
+						&timing_0_131
+						&timing_0_138
 						&timing_0_198
 						&timing_0_21
 						&timing_0_218
@@ -269,7 +301,7 @@
 						&timing_0_268
 						&timing_0_27
 						&timing_0_270
-						&timing_0_272
+						&timing_0_271
 						&timing_0_274
 						&timing_0_278
 						&timing_0_280
@@ -281,11 +313,18 @@
 						&timing_0_293
 						&timing_0_295
 						&timing_0_297
-						&timing_0_300
 						&timing_0_302
-						&timing_0_31
-						&timing_0_33
+						&timing_0_272
 						&timing_0_35
+						&timing_0_329
+						&timing_0_327
+						&timing_0_323
+						&timing_0_325
+						&timing_0_31
+						&timing_0_354
+						&timing_0_331
+						&timing_0_321
+						&timing_0_33
 						&timing_0_37
 						&timing_0_42
 						&timing_0_44
@@ -294,7 +333,6 @@
 						&timing_0_52
 						&timing_0_54
 						&timing_0_56
-						&timing_0_58
 						&timing_0_62
 						&timing_0_64
 						&timing_0_66
@@ -304,19 +342,11 @@
 						&timing_0_78
 						&timing_0_80
 						&timing_0_82
-						&timing_0_84
-						&timing_0_86
 						&timing_0_88
 						&timing_0_94
+						&timing_0_95
 						&timing_0_96
 						&timing_0_99
-						&timing_0_321
-						&timing_0_323
-						&timing_0_325
-						&timing_0_327
-						&timing_0_329
-						&timing_0_331
-						&timing_0_400
 						&timing_0_402
 						&timing_1
 						&timing_10
@@ -356,23 +386,19 @@
 						&timing_17_215
 						&timing_17_262
 						&timing_18
-						&timing_18_216
 						&timing_18_119
+						&timing_18_216
 						&timing_18_241
+						&timing_19
 						&timing_19_120
-						&timing_19_242
 						&timing_19_217
-						&timing_20
-						&timing_20_121
-						&timing_20_243
-						&timing_20_299
+						&timing_19_242
 						&timing_1_100
 						&timing_1_113
 						&timing_1_126
 						&timing_1_147
 						&timing_1_153
 						&timing_1_177
-						&timing_1_187
 						&timing_1_199
 						&timing_1_219
 						&timing_1_232
@@ -383,18 +409,20 @@
 						&timing_1_283
 						&timing_1_38
 						&timing_1_45
-						&timing_1_59
 						&timing_1_73
 						&timing_1_89
 						&timing_1_97
 						&timing_2
+						&timing_20
+						&timing_20_121
+						&timing_20_243
+						&timing_20_299
 						&timing_2_101
 						&timing_2_114
 						&timing_2_127
 						&timing_2_148
 						&timing_2_154
 						&timing_2_178
-						&timing_2_188
 						&timing_2_200
 						&timing_2_220
 						&timing_2_236
@@ -404,7 +432,6 @@
 						&timing_2_284
 						&timing_2_39
 						&timing_2_46
-						&timing_2_60
 						&timing_2_74
 						&timing_2_90
 						&timing_3
