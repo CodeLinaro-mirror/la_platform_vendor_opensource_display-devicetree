@@ -8,6 +8,11 @@ dtbo-$(CONFIG_ARCH_YUPIK) += display/yupik-sde.dtbo \
 		display/yupik-sde-display-iot-hsp-overlay.dtbo \
 		display/yupik-sde-display-iot-idp-overlay.dtbo \
 		display/katmai-sde-display-idp-pm7250b-overlay.dtbo \
+		display/yupikp-sde-display-rb3-gen2-videocollab-overlay.dtbo \
+		display/yupikp-sde-display-rb3-gen2-visionkit-overlay.dtbo \
+		display/katmaip-sde-display-rb3-gen2-videocollab-overlay.dtbo \
+		display/katmaip-sde-display-rb3-gen2-visionkit-overlay.dtbo \
+		display/yupikp-sde-display-rb3-gen2-corekit-overlay.dtbo \
 		display/yupik-sde-display-idp-overlay.dtbo \
 		display/yupik-sde-display-iot-qrd-overlay.dtbo \
 		display/yupik-sde-display-qrd-overlay.dtbo
