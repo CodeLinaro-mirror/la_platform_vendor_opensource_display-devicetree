@@ -1,0 +1,79 @@
+#include "yupik-sde-display.dtsi"
+
+/*==============================*/
+/*     Display Related Start    */
+/*==============================*/
+
+&qupv3_se2_i2c {
+	status = "ok";
+	qcom,clk-freq-out = <100000>;
+
+	lt9611: lt,lt9611@2f {
+		compatible = "lt,lt9611uxc";
+		reg = <0x2f>;
+
+		interrupt-names = "lt_irq";
+		interrupts-extended = <&tlmm 117 0x0>;
+		reset-gpios = <&tlmm 111 0x0>;
+		lt,audio-support;
+		lt,ext-disp = <&ext_disp>;
+		lt,preferred-mode = "3840x2160";
+
+		vdd-supply = <&L11C>;
+		vcc-supply = <&L11C>;
+
+		ports {
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			port@0 {
+				reg = <0>;
+
+				lt9611_in: endpoint {
+					remote-endpoint = <&ext_dsi_out>;
+				};
+			};
+		};
+	};
+};
+
+&dsi_ext_bridge_1080p {
+	qcom,mdss-dsi-ext-bridge-hpd;
+};
+
+&dsi_ext_bridge_4k30p {
+	qcom,mdss-dsi-ext-bridge-hpd;
+	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
+};
+
+&sde_dsi {
+	/delete-property/ lab-supply;
+	/delete-property/ ibb-supply;
+
+	qcom,dsi-default-panel = <&dsi_ext_bridge_4k30p>;
+	boot-panel-param = "disabled";
+
+	ports {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		port@0 {
+			reg = <0>;
+			ext_dsi_out: endpoint {
+				remote-endpoint = <&lt9611_in>;
+			};
+		};
+	};
+};
+
+&fsa4480 {
+	status = "disabled";
+};
+
+&sde_wb {
+	status = "disabled";
+};
+
+&mdss_mdp {
+	connectors = <&smmu_sde_unsec &smmu_sde_sec &sde_dsi &sde_rscc>;
+};
