@@ -31,6 +31,7 @@
 };
 
 &mdss_mdp {
+	qti,smmu-proxy-cb-id = <QTI_SMMU_PROXY_DISPLAY_CB>;
 	qcom,sde-dspp-ltm-version = <0x00010004>;
 	/* offsets are based off dspp 0, 1, 2, and 3 */
 	qcom,sde-dspp-ltm-off = <0x3300 0x3300 0x3300 0x3300>;
