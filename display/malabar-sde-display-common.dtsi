@@ -93,7 +93,7 @@
 
 		qcom,panel-supply-entry@1 {
 			reg = <1>;
-			qcom,supply-name = "extdvdd";
+			qcom,supply-name = "vdd";
 			qcom,supply-min-voltage = <1300000>;
 			qcom,supply-max-voltage = <1300000>;
 			qcom,supply-enable-load = <100000>;
