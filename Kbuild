@@ -130,8 +130,8 @@ ifneq ($(CONFIG_ARCH_QTI_VM), y)
 dtbo-$(CONFIG_ARCH_MALABAR) += display/malabar-sde.dtbo \
 		display/malabar-sde-display-atp-overlay.dtbo \
 		display/malabar-sde-display-cdp-overlay.dtbo \
-		display/malabar-sde-display-cdp-lcd-overlay.dtbo \
 		display/malabar-sde-display-mtp-overlay.dtbo \
+		display/malabar-sde-display-mtp-cottid-nd-overlay.dtbo \
 		display/malabar-sde-display-qrd-overlay.dtbo \
 		display/malabar-sde-display-rcm-overlay.dtbo
 endif
