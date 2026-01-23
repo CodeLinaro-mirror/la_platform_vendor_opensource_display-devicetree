@@ -47,3 +47,9 @@
 	nvmem-cells = <&ssip_config>;
 	nvmem-cell-names = "ssip_config";
 };
+
+&mdss_mdp {
+	qcom,sde-vm-exclude-reg-names = "mdp_phys", "vbif_phys",
+					"regdma_phys", "ipcc_reg",
+					"swfuse_phys";
+};
