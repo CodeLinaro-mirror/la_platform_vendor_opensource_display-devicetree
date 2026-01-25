@@ -276,6 +276,7 @@
 		power-domains = <&gcc GCC_USB3_PHY_GDSC>;
 		qcom,altmode-dev = <&altmode 0>;
 		qcom,dp-aux-switch = <&wcd_usbss>;
+		qcom,ext-disp = <&ext_disp>;
 		usb-controller = <&usb0>;
 	};
 };

@@ -28,6 +28,14 @@
 		qcom,iommu-faults = "non-fatal";
 		qcom,iommu-vmid = <0xa>;
 	};
+
+	ext_disp: qcom,msm-ext-disp {
+		compatible = "qcom,msm-ext-disp";
+
+		ext_disp_audio_codec: qcom,msm-ext-disp-audio-codec-rx {
+			compatible = "qcom,msm-ext-disp-audio-codec-rx";
+		};
+	};
 };
 
 &mdss_mdp {
