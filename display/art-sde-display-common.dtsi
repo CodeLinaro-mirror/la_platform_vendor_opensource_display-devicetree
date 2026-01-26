@@ -51,6 +51,8 @@
 #include "dsi-panel-rdp370f-rgb-video.dtsi"
 #include "dsi-panel-ext-bridge-1080p.dtsi"
 #include "art-sde-display-pinctrl-common.dtsi"
+#include <dt-bindings/clock/qcom,art-gcc.h>
+#include <dt-bindings/clock/qcom,art-tcsrcc.h>
 
 &soc {
 	dsi_panel_pwr_supply_sim: dsi_panel_pwr_supply_sim {
@@ -260,6 +262,21 @@
 
 		qcom,mdp = <&mdss_mdp>;
 		qcom,demura-panel-id = <0x0 0x0>;
+	};
+
+	sde_dp: qcom,dp_display0 {
+		compatible = "qcom,dp-display";
+		status = "ok";
+
+		qcom,mdp = <&mdss_mdp>;
+
+		clocks = <&tcsrcc TCSR_USB3_CLKREF_EN>,
+		        <&gcc GCC_USB3_PRIM_PHY_PIPE_CLK>;
+		clock-names = "usb3_tcsr_clk", "usb3_pipe_clk";
+		power-domains = <&gcc GCC_USB3_PHY_GDSC>;
+		qcom,altmode-dev = <&altmode 0>;
+		qcom,dp-aux-switch = <&wcd_usbss>;
+		usb-controller = <&usb0>;
 	};
 };
 
