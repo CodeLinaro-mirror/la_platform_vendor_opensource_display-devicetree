@@ -52,6 +52,26 @@
 	qcom,mdss-dsi-bl-inverted-dbv;
 	qcom,platform-reset-gpio = <&tlmm 98 0>;
 	qcom,platform-sec-reset-gpio = <&tlmm 97 0>;
+
+	qcom,mdss-dsi-display-timings {
+		timing@2 {
+			/delete-property/ qcom,mdss-dsi-panel-clockrate;
+			qcom,mdss-dsi-panel-phy-timings = [00 1f 07 08 17 16 08
+					07 08 02 04 00 1a 0d];
+		};
+
+		timing@3 {
+			/delete-property/ qcom,mdss-dsi-panel-clockrate;
+			qcom,mdss-dsi-panel-phy-timings = [00 0e 02 03 10 18 04
+					04 02 02 04 00 0b 09];
+		};
+
+		timing@4 {
+			/delete-property/ qcom,mdss-dsi-panel-clockrate;
+			qcom,mdss-dsi-panel-phy-timings = [00 0b 02 02 0f 18 03
+					03 02 02 04 00 09 08];
+		};
+	};
 };
 
 &dsi_nt37801_amoled_video {
