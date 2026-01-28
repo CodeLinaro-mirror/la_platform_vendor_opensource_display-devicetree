@@ -5,6 +5,7 @@
 
 #include <dt-bindings/clock/qcom,malabar-dispcc.h>
 #include "malabar-sde-common.dtsi"
+#include "trustedvm-malabar-avf-required-subnodes.dtsi"
 
 &soc {
 };

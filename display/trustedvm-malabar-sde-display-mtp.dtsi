@@ -10,7 +10,7 @@
 };
 
 &pm6450_gpios {
-	lcd_backlight_ctrl {
+	lcd_backlight_ctrl_2: lcd_backlight_ctrl {
 		lcd_backlight_pwm_default: lcd_backlight_pwm_default {
 			pins = "gpio7";
 			function = "func1";
@@ -24,7 +24,7 @@
 };
 
 &pm7250b_gpios {
-	lcd_backlight_ctrl  {
+	llcd_backlight_ctrl_3: lcd_backlight_ctrl {
 		lcd_backlight_en_default: lcd_backlight_en_default  {
 			pins = "gpio1";
 			function = "normal";
