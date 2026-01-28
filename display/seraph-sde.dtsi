@@ -132,9 +132,25 @@
 		lsr_bus_ddr {
 			compatible = "qcom,msm-lsr,bus";
 			qcom,bus-governor = "performance";
-			qcom,bus-range-kbps = <1000 6533000>;
-			interconnects = <&mmss_noc MASTER_LSR_0 &mc_virt SLAVE_EBI1>;
+			qcom,bus-range-kbps = <1000 8400000>;
+			interconnects = <&mc_virt MASTER_LLCC &mc_virt SLAVE_EBI1>;
 			interconnect-names = "lsr-ddr";
+		};
+
+		lsr_bus_llcc0 {
+			compatible = "qcom,msm-lsr,bus";
+			qcom,bus-governor = "performance";
+			qcom,bus-range-kbps = <1000 8400000>;
+			interconnects = <&mmss_noc MASTER_LSR_0 &gem_noc SLAVE_LLCC>;
+			interconnect-names = "lsr-llcc";
+		};
+
+		lsr_bus_llcc1 {
+			compatible = "qcom,msm-lsr,bus";
+			qcom,bus-governor = "performance";
+			qcom,bus-range-kbps = <1000 8400000>;
+			interconnects = <&mmss_noc MASTER_LSR_1 &gem_noc SLAVE_LLCC>;
+			interconnect-names = "lsr-llcc1";
 		};
 
 		lsr_non_secure_cb: lsr_non_secure_cb {
