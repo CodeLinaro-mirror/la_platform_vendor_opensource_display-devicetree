@@ -29,7 +29,7 @@
 		compatible = "qcom,msm-hdcp";
 	};
 
-	sde_dp: qcom,dp_display@ae90000 {
+/*	sde_dp: qcom,dp_display@ae90000 {
 		cell-index = <0>;
 		compatible = "qcom,dp-display";
 
@@ -158,7 +158,7 @@
 				qcom,supply-disable-load = <0>;
 			};
 		};
-	};
+	};   */
 
 	sde_rscc: qcom,sde_rscc@af20000 {
 		cell-index = <0>;
