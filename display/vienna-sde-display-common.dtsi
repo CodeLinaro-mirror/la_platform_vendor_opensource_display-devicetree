@@ -5,6 +5,7 @@
 
 #include "vienna-sde-display-pinctrl.dtsi"
 #include "dsi-panel-rm6d030-amoled-139-cmd.dtsi"
+#include "dsi-panel-nt38360-cmd.dtsi"
 #include "dsi-panel-sim-cmd-720p.dtsi"
 #include "dsi-panel-sim-139-cmd.dtsi"
 
@@ -148,6 +149,22 @@
 			qcom,default-topology-index = <0>;
 			qcom,partial-update-enabled = "single_roi";
 			qcom,panel-roi-alignment = <20 20 454 276 20 20>;
+		};
+	};
+};
+
+&dsi_nt38360_cmd {
+	/delete-property/ qcom,mdss-dsi-t-clk-post;
+	/delete-property/ qcom,mdss-dsi-t-clk-pre;
+	qcom,mdss-dsi-t-clk-post = <0x08>;
+	qcom,mdss-dsi-t-clk-pre = <0x0B>;
+	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
+	qcom,mdss-dsi-display-timings {
+		timing@0 {
+			qcom,mdss-dsi-panel-phy-timings = [00 0C 03 03 10 1D 03
+				03 03 02 02 04 0B 08];
+			qcom,display-topology = <1 0 1>;
+			qcom,default-topology-index = <0>;
 		};
 	};
 };

@@ -211,6 +211,10 @@
 		qcom,sde-dram-channels = <4>;
 		qcom,sde-num-nrt-paths = <0>;
 
+		qcom,sde-dspp-demura-off = <0x3600 0x3600 0x3600 0x3600>;
+		qcom,sde-dspp-demura-size = <0x154>;
+		qcom,sde-dspp-demura-version = <0x00040000>;
+
 		qcom,sde-dspp-spr-off = <0x3400 0x3400 0x3400 0x3400>;
 		qcom,sde-dspp-spr-size = <0x200>;
 		qcom,sde-dspp-spr-version = <0x00020000>;
