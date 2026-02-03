@@ -15,12 +15,27 @@
 		#clock-cells = <1>;
 	};
 
+	smmu_sde_iommu_region_partition: smmu_sde_iommu_region_partition {
+		iommu-addresses = <&smmu_sde_unsec 0x0 0x0 0x0 0x00020000>,
+			<&smmu_sde_unsec 0x0 0x10000000 0x0 0xffffffff>,
+			<&smmu_sde_sec 0x0 0x0 0x0 0x00020000>;
+	};
+
 	smmu_sde_unsec: qcom,smmu_sde_unsec_cb {
 		compatible = "qcom,smmu_sde_unsec";
 		iommus = <&apps_smmu 0x0804 0x402>;
-		qcom,iommu-dma-addr-pool = <0x00020000 0xfffe0000>;
+		memory-region = <&smmu_sde_iommu_region_partition>;
 		qcom,iommu-faults = "non-fatal";
 		dma-coherent;
+	};
+
+	smmu_sde_sec: qcom,smmu_sde_sec_cb {
+		compatible = "qcom,smmu_sde_sec";
+		iommus = <&apps_smmu 0x0801 0x0>,
+			<&apps_smmu 0xc01 0x0>;
+		memory-region = <&smmu_sde_iommu_region_partition>;
+		qcom,iommu-faults = "non-fatal";
+		qcom,iommu-vmid = <0xa>;
 	};
 };
 
