@@ -28,6 +28,15 @@
 			"mdp_core_clk";
 };
 
+&reserved_memory {
+	splash_memory: splash_region {
+		#address-cells = <2>;
+		#size-cells = <2>;
+		reg = <0x0 0x81F00000 0x0 0x00D0000>;
+		label = "cont_splash_region";
+	};
+};
+
 &mdss_mdp {
 	connectors = <&sde_dsi &smmu_sde_unsec &smmu_sde_sec>;
 };
