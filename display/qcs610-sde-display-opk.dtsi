@@ -1,6 +1,6 @@
 //SPDX-License-Identifier: BSD-3-Clause
 /*
- * Copyright (c) 2025 Qualcomm Innovation Center, Inc. All rights reserved
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
  */
 
 #include <dt-bindings/gpio/gpio.h>
@@ -12,6 +12,10 @@
 #include <dt-bindings/clock/qcom,gpucc-sm6150.h>
 #include <dt-bindings/iio/qti_power_supply_iio.h>
 #include "sm6150-sde-display.dtsi"
+
+&sde_dsi {
+        status="disabled";
+};
 
 &sde_dp {
 	/delete-property/ reg;
@@ -32,7 +36,6 @@
 	qcom,dp-hpd-gpio = <&tlmm 89 0>;
 
 	vd11p8-supply = <&pm6150_l10>;
-	gdsc-supply = <&mdss_core_gdsc>;
 
 	qcom,display-type = "primary";
 	#clock-cells = <1>;
@@ -86,65 +89,7 @@
 };
 
 &mdss_mdp {
-	connectors = <&smmu_sde_unsec &sde_dsi &sde_rscc &sde_wb &sde_dp>;
-};
-
-&dsi_ili9881c_720p_video {
-	qcom,panel-supply-entries = <&dsi_panel_pwr_supply>;
-	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_wled";
-	qcom,mdss-dsi-bl-min-level = <1>;
-	qcom,mdss-dsi-bl-max-level = <4095>;
-	qcom,platform-reset-gpio = <&tlmm 91 0>;
-};
-
-&ts_int_active {
-	mux {
-		pins = "gpio87";
-	};
-
-	config {
-		pins = "gpio87";
-	};
-};
-
-&ts_int_suspend {
-	mux {
-		pins = "gpio87";
-	};
-
-        config {
-		pins = "gpio87";
-        };
-};
-
-&ts_reset_active {
-	mux {
-		pins = "gpio75";
-	};
-
-        config {
-		pins = "gpio75";
-	};
-};
-
-&ts_reset_suspend {
-	mux {
-		pins = "gpio75";
-	};
-
-        config {
-		pins = "gpio75";
-	};
-};
-
-&ts_release {
-	mux {
-		pins = "gpio87", "gpio75";
-	};
-
-	config {
-		pins = "gpio87", "gpio75";
-	};
+	connectors = <&smmu_sde_unsec &sde_rscc &sde_wb &sde_dp>;
 };
 
 &sde_dp_hotplug_tlmm {
@@ -158,31 +103,9 @@
 };
 
 &qupv3_se1_i2c {
-	#address-cells = <1>;
-	#size-cells = <0>;
-
-	status = "ok";
-	qcom,i2c-touch-active = "focaltech,fts_ts";
+	status = "disabled";
 
 	focaltech@38 {
-		compatible = "focaltech,fts_ts";
-		reg = <0x38>;
-		interrupt-parent = <&tlmm>;
-		interrupts = <87 0x2008>;
-		focaltech,reset-gpio = <&tlmm 75 0x0>;
-		focaltech,irq-gpio = <&tlmm 87 0x2008>;
-		focaltech,max-touch-number = <5>;
-		focaltech,display-coords = <0 0 720 1280>;
-
-		vdd-supply = <&L7C>;
-		vcc_i2c-supply = <&L13A>;
-
-		pinctrl-names = "pmx_ts_active", "pmx_ts_suspend",
-			"pmx_ts_release";
-		pinctrl-0 = <&ts_int_active &ts_reset_active>;
-		pinctrl-1 = <&ts_int_suspend &ts_reset_suspend>;
-		pinctrl-2 = <&ts_release>;
-
-		panel = <&dsi_ili9881c_720p_video>;
+		status = "disabled";
 	};
 };
