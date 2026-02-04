@@ -99,18 +99,22 @@
 	qcom,ulps-enabled;
 	qcom,mdss-dsi-display-timings {
 		timing@0 {
+			qcom,partial-update-enabled = "single_roi";
 			qcom,panel-roi-alignment = <540 40 40 40 1080 40>;
 		};
 
 		timing@1 {
+			qcom,partial-update-enabled = "single_roi";
 			qcom,panel-roi-alignment = <540 40 40 40 1080 40>;
 		};
 
 		timing@2 {
+			qcom,partial-update-enabled = "single_roi";
 			qcom,panel-roi-alignment = <540 40 40 40 1080 40>;
 		};
 
 		timing@3 {
+			qcom,partial-update-enabled = "single_roi";
 			qcom,panel-roi-alignment = <540 40 40 40 1080 40>;
 		};
 	};
@@ -119,22 +123,27 @@
 &dsi_nt37801_amoled_cmd {
 	qcom,mdss-dsi-display-timings {
 		timing@0 {
+			qcom,partial-update-enabled = "single_roi";
 			qcom,panel-roi-alignment = <720 40 720 40 1440 40>;
 		};
 
 		timing@1 {
+			qcom,partial-update-enabled = "single_roi";
 			qcom,panel-roi-alignment = <720 40 720 40 1440 40>;
 		};
 
 		timing@2 {
+			qcom,partial-update-enabled = "single_roi";
 			qcom,panel-roi-alignment = <720 40 720 40 1440 40>;
 		};
 
 		timing@3 {
+			qcom,partial-update-enabled = "single_roi";
 			qcom,panel-roi-alignment = <720 40 720 40 1440 40>;
 		};
 
 		timing@4 {
+			qcom,partial-update-enabled = "single_roi";
 			qcom,panel-roi-alignment = <720 40 720 40 1440 40>;
 		};
 	};
@@ -143,14 +152,17 @@
 &dsi_nt37801_amoled_cmd_cphy {
 	qcom,mdss-dsi-display-timings {
 		timing@0 {
+			qcom,partial-update-enabled = "single_roi";
 			qcom,panel-roi-alignment = <720 40 720 40 1440 40>;
 		};
 
 		timing@1 {
+			qcom,partial-update-enabled = "single_roi";
 			qcom,panel-roi-alignment = <720 40 720 40 1440 40>;
 		};
 
 		timing@2 {
+			qcom,partial-update-enabled = "single_roi";
 			qcom,panel-roi-alignment = <720 40 720 40 1440 40>;
 		};
 	};
@@ -159,22 +171,27 @@
 &dsi_nt37801_amoled_fhd_plus_cmd {
 	qcom,mdss-dsi-display-timings {
 		timing@0 {
+			qcom,partial-update-enabled = "single_roi";
 			qcom,panel-roi-alignment = <540 40 540 40 1080 40>;
 		};
 
 		timing@1 {
+			qcom,partial-update-enabled = "single_roi";
 			qcom,panel-roi-alignment = <540 40 540 40 1080 40>;
 		};
 
 		timing@2 {
+			qcom,partial-update-enabled = "single_roi";
 			qcom,panel-roi-alignment = <540 40 540 40 1080 40>;
 		};
 
 		timing@3 {
+			qcom,partial-update-enabled = "single_roi";
 			qcom,panel-roi-alignment = <540 40 540 40 1080 40>;
 		};
 
 		timing@4 {
+			qcom,partial-update-enabled = "single_roi";
 			qcom,panel-roi-alignment = <540 40 540 40 1080 40>;
 		};
 	};
@@ -183,6 +200,7 @@
 &dsi_nt37801_amoled_cmd_spr {
 	qcom,mdss-dsi-display-timings {
 		timing@0 {
+			qcom,partial-update-enabled = "single_roi";
 			qcom,panel-roi-alignment = <720 40 720 40 1440 40>;
 		};
 	};
@@ -191,14 +209,17 @@
 &dsi_nt37801_amoled_cmd_cphy_spr {
 	qcom,mdss-dsi-display-timings {
 		timing@0 {
+			qcom,partial-update-enabled = "single_roi";
 			qcom,panel-roi-alignment = <720 40 720 40 1440 40>;
 		};
 
 		timing@1 {
+			qcom,partial-update-enabled = "single_roi";
 			qcom,panel-roi-alignment = <720 40 720 40 1440 40>;
 		};
 
 		timing@2 {
+			qcom,partial-update-enabled = "single_roi";
 			qcom,panel-roi-alignment = <720 40 720 40 1440 40>;
 		};
 	};
@@ -208,14 +229,17 @@
 	qcom,ulps-enabled;
 	qcom,mdss-dsi-display-timings {
 		timing@0 { /* WQHD 60FPS cmd vid mode*/
+			qcom,partial-update-enabled = "single_roi";
 			qcom,panel-roi-alignment = <720 40 720 40 720 40>;
 		};
 
 		timing@2 { /* FHD 60FPS cmd mode*/
+			qcom,partial-update-enabled = "single_roi";
 			qcom,panel-roi-alignment = <540 20 540 20 540 20>;
 		};
 
 		timing@3 { /* HD 60FPS cmd mode*/
+			qcom,partial-update-enabled = "single_roi";
 			qcom,panel-roi-alignment = <360 40 360 40 360 40>;
 		};
 	};
@@ -241,6 +265,7 @@
 	qcom,ulps-enabled;
 	qcom,mdss-dsi-display-timings {
 		timing@0 {
+			qcom,partial-update-enabled = "single_roi";
 			qcom,panel-roi-alignment = <720 40 720 40 720 40>;
 		};
 	};
