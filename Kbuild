@@ -147,7 +147,9 @@ dtbo-$(CONFIG_ARCH_KERA) += display/kera-sde.dtbo \
 		display/kera-sde-display-rumi-overlay.dtbo \
 		display/kera-sde-display-rcm-overlay.dtbo \
 		display/kera-sde-display-iot-cdp-overlay.dtbo \
-		display/kera-sde-display-rcm-no-display-overlay.dtbo
+		display/kera-sde-display-rcm-no-display-overlay.dtbo \
+		display/kera-sde-display-iot-evk-overlay.dtbo \
+		display/kera-sde-display-iot-eitp-overlay.dtbo
 else
 dtbo-$(CONFIG_ARCH_KERA) += display/trustedvm-kera-sde-display-atp-overlay.dtbo \
 		display/trustedvm-kera-sde-display-cdp-overlay.dtbo \
