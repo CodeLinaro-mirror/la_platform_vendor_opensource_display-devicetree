@@ -1,0 +1,67 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
+/dts-v1/;
+/plugin/;
+
+#include "nordy-sde-hwvirt.dtsi"
+
+/ {
+	model = "Qualcomm Technologies, Inc. SA8797 Single LV Guest Virtual Machine";
+	compatible = "qcom,sa8797p-adp-star", "qcom,sa8797p-adp", "qcom,sa8797p", "qcom,qam";
+	qcom,msm-id = <690 0x10000>, <690 0x20000>, <690 0x10001>;
+	qcom,board-id = <0x10025 0x0>, <0x01010025 0x1>;
+};
+
+/*
+ * Override nordy-sde-hwvirt.dtsi for LVGVM:
+ * - use guest-specific virtio kms client ids
+ * - remove secure SMMU context banks/connectors not supported by LVGVM
+ * - update non-secure SMMU SID assignments
+ */
+&virtio_kms1 {
+	compatible = "qcom,virtio-kms";
+	qcom,client-id = "7816";
+	qcom,client-hab-id = "1";
+};
+
+&smmu_sde_iommu_region_partition {
+	iommu-addresses = <&smmu_sde_unsec 0x7ffe0000 0x80020000>,
+			  <&smmu_sde_unsec 0x0 0x00020000>,
+			  <&smmu_sde_unsec1 0x7ffe0000 0x80020000>,
+			  <&smmu_sde_unsec1 0x0 0x00020000>;
+};
+
+&smmu_sde_unsec {
+	iommus = <&apps_smmu_1 0x03E8 0x0002>,
+		 <&apps_smmu_1 0x03EA 0x0002>;
+};
+
+&smmu_sde_unsec1 {
+	iommus = <&apps_smmu_1 0x0408 0x0002>,
+		 <&apps_smmu_1 0x040A 0x0002>;
+};
+
+&smmu_sde_sec {
+	status = "disabled";
+};
+
+&smmu_sde_sec1 {
+	status = "disabled";
+};
+
+&mdss_mdp {
+	connectors = <&smmu_sde_unsec>;
+	/delete-property/ qcom,sde-dspp-spr-off;
+	/delete-property/ qcom,sde-dspp-spr-size;
+	/delete-property/ qcom,sde-dspp-spr-version;
+};
+
+&mdss_mdp1 {
+	connectors = <&smmu_sde_unsec1>;
+	/delete-property/ qcom,sde-dspp-spr-off;
+	/delete-property/ qcom,sde-dspp-spr-size;
+	/delete-property/ qcom,sde-dspp-spr-version;
+};
