@@ -3,6 +3,8 @@
  * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
  */
 #include <dt-bindings/arm/msm/qti-smmu-proxy-dt-ids.h>
+#include <dt-bindings/clock/qcom,art-gcc.h>
+#include <dt-bindings/clock/qcom,art-tcsrcc.h>
 #include "art-sde-common.dtsi"
 
 &soc {
@@ -35,6 +37,22 @@
 		ext_disp_audio_codec: qcom,msm-ext-disp-audio-codec-rx {
 			compatible = "qcom,msm-ext-disp-audio-codec-rx";
 		};
+	};
+
+	sde_dp: qcom,dp_display {
+		compatible = "qcom,dp-display";
+		status = "ok";
+
+		qcom,mdp = <&mdss_mdp>;
+
+		clocks = <&tcsrcc TCSR_USB3_CLKREF_EN>,
+			<&gcc GCC_USB3_PRIM_PHY_PIPE_CLK>;
+		clock-names = "usb3_tcsr_clk", "usb3_pipe_clk";
+		power-domains = <&gcc GCC_USB3_PHY_GDSC>;
+		qcom,altmode-dev = <&altmode 0>;
+		qcom,dp-aux-switch = <&wcd_usbss>;
+		qcom,ext-disp = <&ext_disp>;
+		usb-controller = <&usb0>;
 	};
 };
 
