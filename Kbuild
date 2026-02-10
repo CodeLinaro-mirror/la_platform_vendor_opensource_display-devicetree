@@ -12,7 +12,11 @@ dtbo-$(CONFIG_ARCH_ART) += display/art-sde.dtbo \
 		display/art-sde-display-rcm-fig-overlay.dtbo \
 		display/art-sde-display-rcm-peach-sn300u-overlay.dtbo \
 		display/art-sde-display-qrd-sku1-overlay.dtbo \
-		display/art-sde-display-qrd-sku2-overlay.dtbo
+		display/art-sde-display-qrd-sku2-overlay.dtbo \
+		display/artl-sde.dtbo \
+		display/artl-sde-display-mtp-overlay.dtbo \
+		display/artl-sde-display-qrd-sku1-overlay.dtbo \
+		display/artl-sde-display-qrd-sku2-overlay.dtbo
 else
 dtbo-$(CONFIG_ARCH_ART) +=  display/trustedvm-art-sde-display-omtp-overlay.dtbo \
 			display/trustedvm-art-sde-display-mtp-overlay.dtbo
