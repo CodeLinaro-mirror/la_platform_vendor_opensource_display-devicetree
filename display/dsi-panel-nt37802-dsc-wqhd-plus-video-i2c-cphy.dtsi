@@ -33,6 +33,21 @@
 		qcom,mdss-dsi-panel-dimming-enabled;
 		qcom,bl-update-flag = "delay_until_first_frame";
 		qcom,panel-cphy-mode;
+		qcom,spr-pack-type = "pentile";
+		/*
+		 * ###############################################################
+		 * # Pentile SPR phases for SM8750 and later
+		 * ###############################################################
+		 * # RG/BG Type A    BG/RG Type A    GR/GB Type A    GB/GR Type A
+		 * # R B R B ...     B R B R ...      R B R B ...     B R B R ...
+		 * #  G G G G ...     G G G G ...    G G G G ...     G G G G ...
+		 * #
+		 * # RG/BG Type B    BG/RG Type B    GR/GB Type B    GB/GR Type B
+		 * #  G G G G ...     G G G G ...    G G G G ...     G G G G ...
+		 * # R B R B ...     B R B R ...      R B R B ...     B R B R ...
+		 * ###############################################################
+		 */
+		qcom,spr-pentile-pack-type = "BG-RG Type B";
 
 		qcom_mdss_dsi_display_timings_356: qcom,mdss-dsi-display-timings {
 			timing_0_357: timing@0 {

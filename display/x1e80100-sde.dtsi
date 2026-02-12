@@ -174,6 +174,328 @@
 		};
 	};
 
+	sde_dp_pll: qcom,dp_pll@00fd5000 {
+		status = "disabled";
+		compatible = "qcom,dp-pll-4nm-v1.2";
+		label = "dp0";
+		#clock-cells = <1>;
+	};
+
+	sde_dp: qcom,dp_display@0ae90000 {
+		status = "disabled";
+		cell-index = <0>;
+		compatible = "qcom,dp-display";
+		label = "drm_dp0";
+
+		usb-phy = <&usb3_phy_0>;
+		qcom,ext-disp = <&ext_disp>;
+		usb-controller = <&usb0>;
+		qcom,altmode-dev = <&altmode 0>;
+		qcom,dp-aux-switch  = <&sde_dp>;
+
+		reg =   <0x0 0x0ae90000 0x0 0x10c>,
+			<0x0 0x0ae90200 0x0 0x0c8>,
+			<0x0 0x0ae90400 0x0 0xb78>,
+			<0x0 0x0ae91000 0x0 0x0a0>,
+			<0x0 0x00fd7200 0x0 0x200>,
+			<0x0 0x00fd5400 0x0 0x200>,
+			<0x0 0x00fd5a00 0x0 0x200>,
+			<0x0 0x00fd7000 0x0 0x200>,
+			<0x0 0x00fd5000 0x0 0x020>,
+			<0x0 0x0aee1000 0x0 0x034>,
+			<0x0 0x0ae91400 0x0 0x0a0>,
+			<0x0 0xaf09000 0x0 0x014>;
+		reg-names = "dp_ahb", "dp_aux", "dp_link",
+			"dp_p0", "dp_phy", "dp_ln_tx0", "dp_ln_tx1",
+			"dp_pll", "usb3_dp_com", "hdcp_physical",
+			"dp_p1", "gdsc";
+
+		interrupt-parent = <&mdss_mdp>;
+		interrupts = <12 0>;
+
+		#clock-cells = <1>;
+		clocks =  <&dispcc DISP_CC_MDSS_DPTX0_AUX_CLK>,
+			<&rpmhcc RPMH_CXO_CLK>,
+			<&tcsrcc TCSR_USB4_1_CLKREF_EN>,
+			<&gcc GCC_USB3_PRIM_PHY_PIPE_CLK>,
+			<&dispcc DISP_CC_MDSS_DPTX0_LINK_CLK>,
+			<&dispcc DISP_CC_MDSS_DPTX0_LINK_CLK_SRC>,
+			<&sde_dp_pll 0>,
+			<&dispcc DISP_CC_MDSS_DPTX0_LINK_INTF_CLK>,
+			<&dispcc DISP_CC_MDSS_DPTX0_PIXEL0_CLK_SRC>,
+			<&sde_dp_pll 1>,
+			<&dispcc DISP_CC_MDSS_DPTX0_PIXEL1_CLK_SRC>,
+			<&dispcc DISP_CC_MDSS_DPTX0_PIXEL0_CLK>,
+			<&dispcc DISP_CC_MDSS_DPTX0_PIXEL1_CLK>;
+		clock-names = "core_aux_clk", "rpmh_cxo_clk", "core_usb_ref_clk_src",
+			"core_usb_pipe_clk", "link_clk", "link_clk_src", "link_parent",
+			"link_iface_clk", "pixel_clk_rcg", "pixel_parent",
+			"pixel1_clk_rcg", "strm0_pixel_clk", "strm1_pixel_clk";
+
+		qcom,dp-pll = <&sde_dp_pll>;
+		qcom,phy-version = <0x600>;
+		qcom,phy-revision = "v2";
+		qcom,aux-cfg0-settings = [20 00];
+		qcom,aux-cfg1-settings = [24 13];
+		qcom,aux-cfg2-settings = [28 A4];
+		qcom,aux-cfg3-settings = [2c 00];
+		qcom,aux-cfg4-settings = [30 0a];
+		qcom,aux-cfg5-settings = [34 26];
+		qcom,aux-cfg6-settings = [38 0a];
+		qcom,aux-cfg7-settings = [3c 03];
+		qcom,aux-cfg8-settings = [40 b7];
+		qcom,aux-cfg9-settings = [44 03];
+
+		qcom,max-pclk-frequency-khz = <675000>;
+
+		qcom,widebus-enable;
+		qcom,4ppc-enable;
+		qcom,dsc-feature-enable;
+		qcom,fec-feature-enable;
+		qcom,dsc-continuous-pps;
+
+		qcom,qos-cpu-mask = <0xf>;
+		qcom,qos-cpu-latency-us = <300>;
+
+		vdda-1p2-supply = <&L2J>;
+		vdda-0p9-supply = <&L3J>;
+		vdda_usb-0p9-supply = <&L1J>;
+		vdd_mx-supply = <&VDD_MXA_LEVEL>;
+		power-domains = <&gcc GCC_USB_0_PHY_GDSC>;
+
+		qcom,hbr-rbr-voltage-swing = <0x07 0x0f 0x16 0x1f>,
+					<0x11 0x1e 0x1f 0xff>,
+					<0x16 0x1f 0xff 0xff>,
+					<0x1f 0xff 0xff 0xff>;
+		qcom,hbr-rbr-pre-emphasis = <0x00 0x0d 0x14 0x1a>,
+					<0x00 0x0e 0x15 0xff>,
+					<0x00 0x0e 0xff 0xff>,
+					<0x02 0xff 0xff 0xff>;
+
+		qcom,hbr2-3-voltage-swing = <0x02 0x12 0x16 0x1a>,
+					<0x09 0x19 0x1f 0xff>,
+					<0x10 0x1f 0xff 0xff>,
+					<0x1f 0xff 0xff 0xff>;
+		qcom,hbr2-3-pre-emphasis = <0x00 0x0c 0x15 0x1b>,
+					<0x02 0x0e 0x16 0xff>,
+					<0x02 0x11 0xff 0xff>,
+					<0x04 0xff 0xff 0xff>;
+
+		qcom,ctrl-supply-entries {
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			qcom,ctrl-supply-entry@0 {
+				reg = <0>;
+				qcom,supply-name = "vdda-1p2";
+				qcom,supply-min-voltage = <1256000>;
+				qcom,supply-max-voltage = <1256000>;
+				qcom,supply-enable-load = <30030>;
+				qcom,supply-disable-load = <0>;
+			};
+		};
+
+		qcom,phy-supply-entries {
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			qcom,phy-supply-entry@0 {
+				reg = <0>;
+				qcom,supply-name = "vdda-0p9";
+				qcom,supply-min-voltage = <880000>;
+				qcom,supply-max-voltage = <920000>;
+				qcom,supply-enable-load = <119170>;
+				qcom,supply-disable-load = <0>;
+			};
+
+			qcom,phy-supply-entry@1 {
+				reg = <1>;
+				qcom,supply-name = "vdda_usb-0p9";
+				qcom,supply-min-voltage = <912000>;
+				qcom,supply-max-voltage = <920000>;
+				qcom,supply-enable-load = <2940>;
+				qcom,supply-disable-load = <0>;
+			};
+		};
+
+		qcom,pll-supply-entries {
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			qcom,pll-supply-entry@0 {
+				reg = <0>;
+				qcom,supply-name = "vdd_mx";
+				qcom,supply-min-voltage =
+						<RPMH_REGULATOR_LEVEL_TURBO>;
+				qcom,supply-max-voltage =
+						<RPMH_REGULATOR_LEVEL_MAX>;
+				qcom,supply-enable-load = <0>;
+				qcom,supply-disable-load = <0>;
+			};
+		};
+	};
+
+	sde_dp1_pll: qcom,dp_pll@00fda000 {
+		status = "disabled";
+		compatible = "qcom,dp-pll-4nm-v1.2";
+		label = "dp1";
+		#clock-cells = <1>;
+	};
+
+	sde_dp1: qcom,dp_display@0ae98000 {
+		status = "disabled";
+		cell-index = <1>;
+		qcom,intf-index = <2>;
+		compatible = "qcom,dp-display";
+		label = "drm_dp1";
+
+		usb-phy = <&usb3_phy_1>;
+		qcom,ext-disp = <&ext_disp>;
+		usb-controller = <&usb1>;
+		qcom,altmode-dev = <&altmode 1>;
+		qcom,dp-aux-switch  = <&sde_dp1>;
+
+		reg =   <0x0 0x0ae98000 0x0 0x10c>,
+			<0x0 0x0ae98200 0x0 0x0c8>,
+			<0x0 0x0ae98400 0x0 0xb78>,
+			<0x0 0x0ae99000 0x0 0x0a0>,
+			<0x0 0x00fdc200 0x0 0x200>,
+			<0x0 0x00fda400 0x0 0x200>,
+			<0x0 0x00fdaa00 0x0 0x200>,
+			<0x0 0x00fdc000 0x0 0x200>,
+			<0x0 0x00fda000 0x0 0x020>,
+			<0x0 0x0aee2000 0x0 0x034>,
+			<0x0 0x0ae99400 0x0 0x0a0>,
+			<0x0 0xaf09000 0x0 0x014>;
+		reg-names = "dp_ahb", "dp_aux", "dp_link",
+			"dp_p0", "dp_phy", "dp_ln_tx0", "dp_ln_tx1",
+			"dp_pll", "usb3_dp_com", "hdcp_physical",
+			"dp_p1", "gdsc";
+
+		interrupt-parent = <&mdss_mdp>;
+		interrupts = <13 0>;
+
+		#clock-cells = <1>;
+		clocks =  <&dispcc DISP_CC_MDSS_DPTX1_AUX_CLK>,
+			<&rpmhcc RPMH_CXO_CLK>,
+			<&tcsrcc TCSR_USB4_2_CLKREF_EN>,
+			<&gcc GCC_USB3_SEC_PHY_PIPE_CLK>,
+			<&dispcc DISP_CC_MDSS_DPTX1_LINK_CLK>,
+			<&dispcc DISP_CC_MDSS_DPTX1_LINK_CLK_SRC>,
+			<&sde_dp1_pll 0>,
+			<&dispcc DISP_CC_MDSS_DPTX1_LINK_INTF_CLK>,
+			<&dispcc DISP_CC_MDSS_DPTX1_PIXEL0_CLK_SRC>,
+			<&sde_dp1_pll 1>,
+			<&dispcc DISP_CC_MDSS_DPTX1_PIXEL1_CLK_SRC>,
+			<&dispcc DISP_CC_MDSS_DPTX1_PIXEL0_CLK>,
+			<&dispcc DISP_CC_MDSS_DPTX1_PIXEL1_CLK>;
+		clock-names = "core_aux_clk", "rpmh_cxo_clk", "core_usb_ref_clk_src",
+			"core_usb_pipe_clk", "link_clk", "link_clk_src", "link_parent",
+			"link_iface_clk", "pixel_clk_rcg", "pixel_parent",
+			"pixel1_clk_rcg", "strm0_pixel_clk", "strm1_pixel_clk";
+
+		qcom,dp-pll = <&sde_dp1_pll>;
+		qcom,phy-version = <0x600>;
+		qcom,phy-revision = "v2";
+		qcom,aux-cfg0-settings = [20 00];
+		qcom,aux-cfg1-settings = [24 13];
+		qcom,aux-cfg2-settings = [28 A4];
+		qcom,aux-cfg3-settings = [2c 00];
+		qcom,aux-cfg4-settings = [30 0a];
+		qcom,aux-cfg5-settings = [34 26];
+		qcom,aux-cfg6-settings = [38 0a];
+		qcom,aux-cfg7-settings = [3c 03];
+		qcom,aux-cfg8-settings = [40 b7];
+		qcom,aux-cfg9-settings = [44 03];
+
+		qcom,max-pclk-frequency-khz = <675000>;
+
+		qcom,widebus-enable;
+		qcom,4ppc-enable;
+		qcom,dsc-feature-enable;
+		qcom,fec-feature-enable;
+		qcom,dsc-continuous-pps;
+
+		qcom,qos-cpu-mask = <0xf>;
+		qcom,qos-cpu-latency-us = <300>;
+
+		vdda-1p2-supply = <&L2J>;
+		vdda-0p9-supply = <&L3J>;
+		vdda_usb-0p9-supply = <&L2D>;
+		vdd_mx-supply = <&VDD_MXA_LEVEL>;
+
+		qcom,hbr-rbr-voltage-swing = <0x07 0x0f 0x16 0x1f>,
+					<0x11 0x1e 0x1f 0xff>,
+					<0x16 0x1f 0xff 0xff>,
+					<0x1f 0xff 0xff 0xff>;
+		qcom,hbr-rbr-pre-emphasis = <0x00 0x0d 0x14 0x1a>,
+					<0x00 0x0e 0x15 0xff>,
+					<0x00 0x0e 0xff 0xff>,
+					<0x02 0xff 0xff 0xff>;
+
+		qcom,hbr2-3-voltage-swing = <0x02 0x12 0x16 0x1a>,
+					<0x09 0x19 0x1f 0xff>,
+					<0x10 0x1f 0xff 0xff>,
+					<0x1f 0xff 0xff 0xff>;
+		qcom,hbr2-3-pre-emphasis = <0x00 0x0c 0x15 0x1b>,
+					<0x02 0x0e 0x16 0xff>,
+					<0x02 0x11 0xff 0xff>,
+					<0x04 0xff 0xff 0xff>;
+
+		qcom,ctrl-supply-entries {
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			qcom,ctrl-supply-entry@0 {
+				reg = <0>;
+				qcom,supply-name = "vdda-1p2";
+				qcom,supply-min-voltage = <1256000>;
+				qcom,supply-max-voltage = <1256000>;
+				qcom,supply-enable-load = <30030>;
+				qcom,supply-disable-load = <0>;
+			};
+		};
+
+		qcom,phy-supply-entries {
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			qcom,phy-supply-entry@0 {
+				reg = <0>;
+				qcom,supply-name = "vdda-0p9";
+				qcom,supply-min-voltage = <880000>;
+				qcom,supply-max-voltage = <920000>;
+				qcom,supply-enable-load = <119170>;
+				qcom,supply-disable-load = <0>;
+			};
+
+			qcom,phy-supply-entry@1 {
+				reg = <1>;
+				qcom,supply-name = "vdda_usb-0p9";
+				qcom,supply-min-voltage = <912000>;
+				qcom,supply-max-voltage = <920000>;
+				qcom,supply-enable-load = <2940>;
+				qcom,supply-disable-load = <0>;
+			};
+		};
+
+		qcom,pll-supply-entries {
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			qcom,pll-supply-entry@0 {
+				reg = <0>;
+				qcom,supply-name = "vdd_mx";
+				qcom,supply-min-voltage =
+						<RPMH_REGULATOR_LEVEL_TURBO>;
+				qcom,supply-max-voltage =
+						<RPMH_REGULATOR_LEVEL_MAX>;
+				qcom,supply-enable-load = <0>;
+				qcom,supply-disable-load = <0>;
+			};
+		};
+	};
+
 	sde_rscc: qcom,sde_rscc@af20000 {
 		status = "disabled";
 		cell-index = <0>;

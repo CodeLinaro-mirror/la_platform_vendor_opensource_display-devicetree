@@ -51,8 +51,6 @@
 #include "dsi-panel-rdp370f-rgb-video.dtsi"
 #include "dsi-panel-ext-bridge-1080p.dtsi"
 #include "art-sde-display-pinctrl-common.dtsi"
-#include <dt-bindings/clock/qcom,art-gcc.h>
-#include <dt-bindings/clock/qcom,art-tcsrcc.h>
 
 &soc {
 	dsi_panel_pwr_supply_sim: dsi_panel_pwr_supply_sim {
@@ -156,7 +154,7 @@
 		#address-cells = <1>;
 		#size-cells = <0>;
 
-		qcom,panel-supply-entry@0 {
+		qcom_panel_supply_entry_0_1: qcom,panel-supply-entry@0 {
 			reg = <0>;
 			qcom,supply-name = "vddio";
 			qcom,supply-min-voltage = <1800000>;
@@ -166,7 +164,7 @@
 			qcom,supply-post-on-sleep = <20>;
 		};
 
-		qcom,panel-supply-entry@1 {
+		qcom_panel_supply_entry_1_2: qcom,panel-supply-entry@1 {
 			reg = <1>;
 			qcom,supply-name = "vdd";
 			qcom,supply-min-voltage = <1100000>;
@@ -176,7 +174,7 @@
 			qcom,supply-post-on-sleep = <0>;
 		};
 
-		qcom,panel-supply-entry@2 {
+		qcom_panel_supply_entry_2_3: qcom,panel-supply-entry@2 {
 			reg = <2>;
 			qcom,supply-name = "vci";
 			qcom,supply-min-voltage = <3000000>;
@@ -186,7 +184,7 @@
 			qcom,supply-post-on-sleep = <0>;
 		};
 
-		qcom,panel-supply-entry@3 {
+		qcom_panel_supply_entry_3_4: qcom,panel-supply-entry@3 {
 			reg = <3>;
 			qcom,supply-name = "exvdd";
 			qcom,supply-min-voltage = <1060000>;
@@ -262,22 +260,6 @@
 
 		qcom,mdp = <&mdss_mdp>;
 		qcom,demura-panel-id = <0x0 0x0>;
-	};
-
-	sde_dp: qcom,dp_display0 {
-		compatible = "qcom,dp-display";
-		status = "ok";
-
-		qcom,mdp = <&mdss_mdp>;
-
-		clocks = <&tcsrcc TCSR_USB3_CLKREF_EN>,
-		        <&gcc GCC_USB3_PRIM_PHY_PIPE_CLK>;
-		clock-names = "usb3_tcsr_clk", "usb3_pipe_clk";
-		power-domains = <&gcc GCC_USB3_PHY_GDSC>;
-		qcom,altmode-dev = <&altmode 0>;
-		qcom,dp-aux-switch = <&wcd_usbss>;
-		qcom,ext-disp = <&ext_disp>;
-		usb-controller = <&usb0>;
 	};
 };
 
@@ -392,6 +374,9 @@
 &dsi_vtdr6130_amoled_video {
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
 	qcom,dsi-select-sec-clocks = "pll_byte_clk1", "pll_dsi_clk1";
+	qcom,dsi-supported-dfps-list = <144 120 90 60>;
+	qcom,mdss-dsi-pan-enable-dynamic-fps;
+	qcom,mdss-dsi-pan-fps-update = "dfps_immediate_porch_mode_vfp";
 
 	qcom,dsi-dyn-clk-enable;
 	qcom,dsi-dyn-clk-type = "constant-fps-adjust-hfp";
@@ -454,6 +439,9 @@
 
 &dsi_vtdr6130_amoled_120hz_video {
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
+	qcom,dsi-supported-dfps-list = <120 90 60>;
+	qcom,mdss-dsi-pan-enable-dynamic-fps;
+	qcom,mdss-dsi-pan-fps-update = "dfps_immediate_porch_mode_vfp";
 
 	qcom,esd-check-enabled;
 	qcom,mdss-dsi-panel-status-check-mode = "reg_read";
@@ -654,6 +642,9 @@
 
 &dsi_nt37801_amoled_video_cphy {
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
+	qcom,dsi-supported-dfps-list = <120 110 100 90 80>;
+	qcom,mdss-dsi-pan-enable-dynamic-fps;
+	qcom,mdss-dsi-pan-fps-update = "dfps_immediate_porch_mode_vfp";
 
 	qcom,esd-check-enabled;
 	qcom,mdss-dsi-panel-status-check-mode = "reg_read";
@@ -708,6 +699,9 @@
 &dsi_nt37801_amoled_video {
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
 	qcom,dsi-select-sec-clocks = "pll_byte_clk1", "pll_dsi_clk1";
+	qcom,dsi-supported-dfps-list = <120 110 100 90 80>;
+	qcom,mdss-dsi-pan-enable-dynamic-fps;
+	qcom,mdss-dsi-pan-fps-update = "dfps_immediate_porch_mode_vfp";
 
 	qcom,esd-check-enabled;
 	qcom,mdss-dsi-panel-status-check-mode = "reg_read";
@@ -748,6 +742,9 @@
 
 &dsi_nt37801_amoled_dsc_10b_video {
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
+	qcom,dsi-supported-dfps-list = <120 110 100 90 80>;
+	qcom,mdss-dsi-pan-enable-dynamic-fps;
+	qcom,mdss-dsi-pan-fps-update = "dfps_immediate_porch_mode_vfp";
 
 	qcom,esd-check-enabled;
 	qcom,mdss-dsi-panel-status-check-mode = "reg_read";
@@ -841,6 +838,9 @@
 
 &dsi_nt37801_amoled_video_cphy_spr {
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
+	qcom,dsi-supported-dfps-list = <120 110 100 90 80>;
+	qcom,mdss-dsi-pan-enable-dynamic-fps;
+	qcom,mdss-dsi-pan-fps-update = "dfps_immediate_porch_mode_vfp";
 
 	qcom,esd-check-enabled;
 	qcom,mdss-dsi-panel-status-check-mode = "reg_read";
@@ -1349,6 +1349,9 @@
 
 &dsi_sim_vid {
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
+	qcom,dsi-supported-dfps-list = <144 120 90 60 30 10 1>;
+	qcom,mdss-dsi-pan-enable-dynamic-fps;
+	qcom,mdss-dsi-pan-fps-update = "dfps_immediate_porch_mode_vfp";
 
 	qcom,qsync-enable;
 	qcom,dsi-supported-qsync-min-fps-list = <1 1 1 1 1 1 1>;

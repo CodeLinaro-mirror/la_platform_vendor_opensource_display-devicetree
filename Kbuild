@@ -12,7 +12,17 @@ dtbo-$(CONFIG_ARCH_ART) += display/art-sde.dtbo \
 		display/art-sde-display-rcm-fig-overlay.dtbo \
 		display/art-sde-display-rcm-peach-sn300u-overlay.dtbo \
 		display/art-sde-display-qrd-sku1-overlay.dtbo \
-		display/art-sde-display-qrd-sku2-overlay.dtbo
+		display/art-sde-display-qrd-sku2-overlay.dtbo \
+		display/artl-sde.dtbo \
+		display/artl-sde-display-mtp-overlay.dtbo \
+		display/artl-sde-display-qrd-sku1-overlay.dtbo \
+		display/artl-sde-display-qrd-sku2-overlay.dtbo \
+		display/arth-sde.dtbo \
+		display/arth-sde-display-cdp-overlay.dtbo \
+		display/arth-sde-display-mtp-overlay.dtbo
+else
+dtbo-$(CONFIG_ARCH_ART) +=  display/trustedvm-art-sde-display-omtp-overlay.dtbo \
+			display/trustedvm-art-sde-display-mtp-overlay.dtbo
 endif
 
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
@@ -144,7 +154,9 @@ dtbo-$(CONFIG_ARCH_KERA) += display/kera-sde.dtbo \
 		display/kera-sde-display-rumi-overlay.dtbo \
 		display/kera-sde-display-rcm-overlay.dtbo \
 		display/kera-sde-display-iot-cdp-overlay.dtbo \
-		display/kera-sde-display-rcm-no-display-overlay.dtbo
+		display/kera-sde-display-rcm-no-display-overlay.dtbo \
+		display/kera-sde-display-iot-evk-overlay.dtbo \
+		display/kera-sde-display-iot-eitp-overlay.dtbo
 else
 dtbo-$(CONFIG_ARCH_KERA) += display/trustedvm-kera-sde-display-atp-overlay.dtbo \
 		display/trustedvm-kera-sde-display-cdp-overlay.dtbo \

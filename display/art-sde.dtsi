@@ -3,12 +3,14 @@
  * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
  */
 #include <dt-bindings/arm/msm/qti-smmu-proxy-dt-ids.h>
+#include <dt-bindings/clock/qcom,art-gcc.h>
+#include <dt-bindings/clock/qcom,art-tcsrcc.h>
 #include "art-sde-common.dtsi"
 
 &soc {
 	smmu_sde_iommu_region_partition: smmu_sde_iommu_region_partition {
 		iommu-addresses = <&smmu_sde_unsec 0x0 0x0 0x0 0x00020000>,
-				  <&smmu_sde_unsec 0x0 0xfc800000  0x0 0x02b00000>,
+				  <&smmu_sde_unsec 0x0 0xf8c7a000  0x0 0x02ae2000>,
 				  <&smmu_sde_sec 0x0 0x0 0x0 0x00020000>;
 	};
 
@@ -36,10 +38,37 @@
 			compatible = "qcom,msm-ext-disp-audio-codec-rx";
 		};
 	};
+
+	sde_dp: qcom,dp_display {
+		compatible = "qcom,dp-display";
+		status = "ok";
+
+		qcom,mdp = <&mdss_mdp>;
+
+		clocks = <&tcsrcc TCSR_USB3_CLKREF_EN>,
+			<&gcc GCC_USB3_PRIM_PHY_PIPE_CLK>;
+		clock-names = "usb3_tcsr_clk", "usb3_pipe_clk";
+		power-domains = <&gcc GCC_USB3_PHY_GDSC>;
+		qcom,altmode-dev = <&altmode 0>;
+		qcom,dp-aux-switch = <&wcd_usbss>;
+		qcom,ext-disp = <&ext_disp>;
+		usb-controller = <&usb0>;
+	};
 };
 
 &mdss_mdp {
+	qti,smmu-proxy-cb-id = <QTI_SMMU_PROXY_DISPLAY_CB>;
 	qcom,sde-dspp-ltm-version = <0x00010004>;
 	/* offsets are based off dspp 0, 1, 2, and 3 */
 	qcom,sde-dspp-ltm-off = <0x3300 0x3300 0x3300 0x3300>;
+	qcom,hw-fence-sw-version = <0x1>;
+
+	nvmem-cells = <&ssip_config>;
+	nvmem-cell-names = "ssip_config";
+};
+
+&mdss_mdp {
+	qcom,sde-vm-exclude-reg-names = "mdp_phys", "vbif_phys",
+					"regdma_phys", "ipcc_reg",
+					"swfuse_phys";
 };
