@@ -137,8 +137,8 @@ dtbo-$(CONFIG_ARCH_MALABAR) += display/malabar-sde.dtbo \
 else
 dtbo-$(CONFIG_ARCH_MALABAR) += display/trustedvm-malabar-sde-display-atp-overlay.dtbo \
 		display/trustedvm-malabar-sde-display-cdp-overlay.dtbo \
-		display/trustedvm-malabar-sde-display-cdp-lcd-overlay.dtbo \
 		display/trustedvm-malabar-sde-display-mtp-overlay.dtbo \
+		display/trustedvm-malabar-sde-display-mtp-cottid-nd-overlay.dtbo \
 		display/trustedvm-malabar-sde-display-qrd-overlay.dtbo \
 		display/trustedvm-malabar-sde-display-rcm-overlay.dtbo
 endif
