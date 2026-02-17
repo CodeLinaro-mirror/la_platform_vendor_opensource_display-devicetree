@@ -18,6 +18,7 @@
 		iommu-addresses = <&smmu_sde_unsec 0x0 0x4b000000>,
 				<&smmu_sde_unsec 0x70000000 0x1000>,
 				<&smmu_sde_unsec 0xdb000000 0x25000000>,
+				<&smmu_sde_unsec 0xb8000000 0x09600000>,
 				<&lsr_non_secure_cb 0x0 0x4b000000>,
 				<&lsr_non_secure_cb 0x70000000 0x1000>,
 				<&lsr_non_secure_cb 0xdb000000 0x25000000>,
@@ -29,6 +30,7 @@
 	non_secure_sde_lsr_cb_group: cvp_non_secure_sde_lsr_cb_group {
 			qcom,iommu-faults = "non-fatal";
 			dma-coherent;
+			qcom,iommu-earlymap; /* for cont-splash */
 	};
 
 	smmu_sde_unsec: qcom,smmu_sde_unsec_cb {
@@ -37,7 +39,6 @@
 		memory-region = <&smmu_sde_lsr_iommu_region_partition>;
 		qcom,iommu-faults = "non-fatal";
 		qcom,iommu-group = <&non_secure_sde_lsr_cb_group>;
-		qcom,iommu-earlymap; /* for cont-splash */
 		dma-coherent;
 	};
 
@@ -65,6 +66,8 @@
 		framework_type = <0x1>;
 		power-domains = <&lsrcc LSR_CC_LSR_NOC_GDSC>, <&lsrcc LSR_CC_MVS0_GDSC>,
 				<&lsrcc LSR_CC_MVS0C_GDSC>;
+		power-domain-names = "lsr_noc_gdsc", "lsr_mvs0_gdsc", "lsr_mvs0c_gdsc";
+		gdsc_has_hw_pc = <0x1 0x1 0x1>;
 		/* Clocks */
 		clock-names = "lsr_axi_clock", "core_axi_clock", "sleep_clk", "lsr_freerun_clk",
 				"core_freerun_clk", "lsr_clk", "core_clk", "lsr_cc_mvs0_clk_src";
@@ -130,9 +133,25 @@
 		lsr_bus_ddr {
 			compatible = "qcom,msm-lsr,bus";
 			qcom,bus-governor = "performance";
-			qcom,bus-range-kbps = <1000 6533000>;
-			interconnects = <&mmss_noc MASTER_LSR_0 &mc_virt SLAVE_EBI1>;
+			qcom,bus-range-kbps = <1000 8400000>;
+			interconnects = <&mc_virt MASTER_LLCC &mc_virt SLAVE_EBI1>;
 			interconnect-names = "lsr-ddr";
+		};
+
+		lsr_bus_llcc0 {
+			compatible = "qcom,msm-lsr,bus";
+			qcom,bus-governor = "performance";
+			qcom,bus-range-kbps = <1000 8400000>;
+			interconnects = <&mmss_noc MASTER_LSR_0 &gem_noc SLAVE_LLCC>;
+			interconnect-names = "lsr-llcc";
+		};
+
+		lsr_bus_llcc1 {
+			compatible = "qcom,msm-lsr,bus";
+			qcom,bus-governor = "performance";
+			qcom,bus-range-kbps = <1000 8400000>;
+			interconnects = <&mmss_noc MASTER_LSR_1 &gem_noc SLAVE_LLCC>;
+			interconnect-names = "lsr-llcc1";
 		};
 
 		lsr_non_secure_cb: lsr_non_secure_cb {
@@ -250,5 +269,10 @@
 	lsr_mem: lsr_region@a2c00000 {
 		no-map;
 		reg = <0x0 0xa2c00000 0x0 0x700000>;
+	};
+
+	splash_memory: splash_region {
+		reg = <0x0 0xb8000000 0x0 0x09600000>;
+		label = "cont_splash_region";
 	};
 };

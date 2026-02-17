@@ -86,12 +86,12 @@
 		};
 
 		sde_te_function0: sde_te_function0 {
-			mux {
+			mux_5: mux {
 				pins = "gpio86";
 				function = "gpio";
 			};
 
-			config {
+			config_6: config {
 				pins = "gpio86";
 				drive-strength = <2>;   /* 2 mA */
 				bias-pull-down;         /* PULL DOWN */
@@ -125,12 +125,12 @@
 		};
 
 		sde_te1_function0: sde_te1_function0 {
-			mux {
+			mux_7: mux {
 				pins = "gpio87";
 				function = "gpio";
 			};
 
-			config {
+			config_8: config {
 				pins = "gpio87";
 				drive-strength = <2>;   /* 2 mA */
 				bias-pull-down;         /* PULL DOWN */

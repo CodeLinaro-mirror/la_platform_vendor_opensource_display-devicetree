@@ -2,6 +2,8 @@
 /*
  * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
  */
+#include <dt-bindings/clock/qcom,gcc-canoe.h>
+#include <dt-bindings/clock/qcom,tcsrcc-canoe.h>
 
 &soc {
 
@@ -36,5 +38,21 @@
 
 		qcom,mdp = <&mdss_mdp1>;
 		qcom,demura-panel-id = <0x0 0x0>;
+	};
+
+	sde_dp2: qcom,dp_display0 {
+		compatible = "qcom,dp-display";
+		qcom,op-label = "hfi";
+		status = "ok";
+
+		#clock-cells = <1>;
+		clocks = <&tcsrcc TCSR_USB3_CLKREF_EN>,
+			<&gcc GCC_USB3_PRIM_PHY_PIPE_CLK>;
+		clock-names = "usb3_tcsr_clk", "usb3_pipe_clk";
+		power-domains = <&gcc GCC_USB3_PHY_GDSC>;
+		qcom,altmode-dev = <&altmode 0>;
+		qcom,dp-aux-switch = <&wcd_usbss>;
+		qcom,ext-disp = <&ext_disp>;
+		usb-controller = <&usb0>;
 	};
 };

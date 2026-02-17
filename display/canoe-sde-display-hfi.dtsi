@@ -56,5 +56,5 @@
 
 &mdss_mdp1 {
 	connectors = <&sde_dsi2 &sde_dsi3 &smmu_sde_unsec1 &smmu_sde_sec1
-			&sde_wb2 &sde_wb3>;
+			&sde_wb2 &sde_wb3 &sde_dp2>;
 };
