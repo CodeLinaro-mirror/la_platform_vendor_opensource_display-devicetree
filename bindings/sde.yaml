@@ -532,6 +532,20 @@ properties:
     default: none
     enum: [dsi, dp, hdmi]
 
+  qcom,sde-intf-ctrl:
+    description: |
+      Array of u32 provides the interface controller ID information
+      for DP interface type. If controller ID is not applicable for
+      some of the interfaces, set it to 0xFFFFFFFF.
+    $ref: /schemas/types.yaml#/definitions/uint32-array
+
+  qcom,sde-intf-stream:
+    description: |
+      Array of u32 provides the interface stream ID information
+      for DP interface type. If stream ID is not applicable for
+      some of the interfaces, set it to 0xFFFFFFFF.
+    $ref: /schemas/types.yaml#/definitions/uint32-array
+
   qcom,sde-intf-tear-irq-off:
     description: |
       Array of offset addresses for the available

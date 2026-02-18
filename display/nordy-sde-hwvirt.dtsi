@@ -152,6 +152,8 @@
 		qcom,sde-intf-size = <0x4BC>;
 		qcom,sde-intf-type = "dp", "dp", "dp", "dp",
 					"dp", "dp", "dp", "dp", "dp", "dp";
+		qcom,sde-intf-ctrl = <0 0xFFFFFFFF 0xFFFFFFFF 0 1 0xFFFFFFFF 0 0 1 1 1>;
+		qcom,sde-intf-stream = <0 0xFFFFFFFF 0xFFFFFFFF 1 0 0xFFFFFFFF 2 3 1 2 3>;
 		qcom,sde-intf-tear-irq-off = <0 0x36800 0x37800 0 0 0x3a800>;
 
 		qcom,sde-pp-off = <0x6a000 0x6b000 0x6c000 0x6d000
@@ -516,6 +518,8 @@
 		qcom,sde-intf-size = <0x4BC>;
 		qcom,sde-intf-type = "dp", "dp", "dp", "dp",
 					"dp", "dp", "dp", "dp", "dp", "dp";
+		qcom,sde-intf-ctrl = <0 0xFFFFFFFF 0xFFFFFFFF 0 1 0xFFFFFFFF 0 0 1 1 1>;
+		qcom,sde-intf-stream = <0 0xFFFFFFFF 0xFFFFFFFF 1 0 0xFFFFFFFF 2 3 1 2 3>;
 		qcom,sde-intf-tear-irq-off = <0 0x36800 0x37800 0 0 0x3a800>;
 
 		qcom,sde-pp-off = <0x6a000 0x6b000 0x6c000 0x6d000
