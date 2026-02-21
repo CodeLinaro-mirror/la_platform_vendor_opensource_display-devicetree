@@ -116,6 +116,7 @@
 		qcom,sde-has-src-split;
 		qcom,sde-pipe-order-version = <0x1>;
 		qcom,sde-has-dim-layer;
+		qcom,sde-max-trusted-vm-displays = <1>;
 
 		qcom,sde-max-bw-low-kbps = <3700000>;
 		qcom,sde-max-bw-high-kbps = <6400000>;
