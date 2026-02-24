@@ -52,6 +52,7 @@
 	qcom,edp-pwm-en-gpio =  <&pmk8550_gpios 5 0>;
 	qcom,edp-backlight-en-gpio = <&pmc8380_d_gpios 4 0>;
 	qcom,dp-max-fps-mode-en;
+	qcom,dp-brightness-max-level = <0x190>;
 };
 
 &tlmm {
