@@ -3,7 +3,6 @@
  * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
  */
 
-#include "art-sde-display-pinctrl.dtsi"
 #include "art-sde.dtsi"
 #include "arth-sde-display-common.dtsi"
 
@@ -24,20 +23,6 @@
 		compatible = "qcom,wb-display";
 		cell-index = <2>;
 		label = "wb_display2";
-	};
-
-	display_panel_avdd: display_gpio_regulator@1 {
-		compatible = "qti-regulator-fixed";
-		regulator-name = "display_panel_avdd";
-		regulator-min-microvolt = <5500000>;
-		regulator-max-microvolt = <5500000>;
-		regulator-enable-ramp-delay = <233>;
-		gpio = <&pmh0104_gpios 7 0>;
-		enable-active-high;
-		regulator-boot-on;
-		proxy-supply = <&display_panel_avdd>;
-		qcom,proxy-consumer-enable;
-		pinctrl-names = "default";
 	};
 
 	display_panel_vdd: display_gpio_regulator@2 {
@@ -81,26 +66,22 @@
 &sde_dsi {
 	vddio-supply = <&L12B>;
 	vci-supply = <&L13B>;
-	vdd-supply = <&display_panel_vdd>;
+	vdd-supply = <&L11B>;
+	exvdd-supply = <&display_panel_vdd>;
 	tvdd-supply = <&L4B>;
 
 	pinctrl-names = "panel_active", "panel_active_with_esync", "panel_suspend";
-	pinctrl-0 = <&sde_dsi_active &sde_te_active &sde_esync0_suspend
-			&sde_mdp_vsync_p_1p2_active &sde_mdp_vsync_p_1p8_active
-			&sde_disp0_rst_1p2_active &sde_disp0_rst_1p8_active>;
-	pinctrl-1 = <&sde_dsi_active &sde_te_active &sde_esync0_active
-			&sde_mdp_vsync_p_1p2_active &sde_mdp_vsync_p_1p8_active
-			&sde_disp0_rst_1p2_active &sde_disp0_rst_1p8_active>;
-	pinctrl-2 = <&sde_dsi_suspend &sde_te_suspend &sde_esync0_suspend
-			&sde_mdp_vsync_p_1p2_active &sde_mdp_vsync_p_1p8_active
-			&sde_disp0_rst_1p2_active &sde_disp0_rst_1p8_active>;
+	pinctrl-0 = <&sde_dsi_active &sde_te_active &sde_esync0_suspend>;
+	pinctrl-1 = <&sde_dsi_active &sde_te_active &sde_esync0_active>;
+	pinctrl-2 = <&sde_dsi_suspend &sde_te_suspend &sde_esync0_suspend>;
 };
 
 &sde_dsi1 {
 	status = "disabled";
 	vddio-supply = <&L12B>;
 	vci-supply = <&L13B>;
-	vdd-supply = <&display_panel_vdd>;
+	vdd-supply = <&L11B>;
+	exvdd-supply = <&display_panel_vdd>;
 	tvdd-supply = <&L4B>;
 
 	pinctrl-names = "panel_active", "panel_active_with_esync", "panel_suspend";
