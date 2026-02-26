@@ -6,6 +6,7 @@
 #include <dt-bindings/clock/qcom,malabar-dispcc.h>
 #include <dt-bindings/clock/qcom,malabar-gcc.h>
 #include "malabar-sde-common.dtsi"
+#include "trustedvm-malabar-avf-required-subnodes.dtsi"
 
 &soc {
 	smmu_sde_iommu_region_partition: smmu_sde_iommu_region_partition {
@@ -39,8 +40,6 @@
 		"vbif_phys",
 		"regdma_phys",
 		"sid_phys";
-
-	qcom,sde-vm-exclude-reg-names = "sid_phys";
 
 	qcom,sde-hw-version =<0x80070000>;
 
