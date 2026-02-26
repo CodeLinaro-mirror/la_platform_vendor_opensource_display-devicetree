@@ -324,5 +324,5 @@
 	qcom,vrr-enable;
 	qcom,video-psr-enable;
 	qcom,dsi-qsync-avr-step-fps = <120>;
-	qcom,mdss-dsi-qsync-min-refresh-rate = <60>;
+	qcom,mdss-dsi-qsync-min-refresh-rate = <1>;
 };
