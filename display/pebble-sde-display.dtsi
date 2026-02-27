@@ -8,6 +8,24 @@
 #include "pebble-sde-display-common.dtsi"
 
 &soc {
+	sde_wb0: qcom,wb-display@0 {
+		compatible = "qcom,wb-display";
+		cell-index = <0>;
+		label = "wb_display0";
+	};
+
+	sde_wb1: qcom,wb-display@1 {
+		compatible = "qcom,wb-display";
+		cell-index = <1>;
+		label = "wb_display1";
+	};
+
+	sde_wb2: qcom,wb-display@2 {
+		compatible = "qcom,wb-display";
+		cell-index = <2>;
+		label = "wb_display2";
+	};
+
 	display_panel_vdd: display_gpio_regulator@2 {
 		compatible = "qti-regulator-fixed";
 		regulator-name = "display_panel_vdd";
@@ -49,7 +67,7 @@
 };
 
 &mdss_mdp {
-	connectors = <&sde_dsi &sde_dsi1>;
+	connectors = <&sde_dsi &sde_dsi1 &smmu_sde_unsec &smmu_sde_sec &sde_wb0 &sde_wb1 &sde_wb2>;
 };
 
 &dsi_vtdr6130_amoled_cmd {
