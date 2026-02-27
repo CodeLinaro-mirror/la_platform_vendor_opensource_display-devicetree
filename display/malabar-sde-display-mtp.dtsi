@@ -10,7 +10,7 @@
 };
 
 &pm6450_gpios {
-	lcd_backlight_ctrl: lcd_backlight_ctrl {
+	lcd_backlight_ctrl {
 		lcd_backlight_pwm_default: lcd_backlight_pwm_default {
 			pins = "gpio7";
 			function = "func1";
@@ -34,7 +34,7 @@
 };
 
 &soc {
-	display_panel_avdd: display_gpio_regulator@2 {
+	display_panel_avdd: display_gpio_regulator@0 {
 		compatible = "qti-regulator-fixed";
 		regulator-name = "display_panel_avdd";
 		regulator-min-microvolt = <5500000>;
@@ -51,7 +51,7 @@
 };
 
 &pm7250b_gpios {
-	llcd_backlight_ctrl_1: lcd_backlight_ctrl {
+	lcd_backlight_ctrl  {
 		lcd_backlight_en_default: lcd_backlight_en_default  {
 			pins = "gpio1";
 			function = "normal";

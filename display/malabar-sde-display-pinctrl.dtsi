@@ -5,12 +5,12 @@
 
 &tlmm {
 	display_panel_vddio_default: display_panel_vddio_default {
-		mux: mux {
+		mux {
 			pins = "gpio56";
 			function = "gpio";
 		};
 
-		config: config {
+		config {
 			pins = "gpio56";
 			drive-strength = <8>;
 			bias-disable = <0>;
@@ -19,12 +19,12 @@
 	};
 
 	display_panel_vdd_default: display_panel_vdd_default {
-		mux_62: mux {
+		mux {
 			pins = "gpio57";
 			function = "gpio";
 		};
 
-		config_63: config {
+		config {
 			pins = "gpio57";
 			drive-strength = <8>;
 			bias-disable = <0>;
@@ -34,12 +34,12 @@
 
 	pmx_sde: pmx_sde {
 		sde_dsi_active: sde_dsi_active {
-			mux_64: mux {
+			mux {
 				pins = "gpio23";
 				function = "gpio";
 			};
 
-			config_65: config {
+			config {
 				pins = "gpio23";
 				drive-strength = <8>;   /* 8 mA */
 				bias-disable = <0>;   /* no pull */
@@ -47,12 +47,12 @@
 		};
 
 		sde_dsi_suspend: sde_dsi_suspend {
-			mux_66: mux {
+			mux {
 				pins = "gpio23";
 				function = "gpio";
 			};
 
-			config_67: config {
+			config {
 				pins = "gpio23";
 				drive-strength = <2>;   /* 2 mA */
 				bias-pull-down;         /* PULL DOWN */
@@ -62,12 +62,12 @@
 
 	pmx_sde_te: pmx_sde_te {
 		sde_te_active: sde_te_active {
-			mux_68: mux {
+			mux {
 				pins = "gpio14";
 				function = "mdp_vsync";
 			};
 
-			config_69: config {
+			config {
 				pins = "gpio14";
 				drive-strength = <2>;   /* 2 mA */
 				bias-pull-down;         /* PULL DOWN */
@@ -75,12 +75,12 @@
 		};
 
 		sde_te_suspend: sde_te_suspend {
-			mux_70: mux {
+			mux {
 				pins = "gpio14";
 				function = "mdp_vsync";
 			};
 
-			config_71: config {
+			config {
 				pins = "gpio14";
 				drive-strength = <2>;   /* 2 mA */
 				bias-pull-down;         /* PULL DOWN */

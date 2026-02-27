@@ -9,9 +9,9 @@
 #include "malabar-sde-display-cdp.dtsi"
 
 / {
-	model = "Qualcomm Technologies, Inc. Malabar  CDP + LCD";
+	model = "Qualcomm Technologies, Inc. Malabar  CDP";
 	compatible = "qcom,malabar-cdp", "qcom,malabar", "qcom,malabarp-cdp", "qcom,malabarp",
 			"qcom,cdp";
 	qcom,msm-id = <733 0x10000>, <757 0x10000>;
-	qcom,board-id = <0x10001 0>, <0x20001 0>;
+	qcom,board-id = <0x10001 0>;
 };

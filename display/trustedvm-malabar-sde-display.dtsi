@@ -12,5 +12,5 @@
 };
 
 &mdss_mdp {
-	connectors = <&sde_dsi &smmu_sde_unsec>;
+	connectors = <&sde_dsi>;
 };
