@@ -207,7 +207,10 @@ dtbo-$(CONFIG_ARCH_BENGAL) += display/bengal-sde.dtbo \
 		display/bengal-sde-display-idp-nopmi-overlay.dtbo
 
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
-       dtbo-$(CONFIG_ARCH_PIKACHU) += display/pikachu-sde.dtbo
+dtbo-$(CONFIG_ARCH_PIKACHU) += display/pikachu-sde.dtbo \
+		display/pikachu-sde-display-atp-overlay.dtbo \
+		display/pikachu-sde-display-idp-overlay.dtbo \
+		display/pikachu-sde-display-rumi-overlay.dtbo
 endif
 
 always-y    := $(dtb-y) $(dtbo-y)
