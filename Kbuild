@@ -21,7 +21,9 @@ dtbo-$(CONFIG_ARCH_ART) += display/art-sde.dtbo \
 		display/arth-sde-display-cdp-overlay.dtbo \
 		display/arth-sde-display-mtp-overlay.dtbo
 else
-dtbo-$(CONFIG_ARCH_ART) +=  display/trustedvm-art-sde-display-omtp-overlay.dtbo \
+dtbo-$(CONFIG_ARCH_ART) += display/trustedvm-art-sde-display-omtp-overlay.dtbo \
+			display/trustedvm-art-sde-display-cdp-overlay.dtbo \
+			display/trustedvm-art-sde-display-qrd-overlay.dtbo \
 			display/trustedvm-art-sde-display-mtp-overlay.dtbo
 endif
 
