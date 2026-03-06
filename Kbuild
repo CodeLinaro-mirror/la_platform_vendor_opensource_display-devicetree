@@ -72,6 +72,14 @@ dtbo-$(CONFIG_ARCH_ALOR) += display/trustedvm-alor-sde-display-atp-overlay.dtbo 
 endif
 
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
+dtbo-$(CONFIG_ARCH_PEBBLE) += display/pebble-sde.dtbo \
+		display/pebble-sde-display-cdp-overlay.dtbo \
+		display/pebble-sde-display-mtp-overlay.dtbo \
+		display/pebble-sde-display-qrd-overlay.dtbo \
+		display/pebble-sde-display-rcm-overlay.dtbo
+endif
+
+ifneq ($(CONFIG_ARCH_QTI_VM), y)
 dtbo-$(CONFIG_ARCH_X1P42100) += display/x1p42100-sde.dtbo \
 		display/x1p42100-sde-display-crd-overlay.dtbo
 endif
