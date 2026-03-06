@@ -68,6 +68,7 @@
 		qcom,mdss-default-ot-wr-limit = <32>;
 
 		qcom,mdss-sbuf-headroom = <20>;
+		qti,smmu-proxy-cb-id = <QTI_SMMU_PROXY_ROTATOR_CB>;
 
 		smmu_rot_unsec: qcom,smmu_rot_unsec_cb {
 			compatible = "qcom,smmu_sde_rot_unsec";
