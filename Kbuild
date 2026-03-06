@@ -207,7 +207,8 @@ ifneq ($(CONFIG_ARCH_QTI_VM), y)
 			dtbo-$(CONFIG_ARCH_SERAPH) += display/seraph-sde.dtbo \
 			display/seraph-sde-display-idp-overlay.dtbo \
 			display/seraph-sde-display-idp-no-display-overlay.dtbo \
-			display/seraph-sde-display-rumi-overlay.dtbo
+			display/seraph-sde-display-rumi-overlay.dtbo \
+			display/seraphp-sde-display-qar-overlay.dtbo
 		endif
 endif
 
