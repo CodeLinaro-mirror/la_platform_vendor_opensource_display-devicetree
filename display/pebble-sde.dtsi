@@ -2,8 +2,44 @@
 /*
  * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
  */
+#include <dt-bindings/arm/msm/qti-smmu-proxy-dt-ids.h>
 #include "pebble-sde-common.dtsi"
 
 &soc {
+	smmu_sde_iommu_region_partition: smmu_sde_iommu_region_partition {
+		iommu-addresses = <&smmu_sde_unsec 0x0 0x0 0x0 0x00020000>,
+				<&smmu_sde_unsec 0x0 0xfc800000 0x0 0x02b00000>,
+				<&smmu_sde_sec 0x0 0x0 0x0 0x00020000>;
+	};
+
+	smmu_sde_unsec: qcom,smmu_sde_unsec_cb {
+		compatible = "qcom,smmu_sde_unsec";
+		iommus = <&apps_smmu 0x400 0x2>;
+		memory-region = <&smmu_sde_iommu_region_partition>;
+		qcom,iommu-faults = "non-fatal";
+		qcom,iommu-earlymap; /* for cont-splash */
+		dma-coherent;
+	};
+
+	smmu_sde_sec: qcom,smmu_sde_sec_cb {
+		compatible = "qcom,smmu_sde_sec";
+		iommus = <&apps_smmu 0x401 0x0>;
+		memory-region = <&smmu_sde_iommu_region_partition>;
+		qcom,iommu-faults = "non-fatal";
+		qcom,iommu-vmid = <0xa>;
+	};
 };
 
+&mdss_mdp {
+	qti,smmu-proxy-cb-id = <QTI_SMMU_PROXY_DISPLAY_CB>;
+	qcom,sde-dspp-ltm-version = <0x00010004>;
+	/* offsets are based off dspp 0, 1, 2, and 3 */
+	qcom,sde-dspp-ltm-off = <0x3300 0x3300 0x3300 0x3300>;
+	qcom,hw-fence-sw-version = <0x1>;
+};
+
+&mdss_mdp {
+	qcom,sde-vm-exclude-reg-names = "mdp_phys", "vbif_phys",
+					"regdma_phys", "ipcc_reg",
+					"swfuse_phys";
+};
