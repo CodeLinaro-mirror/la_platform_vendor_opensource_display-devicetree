@@ -21,7 +21,9 @@ dtbo-$(CONFIG_ARCH_ART) += display/art-sde.dtbo \
 		display/arth-sde-display-cdp-overlay.dtbo \
 		display/arth-sde-display-mtp-overlay.dtbo
 else
-dtbo-$(CONFIG_ARCH_ART) +=  display/trustedvm-art-sde-display-omtp-overlay.dtbo \
+dtbo-$(CONFIG_ARCH_ART) += display/trustedvm-art-sde-display-omtp-overlay.dtbo \
+			display/trustedvm-art-sde-display-cdp-overlay.dtbo \
+			display/trustedvm-art-sde-display-qrd-overlay.dtbo \
 			display/trustedvm-art-sde-display-mtp-overlay.dtbo
 endif
 
@@ -67,6 +69,14 @@ dtbo-$(CONFIG_ARCH_ALOR) += display/trustedvm-alor-sde-display-atp-overlay.dtbo 
 		display/trustedvm-alor-sde-display-mtp-overlay.dtbo \
 		display/trustedvm-alor-sde-display-qrd-overlay.dtbo \
 		display/trustedvm-alor-sde-display-rcm-overlay.dtbo
+endif
+
+ifneq ($(CONFIG_ARCH_QTI_VM), y)
+dtbo-$(CONFIG_ARCH_PEBBLE) += display/pebble-sde.dtbo \
+		display/pebble-sde-display-cdp-overlay.dtbo \
+		display/pebble-sde-display-mtp-overlay.dtbo \
+		display/pebble-sde-display-qrd-overlay.dtbo \
+		display/pebble-sde-display-rcm-overlay.dtbo
 endif
 
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
@@ -197,7 +207,8 @@ ifneq ($(CONFIG_ARCH_QTI_VM), y)
 			dtbo-$(CONFIG_ARCH_SERAPH) += display/seraph-sde.dtbo \
 			display/seraph-sde-display-idp-overlay.dtbo \
 			display/seraph-sde-display-idp-no-display-overlay.dtbo \
-			display/seraph-sde-display-rumi-overlay.dtbo
+			display/seraph-sde-display-rumi-overlay.dtbo \
+			display/seraphp-sde-display-qar-overlay.dtbo
 		endif
 endif
 

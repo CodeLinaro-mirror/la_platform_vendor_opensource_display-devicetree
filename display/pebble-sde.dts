@@ -6,9 +6,10 @@
 /dts-v1/;
 /plugin/;
 
-#include "malabar-sde.dtsi"
+#include "pebble-sde.dtsi"
 
 / {
-	qcom,msm-id = <733 0x10000>, <757 0x10000>;
-	qcom,board-id = <0 0>, <0 0x600>;
+	qcom,msm-id = <735 0x10000>;
+	qcom,board-id = <0 0>;
 };
+
