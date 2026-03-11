@@ -122,6 +122,16 @@ dtbo-$(CONFIG_ARCH_SUN) += display/trustedvm-sun-sde-display-cdp-overlay.dtbo \
 		display/trustedvm-sun-sde-display-qrd-overlay.dtbo
 endif
 
+#ifneq ($(CONFIG_ARCH_QTI_VM), y)
+dtbo-$(CONFIG_ARCH_SHIKRA) += display/shikra-sde.dtbo \
+		display/shikra-sde-display-itp-overlay.dtbo \
+		display/shikra-sde-display-eitp-overlay.dtbo \
+		display/shikra-sde-display-atp-overlay.dtbo \
+		display/shikra-sde-display-itps-overlay.dtbo
+#else
+#dtbo-$(CONFIG_ARCH_SHIKRA) += display/trustedvm-shikra-sde-display-eitp-overlay.dtbo
+#endif
+
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
 dtbo-$(CONFIG_ARCH_PARROT) += display/parrot-sde.dtbo \
 		display/parrot-sde-display-atp-overlay.dtbo \
