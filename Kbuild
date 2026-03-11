@@ -66,6 +66,24 @@ dtbo-$(CONFIG_ARCH_X1P42100) += display/x1p42100-sde.dtbo \
 endif
 
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
+dtbo-$(CONFIG_ARCH_CHORA) += display/chora-sde.dtbo \
+		display/chora-sde-display-cdp-overlay.dtbo \
+		display/chora-sde-display-rcm-overlay.dtbo \
+		display/chora-sde-display-qrd-overlay.dtbo \
+		display/chora-sde-display-mtp-overlay.dtbo \
+		display/chora-sde-display-atp-overlay.dtbo \
+		display/chora-sde-display-mtp-lcd-overlay.dtbo
+else
+dtbo-$(CONFIG_ARCH_CHORA) += display/trustedvm-chora-sde-display-atp-overlay.dtbo \
+		display/trustedvm-chora-sde-display-cdp-overlay.dtbo \
+		display/trustedvm-chora-sde-display-mtp-overlay.dtbo \
+		display/trustedvm-chora-sde-display-qrd-overlay.dtbo \
+		display/trustedvm-chora-sde-display-rcm-overlay.dtbo \
+		display/trustedvm-chora-sde-display-mtp-lcd-overlay.dtbo
+endif
+
+
+ifneq ($(CONFIG_ARCH_QTI_VM), y)
 dtbo-$(CONFIG_ARCH_SUN) += display/sun-sde.dtbo \
 		display/sun-sde-display-cdp-overlay.dtbo \
 		display/sun-sde-display-mtp-overlay.dtbo \
@@ -138,10 +156,16 @@ ifneq ($(CONFIG_ARCH_QTI_VM), y)
 dtbo-$(CONFIG_ARCH_MALABAR) += display/malabar-sde.dtbo \
 		display/malabar-sde-display-atp-overlay.dtbo \
 		display/malabar-sde-display-cdp-overlay.dtbo \
-		display/malabar-sde-display-cdp-lcd-overlay.dtbo \
 		display/malabar-sde-display-mtp-overlay.dtbo \
+		display/malabar-sde-display-mtp-cottid-nd-overlay.dtbo \
 		display/malabar-sde-display-qrd-overlay.dtbo \
 		display/malabar-sde-display-rcm-overlay.dtbo
+else
+dtbo-$(CONFIG_ARCH_MALABAR) += display/trustedvm-malabar-sde-display-atp-overlay.dtbo \
+		display/trustedvm-malabar-sde-display-cdp-overlay.dtbo \
+		display/trustedvm-malabar-sde-display-mtp-overlay.dtbo \
+		display/trustedvm-malabar-sde-display-qrd-overlay.dtbo \
+		display/trustedvm-malabar-sde-display-rcm-overlay.dtbo
 endif
 
 dtbo-$(CONFIG_ARCH_VIENNA) += display/vienna-sde.dtbo \

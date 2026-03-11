@@ -50,20 +50,6 @@
 	};
 };
 
-&pm7250b_gpios {
-	lcd_backlight_ctrl  {
-		lcd_backlight_en_default: lcd_backlight_en_default  {
-			pins = "gpio1";
-			function = "normal";
-			input-disable;
-			output-enable;
-			bias-disable;
-			power-source = <0>;
-			qcom,drive-strength = <2>;
-		};
-	};
-};
-
 &dsi_ft8726_fhd_plus_120_video {
 	qcom,panel-supply-entries = <&dsi_panel_pwr_supply_lcd>;
 	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_pwm";
@@ -71,7 +57,7 @@
 	qcom,mdss-dsi-bl-min-level = <1>;
 	qcom,mdss-dsi-bl-max-level = <4095>;
 	qcom,platform-reset-gpio = <&tlmm 23 0>;
-	qcom,platform-bklight-en-gpio = <&pm7250b_gpios 1 0>;
+	qcom,platform-bklight-en-gpio = <&tlmm 76 0>;
 };
 
 &dsi_ft8726_fhd_plus_90_video {
@@ -81,7 +67,7 @@
 	qcom,mdss-dsi-bl-min-level = <1>;
 	qcom,mdss-dsi-bl-max-level = <4095>;
 	qcom,platform-reset-gpio = <&tlmm 23 0>;
-	qcom,platform-bklight-en-gpio = <&pm7250b_gpios 1 0>;
+	qcom,platform-bklight-en-gpio = <&tlmm 76 0>;
 };
 
 &dsi_ft8726_fhd_plus_60_video {
@@ -91,7 +77,7 @@
 	qcom,mdss-dsi-bl-min-level = <1>;
 	qcom,mdss-dsi-bl-max-level = <4095>;
 	qcom,platform-reset-gpio = <&tlmm 23 0>;
-	qcom,platform-bklight-en-gpio = <&pm7250b_gpios 1 0>;
+	qcom,platform-bklight-en-gpio = <&tlmm 76 0>;
 };
 
 &dsi_sim_cmd {
