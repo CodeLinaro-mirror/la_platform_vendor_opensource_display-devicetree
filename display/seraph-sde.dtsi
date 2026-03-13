@@ -39,6 +39,7 @@
 		memory-region = <&smmu_sde_lsr_iommu_region_partition>;
 		qcom,iommu-faults = "non-fatal";
 		qcom,iommu-group = <&non_secure_sde_lsr_cb_group>;
+		qcom,iommu-earlymap; /* for cont-splash */
 		dma-coherent;
 	};
 
