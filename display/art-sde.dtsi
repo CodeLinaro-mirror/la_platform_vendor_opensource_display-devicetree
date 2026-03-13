@@ -39,6 +39,12 @@
 		};
 	};
 
+	qcom_msmhdcp: qcom,msm_hdcp {
+		compatible = "qcom,msm-hdcp";
+		qcom,op-label = "hfi";
+		status = "ok";
+	};
+
 	sde_dp: qcom,dp_display {
 		compatible = "qcom,dp-display";
 		status = "ok";
