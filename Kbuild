@@ -130,7 +130,8 @@ dtbo-$(CONFIG_ARCH_SHIKRA) += display/shikra-sde.dtbo \
 		display/shikra-sde-display-itp-overlay.dtbo \
 		display/shikra-sde-display-eitp-overlay.dtbo \
 		display/shikra-sde-display-atp-overlay.dtbo \
-		display/shikra-sde-display-itps-overlay.dtbo
+		display/shikra-sde-display-itps-overlay.dtbo \
+		display/shikra-sde-display-itps-slt-overlay.dtbo
 else
 dtbo-$(CONFIG_ARCH_SHIKRA) += display/trustedvm-shikra-sde-display-itps-eitp-overlay.dtbo
 endif
