@@ -7,6 +7,7 @@
 #include "dsi-panel-dlc0697-fhd-60hz-video.dtsi"
 #include "dsi-panel-ili9881p-720p-video.dtsi"
 #include "dsi-panel-vtdr6130-nodsc-fhd-plus-60hz-cmd.dtsi"
+#include "dsi-panel-sim-fhd-video.dtsi"
 #include "shikra-sde-display-pinctrl.dtsi"
 
 &soc {
@@ -20,6 +21,21 @@
 			qcom,supply-min-voltage = <1800000>;
 			qcom,supply-max-voltage = <2000000>;
 			qcom,supply-enable-load = <62000>;
+			qcom,supply-disable-load = <80>;
+			qcom,supply-post-on-sleep = <20>;
+		};
+	};
+
+	dsi_panel_pwr_supply_sim: dsi_panel_pwr_supply_sim {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		qcom,panel-supply-entry@0 {
+			reg = <0>;
+			qcom,supply-name = "dummy";
+			qcom,supply-min-voltage = <1800000>;
+			qcom,supply-max-voltage = <1800000>;
+			qcom,supply-enable-load = <200000>;
 			qcom,supply-disable-load = <80>;
 			qcom,supply-post-on-sleep = <20>;
 		};
