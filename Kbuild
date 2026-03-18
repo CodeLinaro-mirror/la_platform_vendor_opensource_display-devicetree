@@ -148,10 +148,16 @@ ifneq ($(CONFIG_ARCH_QTI_VM), y)
 dtbo-$(CONFIG_ARCH_MALABAR) += display/malabar-sde.dtbo \
 		display/malabar-sde-display-atp-overlay.dtbo \
 		display/malabar-sde-display-cdp-overlay.dtbo \
-		display/malabar-sde-display-cdp-lcd-overlay.dtbo \
 		display/malabar-sde-display-mtp-overlay.dtbo \
+		display/malabar-sde-display-mtp-cottid-nd-overlay.dtbo \
 		display/malabar-sde-display-qrd-overlay.dtbo \
 		display/malabar-sde-display-rcm-overlay.dtbo
+else
+dtbo-$(CONFIG_ARCH_MALABAR) += display/trustedvm-malabar-sde-display-atp-overlay.dtbo \
+		display/trustedvm-malabar-sde-display-cdp-overlay.dtbo \
+		display/trustedvm-malabar-sde-display-mtp-overlay.dtbo \
+		display/trustedvm-malabar-sde-display-qrd-overlay.dtbo \
+		display/trustedvm-malabar-sde-display-rcm-overlay.dtbo
 endif
 
 dtbo-$(CONFIG_ARCH_VIENNA) += display/vienna-sde.dtbo \
@@ -170,6 +176,11 @@ dtbo-$(CONFIG_ARCH_KHAJE) += display/khaje-sde.dtbo \
 		display/khaje-sde-display-idp-nopmi-overlay.dtbo \
 		display/khaje-sde-display-qrd-nopmi-overlay.dtbo \
 		display/khaje-sde-display-qrd-nowcd9375-overlay.dtbo
+
+dtbo-$(CONFIG_ARCH_BENGAL) += display/bengal-sde.dtbo \
+		display/bengal-sde-display-idp-overlay.dtbo \
+		display/bengal-sde-display-qrd-overlay.dtbo \
+		display/bengal-sde-display-idp-nopmi-overlay.dtbo
 
 always-y    := $(dtb-y) $(dtbo-y)
 subdir-y    := $(dts-dirs)
