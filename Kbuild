@@ -13,6 +13,7 @@ dtbo-$(CONFIG_ARCH_YUPIK) += display/yupik-sde.dtbo \
 		display/katmaip-sde-display-rb3-gen2-videocollab-overlay.dtbo \
 		display/katmaip-sde-display-rb3-gen2-visionkit-overlay.dtbo \
 		display/yupikp-sde-display-rb3-gen2-corekit-overlay.dtbo \
+		display/yupikp-sde-display-aio-bar-overlay.dtbo \
 		display/yupik-sde-display-idp-overlay.dtbo \
 		display/yupik-sde-display-iot-qrd-overlay.dtbo \
 		display/yupik-sde-display-qrd-overlay.dtbo
