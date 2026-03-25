@@ -131,6 +131,9 @@
 &dsi_sw43404_amoled_cmd {
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
 
+	qcom,dsi-dyn-clk-enable;
+	qcom,dsi-dyn-clk-list = <606979440 604450359 601921278>;
+
 	qcom,mdss-dsi-panel-status-check-mode = "reg_read";
 	qcom,mdss-dsi-panel-status-command = [06 01 00 01 00 00 01 0a];
 	qcom,mdss-dsi-panel-status-command-state = "dsi_lp_mode";
@@ -156,6 +159,10 @@
 
 &dsi_sw43404_amoled_video {
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
+
+	qcom,dsi-dyn-clk-enable;
+	qcom,dsi-dyn-clk-list = <534712320 532484352 530256384>;
+	qcom,dsi-dyn-clk-type = "constant-fps-adjust-hfp";
 
 	qcom,mdss-dsi-qsync-min-refresh-rate = <55>;
 	qcom,mdss-dsi-panel-status-check-mode = "reg_read";
@@ -244,6 +251,9 @@
 &dsi_r66451_amoled_cmd_cphy {
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
 
+	qcom,dsi-dyn-clk-enable;
+	qcom,dsi-dyn-clk-list = <195173804 194360579 193547355>;
+
 	qcom,mdss-dsi-display-timings {
 		timing@0 {
 			qcom,mdss-dsi-panel-phy-timings = [00 00 00 00 1e 17 04
@@ -257,6 +267,10 @@
 &dsi_r66451_amoled_video_cphy {
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
 
+	qcom,dsi-dyn-clk-enable;
+	qcom,dsi-dyn-clk-list = <394178400 392535990 387608760>;
+	qcom,dsi-dyn-clk-type = "constant-fps-adjust-hfp";
+
 	qcom,mdss-dsi-display-timings {
 		timing@0 {
 			qcom,mdss-dsi-panel-phy-timings = [00 00 00 00 1e 17 04
@@ -269,6 +283,9 @@
 
 &dsi_r66451_amoled_60hz_cmd {
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
+
+	qcom,dsi-dyn-clk-enable;
+	qcom,dsi-dyn-clk-list = <327096544 325733641 324370739>;
 
 	qcom,esd-check-enabled;
 	qcom,mdss-dsi-panel-status-check-mode = "reg_read";
