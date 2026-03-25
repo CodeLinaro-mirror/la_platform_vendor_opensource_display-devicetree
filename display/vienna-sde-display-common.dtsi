@@ -123,6 +123,8 @@
 &dsi_rm6d030_amoled_139_cmd {
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
 	qcom,skip-panel-power-off;
+	qcom,dsi-dyn-clk-enable;
+
 	qcom,mdss-dsi-display-timings {
 		timing@0 {
 			qcom,mdss-dsi-panel-phy-timings = [00 0B 03 02 10 1C 03
@@ -131,6 +133,7 @@
 			qcom,default-topology-index = <0>;
 			qcom,partial-update-enabled = "single_roi";
 			qcom,panel-roi-alignment = <20 20 454 276 20 20>;
+			qcom,dsi-dyn-clk-list = <262936800 261476040 260015280>;
 		};
 
 		timing@1 {
@@ -140,6 +143,7 @@
 			qcom,default-topology-index = <0>;
 			qcom,partial-update-enabled = "single_roi";
 			qcom,panel-roi-alignment = <20 20 454 276 20 20>;
+			qcom,dsi-dyn-clk-list = <262936800 261476040 260015280>;
 		};
 
 		timing@2 {
@@ -149,6 +153,7 @@
 			qcom,default-topology-index = <0>;
 			qcom,partial-update-enabled = "single_roi";
 			qcom,panel-roi-alignment = <20 20 454 276 20 20>;
+			qcom,dsi-dyn-clk-list = <262936800 261476040 260015280>;
 		};
 	};
 };
