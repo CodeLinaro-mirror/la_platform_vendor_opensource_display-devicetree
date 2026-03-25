@@ -12,7 +12,19 @@ dtbo-$(CONFIG_ARCH_ART) += display/art-sde.dtbo \
 		display/art-sde-display-rcm-fig-overlay.dtbo \
 		display/art-sde-display-rcm-peach-sn300u-overlay.dtbo \
 		display/art-sde-display-qrd-sku1-overlay.dtbo \
-		display/art-sde-display-qrd-sku2-overlay.dtbo
+		display/art-sde-display-qrd-sku2-overlay.dtbo \
+		display/artl-sde.dtbo \
+		display/artl-sde-display-mtp-overlay.dtbo \
+		display/artl-sde-display-qrd-sku1-overlay.dtbo \
+		display/artl-sde-display-qrd-sku2-overlay.dtbo \
+		display/arth-sde.dtbo \
+		display/arth-sde-display-cdp-overlay.dtbo \
+		display/arth-sde-display-mtp-overlay.dtbo
+else
+dtbo-$(CONFIG_ARCH_ART) += display/trustedvm-art-sde-display-omtp-overlay.dtbo \
+			display/trustedvm-art-sde-display-cdp-overlay.dtbo \
+			display/trustedvm-art-sde-display-qrd-overlay.dtbo \
+			display/trustedvm-art-sde-display-mtp-overlay.dtbo
 endif
 
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
@@ -57,6 +69,14 @@ dtbo-$(CONFIG_ARCH_ALOR) += display/trustedvm-alor-sde-display-atp-overlay.dtbo 
 		display/trustedvm-alor-sde-display-mtp-overlay.dtbo \
 		display/trustedvm-alor-sde-display-qrd-overlay.dtbo \
 		display/trustedvm-alor-sde-display-rcm-overlay.dtbo
+endif
+
+ifneq ($(CONFIG_ARCH_QTI_VM), y)
+dtbo-$(CONFIG_ARCH_PEBBLE) += display/pebble-sde.dtbo \
+		display/pebble-sde-display-cdp-overlay.dtbo \
+		display/pebble-sde-display-mtp-overlay.dtbo \
+		display/pebble-sde-display-qrd-overlay.dtbo \
+		display/pebble-sde-display-rcm-overlay.dtbo
 endif
 
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
@@ -144,7 +164,9 @@ dtbo-$(CONFIG_ARCH_KERA) += display/kera-sde.dtbo \
 		display/kera-sde-display-rumi-overlay.dtbo \
 		display/kera-sde-display-rcm-overlay.dtbo \
 		display/kera-sde-display-iot-cdp-overlay.dtbo \
-		display/kera-sde-display-rcm-no-display-overlay.dtbo
+		display/kera-sde-display-rcm-no-display-overlay.dtbo \
+		display/kera-sde-display-iot-evk-overlay.dtbo \
+		display/kera-sde-display-iot-eitp-overlay.dtbo
 else
 dtbo-$(CONFIG_ARCH_KERA) += display/trustedvm-kera-sde-display-atp-overlay.dtbo \
 		display/trustedvm-kera-sde-display-cdp-overlay.dtbo \
@@ -185,9 +207,15 @@ ifneq ($(CONFIG_ARCH_QTI_VM), y)
 			dtbo-$(CONFIG_ARCH_SERAPH) += display/seraph-sde.dtbo \
 			display/seraph-sde-display-idp-overlay.dtbo \
 			display/seraph-sde-display-idp-no-display-overlay.dtbo \
-			display/seraph-sde-display-rumi-overlay.dtbo
+			display/seraph-sde-display-rumi-overlay.dtbo \
+			display/seraphp-sde-display-qar-overlay.dtbo
 		endif
 endif
+
+dtbo-$(CONFIG_ARCH_BENGAL) += display/bengal-sde.dtbo \
+		display/bengal-sde-display-idp-overlay.dtbo \
+		display/bengal-sde-display-qrd-overlay.dtbo \
+		display/bengal-sde-display-idp-nopmi-overlay.dtbo
 
 always-y    := $(dtb-y) $(dtbo-y)
 subdir-y    := $(dts-dirs)

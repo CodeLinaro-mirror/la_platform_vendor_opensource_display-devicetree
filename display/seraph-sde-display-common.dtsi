@@ -9,6 +9,7 @@
 #include "dsi-panel-rdp370f-rgb-video.dtsi"
 #include "dsi-panel-rdp340x-rgb-1440x1440-60hz-video.dtsi"
 #include "dsi-panel-rdp340x-rgb-1200x1200-90hz-video.dtsi"
+#include "dsi-panel-sim-video.dtsi"
 
 #include "seraph-sde-display-pinctrl.dtsi"
 
@@ -154,6 +155,19 @@
 			qcom,mdss-dsi-panel-phy-timings = [00 22 08 08 19 23 09
 				08 09 02 04 00 1c 0d];
 			qcom,display-topology = <1 0 1>;
+			qcom,default-topology-index = <0>;
+		};
+	};
+};
+
+&dsi_sim_vid {
+	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
+
+	qcom,mdss-dsi-display-timings {
+		timing@0 {
+			qcom,mdss-dsi-panel-phy-timings = [00 24 0a 0a 1a 24 0a
+				0a 09 02 04 00 1e 0f];
+			qcom,display-topology = <2 2 1>;
 			qcom,default-topology-index = <0>;
 		};
 	};
