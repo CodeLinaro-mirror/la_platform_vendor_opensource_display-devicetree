@@ -180,6 +180,9 @@ dtbo-$(CONFIG_ARCH_VIENNA) += display/vienna-sde.dtbo \
 		display/vienna-sde-display-atp-overlay.dtbo \
 		display/vienna-sde-display-rcm-overlay.dtbo
 
+dtbo-$(CONFIG_ARCH_SCUBA) += display/scuba-iot-sde.dtbo \
+                display/scuba-iot-sde-display-idp-overlay.dtbo
+
 dtbo-$(CONFIG_ARCH_KHAJE) += display/khaje-sde.dtbo \
 		display/khaje-sde-display-idp-overlay.dtbo \
 		display/khaje-sde-display-qrd-overlay.dtbo \
