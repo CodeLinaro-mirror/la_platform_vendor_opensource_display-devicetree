@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 #include "dsi-panel-nt36525-truly-hd-plus-vid.dtsi"
 #include "dsi-panel-td4330-truly-v2-singlemipi-fhd-vid.dtsi"
 #include "dsi-panel-td4330-truly-v2-singlemipi-fhd-cmd.dtsi"
