@@ -13,6 +13,7 @@ dtbo-$(CONFIG_ARCH_ART) += display/art-sde.dtbo \
 		display/art-sde-display-rcm-peach-sn300u-overlay.dtbo \
 		display/art-sde-display-qrd-sku1-overlay.dtbo \
 		display/art-sde-display-qrd-sku2-overlay.dtbo \
+		display/art-sde-display-qrd-sku2-185hz-overlay.dtbo \
 		display/art-sde-display-qrd-sku2-165hz-overlay.dtbo \
 		display/artl-sde.dtbo \
 		display/artl-sde-display-mtp-overlay.dtbo \
