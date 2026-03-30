@@ -17,6 +17,7 @@ dtbo-$(CONFIG_ARCH_ART) += display/art-sde.dtbo \
 		display/artl-sde-display-mtp-overlay.dtbo \
 		display/artl-sde-display-qrd-sku1-overlay.dtbo \
 		display/artl-sde-display-qrd-sku2-overlay.dtbo \
+		display/artl-sde-display-rcm-overlay.dtbo \
 		display/arth-sde.dtbo \
 		display/arth-sde-display-cdp-overlay.dtbo \
 		display/arth-sde-display-mtp-overlay.dtbo
@@ -224,6 +225,9 @@ dtbo-$(CONFIG_ARCH_KHAJE) += display/khaje-sde.dtbo \
 		display/khaje-sde-display-idp-nopmi-overlay.dtbo \
 		display/khaje-sde-display-qrd-nopmi-overlay.dtbo \
 		display/khaje-sde-display-qrd-nowcd9375-overlay.dtbo
+
+dtbo-$(CONFIG_ARCH_SCUBA) += display/scuba-iot-sde.dtbo \
+                display/scuba-iot-sde-display-idp-overlay.dtbo
 
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
 		CONFIG_OS_DTS := false
