@@ -10,5 +10,5 @@
 / {
 	model = "Qualcomm Technologies, Inc. Pebble SVM RCM";
 	compatible = "qcom,pebble-rcm", "qcom,pebble", "qcom,rcm";
-	qcom,board-id = <0x15 0>;
+	qcom,board-id = <0x10015 0>;
 };
