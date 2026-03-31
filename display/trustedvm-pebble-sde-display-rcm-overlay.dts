@@ -3,6 +3,7 @@
  * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
  */
 /dts-v1/;
+/plugin/;
 
 #include "trustedvm-pebble-sde.dtsi"
 #include "trustedvm-pebble-sde-display-rcm.dtsi"
