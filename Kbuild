@@ -227,7 +227,8 @@ endif
 dtbo-$(CONFIG_ARCH_BENGAL) += display/bengal-sde.dtbo \
 		display/bengal-sde-display-idp-overlay.dtbo \
 		display/bengal-sde-display-qrd-overlay.dtbo \
-		display/bengal-sde-display-idp-nopmi-overlay.dtbo
+		display/bengal-sde-display-idp-nopmi-overlay.dtbo \
+		display/bengal-sde-display-qrd-v4-overlay.dtbo
 
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
 dtbo-$(CONFIG_ARCH_PIKACHU) += display/pikachu-sde.dtbo \
