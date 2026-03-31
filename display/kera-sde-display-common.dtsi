@@ -13,6 +13,9 @@
 #include "dsi-panel-sim-sec-hd-cmd.dtsi"
 #include "dsi-panel-sharp-dsc-qhd-plus-cmd.dtsi"
 #include "dsi-panel-sharp-dsc-qhd-plus-video.dtsi"
+#include "dsi-panel-dlc0697-fhd-60hz-video.dtsi"
+#include "dsi-panel-ili9881p-720p-video.dtsi"
+#include "dsi-panel-ext-bridge-1080p.dtsi"
 #include "dsi-panel-vtdr6130-dsc-fhd-plus-cmd.dtsi"
 #include "dsi-panel-vtdr6130-dsc-fhd-plus-video.dtsi"
 #include "dsi-panel-vtdr6130-dsc-fhd-plus-120hz-cmd.dtsi"
@@ -419,6 +422,24 @@
 				04 03 02 04 00 0d 09];
 			qcom,display-topology = <2 2 1>,
 						<1 1 1>;
+			qcom,default-topology-index = <0>;
+		};
+	};
+};
+
+&dsi_dlc0697_fhd_60_video {
+	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
+	qcom,dsi-select-sec-clocks = "pll_byte_clk1", "pll_dsi_clk1";
+	qcom,esd-check-enabled;
+	qcom,mdss-dsi-panel-status-command = [06 01 00 01 00 00 01 0a];
+	qcom,mdss-dsi-panel-status-command-state = "dsi_lp_mode";
+	qcom,mdss-dsi-panel-status-value = <0x9c>;
+	qcom,mdss-dsi-panel-status-read-length = <1>;
+	qcom,mdss-dsi-display-timings {
+		timing@0 {
+			qcom,mdss-dsi-panel-phy-timings = [00 63 1B 1B 32 38 1A
+			1B 16 02 04 00 4C 1F];
+			qcom,display-topology = <1 0 1>;
 			qcom,default-topology-index = <0>;
 		};
 	};
@@ -1018,6 +1039,18 @@
 &dsi_sim_sec_hd_cmd {
 	qcom,dsi-select-sec-clocks = "pll_byte_clk1", "pll_dsi_clk1";
 
+	qcom,mdss-dsi-display-timings {
+		timing@0 {
+			qcom,mdss-dsi-panel-phy-timings = [00 10 04 04 12 1e
+				04 04 03 02 04 00 0e 09];
+			qcom,display-topology = <1 0 1>;
+			qcom,default-topology-index = <0>;
+		};
+	};
+};
+
+&dsi_ili9881p_720p_video {
+	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
 	qcom,mdss-dsi-display-timings {
 		timing@0 {
 			qcom,mdss-dsi-panel-phy-timings = [00 10 04 04 12 1e
