@@ -7,6 +7,9 @@
 #include "dsi-panel-td4330-truly-v2-singlemipi-fhd-vid.dtsi"
 #include "dsi-panel-r66451-hd-plus-90hz-video.dtsi"
 #include "dsi-panel-r66451-hd-plus-90hz-cmd.dtsi"
+#include "dsi-panel-ili9881p-hd-plus-video.dtsi"
+
+#include "bengal-sde-display-pinctrl.dtsi"
 
 &soc {
 	dsi_panel_pwr_supply: dsi_panel_pwr_supply {
@@ -195,6 +198,18 @@
 				22 1E 07 08 04 02 04 a0
 				22 1E 07 08 04 02 04 a0
 				22 17 06 07 04 02 04 a0];
+
+&dsi_ili9881p_hd_plus_video {
+	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
+	qcom,mdss-dsi-display-timings {
+		timing@0 {
+			qcom,mdss-dsi-panel-phy-timings = [
+				1f 1c 05 07 03 02 04 a0
+				1f 1c 05 07 03 02 04 a0
+				1f 1c 05 07 03 02 04 a0
+				1f 1c 05 07 03 02 04 a0
+				1f 11 05 06 03 02 04 a0
+			];
 			qcom,display-topology = <1 0 1>;
 			qcom,default-topology-index = <0>;
 		};
