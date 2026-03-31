@@ -9,6 +9,17 @@
 #include "pebble-sde-common.dtsi"
 
 &soc {
+	smmu_sde_iommu_region_partition: smmu_sde_iommu_region_partition@1 {
+		iommu-addresses = <&smmu_sde_unsec 0x0 0x0 0x0 0x00020000>;
+	};
+
+	smmu_sde_unsec: qcom,smmu_sde_unsec_cb@0 {
+		compatible = "qcom,smmu_sde_unsec";
+		memory-region = <&smmu_sde_iommu_region_partition>;
+		iommus = <&apps_smmu 0x404 0x2>;
+		qcom,iommu-faults = "non-fatal";
+		dma-coherent;
+	};
 };
 
 &mdss_dsi0 {
