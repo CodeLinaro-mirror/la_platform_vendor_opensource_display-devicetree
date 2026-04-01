@@ -1,15 +1,15 @@
+// SPDX-License-Identifier: BSD-3-Clause
 /*
- *Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
- *SPDX-License-Identifier: BSD-3-Clause
-*/
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
 
-#include "lahaina-sde-common.dtsi"
 #include <dt-bindings/clock/mdss-5nm-pll-clk.h>
 #include <dt-bindings/clock/qcom,dispcc-sm8350.h>
 #include <dt-bindings/clock/qcom,rpmh.h>
 #include <dt-bindings/clock/qcom,gcc-sm8350.h>
 #include <dt-bindings/regulator/qcom,rpmh-regulator-levels.h>
 #include <dt-bindings/interconnect/qcom,lahaina.h>
+#include "lahaina-sde-common.dtsi"
 
 &soc {
 	disp_rdump_memory: disp_rdump_region@e1000000 {
@@ -158,7 +158,7 @@
 				qcom,supply-disable-load = <0>;
 			};
 		};
-	};   */
+	}; */
 
 	sde_rscc: qcom,sde_rscc@af20000 {
 		cell-index = <0>;

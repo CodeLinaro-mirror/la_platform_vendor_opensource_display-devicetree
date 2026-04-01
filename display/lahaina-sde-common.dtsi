@@ -1,7 +1,7 @@
+// SPDX-License-Identifier: BSD-3-Clause
 /*
- *Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
- *SPDX-License-Identifier: BSD-3-Clause
-*/
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
 
 #include <dt-bindings/clock/mdss-5nm-pll-clk.h>
 #include <dt-bindings/interrupt-controller/arm-gic.h>
@@ -15,6 +15,9 @@
 		reg-names = "mdp_phys",
 			"vbif_phys",
 			"regdma_phys";
+
+		#address-cells = <1>;
+		#size-cells = <1>;
 
 		clock-rate = <0 0 0 460000000 19200000 460000000 19200000>;
 		clock-max-rate = <0 0 0 460000000 19200000 460000000
@@ -295,6 +298,10 @@
 			<0xaf08000 0x4>,
 			<0x0ae36000 0x300>;
 		reg-names = "dsi_ctrl", "disp_cc_base", "mdp_intf_base";
+
+		#address-cells = <1>;
+		#size-cells = <1>;
+
 		interrupt-parent = <&mdss_mdp>;
 		interrupts = <4 0>;
 
@@ -335,6 +342,10 @@
 			<0xaf08000 0x4>,
 			<0x0ae37000 0x300>;
 		reg-names = "dsi_ctrl", "disp_cc_base", "mdp_intf_base";
+
+		#address-cells = <1>;
+		#size-cells = <1>;
+
 		interrupt-parent = <&mdss_mdp>;
 		interrupts = <5 0>;
 
@@ -376,6 +387,10 @@
 		      <0xaf03000 0x8>,
 		      <0xae94200 0x100>;
 		reg-names = "dsi_phy", "pll_base", "gdsc_base", "dyn_refresh_base";
+
+		#address-cells = <1>;
+		#size-cells = <1>;
+
 		pll-label = "dsi_pll_5nm";
 
 		qcom,platform-strength-ctrl = [55 03
@@ -413,6 +428,10 @@
 		      <0xaf03000 0x8>,
 		      <0xae96200 0x100>;
 		reg-names = "dsi_phy", "pll_base", "gdsc_base", "dyn_refresh_base";
+
+		#address-cells = <1>;
+		#size-cells = <1>;
+
 		pll-label = "dsi_pll_5nm";
 
 		qcom,platform-strength-ctrl = [55 03

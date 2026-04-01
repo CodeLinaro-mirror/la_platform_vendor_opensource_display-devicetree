@@ -1,7 +1,7 @@
+// SPDX-License-Identifier: BSD-3-Clause
 /*
- *Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
- *SPDX-License-Identifier: BSD-3-Clause
-*/
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
 
 &mdss_mdp {
 	dsi_r66451_amoled_cmd_cphy: qcom,mdss_dsi_r66451_fhd_plus_cphy_cmd {
@@ -38,6 +38,7 @@
 		qcom,panel-cphy-mode;
 		qcom,mdss-dsi-display-timings {
 			timing@0 {
+				cell-index = <0>;
 				qcom,mdss-dsi-panel-framerate = <60>;
 				qcom,mdss-dsi-panel-width = <1080>;
 				qcom,mdss-dsi-panel-height = <2340>;

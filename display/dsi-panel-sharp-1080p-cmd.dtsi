@@ -1,7 +1,7 @@
+// SPDX-License-Identifier: BSD-3-Clause
 /*
- *Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
- *SPDX-License-Identifier: BSD-3-Clause
-*/
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
 
 &mdss_mdp {
 	dsi_sharp_1080_cmd: qcom,mdss_dsi_sharp_1080p_cmd {
@@ -41,6 +41,7 @@
 
 		qcom,mdss-dsi-display-timings {
 			timing@0 {
+				cell-index = <0>;
 				qcom,mdss-dsi-panel-width = <1080>;
 				qcom,mdss-dsi-panel-height = <1920>;
 				qcom,mdss-dsi-h-front-porch = <0>;
