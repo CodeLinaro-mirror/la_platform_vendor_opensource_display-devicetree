@@ -229,9 +229,6 @@
 		qcom,sde-dspp-qrtc-size = <0x6c>;
 		qcom,sde-dspp-qrtc-version = <0x00010000>;
 
-		qcom,sde-lm-noise-off = <0x320>;
-		qcom,sde-lm-noise-version = <0x00010000>;
-
 		qcom,sde-uidle-off = <0x6000>;
 		qcom,sde-uidle-size = <0x80>;
 
