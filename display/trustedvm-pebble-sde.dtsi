@@ -7,6 +7,7 @@
 /plugin/;
 
 #include "pebble-sde-common.dtsi"
+#include "trustedvm-pebble-avf-required-subnodes.dtsi"
 
 &soc {
 	smmu_sde_iommu_region_partition: smmu_sde_iommu_region_partition@1 {
