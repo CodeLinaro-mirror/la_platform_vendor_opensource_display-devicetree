@@ -3,4 +3,13 @@
  * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
  */
 
-#include "malabar-sde-display-mtp.dtsi"
+/dts-v1/;
+/plugin/;
+
+#include "pebble-sde.dtsi"
+
+/ {
+	qcom,msm-id = <735 0x10000>;
+	qcom,board-id = <0 0>;
+};
+

@@ -40,6 +40,12 @@
 		qcom,demura-panel-id = <0x0 0x0>;
 	};
 
+	qcom_msmhdcp: qcom,msm_hdcp {
+		compatible = "qcom,msm-hdcp";
+		qcom,op-label = "hfi";
+		status = "ok";
+	};
+
 	sde_dp2: qcom,dp_display0 {
 		compatible = "qcom,dp-display";
 		qcom,op-label = "hfi";
