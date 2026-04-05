@@ -11,5 +11,5 @@
 / {
 	model = "Qualcomm Technologies, Inc. Pebble SVM MTP";
 	compatible = "qcom,pebble-mtp", "qcom,pebble", "qcom,mtp";
-	qcom,board-id = <8 0>;
+	qcom,board-id = <0x10008 0>;
 };

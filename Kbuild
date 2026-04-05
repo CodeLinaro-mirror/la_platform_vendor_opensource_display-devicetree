@@ -79,6 +79,11 @@ dtbo-$(CONFIG_ARCH_PEBBLE) += display/pebble-sde.dtbo \
 		display/pebble-sde-display-mtp-overlay.dtbo \
 		display/pebble-sde-display-qrd-overlay.dtbo \
 		display/pebble-sde-display-rcm-overlay.dtbo
+else
+dtbo-$(CONFIG_ARCH_PEBBLE) += display/trustedvm-pebble-sde-display-mtp-overlay.dtbo \
+		display/trustedvm-pebble-sde-display-cdp-overlay.dtbo \
+		display/trustedvm-pebble-sde-display-qrd-overlay.dtbo \
+		display/trustedvm-pebble-sde-display-rcm-overlay.dtbo
 endif
 
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
@@ -125,15 +130,16 @@ dtbo-$(CONFIG_ARCH_SUN) += display/trustedvm-sun-sde-display-cdp-overlay.dtbo \
 		display/trustedvm-sun-sde-display-qrd-overlay.dtbo
 endif
 
-#ifneq ($(CONFIG_ARCH_QTI_VM), y)
+ifneq ($(CONFIG_ARCH_QTI_VM), y)
 dtbo-$(CONFIG_ARCH_SHIKRA) += display/shikra-sde.dtbo \
 		display/shikra-sde-display-itp-overlay.dtbo \
 		display/shikra-sde-display-eitp-overlay.dtbo \
 		display/shikra-sde-display-atp-overlay.dtbo \
-		display/shikra-sde-display-itps-overlay.dtbo
-#else
-#dtbo-$(CONFIG_ARCH_SHIKRA) += display/trustedvm-shikra-sde-display-eitp-overlay.dtbo
-#endif
+		display/shikra-sde-display-itps-overlay.dtbo \
+		display/shikra-sde-display-itps-slt-overlay.dtbo
+else
+dtbo-$(CONFIG_ARCH_SHIKRA) += display/trustedvm-shikra-sde-display-itps-eitp-overlay.dtbo
+endif
 
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
 dtbo-$(CONFIG_ARCH_PARROT) += display/parrot-sde.dtbo \

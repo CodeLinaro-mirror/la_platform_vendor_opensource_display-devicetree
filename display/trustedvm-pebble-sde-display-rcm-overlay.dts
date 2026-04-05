@@ -3,6 +3,7 @@
  * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
  */
 /dts-v1/;
+/plugin/;
 
 #include "trustedvm-pebble-sde.dtsi"
 #include "trustedvm-pebble-sde-display-rcm.dtsi"
@@ -10,5 +11,5 @@
 / {
 	model = "Qualcomm Technologies, Inc. Pebble SVM RCM";
 	compatible = "qcom,pebble-rcm", "qcom,pebble", "qcom,rcm";
-	qcom,board-id = <0x15 0>;
+	qcom,board-id = <0x10015 0>;
 };
