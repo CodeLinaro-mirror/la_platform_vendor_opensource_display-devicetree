@@ -102,7 +102,9 @@
 						&qcom_mdss_dsi_display_timings_12
 						&qcom_mdss_dsi_display_timings_122
 						&qcom_mdss_dsi_display_timings_124
+						&qcom_mdss_dsi_display_timings_129
 						&qcom_mdss_dsi_display_timings_130
+						&qcom_mdss_dsi_display_timings_136
 						&qcom_mdss_dsi_display_timings_137
 						&qcom_mdss_dsi_display_timings_14
 						&qcom_mdss_dsi_display_timings_143
@@ -229,7 +231,9 @@
 						&timing_0_123
 						&timing_0_125
 						&timing_0_13
+						&timing_0_130
 						&timing_0_131
+						&timing_0_136
 						&timing_0_138
 						&timing_0_144
 						&timing_0_146
