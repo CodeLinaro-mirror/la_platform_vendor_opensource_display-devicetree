@@ -614,6 +614,10 @@
 		/delete-node/ timing@17; /* WQHD 144FPS cmd mode*/
 
 		/delete-node/ timing@18; /* WQHD 180FPS cmd mode*/
+
+		/delete-node/ timing@19; /* WQHD 165FPS cmd mode*/
+
+		/delete-node/ timing@20; /* WQHD 180FPS cmd mode*/
 	};
 };
 
