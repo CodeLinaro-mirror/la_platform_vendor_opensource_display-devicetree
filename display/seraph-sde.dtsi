@@ -68,7 +68,7 @@
 		power-domains = <&lsrcc LSR_CC_LSR_NOC_GDSC>, <&lsrcc LSR_CC_MVS0_GDSC>,
 				<&lsrcc LSR_CC_MVS0C_GDSC>;
 		power-domain-names = "lsr_noc_gdsc", "lsr_mvs0_gdsc", "lsr_mvs0c_gdsc";
-		gdsc_has_hw_pc = <0x1 0x1 0x1>;
+		gdsc_has_hw_pc = <0x1 0x1 0x0>;
 		/* Clocks */
 		clock-names = "lsr_axi_clock", "core_axi_clock", "sleep_clk", "lsr_freerun_clk",
 				"core_freerun_clk", "lsr_clk", "core_clk", "lsr_cc_mvs0_clk_src";
