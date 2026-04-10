@@ -8,6 +8,7 @@
 #include "dsi-panel-ft8726-dsc-fhd-plus-60hz-video.dtsi"
 #include "dsi-panel-sim-cmd.dtsi"
 #include "dsi-panel-sim-video.dtsi"
+#include "dsi-panel-sim-video-seamless.dtsi"
 #include "dsi-panel-sim-dsc375-cmd.dtsi"
 #include "dsi-panel-sim-dsc-10bit-cmd.dtsi"
 #include "dsi-panel-vtdr6130-dsc-fhd-plus-cmd.dtsi"
@@ -613,6 +614,39 @@
 		/delete-node/ timing@17; /* WQHD 144FPS cmd mode*/
 
 		/delete-node/ timing@18; /* WQHD 180FPS cmd mode*/
+
+		/delete-node/ timing@19; /* WQHD 165FPS cmd mode*/
+
+		/delete-node/ timing@20; /* WQHD 180FPS cmd mode*/
+	};
+};
+
+&dsi_sim_vid_seamless {
+	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
+	qcom,dsi-supported-dfps-list = <144 120 90 60 30 10>;
+	qcom,mdss-dsi-pan-enable-dynamic-fps;
+	qcom,mdss-dsi-pan-fps-update = "dfps_immediate_porch_mode_vfp";
+
+	qcom,qsync-enable;
+	qcom,mdss-dsi-qsync-min-refresh-rate = <48>;
+
+	qcom,mdss-dms-vid-type = "dms-vid-seamless";
+	qcom,dms-vid-maintain-const-clk;
+
+	qcom_mdss_dsi_display_timings_91: qcom,mdss-dsi-display-timings {
+		timing_0_92: timing@0 {
+			qcom,mdss-dsi-panel-phy-timings = [00 24 0a 0a 1a 24 0a
+				0a 09 02 04 00 1e 0f];
+			qcom,display-topology = <1 1 1>;
+			qcom,default-topology-index = <0>;
+		};
+
+		timing_1_93: timing@1 {
+			qcom,mdss-dsi-panel-phy-timings = [00 24 0a 0a 1a 24 0a
+				0a 09 02 04 00 1e 0f];
+			qcom,display-topology = <1 1 1>;
+			qcom,default-topology-index = <0>;
+		};
 	};
 };
 
