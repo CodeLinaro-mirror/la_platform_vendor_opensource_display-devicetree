@@ -1266,6 +1266,13 @@ properties:
   qcom,esd-check-enabled:
     description: Boolean used to enable ESD recovery feature.
 
+  qcom,esd-check-host-controlled:
+    description: |
+      Boolean to enable ESD status check thread on Host/HLOS in HFI mode.
+      This property indicates whether the ESD status check should be performed
+      by DCP or by Host when operating in HFI mode. When set, the driver routes
+      the ESD check to be handled by the Host instead of relying on DCP-side polling.
+
   qcom,mdss-dsi-panel-status-command:
     description: >
       A byte stream formed by multiple dcs packets based on
@@ -1927,6 +1934,7 @@ examples:
         qcom,dsi-qsync-avr-step-fps = <240>;
         qcom,mdss-dsi-qsync-min-refresh-rate = <60>;
         qcom,esd-check-enabled;
+        qcom,esd-check-host-controlled;
         qcom,mdss-dsi-panel-status-command = [06 01 00 01 05 00 02 0A 08];
         qcom,mdss-dsi-panel-status-command-state = "dsi_lp_mode";
         qcom,mdss-dsi-panel-status-check-mode = "reg_read";

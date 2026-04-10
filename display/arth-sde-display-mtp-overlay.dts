@@ -6,7 +6,7 @@
 /dts-v1/;
 /plugin/;
 
-#include "art-sde-display-mtp.dtsi"
+#include "arth-sde-display-mtp.dtsi"
 
 / {
 	model = "Qualcomm Technologies, Inc. Arth MTP";

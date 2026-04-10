@@ -17,6 +17,7 @@ dtbo-$(CONFIG_ARCH_ART) += display/art-sde.dtbo \
 		display/artl-sde-display-mtp-overlay.dtbo \
 		display/artl-sde-display-qrd-sku1-overlay.dtbo \
 		display/artl-sde-display-qrd-sku2-overlay.dtbo \
+		display/artl-sde-display-rcm-overlay.dtbo \
 		display/arth-sde.dtbo \
 		display/arth-sde-display-cdp-overlay.dtbo \
 		display/arth-sde-display-mtp-overlay.dtbo
@@ -62,7 +63,8 @@ dtbo-$(CONFIG_ARCH_ALOR) += display/alor-sde.dtbo \
 		display/alor-sde-display-qrd-overlay.dtbo \
 		display/alor-sde-display-rcm-overlay.dtbo \
 		display/alor-sde-display-rumi-overlay.dtbo \
-		display/alor-sde-display-mtp-pmih010x-smb1398-overlay.dtbo
+		display/alor-sde-display-mtp-pmih010x-smb1398-overlay.dtbo \
+		display/alor-sde-display-mtp-harmonium-overlay.dtbo
 else
 dtbo-$(CONFIG_ARCH_ALOR) += display/trustedvm-alor-sde-display-atp-overlay.dtbo \
 		display/trustedvm-alor-sde-display-cdp-overlay.dtbo \
@@ -87,7 +89,8 @@ endif
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
 dtbo-$(CONFIG_ARCH_X1E80100) += display/x1e80100-sde.dtbo \
 		display/x1e80100-sde-display-crd-overlay.dtbo \
-		display/x1e80100-sde-display-qcb-overlay.dtbo
+		display/x1e80100-sde-display-qcb-overlay.dtbo \
+		display/x1e80100-sde-display-qcp-overlay.dtbo
 endif
 
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
@@ -122,6 +125,16 @@ dtbo-$(CONFIG_ARCH_SUN) += display/trustedvm-sun-sde-display-cdp-overlay.dtbo \
 		display/trustedvm-sun-sde-display-qrd-overlay.dtbo
 endif
 
+#ifneq ($(CONFIG_ARCH_QTI_VM), y)
+dtbo-$(CONFIG_ARCH_SHIKRA) += display/shikra-sde.dtbo \
+		display/shikra-sde-display-itp-overlay.dtbo \
+		display/shikra-sde-display-eitp-overlay.dtbo \
+		display/shikra-sde-display-atp-overlay.dtbo \
+		display/shikra-sde-display-itps-overlay.dtbo
+#else
+#dtbo-$(CONFIG_ARCH_SHIKRA) += display/trustedvm-shikra-sde-display-eitp-overlay.dtbo
+#endif
+
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
 dtbo-$(CONFIG_ARCH_PARROT) += display/parrot-sde.dtbo \
 		display/parrot-sde-display-atp-overlay.dtbo \
@@ -133,6 +146,17 @@ else
 dtbo-$(CONFIG_ARCH_PARROT) += display/trustedvm-parrot-sde-display-idp-overlay.dtbo
 endif
 
+ifneq ($(CONFIG_ARCH_QTI_VM), y)
+dtbo-$(CONFIG_ARCH_RAVELIN) += display/ravelin-sde.dtbo \
+		display/ravelin-sde-display-atp-overlay.dtbo \
+		display/ravelin-sde-display-idp-overlay.dtbo \
+		display/ravelin-sde-display-idp-amoled-overlay.dtbo \
+		display/ravelin-sde-display-rumi-overlay.dtbo \
+		display/ravelin-sde-display-qrd-overlay.dtbo
+else
+dtbo-$(CONFIG_ARCH_RAVELIN) += display/trustedvm-ravelin-sde-display-idp-overlay.dtbo \
+			display/trustedvm-ravelin-sde-display-idp-amoled-overlay.dtbo
+endif
 
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
 dtbo-$(CONFIG_ARCH_TUNA) += display/tuna-sde.dtbo \
@@ -176,12 +200,17 @@ dtbo-$(CONFIG_ARCH_KERA) += display/trustedvm-kera-sde-display-atp-overlay.dtbo 
 		display/trustedvm-kera-sde-display-rcm-overlay.dtbo
 endif
 
+ifeq ($(strip $(MSM_ARCH)),vienna_le)
+dtbo-$(CONFIG_ARCH_VIENNA) += display/vienna-sde.dtbo \
+		display/vienna_le-sde-no-display-overlay.dtbo
+else
 dtbo-$(CONFIG_ARCH_VIENNA) += display/vienna-sde.dtbo \
 		display/vienna-sde-display-wdp-overlay.dtbo \
 		display/vienna-sde-display-idp-overlay.dtbo \
 		display/vienna-sde-display-wrd-overlay.dtbo \
 		display/vienna-sde-display-atp-overlay.dtbo \
 		display/vienna-sde-display-rcm-overlay.dtbo
+endif
 
 dtbo-$(CONFIG_ARCH_MONACO) += display/monaco-sde.dtbo \
 		display/monaco-sde-display-idp-overlay.dtbo \
@@ -196,6 +225,9 @@ dtbo-$(CONFIG_ARCH_KHAJE) += display/khaje-sde.dtbo \
 		display/khaje-sde-display-idp-nopmi-overlay.dtbo \
 		display/khaje-sde-display-qrd-nopmi-overlay.dtbo \
 		display/khaje-sde-display-qrd-nowcd9375-overlay.dtbo
+
+dtbo-$(CONFIG_ARCH_SCUBA) += display/scuba-iot-sde.dtbo \
+                display/scuba-iot-sde-display-idp-overlay.dtbo
 
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
 		CONFIG_OS_DTS := false
@@ -216,6 +248,13 @@ dtbo-$(CONFIG_ARCH_BENGAL) += display/bengal-sde.dtbo \
 		display/bengal-sde-display-idp-overlay.dtbo \
 		display/bengal-sde-display-qrd-overlay.dtbo \
 		display/bengal-sde-display-idp-nopmi-overlay.dtbo
+
+ifneq ($(CONFIG_ARCH_QTI_VM), y)
+dtbo-$(CONFIG_ARCH_PIKACHU) += display/pikachu-sde.dtbo \
+		display/pikachu-sde-display-atp-overlay.dtbo \
+		display/pikachu-sde-display-idp-overlay.dtbo \
+		display/pikachu-sde-display-rumi-overlay.dtbo
+endif
 
 always-y    := $(dtb-y) $(dtbo-y)
 subdir-y    := $(dts-dirs)
