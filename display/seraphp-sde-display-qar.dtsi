@@ -4,6 +4,7 @@
  */
 
 #include "seraph-sde-display.dtsi"
+#include <dt-bindings/gpio/gpio.h>
 
 &pmar2230_gpios {
 	display_verg_pwr_en_active: display_verg_pwr_en_active {
@@ -12,7 +13,7 @@
 		input-disable;
 		output-enable;
 		bias-disable;
-		power-source = <2>;
+		power-source = <1>;
 		qcom,drive-strength = <2>;
 	};
 };
@@ -49,6 +50,42 @@
 	};
 };
 
+&soc {
+	i2c_mux: i2c-mux {
+		compatible = "i2c-mux-gpio";
+		i2c-parent = <&qupv3_se4_i2c>;
+		mux-gpios = <&tlmm 78 GPIO_ACTIVE_HIGH>;
+		settle-time-us = <15>;
+
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		left_eye_i2c: i2c@0 {
+			reg = <0>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+		};
+
+		right_eye_i2c: i2c@1 {
+			reg = <1>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+		};
+	};
+};
+
+&dsi_jbd4020_dual_640x480_60hz_video {
+	qcom,panel-supply-entries = <&dsi_panel_pwr_supply>;
+	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_i2c";
+	qcom,mdss-dsi-bl-min-level = <1>;
+	qcom,mdss-dsi-bl-max-level = <1023>;
+	qcom,mdss-brightness-max-level = <1023>;
+	qcom,platform-reset-gpio = <&tlmm 93 0>;
+	qcom,platform-bist-gpio = <&tlmm 64 0>;
+	qcom,panel-i2c-left  = <&left_eye_i2c>;
+	qcom,panel-i2c-right  = <&right_eye_i2c>;
+};
+
 &dsi_sim_vid {
 	qcom,panel-supply-entries = <&dsi_panel_pwr_supply_sim>;
 	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_dcs";
@@ -59,5 +96,5 @@
 };
 
 &sde_dsi {
-	qcom,dsi-default-panel = <&dsi_sim_vid>;
+	qcom,dsi-default-panel = <&dsi_jbd4020_dual_640x480_60hz_video>;
 };
