@@ -63,6 +63,7 @@
 	connectors = <&sde_dsi &smmu_sde_sec &smmu_sde_unsec>;
 };
 
+// Bridge-ITP/EITP
 &dsi_ext_bridge_1080p {
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
 
@@ -74,7 +75,7 @@
 	};
 };
 
-// DLC
+// DLC-ITP/ITPS/EITP
 &dsi_dlc0697_fhd_60_video {
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
 	qcom,platform-reset-gpio = <&tlmm 3 0>;
@@ -93,7 +94,7 @@
 	};
 };
 
-// COTS
+// RPI-COTS
 &dsi_ili9881p_720p_video {
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
 	qcom,platform-reset-gpio = <&tlmm 3 0>;
@@ -111,7 +112,7 @@
 	};
 };
 
-// ATP
+// VTDR-ATP
 &dsi_vtdr6130_amoled_nodsc_60hz_cmd {
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
 	qcom,platform-reset-gpio = <&tlmm 3 0>;
@@ -128,3 +129,10 @@
 		};
 	};
 };
+
+// FHD-SLT
+&dsi_sim_fhd_vid {
+	qcom,panel-supply-entries = <&dsi_panel_pwr_supply_sim>;
+	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_dcs";
+};
+
