@@ -6,10 +6,39 @@
 //#include <dt-bindings/interrupt-controller/arm-gic.h>
 
 &soc {
+	ext_disp_00: qcom,msm-ext-disp-0-0 {
+		compatible = "qcom,msm-ext-disp";
+		ext_disp_audio_codec_00: qcom,msm-ext-disp-audio-codec-rx@0 {
+			compatible = "qcom,msm-ext-disp-audio-codec-rx";
+		};
+	};
+
+	ext_disp_01: qcom,msm-ext-disp-0-1 {
+		compatible = "qcom,msm-ext-disp";
+		ext_disp_audio_codec_01: qcom,msm-ext-disp-audio-codec-rx@1 {
+			compatible = "qcom,msm-ext-disp-audio-codec-rx";
+		};
+	};
+
+	ext_disp_10: qcom,msm-ext-disp-1-0 {
+		compatible = "qcom,msm-ext-disp";
+		ext_disp_audio_codec_10: qcom,msm-ext-disp-audio-codec-rx@2 {
+			compatible = "qcom,msm-ext-disp-audio-codec-rx";
+		};
+	};
+
+	ext_disp_11: qcom,msm-ext-disp-1-1 {
+		compatible = "qcom,msm-ext-disp";
+		ext_disp_audio_codec_11: qcom,msm-ext-disp-audio-codec-rx@3 {
+			compatible = "qcom,msm-ext-disp-audio-codec-rx";
+		};
+	};
+
 	virtio_kms1: qcom,virtio_kms@1 {
 		compatible = "qcom,virtio-kms";
 		qcom,client-id = "7815";
 		qcom,client-hab-id = "0";
+		qcom,ext-disp = <&ext_disp_00 &ext_disp_01 &ext_disp_10 &ext_disp_11>;
 	};
 
 	sde_kms_hyp: qcom,sde_kms_hyp@ae00000 {
