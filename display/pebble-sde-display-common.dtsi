@@ -1103,6 +1103,19 @@
 			qcom,display-topology = <2 2 1>;
 			qcom,default-topology-index = <0>;
 		};
+		timing_1_359: timing@1 {
+			qcom,mdss-dsi-panel-phy-timings = [00 16 05 05 14 1F 06
+				05 06 02 04 00 13 0A];
+			qcom,display-topology = <2 2 1>;
+			qcom,default-topology-index = <0>;
+		};
+
+		timing_2_359: timing@2 {
+			qcom,mdss-dsi-panel-phy-timings = [00 16 05 05 14 1F 06
+				05 06 02 04 00 13 0A];
+			qcom,display-topology = <2 2 1>;
+			qcom,default-topology-index = <0>;
+		};
 	};
 };
 
