@@ -204,7 +204,8 @@
 
 &spi19 {
 	synaptics_tcm@0 {
-		panel = <&dsi_nt37802_amoled_cmd_i2c_cphy
+		panel = <&dsi_ili97680a_amoled_dsc_10b_cmd
+			&dsi_nt37802_amoled_cmd_i2c_cphy
 			&dsi_nt37802_amoled_cmd_cphy
 			&dsi_nt37802_amoled_video_vhm_cphy
 			&dsi_nt37802_amoled_video_cphy>;
