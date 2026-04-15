@@ -200,7 +200,7 @@
 		};
 	};
 
-	dsi_panel_pwr_supply_avdd: dsi_panel_pwr_supply_avdd {
+	dsi_panel_pwr_supply_lcd: dsi_panel_pwr_supply_lcd {
 		#address-cells = <1>;
 		#size-cells = <0>;
 
