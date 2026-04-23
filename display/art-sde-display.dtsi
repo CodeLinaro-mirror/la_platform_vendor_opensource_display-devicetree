@@ -55,15 +55,15 @@
 		pinctrl-0 = <&sde_disp0_vdd_active>;
 	};
 
-	disp_rdump_memory: disp_rdump_region@0xfaf60000 {
-		reg = <0xfaf60000 0x00800000>;
+	disp_rdump_memory: disp_rdump_region@0xf8c600000 {
+		reg = <0xf8c60000 0x00800000>;
 		label = "disp_rdump_region";
 	};
 };
 
 &reserved_memory {
 	splash_memory: splash_region {
-		reg = <0x0 0xF8C7A000 0x0 0x2AE2000>;
+		reg = <0x0 0xF8C60000 0x0 0x02B00000>;
 		label = "cont_splash_region";
 	};
 
