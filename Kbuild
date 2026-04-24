@@ -33,7 +33,8 @@ dtbo-$(CONFIG_ARCH_ALOR) += display/alor-sde.dtbo \
 		display/alor-sde-display-qrd-overlay.dtbo \
 		display/alor-sde-display-rcm-overlay.dtbo \
 		display/alor-sde-display-rumi-overlay.dtbo \
-		display/alor-sde-display-mtp-pmih010x-smb1398-overlay.dtbo
+		display/alor-sde-display-mtp-pmih010x-smb1398-overlay.dtbo \
+		display/alor-sde-display-mtp-harmonium-overlay.dtbo
 else
 dtbo-$(CONFIG_ARCH_ALOR) += display/trustedvm-alor-sde-display-atp-overlay.dtbo \
 		display/trustedvm-alor-sde-display-cdp-overlay.dtbo \
@@ -108,6 +109,18 @@ dtbo-$(CONFIG_ARCH_SUN) += display/trustedvm-sun-sde-display-cdp-overlay.dtbo \
 endif
 
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
+dtbo-$(CONFIG_ARCH_RAVELIN) += display/ravelin-sde.dtbo \
+		display/ravelin-sde-display-atp-overlay.dtbo \
+		display/ravelin-sde-display-idp-overlay.dtbo \
+		display/ravelin-sde-display-idp-amoled-overlay.dtbo \
+		display/ravelin-sde-display-rumi-overlay.dtbo \
+		display/ravelin-sde-display-qrd-overlay.dtbo
+else
+dtbo-$(CONFIG_ARCH_RAVELIN) += display/trustedvm-ravelin-sde-display-idp-overlay.dtbo \
+			display/trustedvm-ravelin-sde-display-idp-amoled-overlay.dtbo
+endif
+
+ifneq ($(CONFIG_ARCH_QTI_VM), y)
 dtbo-$(CONFIG_ARCH_TUNA) += display/tuna-sde.dtbo \
 		display/tuna-sde-display-atp-overlay.dtbo \
 		display/tuna-sde-display-cdp-overlay.dtbo \
@@ -166,6 +179,9 @@ dtbo-$(CONFIG_ARCH_VIENNA) += display/vienna-sde.dtbo \
 		display/vienna-sde-display-wrd-overlay.dtbo \
 		display/vienna-sde-display-atp-overlay.dtbo \
 		display/vienna-sde-display-rcm-overlay.dtbo
+
+dtbo-$(CONFIG_ARCH_SCUBA) += display/scuba-iot-sde.dtbo \
+                display/scuba-iot-sde-display-idp-overlay.dtbo
 
 dtbo-$(CONFIG_ARCH_KHAJE) += display/khaje-sde.dtbo \
 		display/khaje-sde-display-idp-overlay.dtbo \
