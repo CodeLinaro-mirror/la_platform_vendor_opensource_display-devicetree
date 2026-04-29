@@ -1,0 +1,11 @@
+/dts-v1/;
+/plugin/;
+
+#include "quin-vm-display-la1.dtsi"
+
+/ {
+	model = "Qualcomm Technologies, Inc. SA8255 Multi LA Guest Virtual Machine";
+	compatible = "qcom,lemans", "qcom,quinvm";
+	qcom,board-id = <0 0x3000001>;
+	qcom,msm-id = <532 0x20000>;
+};
