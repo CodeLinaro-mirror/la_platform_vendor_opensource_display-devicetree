@@ -23,6 +23,7 @@
 #include "dsi-panel-nt37802-amoled-video-psr-vhm.dtsi"
 #include "dsi-panel-nt37802-dsc-wqhd-plus-cmd-cphy.dtsi"
 #include "dsi-panel-nt37802-dsc-wqhd-plus-video-vhm-cphy.dtsi"
+#include "dsi-panel-nt37802-dsc-wqhd-plus-video-vhm-i2c-cphy.dtsi"
 #include "dsi-panel-nt37802-dsc-wqhd-plus-cmd-i2c-cphy.dtsi"
 #include "dsi-panel-nt37802-dsc-wqhd-plus-video-i2c-cphy.dtsi"
 #include "dsi-panel-nt37802-dsc-wqhd-plus-cmd-i2c-dphy.dtsi"
@@ -1046,6 +1047,19 @@
 	qcom_mdss_dsi_display_timings_137: qcom,mdss-dsi-display-timings {
 		timing_0_138: timing@0 {
 			qcom,mdss-dsi-panel-phy-timings = [00 00 00 00 23 23 08
+					19 08 02 04 00 00 00];
+			qcom,display-topology = <2 2 1>;
+			qcom,default-topology-index = <0>;
+		};
+	};
+};
+
+&dsi_nt37802_amoled_video_vhm_i2c_cphy {
+	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
+
+	qcom_mdss_dsi_display_timings_138: qcom,mdss-dsi-display-timings {
+		timing_0_139: timing@0 {
+			qcom,mdss-dsi-panel-phy-timings = [00 00 00 00 24 24 08
 					19 08 02 04 00 00 00];
 			qcom,display-topology = <2 2 1>;
 			qcom,default-topology-index = <0>;
