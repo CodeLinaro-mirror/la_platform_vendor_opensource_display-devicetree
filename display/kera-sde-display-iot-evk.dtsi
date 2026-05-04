@@ -85,6 +85,32 @@
 			bias-pull-down;         /* PULL DOWN */
 		};
 	};
+
+	usb_sw_en_default: usb_sw_en_default {
+		mux {
+			pins = "gpio177";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio177";
+			drive-strength = <8>;
+			bias-disable = <0>;
+		};
+	};
+
+	usb_sw_sel_default: usb_sw_sel_default {
+		mux {
+			pins = "gpio178";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio178";
+			drive-strength = <8>;
+			bias-disable = <0>;
+		};
+	};
 };
 
 &soc {
@@ -105,6 +131,7 @@
 
 &dsi_ext_bridge_1080p {
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
+	qcom,mdss-dsi-ext-bridge-hpd;
 };
 
 &sde_dsi {
@@ -145,7 +172,7 @@
 		reg = <0x41>;
 		lt,irq-gpio = <&tlmm 13 0x0>;
 		lt,reset-gpio = <&tlmm 16 0x0>;
-		lt,non-pluggable;
+		lt,hdmi-en-gpio = <&pm8550vs_g_gpios 5 0>;
 		lt,audio-support;
 		lt,cec-support;
 
@@ -182,4 +209,14 @@
 			};
 		};
 	};
+};
+
+&sde_dp {
+	pinctrl-names = "mdss_dp_active", "mdss_dp_sleep";
+	pinctrl-0 = <&usb_sw_en_default &usb_sw_sel_default>;
+	pinctrl-1 = <&usb_sw_en_default &usb_sw_en_default>;
+	qcom,dp-aux-switch = <&sde_dp>;
+	qcom,aux-en-gpio = <&tlmm 177 1>;
+	qcom,aux-sel-gpio = <&tlmm 178 0>;
+	qcom,dp-gpio-aux-switch;
 };

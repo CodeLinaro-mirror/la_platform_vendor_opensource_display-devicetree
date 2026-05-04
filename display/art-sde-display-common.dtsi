@@ -22,6 +22,7 @@
 #include "dsi-panel-nt37801-dsc-wqhd-plus-video-cphy-spr.dtsi"
 #include "dsi-panel-nt37802-amoled-video-psr-vhm.dtsi"
 #include "dsi-panel-nt37802-dsc-wqhd-plus-cmd-cphy.dtsi"
+#include "dsi-panel-nt37802-dsc-wqhd-plus-video-cphy.dtsi"
 #include "dsi-panel-nt37802-dsc-wqhd-plus-video-vhm-cphy.dtsi"
 #include "dsi-panel-nt37802-dsc-wqhd-plus-cmd-i2c-cphy.dtsi"
 #include "dsi-panel-nt37802-dsc-wqhd-plus-video-i2c-cphy.dtsi"
@@ -315,7 +316,6 @@
 
 	qcom,dsi-dyn-clk-enable;
 
-	qcom,esd-check-enabled;
 	qcom,mdss-dsi-panel-status-check-mode = "reg_read";
 	qcom,mdss-dsi-panel-status-command = [06 01 00 01 00 00 01 0a];
 	qcom,mdss-dsi-panel-status-command-state = "dsi_lp_mode";
@@ -595,6 +595,9 @@
 &dsi_nt37801_amoled_cmd {
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
 	qcom,dsi-select-sec-clocks = "pll_byte_clk1", "pll_dsi_clk1";
+
+	qcom,dsi-dyn-clk-enable;
+
 	qcom,esd-check-enabled;
 	qcom,mdss-dsi-panel-status-check-mode = "reg_read";
 	qcom,mdss-dsi-panel-status-command = [06 01 00 01 00 00 01 0a];
@@ -608,6 +611,7 @@
 					0b 0a 02 04 00 21 0f];
 			qcom,display-topology = <2 2 1>;
 			qcom,default-topology-index = <0>;
+			qcom,dsi-dyn-clk-list = <1204900016 1199900432 1194900848>;
 		};
 
 		timing_1_38: timing@1 {
@@ -615,6 +619,7 @@
 					08 08 08 02 04 1a 0d];
 			qcom,display-topology = <2 2 1>;
 			qcom,default-topology-index = <0>;
+			qcom,dsi-dyn-clk-list = <906243808 902483456 898723104>;
 		};
 
 		timing_2_39: timing@2 {
@@ -622,6 +627,7 @@
 					0b 0a 02 04 00 21 0f];
 			qcom,display-topology = <2 2 1>;
 			qcom,default-topology-index = <0>;
+			qcom,dsi-dyn-clk-list = <1204900016 1199900432 1194900848>;
 		};
 
 		timing_3_40: timing@3 {
@@ -629,6 +635,7 @@
 					0b 0a 02 04 00 21 0f];
 			qcom,display-topology = <2 2 1>;
 			qcom,default-topology-index = <0>;
+			qcom,dsi-dyn-clk-list = <1204900016 1199900432 1194900848>;
 		};
 
 		timing_4: timing@4 {
@@ -636,6 +643,7 @@
 					0b 0a 02 04 00 21 0f];
 			qcom,display-topology = <2 2 1>;
 			qcom,default-topology-index = <0>;
+			qcom,dsi-dyn-clk-list = <1204900016 1199900432 1194900848>;
 		};
 	};
 };
@@ -703,6 +711,8 @@
 	qcom,mdss-dsi-pan-enable-dynamic-fps;
 	qcom,mdss-dsi-pan-fps-update = "dfps_immediate_porch_mode_vfp";
 
+	qcom,dsi-dyn-clk-enable;
+
 	qcom,esd-check-enabled;
 	qcom,mdss-dsi-panel-status-check-mode = "reg_read";
 	qcom,mdss-dsi-panel-status-command = [06 01 00 01 00 00 01 0a];
@@ -716,6 +726,7 @@
 					0b 0a 02 04 00 21 0f];
 			qcom,display-topology = <2 2 1>;
 			qcom,default-topology-index = <0>;
+			qcom,dsi-dyn-clk-list = <1457942400 1453239360 1448536320>;
 		};
 	};
 };
@@ -1038,12 +1049,25 @@
 	};
 };
 
+&dsi_nt37802_amoled_video_cphy {
+	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
+
+	qcom_mdss_dsi_display_timings_136: qcom,mdss-dsi-display-timings {
+		timing_0_136: timing@0 {
+			qcom,mdss-dsi-panel-phy-timings = [00 00 00 00 23 23 08
+					19 08 02 04 00 00 00];
+			qcom,display-topology = <2 2 1>;
+			qcom,default-topology-index = <0>;
+		};
+	};
+};
+
 &dsi_nt37802_amoled_video_vhm_cphy {
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
 
 	qcom_mdss_dsi_display_timings_137: qcom,mdss-dsi-display-timings {
 		timing_0_138: timing@0 {
-			qcom,mdss-dsi-panel-phy-timings = [00 00 00 00 23 23 08
+			qcom,mdss-dsi-panel-phy-timings = [00 00 00 00 24 24 08
 					19 08 02 04 00 00 00];
 			qcom,display-topology = <2 2 1>;
 			qcom,default-topology-index = <0>;
@@ -1053,6 +1077,12 @@
 
 &dsi_nt37802_amoled_cmd_i2c_cphy {
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
+	qcom,esd-check-enabled;
+	qcom,mdss-dsi-panel-status-check-mode = "reg_read";
+	qcom,mdss-dsi-panel-status-command = [06 01 00 01 00 00 01 0a];
+	qcom,mdss-dsi-panel-status-command-state = "dsi_lp_mode";
+	qcom,mdss-dsi-panel-status-value = <0x9c>;
+	qcom,mdss-dsi-panel-status-read-length = <1>;
 
 	qcom_mdss_dsi_display_timings_353: qcom,mdss-dsi-display-timings {
 		timing_0_354: timing@0 {
