@@ -72,7 +72,8 @@
 
 &dsi_jbd_gen2_dual_380x500_60hz_video {
 	qcom,panel-supply-entries = <&dsi_panel_pwr_supply_uled>;
-	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_external";
+	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_i2c";
+	qcom,mdss-dsi-bl-ctrl-i2c-subtype = "jbd4040";
 	qcom,mdss-dsi-bl-min-level = <1>;
 	qcom,mdss-dsi-bl-max-level = <1023>;
 	qcom,mdss-brightness-max-level = <1023>;
