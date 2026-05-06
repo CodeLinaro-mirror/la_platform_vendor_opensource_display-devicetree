@@ -5,6 +5,8 @@
 
 #include "dsi-panel-td4330-truly-v2-singlemipi-fhd-cmd.dtsi"
 #include "dsi-panel-td4330-truly-v2-singlemipi-fhd-vid.dtsi"
+#include "dsi-panel-r66451-hd-plus-90hz-video.dtsi"
+#include "dsi-panel-r66451-hd-plus-90hz-cmd.dtsi"
 
 &soc {
 	dsi_panel_pwr_supply: dsi_panel_pwr_supply {
@@ -86,6 +88,8 @@
 
 	msm_notifier: qcom,msm_notifier@0 {
 		compatible = "qcom,msm-notifier";
+		panel = <&dsi_r66451_amoled_hd_90hz_video
+			&dsi_r66451_amoled_hd_90hz_cmd>;
 	};
 };
 
@@ -157,6 +161,42 @@
 			qcom,panel-roi-alignment = <40 40 40 40 40 40>;
 			qcom,dsi-dyn-clk-list =
 				<944315056 928576464 932511112 936445760 940380400>;
+		};
+	};
+};
+
+&dsi_r66451_amoled_hd_90hz_video {
+	qcom,mdss-dsi-t-clk-post = <0x0c>;
+	qcom,mdss-dsi-t-clk-pre = <0x2a>;
+	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
+	qcom,mdss-dsi-display-timings {
+		timing@0 {
+			qcom,mdss-dsi-panel-phy-timings =
+				[22 1E 07 08 04 02 04 a0
+				22 1E 07 08 04 02 04 a0
+				22 1E 07 08 04 02 04 a0
+				22 1E 07 08 04 02 04 a0
+				22 17 06 07 04 02 04 a0];
+			qcom,display-topology = <1 0 1>;
+			qcom,default-topology-index = <0>;
+		};
+	};
+};
+
+&dsi_r66451_amoled_hd_90hz_cmd {
+	qcom,mdss-dsi-t-clk-post = <0x0c>;
+	qcom,mdss-dsi-t-clk-pre = <0x2a>;
+	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
+	qcom,mdss-dsi-display-timings {
+		timing@0 {
+			qcom,mdss-dsi-panel-phy-timings =
+				[22 1E 07 08 04 02 04 a0
+				22 1E 07 08 04 02 04 a0
+				22 1E 07 08 04 02 04 a0
+				22 1E 07 08 04 02 04 a0
+				22 17 06 07 04 02 04 a0];
+			qcom,display-topology = <1 0 1>;
+			qcom,default-topology-index = <0>;
 		};
 	};
 };
