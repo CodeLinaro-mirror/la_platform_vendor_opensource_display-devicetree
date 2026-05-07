@@ -105,6 +105,7 @@
 
 &dsi_ext_bridge_1080p {
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
+	qcom,mdss-dsi-ext-bridge-hpd;
 };
 
 &sde_dsi {
@@ -145,7 +146,7 @@
 		reg = <0x41>;
 		lt,irq-gpio = <&tlmm 13 0x0>;
 		lt,reset-gpio = <&tlmm 16 0x0>;
-		lt,non-pluggable;
+		lt,hdmi-en-gpio = <&pm8550vs_g_gpios 5 0>;
 		lt,audio-support;
 		lt,cec-support;
 

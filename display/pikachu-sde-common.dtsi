@@ -229,6 +229,71 @@
 				<0 74000>,
 				<0 5000000>,
 				<0 9700000>;
+
+		qcom,sde-sspp-vig-blocks {
+			vcm@0 {
+				cell-index = <0>;
+				qcom,sde-vig-top-off = <0xa00>;
+				qcom,sde-vig-csc-off = <0x1a00>;
+				qcom,sde-vig-qseed-off = <0xa00>;
+				qcom,sde-vig-qseed-size = <0xe0>;
+				qcom,sde-vig-gamut = <0x1d00 0x00060001>;
+				qcom,sde-vig-igc = <0x1d00 0x00060000>;
+				qcom,sde-vig-inverse-pma;
+				qcom,sde-fp16-igc = <0x200 0x00010000>;
+				qcom,sde-fp16-unmult = <0x200 0x00010000>;
+				qcom,sde-fp16-gc = <0x200 0x00010000>;
+				qcom,sde-fp16-csc = <0x200 0x00010000>;
+			};
+
+			vcm@1 {
+				cell-index = <1>;
+				qcom,sde-fp16-igc = <0x280 0x00010000>;
+				qcom,sde-fp16-unmult = <0x280 0x00010000>;
+				qcom,sde-fp16-gc = <0x280 0x00010000>;
+				qcom,sde-fp16-csc = <0x280 0x00010000>;
+			};
+		};
+
+		qcom,sde-sspp-dma-blocks {
+			dgm@0 {
+				cell-index = <0>;
+				qcom,sde-dma-top-off = <0x800>;
+				qcom,sde-dma-igc = <0xa00 0x00050000>;
+				qcom,sde-dma-gc = <0xc00 0x00050000>;
+				qcom,sde-dma-inverse-pma;
+				qcom,sde-dma-csc-off = <0x800>;
+				qcom,sde-fp16-igc = <0x200 0x00010000>;
+				qcom,sde-fp16-unmult = <0x200 0x00010000>;
+				qcom,sde-fp16-gc = <0x200 0x00010000>;
+				qcom,sde-fp16-csc = <0x200 0x00010000>;
+			};
+
+			dgm@1 {
+				cell-index = <1>;
+				qcom,sde-dma-igc = <0x1a00 0x00050000>;
+				qcom,sde-dma-gc = <0xc00 0x00050000>;
+				qcom,sde-dma-inverse-pma;
+				qcom,sde-dma-csc-off = <0x1800>;
+				qcom,sde-fp16-igc = <0x200 0x00010000>;
+				qcom,sde-fp16-unmult = <0x200 0x00010000>;
+				qcom,sde-fp16-gc = <0x200 0x00010000>;
+				qcom,sde-fp16-csc = <0x200 0x00010000>;
+			};
+		};
+
+		qcom,sde-dspp-blocks {
+			qcom,sde-dspp-hsic = <0x800 0x00010007>;
+			qcom,sde-dspp-memcolor = <0x880 0x00010007>;
+			qcom,sde-dspp-hist = <0x800 0x00010007>;
+			qcom,sde-dspp-sixzone = <0x900 0x00020000>;
+			qcom,sde-dspp-vlut = <0xa00 0x00010008>;
+			qcom,sde-dspp-gamut = <0x1000 0x00040003>;
+			qcom,sde-dspp-igc = <0x1260 0x00040000>;
+			qcom,sde-dspp-pcc = <0x1700 0x00040000>;
+			qcom,sde-dspp-gc = <0x17c0 0x00010008>;
+			qcom,sde-dspp-dither = <0x82c 0x00010007>;
+		};
 	};
 
 	mdss_dsi0: qcom,mdss_dsi_ctrl0@9894000 {

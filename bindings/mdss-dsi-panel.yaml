@@ -1771,6 +1771,21 @@ properties:
       Timing node property to dynamically disable RSC solver for
       high FPS usecase due to lower bitclk rate.
 
+  qcom,mdss-dms-vid-type:
+    description: >
+      A string that specifies type of dynamic mode(timing node) switch for video
+      mode panel.
+      "dms-vid-seamless" - seamless mode switch for video panel.
+      "dms-vid-non-seamless" - non-seamless mode switch for video
+        panel.
+      If this property is not present, mode switch(mainly resolution switch)
+      is not supported for video panel.
+
+  qcom,dms-vid-maintain-const-clk:
+    description: >
+      A bool type indicates whether the dsi clock is constant for seamless
+      mode switch on video panel.
+
 required:
   - compatible
   - status
@@ -1878,6 +1893,8 @@ examples:
         qcom,mdss-dsi-stream = <0>;
         qcom,mdss-dsi-mdp-trigger = <0>;
         qcom,mdss-dsi-dma-trigger = <0>;
+        qcom,mdss-dms-vid-type = "dms-vid-non-seamless";
+        qcom,dms-vid-maintain-const-clk;
         qcom,mdss-dsi-panel-framerate = <60>;
         qcom,mdss-dsi-panel-timings = [7d 25 1d 00 37 33
                                        22 27 1e 03 04 00];
