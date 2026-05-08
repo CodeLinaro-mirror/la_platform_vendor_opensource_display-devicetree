@@ -31,13 +31,6 @@
         };
 };
 
-&reserved_memory {
-	dfps_data_memory: dfps_data_region@5cf00000 {
-		reg = <0x0 0x5cf00000 0x0 0x0100000>;
-		label = "dfps_data_region";
-	};
-};
-
 &mdss_mdp {
 		clocks =
 			<&gcc GCC_DISP_HF_AXI_CLK>,
