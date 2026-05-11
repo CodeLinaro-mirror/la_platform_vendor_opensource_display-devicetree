@@ -522,6 +522,10 @@
 &dsi_nt37802_amoled_video_i2c_cphy {
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
 
+	qcom,dsi-supported-dfps-list = <120 110 100 90 80>;
+	qcom,mdss-dsi-pan-enable-dynamic-fps;
+	qcom,mdss-dsi-pan-fps-update = "dfps_immediate_porch_mode_vfp";
+
 	qcom_mdss_dsi_display_timings_356: qcom,mdss-dsi-display-timings {
 		timing_0_357: timing@0 {
 			qcom,mdss-dsi-panel-phy-timings = [00 00 00 00 23 23 08
@@ -1082,6 +1086,10 @@
 
 &dsi_nt37802_amoled_video_i2c_dphy {
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
+
+	qcom,dsi-supported-dfps-list = <120 110 100 90 80>;
+	qcom,mdss-dsi-pan-enable-dynamic-fps;
+	qcom,mdss-dsi-pan-fps-update = "dfps_immediate_porch_mode_vfp";
 
 	qcom_mdss_dsi_display_timings_362: qcom,mdss-dsi-display-timings {
 		timing_0_363: timing@0 {
