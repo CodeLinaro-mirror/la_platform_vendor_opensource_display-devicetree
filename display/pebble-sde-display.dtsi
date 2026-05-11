@@ -59,6 +59,11 @@
 	vci-supply = <&L13B>;
 	vdd-supply = <&L11B>;
 	exvdd-supply = <&display_panel_vdd>;
+
+	pinctrl-names = "panel_active", "panel_active_with_esync", "panel_suspend";
+	pinctrl-0 = <>;
+	pinctrl-1 = <>;
+	pinctrl-2 = <>;
 };
 
 &mdss_mdp {
