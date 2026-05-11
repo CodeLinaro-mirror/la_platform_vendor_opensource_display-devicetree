@@ -76,6 +76,7 @@
 						&dsi_vtdr6130_amoled_qsync_144hz_cmd
 						&dsi_vtdr6130_amoled_qsync_144hz_video
 						&dsi_vtdr6130_amoled_video
+						&dsi_ili97680a_amoled_dsc_10b_cmd
 						&mdss_dsi0
 						&mdss_dsi1
 						&mdss_dsi_phy0
@@ -169,6 +170,7 @@
 						&qcom_mdss_dsi_display_timings_351
 						&qcom_mdss_dsi_display_timings_353
 						&qcom_mdss_dsi_display_timings_356
+						&qcom_mdss_dsi_display_timings_359
 						&qcom_mdss_dsi_display_timings_36
 						&qcom_mdss_dsi_display_timings_41
 						&qcom_mdss_dsi_display_timings_43
@@ -300,6 +302,7 @@
 						&timing_0_352
 						&timing_0_354
 						&timing_0_357
+						&timing_0_360
 						&timing_0_37
 						&timing_0_42
 						&timing_0_44
