@@ -28,6 +28,7 @@ endif
 ifeq ($(CONFIG_ARCH_LAHAINA), y)
 		dtbo-y +=  display/lahaina-sde.dtbo \
 		display/lahaina-sde-display-mtp-overlay.dtbo \
+		display/lahainap-sde-display-mtp-overlay.dtbo \
 		display/lahaina-sde-display-mtp-v2.1-overlay.dtbo \
 		display/lahaina-sde-display-qrd-overlay.dtbo
 
