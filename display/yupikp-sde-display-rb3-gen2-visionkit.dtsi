@@ -70,10 +70,14 @@
 	status = "disabled";
 };
 
+&sde_dp {
+	qcom,dp-aux-switch = <&redriver>;
+};
+
 &sde_wb {
 	status = "disabled";
 };
 
 &mdss_mdp {
-	connectors = <&smmu_sde_unsec &smmu_sde_sec &sde_dsi &sde_rscc>;
+	connectors = <&smmu_sde_unsec &smmu_sde_sec &sde_dsi &sde_rscc &sde_dp>;
 };
