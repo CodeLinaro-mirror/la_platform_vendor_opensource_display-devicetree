@@ -49,8 +49,8 @@
 		 */
 		qcom,spr-pentile-pack-type = "BG-RG Type B";
 
-		qcom,mdss-dsi-display-timings {
-			timing@0 {
+		qcom_mdss_dsi_display_timings_3: qcom,mdss-dsi-display-timings {
+			timing_0_4: timing@0 {
 				cell-index = <0>;
 				qcom,mdss-dsi-panel-framerate = <120>;
 				qcom,mdss-dsi-panel-width = <1440>;

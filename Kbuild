@@ -82,11 +82,7 @@ dtbo-$(CONFIG_ARCH_PEBBLE) += display/pebble-sde.dtbo \
 		display/pebble-sde-display-rcm-overlay.dtbo \
 		display/pebble-sde-display-atp-overlay.dtbo
 else
-dtbo-$(CONFIG_ARCH_PEBBLE) += display/trustedvm-pebble-sde-display-mtp-overlay.dtbo \
-		display/trustedvm-pebble-sde-display-cdp-overlay.dtbo \
-		display/trustedvm-pebble-sde-display-qrd-overlay.dtbo \
-		display/trustedvm-pebble-sde-display-rcm-overlay.dtbo \
-		display/trustedvm-pebble-sde-display-atp-overlay.dtbo
+dtbo-$(CONFIG_ARCH_PEBBLE) += display/trustedvm-pebble-sde-display-mtp-overlay.dtbo
 endif
 
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
