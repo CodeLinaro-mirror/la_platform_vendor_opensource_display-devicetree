@@ -6,6 +6,7 @@
 /dts-v1/;
 /plugin/;
 
+#include <dt-bindings/arm/msm/qti-smmu-proxy-dt-ids.h>
 #include "pebble-sde-common.dtsi"
 #include "trustedvm-pebble-avf-required-subnodes.dtsi"
 
@@ -21,6 +22,15 @@
 		qcom,iommu-faults = "non-fatal";
 		dma-coherent;
 	};
+};
+
+&mdss_mdp {
+	qcom,sde-vm-exclude-reg-names = "mdp_phys", "vbif_phys",
+					"regdma_phys", "ipcc_reg",
+					"swfuse_phys";
+	qcom,sde-hw-version =<0xE0000000>;
+	status = "ok";
+	qcom,sde-trusted-vm-env;
 };
 
 &mdss_dsi0 {

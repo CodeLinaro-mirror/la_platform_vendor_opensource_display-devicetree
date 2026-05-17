@@ -4,8 +4,8 @@
  */
 
 &mdss_mdp {
-	dsi_nt37802_amoled_video_i2c_dphy: qcom,mdss_dsi_nt37802_wqhd_plus_vid_i2c_dphy {
-		qcom,mdss-dsi-panel-name = "nt37802 amoled video mode dsi csot panel with DSC DPHY using I2C";
+	dsi_nt37802_amoled_video_dphy: qcom,mdss_dsi_nt37802_wqhd_plus_vid_dphy {
+		qcom,mdss-dsi-panel-name = "nt37802 amoled video mode dsi csot panel with DSC";
 		qcom,mdss-dsi-panel-type = "dsi_video_mode";
 		qcom,mdss-dsi-panel-physical-type = "oled";
 		qcom,mdss-dsi-virtual-channel-id = <0>;
@@ -16,6 +16,8 @@
 		qcom,mdss-dsi-border-color = <0>;
 		qcom,dsi-ctrl-num = <0>;
 		qcom,dsi-phy-num = <0>;
+		qcom,dsi-sec-ctrl-num = <1>;
+		qcom,dsi-sec-phy-num = <1>;
 		qcom,mdss-dsi-traffic-mode = "burst_mode";
 		qcom,mdss-dsi-lane-map = "lane_map_0123";
 		qcom,mdss-dsi-bllp-eof-power-mode;
@@ -27,12 +29,11 @@
 		qcom,mdss-dsi-dma-trigger = "trigger_sw";
 		qcom,mdss-dsi-mdp-trigger = "none";
 		qcom,mdss-dsi-reset-sequence =<1 1>, <0 1>, <1 10>;
-		qcom,mdss-pan-physical-width-dimension = <74>;
-		qcom,mdss-pan-physical-height-dimension = <156>;
+		qcom,mdss-pan-physical-width-dimension = <701>;
+		qcom,mdss-pan-physical-height-dimension = <1558>;
 		qcom,mdss-dsi-tx-eot-append;
 		qcom,mdss-dsi-panel-dimming-enabled;
 		qcom,bl-update-flag = "delay_until_first_frame";
-		qcom,panel-dphy-mode;
 		qcom,spr-pack-type = "pentile";
 		/*
 		 * ###############################################################
@@ -49,8 +50,8 @@
 		 */
 		qcom,spr-pentile-pack-type = "BG-RG Type B";
 
-		qcom_mdss_dsi_display_timings_3: qcom,mdss-dsi-display-timings {
-			timing_0_4: timing@0 {
+		qcom,mdss-dsi-display-timings {
+			timing@0 {
 				cell-index = <0>;
 				qcom,mdss-dsi-panel-framerate = <120>;
 				qcom,mdss-dsi-panel-width = <1440>;
@@ -140,69 +141,6 @@
 					15 00 00 00 00 00 02 6F 04
 					15 00 00 00 00 00 02 C7 FD
 					39 00 00 00 00 00 06 F0 55 AA 52 08 00
-					39 00 00 00 00 00 11 B5 80 02 38 C8 00
-					   00 FF 0C 60 00 00 00 0C 60 00 00
-					39 00 00 00 00 00 02 6F 10
-					39 00 00 00 00 00 11 B5 00 60 60 60 60
-					   60 00 00 11 2B 00 00 00 11 2B 00
-					39 00 00 00 00 00 06 F0 55 AA 52 08 00
-					39 00 00 00 00 00 02 6F 08
-					39 00 00 00 00 00 02 D5 08
-					39 00 00 00 00 00 03 D5 4E 10
-					39 00 00 00 00 00 02 6F 02
-					39 00 00 00 00 00 02 D5 01
-					39 00 00 00 00 00 02 6F D9
-					39 00 00 00 00 00 03 D5 7F 7F
-					39 00 00 00 00 00 02 6F 4E
-					39 00 00 00 00 00 02 D5 02
-					39 00 00 00 00 00 02 6F 4F
-					39 00 00 00 00 00 03 D5 05 07
-					39 00 00 00 00 00 02 6F 52
-					39 00 00 00 00 00 03 D5 11 02
-					39 00 00 00 00 00 02 6F 55
-					39 00 00 00 00 00 02 D5 01
-					39 00 00 00 00 00 02 6F 56
-					39 00 00 00 00 00 02 D5 07
-					39 00 00 00 00 00 02 6F 59
-					39 00 00 00 00 00 02 D5 70
-					39 00 00 00 00 00 02 6F 5C
-					39 00 00 00 00 00 02 D5 03
-					39 00 00 00 00 00 02 6F 5D
-					39 00 00 00 00 00 04 D5 02 03 07
-					39 00 00 00 00 00 02 6F 63
-					39 00 00 00 00 00 04 D5 08 60 07
-					39 00 00 00 00 00 02 6F 69
-					39 00 00 00 00 00 02 D5 01
-					39 00 00 00 00 00 02 6F 6A
-					39 00 00 00 00 00 02 D5 07
-					39 00 00 00 00 00 02 6F 70
-					39 00 00 00 00 00 02 D5 16
-					39 00 00 00 00 00 02 6F B8
-					39 00 00 00 00 00 02 D5 02
-					39 00 00 00 00 00 02 6F B9
-					39 00 00 00 00 00 03 D5 1C 1F
-					39 00 00 00 00 00 02 6F BC
-					39 00 00 00 00 00 03 D5 5D 02
-					39 00 00 00 00 00 02 6F BF
-					39 00 00 00 00 00 02 D5 01
-					39 00 00 00 00 00 02 6F C0
-					39 00 00 00 00 00 02 D5 1F
-					39 00 00 00 00 00 02 6F C3
-					39 00 00 00 00 00 02 D5 00
-					39 00 00 00 00 00 06 F0 55 AA 52 08 01
-					39 00 00 00 00 00 02 6F 04
-					39 00 00 00 00 00 02 B2 30
-					39 00 00 00 00 00 02 6F 25
-					39 00 00 00 00 00 02 D8 30
-					39 00 00 00 00 00 06 F0 55 AA 52 08 00
-					39 00 00 00 00 00 02 6F D1
-					39 00 00 00 00 00 02 D5 13
-					39 00 00 00 00 00 02 6F D2
-					39 00 00 00 00 00 02 D5 56
-					39 00 00 00 00 00 02 6F 03
-					39 00 00 00 00 00 02 B5 35
-					39 00 00 00 00 00 02 BA 00
-					39 00 00 00 00 00 06 F0 55 AA 52 08 00
 					15 00 00 00 00 00 02 C7 33
 					39 00 00 00 00 00 0C A3 83 01 9B 01 9B
 					   02 00 C0 09 09 00
@@ -216,30 +154,26 @@
 					39 00 00 00 00 00 06 F0 55 AA 52 08 01
 					15 00 00 00 00 00 02 6F 04
 					15 00 00 00 00 00 02 B2 30
-					39 00 00 00 00 00 06 F0 55 AA 52 08 01
-					39 00 00 00 00 00 02 6F 04
-					39 00 00 00 00 00 02 B2 20
 					05 00 00 00 78 00 01 11
-					05 00 00 00 00 00 01 29
+					05 01 00 00 78 00 01 29
 					0a 01 00 00 00 00 80 12 00 00 89 30 80
-						0c 80 05 a0 00 14 02 d0 02 d0 02 00
-						02 86 00 20 02 15 00 0a 00 0d 05 7a
-						03 d1 18 00 10 f0 03 0c 20 00 06 0b
-						0b 33 0e 1c 2a 38 46 54 62 69 70 77
-						79 7b 7d 7e 01 02 01 00 09 40 09 be
-						19 fc 19 fa 19 f8 1a 38 1a 78 1a b6
-						2a b6 2a f4 2a f4 4b 34 63 74 74 00
-						00 00 00 00 00 00 00 00 00 00 00 00
-						00 00 00 00 00 00 00 00 00 00 00 00
-						00 00 00 00 00 00 00 00 00 00 00 00
-						00 00
+					   0c 80 05 a0 00 14 02 d0 02 d0 02 00
+					   02 86 00 20 02 15 00 0a 00 0d 05 7a
+					   03 d1 18 00 10 f0 03 0c 20 00 06 0b
+					   0b 33 0e 1c 2a 38 46 54 62 69 70 77
+					   79 7b 7d 7e 01 02 01 00 09 40 09 be
+					   19 fc 19 fa 19 f8 1a 38 1a 78 1a b6
+					   2a b6 2a f4 2a f4 4b 34 63 74 74 00
+					   00 00 00 00 00 00 00 00 00 00 00 00
+					   00 00 00 00 00 00 00 00 00 00 00 00
+					   00 00 00 00 00 00 00 00 00 00 00 00
+					   00 00
 				];
 
 				qcom,mdss-dsi-off-command = [
 					05 00 00 00 1E 00 01 28
 					05 00 00 00 78 00 01 10
 				];
-
 				qcom,mdss-dsi-on-command-state = "dsi_lp_mode";
 				qcom,mdss-dsi-off-command-state = "dsi_hs_mode";
 

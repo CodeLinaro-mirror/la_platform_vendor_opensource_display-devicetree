@@ -40,6 +40,11 @@
 		pinctrl-names = "default";
 		pinctrl-0 = <&sde_disp0_vdd_active>;
 	};
+
+	disp_rdump_memory: disp_rdump_region@0xf8c600000 {
+		reg = <0x0 0xf8c60000 0x0 0x00800000>;
+		label = "disp_rdump_region";
+	};
 };
 
 &sde_dsi {
@@ -59,10 +64,15 @@
 	vci-supply = <&L13B>;
 	vdd-supply = <&L11B>;
 	exvdd-supply = <&display_panel_vdd>;
+
+	pinctrl-names = "panel_active", "panel_active_with_esync", "panel_suspend";
+	pinctrl-0 = <>;
+	pinctrl-1 = <>;
+	pinctrl-2 = <>;
 };
 
 &mdss_mdp {
-	connectors = <&sde_dsi &sde_dsi1 &smmu_sde_unsec &smmu_sde_sec &sde_wb0 &sde_wb1 &sde_wb2>;
+	connectors = <&sde_dsi &sde_dsi1 &smmu_sde_unsec &smmu_sde_sec &sde_wb0 &sde_wb1 &sde_wb2 &sde_dp>;
 };
 
 &dsi_vtdr6130_amoled_cmd {
@@ -255,6 +265,19 @@
 };
 
 &dsi_nt37802_amoled_video_psr_vhm {
+	qcom,mdss-esync;
+	qcom,mdss-esync-hsync-milli-pulse-width = <500>;
+	qcom,mdss-esync-emsync-fps = <120>;
+	qcom,mdss-esync-emsync-milli-pulse-width = <500>;
+
+	qcom,qsync-enable;
+	qcom,vrr-enable;
+	qcom,video-psr-enable;
+	qcom,dsi-qsync-avr-step-fps = <120>;
+	qcom,mdss-dsi-qsync-min-refresh-rate = <1>;
+};
+
+&dsi_nt37802_amoled_video_vhm_i2c_cphy {
 	qcom,mdss-esync;
 	qcom,mdss-esync-hsync-milli-pulse-width = <500>;
 	qcom,mdss-esync-emsync-fps = <120>;

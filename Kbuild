@@ -13,6 +13,7 @@ dtbo-$(CONFIG_ARCH_ART) += display/art-sde.dtbo \
 		display/art-sde-display-rcm-peach-sn300u-overlay.dtbo \
 		display/art-sde-display-qrd-sku1-overlay.dtbo \
 		display/art-sde-display-qrd-sku2-overlay.dtbo \
+		display/art-sde-display-qrd-sku2-165hz-overlay.dtbo \
 		display/artl-sde.dtbo \
 		display/artl-sde-display-mtp-overlay.dtbo \
 		display/artl-sde-display-qrd-sku1-overlay.dtbo \
@@ -78,12 +79,10 @@ dtbo-$(CONFIG_ARCH_PEBBLE) += display/pebble-sde.dtbo \
 		display/pebble-sde-display-cdp-overlay.dtbo \
 		display/pebble-sde-display-mtp-overlay.dtbo \
 		display/pebble-sde-display-qrd-overlay.dtbo \
-		display/pebble-sde-display-rcm-overlay.dtbo
+		display/pebble-sde-display-rcm-overlay.dtbo \
+		display/pebble-sde-display-atp-overlay.dtbo
 else
-dtbo-$(CONFIG_ARCH_PEBBLE) += display/trustedvm-pebble-sde-display-mtp-overlay.dtbo \
-		display/trustedvm-pebble-sde-display-cdp-overlay.dtbo \
-		display/trustedvm-pebble-sde-display-qrd-overlay.dtbo \
-		display/trustedvm-pebble-sde-display-rcm-overlay.dtbo
+dtbo-$(CONFIG_ARCH_PEBBLE) += display/trustedvm-pebble-sde-display-mtp-overlay.dtbo
 endif
 
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
@@ -123,6 +122,7 @@ dtbo-$(CONFIG_ARCH_SUN) += display/sun-sde.dtbo \
 		display/sun-sde-display-mtp-qmp1000-overlay.dtbo \
 		display/sun-sde-display-mtp-qmp1000-v8-overlay.dtbo \
 		display/sun-sde-display-hdk-overlay.dtbo \
+		display/sun-sde-display-hdk-sec-hdmi-overlay.dtbo \
 		display/sun-sde-display-cdp-no-display-overlay.dtbo
 else
 dtbo-$(CONFIG_ARCH_SUN) += display/trustedvm-sun-sde-display-cdp-overlay.dtbo \
@@ -261,7 +261,8 @@ endif
 dtbo-$(CONFIG_ARCH_BENGAL) += display/bengal-sde.dtbo \
 		display/bengal-sde-display-idp-overlay.dtbo \
 		display/bengal-sde-display-qrd-overlay.dtbo \
-		display/bengal-sde-display-idp-nopmi-overlay.dtbo
+		display/bengal-sde-display-idp-nopmi-overlay.dtbo \
+		display/bengal-sde-display-rb2-v4-overlay.dtbo
 
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
 dtbo-$(CONFIG_ARCH_PIKACHU) += display/pikachu-sde.dtbo \
