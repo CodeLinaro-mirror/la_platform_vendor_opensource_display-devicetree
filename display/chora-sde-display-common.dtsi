@@ -579,18 +579,15 @@
 		/delete-node/ timing@17; /* WQHD 144FPS cmd mode*/
 
 		/delete-node/ timing@18; /* WQHD 180FPS cmd mode*/
+
+		/delete-node/ timing@19; /* WQHD 165FPS cmd mode*/
+
+		/delete-node/ timing@20; /* WQHD 180FPS cmd mode*/
 	};
 };
 
 &dsi_sim_vid {
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
-	qcom,dsi-supported-dfps-list = <144 120 90 60 30 10 1>;
-	qcom,mdss-dsi-pan-enable-dynamic-fps;
-	qcom,mdss-dsi-pan-fps-update = "dfps_immediate_porch_mode_vfp";
-
-	qcom,qsync-enable;
-	qcom,dsi-supported-qsync-min-fps-list = <1 1 1 1 1 1 1>;
-	qcom,dsi-qsync-avr-step-list = <288 240 180 120 60 20 0>;
 
 	qcom_mdss_dsi_display_timings_93: qcom,mdss-dsi-display-timings {
 		timing_0_94: timing@0 {

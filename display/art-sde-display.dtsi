@@ -55,15 +55,15 @@
 		pinctrl-0 = <&sde_disp0_vdd_active>;
 	};
 
-	disp_rdump_memory: disp_rdump_region@0xfaf60000 {
-		reg = <0xfaf60000 0x00800000>;
+	disp_rdump_memory: disp_rdump_region@0xf8c600000 {
+		reg = <0xf8c60000 0x00800000>;
 		label = "disp_rdump_region";
 	};
 };
 
 &reserved_memory {
 	splash_memory: splash_region {
-		reg = <0x0 0xF8C7A000 0x0 0x2AE2000>;
+		reg = <0x0 0xF8C60000 0x0 0x02B00000>;
 		label = "cont_splash_region";
 	};
 
@@ -302,6 +302,19 @@
 };
 
 &dsi_nt37802_amoled_video_psr_vhm {
+	qcom,mdss-esync;
+	qcom,mdss-esync-hsync-milli-pulse-width = <500>;
+	qcom,mdss-esync-emsync-fps = <120>;
+	qcom,mdss-esync-emsync-milli-pulse-width = <500>;
+
+	qcom,qsync-enable;
+	qcom,vrr-enable;
+	qcom,video-psr-enable;
+	qcom,dsi-qsync-avr-step-fps = <120>;
+	qcom,mdss-dsi-qsync-min-refresh-rate = <1>;
+};
+
+&dsi_nt37802_amoled_video_vhm_cphy {
 	qcom,mdss-esync;
 	qcom,mdss-esync-hsync-milli-pulse-width = <500>;
 	qcom,mdss-esync-emsync-fps = <120>;

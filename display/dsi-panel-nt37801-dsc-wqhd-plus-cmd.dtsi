@@ -32,6 +32,8 @@
 		qcom,mdss-dsi-dma-trigger = "trigger_sw";
 		qcom,mdss-dsi-mdp-trigger = "none";
 		qcom,mdss-dsi-reset-sequence = <1 10>, <0 10>, <1 10>;
+		qcom,mdss-pan-physical-width-dimension = <74>;
+		qcom,mdss-pan-physical-height-dimension = <161>;
 
 		qcom,mdss-dsi-te-pin-select = <1>;
 		qcom,mdss-dsi-wr-mem-start = <0x2c>;
@@ -60,6 +62,7 @@
 		qcom,mdss-dsi-panel-peak-brightness = <13000000>;
 		qcom,mdss-dsi-panel-blackness-level = <10>;
 		qcom,mdss-dsi-panel-privacy-enabled;
+		qcom,mdss-dsi-shared-cmd-buf-page-size = <12>;
 		qcom_mdss_dsi_display_timings_145: qcom,mdss-dsi-display-timings {
 			timing_0_146: timing@0 {
 				cell-index = <0>;
