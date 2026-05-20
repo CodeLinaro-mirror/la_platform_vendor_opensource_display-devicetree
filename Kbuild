@@ -123,10 +123,13 @@ endif
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
 dtbo-$(CONFIG_ARCH_BOURTZI) += display/bourtzi-sde.dtbo \
 		display/bourtzi-sde-display-atp-overlay.dtbo \
-		display/bourtzi-sde-display-idp-overlay.dtbo \
-		display/bourtzi-sde-display-idp-amoled-overlay.dtbo \
+		display/bourtzi-sde-display-mtp-amoled-overlay.dtbo \
 		display/bourtzi-sde-display-rumi-overlay.dtbo \
-		display/bourtzi-sde-display-qrd-overlay.dtbo
+		display/bourtzi-sde-display-qrd-overlay.dtbo \
+		display/bourtzi-sde-display-rcm-amoled-overlay.dtbo \
+		display/bourtzi-sde-display-rcm-lcd-overlay.dtbo \
+		display/bourtzi-sde-display-cdp-amoled-overlay.dtbo \
+		display/bourtzi-sde-display-cdp-lcd-overlay.dtbo
 endif
 
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
