@@ -6,7 +6,7 @@
 /dts-v1/;
 /plugin/;
 
-#include "bourtzi-sde-display-rumi.dtsi"
+#include "bourtzi-sde-display-rumi-amoled.dtsi"
 
 / {
 	model = "Qualcomm Technologies, Inc. Bourtzi Rumi";

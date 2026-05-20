@@ -9,8 +9,8 @@
 #include "bourtzi-sde-display-mtp-amoled.dtsi"
 
 / {
-	model = "Qualcomm Technologies, Inc. Bourtzi ATP + WCN3998 + tioman";
-	compatible = "qcom,bourtzi-atp", "qcom,atp", "qcom,bourtzi","qcom,bourtzip";
+	model = "Qualcomm Technologies, Inc. Bourtzi RCM + AMOLED";
+	compatible = "qcom,bourtzi-rcm", "qcom,bourtzip-rcm", "qcom,bourtzi", "qcom,bourtzip", "qcom,rcm";
 	qcom,msm-id = <776 0x10000>, <777 0x10000>;
-	qcom,board-id = <0x10021 0x0>;
+	qcom,board-id = <0x10015 0x0>, <0x20015 0x0>;
 };
