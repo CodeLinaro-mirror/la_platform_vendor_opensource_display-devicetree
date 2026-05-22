@@ -43,6 +43,7 @@
 #include "dsi-panel-sim-video.dtsi"
 #include "dsi-panel-ss-video-psr-vid-vhm.dtsi"
 #include "dsi-panel-ss-video-psr-vid-vhm-10bit-30bpp.dtsi"
+#include "dsi-panel-ss-video-psr-vid-vhm-10bit-24bpp.dtsi"
 #include "dsi-panel-vtdr6130-dsc-fhd-plus-120hz-cmd.dtsi"
 #include "dsi-panel-vtdr6130-dsc-fhd-plus-120hz-video.dtsi"
 #include "dsi-panel-vtdr6130-nodsc-fhd-plus-60hz-cmd.dtsi"
@@ -614,6 +615,19 @@
 
 	qcom_mdss_dsi_display_timings_35: qcom,mdss-dsi-display-timings {
 		timing_0_36: timing@0 {
+			qcom,mdss-dsi-panel-phy-timings = [00 30 0C 0D 1E 27 0C
+					0D 0C 02 04 00 27 11];
+			qcom,display-topology = <2 2 1>;
+			qcom,default-topology-index = <0>;
+		};
+	};
+};
+
+&dsi_ss_10bit_24bpp_video_psr_vid_vhm {
+	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
+
+	qcom_mdss_dsi_display_timings_35_1: qcom,mdss-dsi-display-timings {
+		timing_0_36_1: timing@0 {
 			qcom,mdss-dsi-panel-phy-timings = [00 30 0C 0D 1E 27 0C
 					0D 0C 02 04 00 27 11];
 			qcom,display-topology = <2 2 1>;
