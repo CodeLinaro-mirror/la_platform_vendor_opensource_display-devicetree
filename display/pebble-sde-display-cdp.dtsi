@@ -1,0 +1,42 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
+#include "pebble-sde-display-mtp.dtsi"
+
+
+&pmx_sde_esync {
+	sde_esync1_active: sde_esync1_active {
+		mux_316: mux {
+			pins = "gpio97";
+			function = "mdp_esync1";
+		};
+
+		config_317: config {
+			pins = "gpio97";
+			drive-strength = <2>;   /* 2 mA */
+			bias-pull-down;         /* PULL DOWN */
+		};
+	};
+
+	sde_esync1_suspend: sde_esync1_suspend {
+		mux_318: mux {
+			pins = "gpio97";
+			function = "mdp_esync1";
+		};
+
+		config_319: config {
+			pins = "gpio97";
+			drive-strength = <2>;   /* 2 mA */
+			bias-pull-down;         /* PULL DOWN */
+		};
+	};
+};
+
+&sde_dsi1 {
+		pinctrl-names = "panel_active", "panel_active_with_esync", "panel_suspend";
+		pinctrl-0 = <&sde_dsi1_active &sde_te1_active &sde_esync1_suspend>;
+		pinctrl-1 = <&sde_dsi1_active &sde_te1_active &sde_esync1_active>;
+		pinctrl-2 = <&sde_dsi1_suspend &sde_te1_suspend &sde_esync1_suspend>;
+};
