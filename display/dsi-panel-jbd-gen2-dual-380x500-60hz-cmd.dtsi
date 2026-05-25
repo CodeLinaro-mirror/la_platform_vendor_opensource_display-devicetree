@@ -1,3 +1,7 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
 
 &mdss_mdp {
 	dsi_jbd_gen2_dual_380x500_60hz_cmd: qcom,mdss_dsi_jbd_gen2_dual_380x500_60hz_cmd {

@@ -33,9 +33,8 @@
 };
 
 &sde_dsi {
-	qcom,dsi-default-panel = <&dsi_dlc0697_fhd_60_video>;
+	qcom,dsi-default-panel = <&dsi_ext_bridge_1080p>;
 	port@0 {
-		status = "disabled";
 		reg = <0>;
 		ext_dsi_0_out: endpoint {
 			remote-endpoint = <&lt9611uxd_in_0>;
@@ -47,7 +46,6 @@
 	status = "ok";
 
 	lt9611uxd: lt,lt9611uxd@41 {
-		status = "disabled";
 		compatible = "lt,lt9611uxd";
 		reg = <0x41>;
 		lt,irq-gpio = <&tlmm 85 0x0>;

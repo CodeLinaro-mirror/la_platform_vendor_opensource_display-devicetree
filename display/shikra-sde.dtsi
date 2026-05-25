@@ -6,6 +6,7 @@
 #include <dt-bindings/clock/qcom,shikra-gcc.h>
 #include <dt-bindings/clock/qcom,shikra-dispcc.h>
 #include <dt-bindings/interconnect/qcom,shikra.h>
+#include <dt-bindings/arm/msm/qti-smmu-proxy-dt-ids.h>
 
 #include "shikra-sde-common.dtsi"
 
@@ -54,6 +55,8 @@
 				"lut_clk";
 		clock-rate = <0 0 0 0 256000000 19200000 192000000>;
 		clock-max-rate = <0 0 0 0 384000000 19200000 384000000>;
+
+		qti,smmu-proxy-cb-id = <QTI_SMMU_PROXY_DISPLAY_CB>;
 
 		power-domains = <&dispcc DISP_CC_MDSS_CORE_GDSC>;
 
