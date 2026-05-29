@@ -10,7 +10,7 @@
 #include "dsi-panel-rdp340x-rgb-1440x1440-60hz-video.dtsi"
 #include "dsi-panel-rdp340x-rgb-1200x1200-90hz-video.dtsi"
 #include "dsi-panel-jbd-gen2-dual-380x500-60hz-cmd.dtsi"
-#include "dsi-panel-jbd-gen2-dual-380x500-60hz-video.dtsi"
+#include "dsi-panel-jbd-gen2-dual-380x500-120hz-video.dtsi"
 #include "dsi-panel-jbd-gen2-380x500-120hz-video.dtsi"
 
 #include "pikachu-sde-display-pinctrl.dtsi"
@@ -224,16 +224,13 @@
 	};
 };
 
-&dsi_jbd_gen2_dual_380x500_60hz_video {
+&dsi_jbd_gen2_dual_380x500_120hz_video {
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
 	qcom,mdss-dsi-panel-status-check-mode = "esd_sw_sim_success";
 	qcom,esd-check-enabled;
 
 	qcom,mdss-dsi-display-timings {
 		timing@0 {
-			//qcom,mdss-dsi-panel-phy-timings = [00 0d 03 03 10 1d 04
-			//	03 02 02 04 00 0c 08];
-			// SVE CMD mode
 			qcom,mdss-dsi-panel-phy-timings = [00 0e 03 03 11 1d 04
 				04 03 02 04 00 0d 09];
 			qcom,display-topology = <2 0 2>;

@@ -4,7 +4,7 @@
  */
 
 &mdss_mdp {
-	dsi_jbd_gen2_dual_380x500_60hz_video: qcom,mdss_dsi_jbd_gen2_dual_380x500_60hz_video {
+	dsi_jbd_gen2_dual_380x500_120hz_video: qcom,mdss_dsi_jbd_gen2_dual_380x500_120hz_video {
 		qcom,mdss-dsi-panel-name =
 			"JBD uLED video mode dsi i2c panel without DSC";
 		qcom,mdss-dsi-panel-type = "dsi_video_mode";
@@ -34,6 +34,15 @@
 			/* Enable i2c */
 			58 00 05 20 0e 04 02 00
 
+			/* Interrupt mask register */
+			58 00 07 20 10 44 FF FF 00 00
+			58 00 07 20 10 4C FF FF 00 00
+			58 00 07 20 10 54 FF FF 00 00
+			58 00 07 20 10 5C FF FF 00 00
+			58 00 07 20 10 64 FF FF 00 00
+			58 00 07 20 10 6C FF FF 00 00
+			58 00 07 20 0B 0A FF FF 00 00
+
 			/* Mipi initialization */
 			/* Enable dsi */
 			58 00 07 20 10 04 01 00 00 00
@@ -59,7 +68,9 @@
 
 			/* Panel initialization */
 			/* Pixel current */
-			58 00 05 20 01 00 19 00
+			59 00 05 20 01 00 5a 00
+			5a 00 05 20 01 00 32 00
+			5b 00 05 20 01 00 19 00
 			/* Sf bit 10 with refresh frequency 240Hz */
 			58 00 05 20 0a 00 0c 00
 			/* Enable panel display */
@@ -67,7 +78,7 @@
 			/* Enable panel data load */
 			58 00 05 20 0a 04 02 00
 			/* luminance */
-			58 00 05 20 0a 14 c4 09
+			58 00 05 20 0a 14 00 08
 
 			/* Algorithm initialization */
 			/* X-axis start coordinate */
@@ -82,8 +93,6 @@
 			58 00 05 20 0a 24 06 0a
 			/* 1'b0: cmd mode, 1'b1: video mode */
 			58 00 05 20 0b 06 01 00
-			/* Enable horizontal flip for Green panel */
-			5A 00 05 20 02 0e 01 00
 			/* Algorithm initialization demura setting 1 */
 			58 00 05 20 0d 30 02 00
 			/* Algorithm initialization demura setting 2*/
@@ -99,7 +108,7 @@
 		qcom,mdss-dsi-display-timings {
 			timing@0 {
 				cell-index = <0>;
-				qcom,mdss-dsi-panel-framerate = <60>;
+				qcom,mdss-dsi-panel-framerate = <120>;
 				qcom,mdss-dsi-panel-width = <380>;
 				qcom,mdss-dsi-panel-height = <500>;
 				qcom,mdss-dsi-h-front-porch = <20>;
