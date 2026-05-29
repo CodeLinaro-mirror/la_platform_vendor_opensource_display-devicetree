@@ -214,6 +214,19 @@ dtbo-$(CONFIG_ARCH_KERA) += display/trustedvm-kera-sde-display-atp-overlay.dtbo 
 		display/trustedvm-kera-sde-display-rcm-overlay.dtbo
 endif
 
+ifneq ($(CONFIG_ARCH_QTI_VM), y)
+dtbo-$(CONFIG_ARCH_MALABAR) += display/malabar-sde.dtbo \
+		display/malabar-sde-display-atp-overlay.dtbo \
+		display/malabar-sde-display-cdp-overlay.dtbo \
+		display/malabar-sde-display-mtp-overlay.dtbo \
+		display/malabar-sde-display-mtp-cottid-nd-overlay.dtbo \
+		display/malabar-sde-display-qrd-overlay.dtbo \
+		display/malabar-sde-display-rcm-overlay.dtbo
+else
+dtbo-$(CONFIG_ARCH_MALABAR) += display/trustedvm-malabar-sde-display-atp-overlay.dtbo \
+		display/trustedvm-malabar-sde-display-cdp-overlay.dtbo
+endif
+
 ifeq ($(strip $(MSM_ARCH)),vienna_le)
 dtbo-$(CONFIG_ARCH_VIENNA) += display/vienna-sde.dtbo \
 		display/vienna_le-sde-no-display-overlay.dtbo
