@@ -82,7 +82,11 @@ dtbo-$(CONFIG_ARCH_PEBBLE) += display/pebble-sde.dtbo \
 		display/pebble-sde-display-rcm-overlay.dtbo \
 		display/pebble-sde-display-atp-overlay.dtbo
 else
-dtbo-$(CONFIG_ARCH_PEBBLE) += display/trustedvm-pebble-sde-display-mtp-overlay.dtbo
+dtbo-$(CONFIG_ARCH_PEBBLE) += display/trustedvm-pebble-sde-display-mtp-overlay.dtbo \
+		display/trustedvm-pebble-sde-display-cdp-overlay.dtbo \
+		display/trustedvm-pebble-sde-display-qrd-overlay.dtbo \
+		display/trustedvm-pebble-sde-display-rcm-overlay.dtbo \
+		display/trustedvm-pebble-sde-display-atp-overlay.dtbo
 endif
 
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
@@ -212,6 +216,19 @@ dtbo-$(CONFIG_ARCH_KERA) += display/trustedvm-kera-sde-display-atp-overlay.dtbo 
 		display/trustedvm-kera-sde-display-qrd-overlay.dtbo \
 		display/trustedvm-kera-sde-display-rumi-overlay.dtbo \
 		display/trustedvm-kera-sde-display-rcm-overlay.dtbo
+endif
+
+ifneq ($(CONFIG_ARCH_QTI_VM), y)
+dtbo-$(CONFIG_ARCH_MALABAR) += display/malabar-sde.dtbo \
+		display/malabar-sde-display-atp-overlay.dtbo \
+		display/malabar-sde-display-cdp-overlay.dtbo \
+		display/malabar-sde-display-mtp-overlay.dtbo \
+		display/malabar-sde-display-mtp-cottid-nd-overlay.dtbo \
+		display/malabar-sde-display-qrd-overlay.dtbo \
+		display/malabar-sde-display-rcm-overlay.dtbo
+else
+dtbo-$(CONFIG_ARCH_MALABAR) += display/trustedvm-malabar-sde-display-atp-overlay.dtbo \
+		display/trustedvm-malabar-sde-display-cdp-overlay.dtbo
 endif
 
 ifeq ($(strip $(MSM_ARCH)),vienna_le)
