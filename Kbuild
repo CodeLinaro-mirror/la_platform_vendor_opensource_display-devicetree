@@ -51,7 +51,8 @@ endif
 
 ifeq ($(CONFIG_ARCH_QTI_VM), y)
 dtbo-y += display/nordy-sde-hwvirt-vm.dtbo \
-        display/nordy-sde-hwvirt-quin-vm.dtbo
+        display/nordy-sde-hwvirt-quin-vm.dtbo \
+        display/lemans-adp-star-hgyvm-display.dtbo
 endif
 
 always-y    := $(dtb-y) $(dtbo-y)
