@@ -50,6 +50,8 @@
 	};
 
 	disp_rdump_memory: disp_rdump_region@0xf8c600000 {
+		#address-cells = <1>;
+		#size-cells = <1>;
 		reg = <0xf8c60000 0x00800000>;
 		label = "disp_rdump_region";
 	};
