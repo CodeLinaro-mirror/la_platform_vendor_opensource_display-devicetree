@@ -48,6 +48,7 @@
 		 * ###############################################################
 		 */
 		qcom,spr-pentile-pack-type = "BG-RG Type B";
+		qcom,mdss-dsi-shared-cmd-buf-page-size = <5>;
 
 		qcom_mdss_dsi_display_timings_3: qcom,mdss-dsi-display-timings {
 			timing_0_4: timing@0 {
