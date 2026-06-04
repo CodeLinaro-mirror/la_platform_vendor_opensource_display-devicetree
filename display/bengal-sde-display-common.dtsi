@@ -198,6 +198,11 @@
 				22 1E 07 08 04 02 04 a0
 				22 1E 07 08 04 02 04 a0
 				22 17 06 07 04 02 04 a0];
+			qcom,display-topology = <1 0 1>;
+			qcom,default-topology-index = <0>;
+		};
+	};
+};
 
 &dsi_ili9881p_hd_plus_video {
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
