@@ -173,6 +173,7 @@
 		lt,irq-gpio = <&tlmm 13 0x0>;
 		lt,reset-gpio = <&tlmm 16 0x0>;
 		lt,hdmi-en-gpio = <&pm8550vs_g_gpios 5 0>;
+		lt,ext-disp = <&ext_disp>;
 		lt,audio-support;
 		lt,cec-support;
 
