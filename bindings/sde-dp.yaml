@@ -260,6 +260,9 @@ properties:
   qcom,max-lclk-frequency-khz:
     description: An integer specifying the max. link clock in KHz supported by Display Port.
 
+  qcom,max-lane-count:
+    description: An integer specifying the max lane count supported by Display Port.
+
   qcom,mst-fixed-topology-ports:
     description: u32 values of which MST output port to reserve, start from one
     $ref: /schemas/types.yaml#/definitions/uint32
@@ -501,6 +504,8 @@ examples:
       qcom,aux-cfg8-settings = [3c bb];
       qcom,aux-cfg9-settings = [40 03];
       qcom,max-pclk-frequency-khz = <593470>;
+      qcom,max-lclk-frequency-khz = <540000>;
+      qcom,max-lane-count = <2>;
       qcom,mst-enable;
       qcom,dsc-feature-enable;
       qcom,fec-feature-enable;
