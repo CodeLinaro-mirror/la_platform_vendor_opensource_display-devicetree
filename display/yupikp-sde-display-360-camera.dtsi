@@ -1,0 +1,102 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
+#include "yupik-sde-display.dtsi"
+
+/*==============================*/
+/*     Display Related Start    */
+/*==============================*/
+&soc {
+	lt9611uxc_1v2_vreg: lt9611uxc_1v2_vreg {
+		compatible = "regulator-fixed";
+		regulator-name = "lt9611uxc_1v2_vreg";
+		regulator-min-microvolt = <1200000>;
+		regulator-max-microvolt = <1200000>;
+	};
+
+	lt9611uxc_3v3_vreg: lt9611uxc_3v3_vreg {
+		compatible = "regulator-fixed";
+		regulator-name = "lt9611uxc_3v3_vreg";
+		regulator-min-microvolt = <3300000>;
+		regulator-max-microvolt = <3300000>;
+	};
+};
+
+&qupv3_se0_i2c {
+	clock-frequency = <100000>;
+	status = "okay";
+
+	lt9611: lt,lt9611@2b {
+		compatible = "lt,lt9611uxc";
+		reg = <0x2b>;
+
+		interrupt-names = "lt_irq";
+		interrupts-extended = <&tlmm 18 0x0>;
+		reset-gpios = <&tlmm 136 0>;
+		enable-3p3-gpios = <&tlmm 19 0>; 	/* 3V3 enable */
+		enable-1p2-gpios = <&tlmm 16 0>; 	/* 1V2 enable */
+
+		lt,cont-splash-en;
+		vdd-supply = <&lt9611uxc_1v2_vreg>;
+		vcc-supply = <&lt9611uxc_3v3_vreg>;
+
+		lt,preferred-mode = "3840x2160";
+
+		ports {
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			port@0 {
+				reg = <0>;
+
+				lt9611_in: endpoint {
+					remote-endpoint = <&ext_dsi_out>;
+				};
+			};
+		};
+
+	};
+};
+
+&dsi_ext_bridge_1080p {
+	qcom,mdss-dsi-ext-bridge-hpd;
+};
+
+&dsi_ext_bridge_4k30p {
+	qcom,mdss-dsi-ext-bridge-hpd;
+	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
+};
+
+&sde_dsi {
+	/delete-property/ lab-supply;
+	/delete-property/ ibb-supply;
+
+	qcom,dsi-default-panel = <&dsi_ext_bridge_4k30p>;
+	boot-panel-param = "disabled";
+
+	ports {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		port@0 {
+			reg = <0>;
+			ext_dsi_out: endpoint {
+				remote-endpoint = <&lt9611_in>;
+			};
+		};
+	};
+};
+
+&fsa4480 {
+	status = "disabled";
+};
+
+&sde_wb {
+	status = "disabled";
+};
+
+&mdss_mdp {
+	connectors = <&smmu_sde_unsec &smmu_sde_sec &sde_dsi &sde_rscc>;
+};
