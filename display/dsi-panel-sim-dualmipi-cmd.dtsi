@@ -65,8 +65,10 @@
 				qcom,dsi-wd-ltj-time-sec = <3600>;
 				qcom,mdss-dsi-on-command-state = "dsi_lp_mode";
 				qcom,mdss-dsi-custom-on-command-state = "dsi_lp_mode";
+				qcom,mdss-dsi-custom-command-state-1 = "dsi_lp_mode";
 				qcom,mdss-dsi-on-command = [05 01 00 00 f0 00 01 00];
 				qcom,mdss-dsi-custom-on-command = [05 01 00 00 f0 00 01 00];
+				qcom,mdss-dsi-custom-command-1 = [05 01 00 00 f0 00 01 00];
 				qcom,mdss-dsi-off-command =
 					[05 01 00 00 00 00 02 28 00
 					05 01 00 00 00 00 02 10 00];
@@ -105,8 +107,10 @@
 				qcom,dsi-wd-ltj-time-sec = <3600>;
 				qcom,mdss-dsi-on-command-state = "dsi_lp_mode";
 				qcom,mdss-dsi-custom-on-command-state = "dsi_lp_mode";
+				qcom,mdss-dsi-custom-command-state-1 = "dsi_lp_mode";
 				qcom,mdss-dsi-on-command = [05 01 00 00 f0 00 01 00];
 				qcom,mdss-dsi-custom-on-command = [05 01 00 00 f0 00 01 00];
+				qcom,mdss-dsi-custom-command-1 = [05 01 00 00 f0 00 01 00];
 				qcom,mdss-dsi-off-command =
 					[05 01 00 00 00 00 02 28 00
 					05 01 00 00 00 00 02 10 00];
@@ -142,8 +146,10 @@
 				qcom,mdss-dsi-panel-framerate = <60>;
 				qcom,mdss-dsi-on-command-state = "dsi_lp_mode";
 				qcom,mdss-dsi-custom-on-command-state = "dsi_lp_mode";
+				qcom,mdss-dsi-custom-command-state-1 = "dsi_lp_mode";
 				qcom,mdss-dsi-on-command = [05 01 00 00 f0 00 01 00];
 				qcom,mdss-dsi-custom-on-command = [05 01 00 00 f0 00 01 00];
+				qcom,mdss-dsi-custom-command-1 = [05 01 00 00 f0 00 01 00];
 				qcom,mdss-dsi-off-command =
 					[05 01 00 00 00 00 02 28 00
 					05 01 00 00 00 00 02 10 00];
@@ -173,8 +179,10 @@
 				qcom,mdss-dsi-panel-framerate = <40>;
 				qcom,mdss-dsi-on-command-state = "dsi_lp_mode";
 				qcom,mdss-dsi-custom-on-command-state = "dsi_lp_mode";
+				qcom,mdss-dsi-custom-command-state-1 = "dsi_lp_mode";
 				qcom,mdss-dsi-on-command = [05 01 00 00 f0 00 01 00];
 				qcom,mdss-dsi-custom-on-command = [05 01 00 00 f0 00 01 00];
+				qcom,mdss-dsi-custom-command-1 = [05 01 00 00 f0 00 01 00];
 				qcom,mdss-dsi-off-command =
 					[05 01 00 00 00 00 02 28 00
 					05 01 00 00 00 00 02 10 00];
@@ -204,8 +212,10 @@
 				qcom,mdss-dsi-panel-framerate = <80>;
 				qcom,mdss-dsi-on-command-state = "dsi_lp_mode";
 				qcom,mdss-dsi-custom-on-command-state = "dsi_lp_mode";
+				qcom,mdss-dsi-custom-command-state-1 = "dsi_lp_mode";
 				qcom,mdss-dsi-on-command = [05 01 00 00 f0 00 01 00];
 				qcom,mdss-dsi-custom-on-command = [05 01 00 00 f0 00 01 00];
+				qcom,mdss-dsi-custom-command-1 = [05 01 00 00 f0 00 01 00];
 				qcom,mdss-dsi-off-command =
 					[05 01 00 00 00 00 02 28 00
 					05 01 00 00 00 00 02 10 00];
@@ -239,8 +249,10 @@
 				qcom,mdss-dsi-v-bottom-border = <0>;
 				qcom,mdss-dsi-on-command-state = "dsi_hs_mode";
 				qcom,mdss-dsi-custom-on-command-state = "dsi_hs_mode";
+				qcom,mdss-dsi-custom-command-state-1 = "dsi_hs_mode";
 				qcom,mdss-dsi-on-command = [05 01 00 00 f0 00 01 00];
 				qcom,mdss-dsi-custom-on-command = [05 01 00 00 f0 00 01 00];
+				qcom,mdss-dsi-custom-command-1 = [05 01 00 00 f0 00 01 00];
 				qcom,mdss-dsi-off-command =
 					[05 01 00 00 00 00 02 28 00
 					05 01 00 00 00 00 02 10 00];
@@ -266,8 +278,10 @@
 				qcom,mdss-dsi-v-bottom-border = <0>;
 				qcom,mdss-dsi-on-command-state = "dsi_hs_mode";
 				qcom,mdss-dsi-custom-on-command-state = "dsi_hs_mode";
+				qcom,mdss-dsi-custom-command-state-1 = "dsi_hs_mode";
 				qcom,mdss-dsi-on-command = [05 01 00 00 f0 00 01 00];
 				qcom,mdss-dsi-custom-on-command = [05 01 00 00 f0 00 01 00];
+				qcom,mdss-dsi-custom-command-1 = [05 01 00 00 f0 00 01 00];
 				qcom,mdss-dsi-off-command =
 					[05 01 00 00 00 00 02 28 00
 					05 01 00 00 00 00 02 10 00];
