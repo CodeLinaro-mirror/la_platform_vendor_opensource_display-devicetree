@@ -8,12 +8,6 @@
 #include "pebble-sde-display-common.dtsi"
 
 &soc {
-	sde_wb0: qcom,wb-display@0 {
-		compatible = "qcom,wb-display";
-		cell-index = <0>;
-		label = "wb_display0";
-	};
-
 	sde_wb1: qcom,wb-display@1 {
 		compatible = "qcom,wb-display";
 		cell-index = <1>;
@@ -40,6 +34,11 @@
 		pinctrl-names = "default";
 		pinctrl-0 = <&sde_disp0_vdd_active>;
 	};
+
+	disp_rdump_memory: disp_rdump_region@0xf8c600000 {
+		reg = <0x0 0xf8c60000 0x0 0x00800000>;
+		label = "disp_rdump_region";
+	};
 };
 
 &sde_dsi {
@@ -61,13 +60,13 @@
 	exvdd-supply = <&display_panel_vdd>;
 
 	pinctrl-names = "panel_active", "panel_active_with_esync", "panel_suspend";
-	pinctrl-0 = <&sde_dsi1_active &sde_te1_active &sde_esync1_suspend>;
-	pinctrl-1 = <&sde_dsi1_active &sde_te1_active &sde_esync1_active>;
-	pinctrl-2 = <&sde_dsi1_suspend &sde_te1_suspend &sde_esync1_suspend>;
+	pinctrl-0 = <>;
+	pinctrl-1 = <>;
+	pinctrl-2 = <>;
 };
 
 &mdss_mdp {
-	connectors = <&sde_dsi &sde_dsi1 &smmu_sde_unsec &smmu_sde_sec &sde_wb0 &sde_wb1 &sde_wb2>;
+	connectors = <&sde_dsi &sde_dsi1 &smmu_sde_unsec &smmu_sde_sec &sde_wb1 &sde_wb2 &sde_dp>;
 };
 
 &dsi_vtdr6130_amoled_cmd {
@@ -260,6 +259,19 @@
 };
 
 &dsi_nt37802_amoled_video_psr_vhm {
+	qcom,mdss-esync;
+	qcom,mdss-esync-hsync-milli-pulse-width = <500>;
+	qcom,mdss-esync-emsync-fps = <120>;
+	qcom,mdss-esync-emsync-milli-pulse-width = <500>;
+
+	qcom,qsync-enable;
+	qcom,vrr-enable;
+	qcom,video-psr-enable;
+	qcom,dsi-qsync-avr-step-fps = <120>;
+	qcom,mdss-dsi-qsync-min-refresh-rate = <1>;
+};
+
+&dsi_nt37802_amoled_video_vhm_i2c_cphy {
 	qcom,mdss-esync;
 	qcom,mdss-esync-hsync-milli-pulse-width = <500>;
 	qcom,mdss-esync-emsync-fps = <120>;

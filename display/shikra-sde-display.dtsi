@@ -8,7 +8,7 @@
 
 &soc {
 	disp_rdump_memory: disp_rdump_region@84C00000 {
-		reg = <0x0 0x84C00000 0x0 0x01100000>;
+		reg = <0x0 0x84C00000 0x0 0x01000000>;
 		label = "disp_rdump_region";
 	};
 };
@@ -40,7 +40,7 @@
 
 &reserved_memory {
 	splash_memory: splash_region@84C00000 {
-		reg = <0x0 0x84C00000 0x0 0x01100000>;
+		reg = <0x0 0x84C00000 0x0 0x01000000>;
 		label = "cont_splash_region";
 	};
 };
