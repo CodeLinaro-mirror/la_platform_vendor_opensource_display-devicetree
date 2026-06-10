@@ -25,12 +25,13 @@ dtbo-y +=  display/sm6150-sde.dtbo \
 	   display/qcs610-sde-display-opk-overlay.dtbo
 endif
 
-ifeq ($(CONFIG_ARCH_LAHAINA), y)
-		dtbo-y +=  display/lahaina-sde.dtbo \
-		display/lahaina-sde-display-mtp-overlay.dtbo \
-		display/lahainap-sde-display-mtp-overlay.dtbo \
-		display/lahaina-sde-display-mtp-v2.1-overlay.dtbo \
-		display/lahaina-sde-display-qrd-overlay.dtbo
+ifneq ($(CONFIG_ARCH_QTI_VM), y)
+dtbo-$(CONFIG_ARCH_LAHAINA) += display/lahaina-sde.dtbo \
+      display/lahaina-sde-display-mtp-overlay.dtbo \
+      display/lahainap-sde-display-mtp-overlay.dtbo \
+      display/lahaina-sde-display-mtp-v2.1-overlay.dtbo \
+      display/lahaina-sde-display-qrd-overlay.dtbo \
+      display/lahaina-sde-display-cdp-v2.2-overlay.dtbo
 
 endif
 
