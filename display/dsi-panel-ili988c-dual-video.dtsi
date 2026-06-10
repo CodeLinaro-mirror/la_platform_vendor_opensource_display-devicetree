@@ -1,7 +1,8 @@
-//SPDX-License-Identifier: BSD-3-Clause
+// SPDX-License-Identifier: BSD-3-Clause
 /*
- * Copyright (c) 2025 Qualcomm Innovation Center, Inc. All rights reserved
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
  */
+
 &mdss_mdp {
 	dsi_ili9881c_720p_video: qcom,mdss_dsi_ili9881c_720p_video {
 		qcom,mdss-dsi-panel-name = "ILI988C video signal panel";
@@ -36,6 +37,7 @@
 
 		qcom,mdss-dsi-display-timings {
 			timing@0 {
+				cell-index = <0>;
 				qcom,mdss-dsi-panel-width = <720>;
 				qcom,mdss-dsi-panel-height = <1280>;
 				qcom,mdss-dsi-h-front-porch = <200>;
