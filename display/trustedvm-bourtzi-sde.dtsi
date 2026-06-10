@@ -16,9 +16,7 @@
 	};
 
 	smmu_sde_iommu_region_partition: smmu_sde_iommu_region_partition {
-		iommu-addresses = <&smmu_sde_unsec 0x0 0x0 0x0 0x00020000>,
-			<&smmu_sde_unsec 0x0 0x100000000 0x0 0xffffffff>,
-			<&smmu_sde_sec 0x0 0x0 0x0 0x00020000>;
+		iommu-addresses = <&smmu_sde_unsec 0x0 0x0 0x0 0x00020000>;
 	};
 
 	smmu_sde_unsec: qcom,smmu_sde_unsec_cb {
