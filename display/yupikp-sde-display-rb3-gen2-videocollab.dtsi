@@ -20,6 +20,7 @@
 		interrupt-names = "lt_irq";
 		interrupts-extended = <&tlmm 117 0x0>;
 		reset-gpios = <&tlmm 111 0x0>;
+		lt,cont-splash-en;
 		lt,audio-support;
 		lt,ext-disp = <&ext_disp>;
 		lt,preferred-mode = "3840x2160";
