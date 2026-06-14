@@ -22,7 +22,7 @@
 #include "dsi-panel-ft8726-dsc-fhd-plus-video.dtsi"
 #include "dsi-panel-ft8726-dsc-fhd-plus-90hz-video.dtsi"
 #include "dsi-panel-ft8726-dsc-fhd-plus-60hz-video.dtsi"
-#include "ravelin-sde-display-pinctrl.dtsi"
+#include "bourtzi-sde-display-pinctrl.dtsi"
 
 &soc {
 	dsi_panel_pwr_supply_sim: dsi_panel_pwr_supply_sim {
@@ -630,7 +630,6 @@
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
 
 	qcom,mdss-dsi-display-timings {
-		/delete-node/ timing@0;
 
 		timing@0 {
 			cell-index = <0>;
