@@ -23,6 +23,7 @@
 		vdd-supply = <&L11C>;
 		vcc-supply = <&L11C>;
 
+		lt,cont-splash-en;
 		lt,audio-support;
 		lt,ext-disp = <&ext_disp>;
 		lt,preferred-mode = "3840x2160";
