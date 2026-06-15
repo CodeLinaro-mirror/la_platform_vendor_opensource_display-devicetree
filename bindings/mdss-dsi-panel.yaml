@@ -1223,6 +1223,13 @@ properties:
       To obtain real blackness level, this value should be divided by factor of
       10000.
 
+  qcom,mdss-dsi-shared-cmd-buf-page-size:
+    description: >
+      The shared command buffer page size is defined to allocate the shared
+      memory according to the actual mode requirements. The page size is 4K,
+      and the allocated shared buffer size is calculated as
+      mdss-dsi-shared-cmd-buf-page-size * PAGE_SIZE.
+
   qcom,mdss-dsi-lp11-init:
     description: >
       Boolean used to enable the DSI clocks and data lanes (low power 11)
@@ -1685,6 +1692,22 @@ properties:
       in shared display feature.
     $ref: /schemas/types.yaml#/definitions/uint32
 
+  qcom,mdss-panel-i2c-on-command:
+    description: >
+      Byte stream of multiple I2C commands for panel initialization
+      byte 0: I2C slave address
+      byte 1: Delay in miliseconds
+      byte 2: Payload length in bytes
+      byte 3 and beyond: Payload data.
+
+  qcom,panel-i2c-left:
+    description: >
+      Phandle to the I2C controller used for the left panel interface.
+
+  qcom,panel-i2c-right:
+    description: >
+      Phandle to the I2C controller used for the right panel interface.
+
   qcom,dba-panel:
     description: >
       Indicates whether the current panel is used as a display bridge
@@ -1868,6 +1891,7 @@ examples:
         qcom,mdss-dsi-te-check-enable;
         qcom,mdss-dsi-te-using-wd;
         qcom,mdss-dsi-te-using-te-pin;
+        qcom,mdss-dsi-shared-cmd-buf-page-size = <10>;
         qcom,qsync-enable;
         qcom,mdss-dsi-qsync-min-refresh-rate = <30>;
         qcom,mdss-dsi-te-dcs-command = <1>;
