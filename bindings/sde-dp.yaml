@@ -212,6 +212,9 @@ properties:
   qcom,dp-gpio-aux-switch:
     description: Gpio DP AUX switch chipset support.
 
+  qcom,dp-cec-feature:
+    description: Property to indicate support for the DP Consumer Electronics Control(CEC) feature.
+
   clock-mmrm:
     description: |
       List of the clocks that enable setting the clk rate through MMRM driver.

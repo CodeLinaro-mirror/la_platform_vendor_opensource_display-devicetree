@@ -247,4 +247,5 @@
 	qcom,aux-sel-gpio = <&tlmm 178 0>;
 	qcom,dp-gpio-aux-switch;
 	qcom,mst-enable;
+	qcom,dp-cec-feature;
 };
