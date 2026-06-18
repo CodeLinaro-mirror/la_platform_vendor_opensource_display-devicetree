@@ -86,7 +86,7 @@
 	vdd-supply = <&display_panel_vdd>;
 	vci-supply = <&L4E>;
 
-	qcom,dsi-default-panel = <&dsi_vtdr6130_amoled_120hz_video>;
+	qcom,dsi-default-panel = <&dsi_vtdr6130_amoled_120hz_cmd>;
 };
 
 &qupv3_se1_spi {
