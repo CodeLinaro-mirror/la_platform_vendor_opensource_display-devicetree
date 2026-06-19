@@ -44,7 +44,11 @@
 };
 
 &i2c4 {
-	status = "ok";
+	status = "okay";
+
+	gt9xx-i2c@5d {
+		panel = <&dsi_dlc0697_fhd_60_video>;
+	};
 
 	lt9611uxd: lt,lt9611uxd@41 {
 		status = "disabled";
