@@ -5,7 +5,7 @@
 
 &mdss_mdp {
 	qcom,sde-emulated-env;
-	connectors = <&sde_dsi &sde_dsi1 &smmu_sde_unsec &sde_wb0 &sde_wb1>;
+	connectors = <&sde_dsi &sde_dsi1 &smmu_sde_unsec &sde_wb1>;
 	/delete-property/ qcom,sde-has-idle-pc;
 	qcom,sde-hw-version = <0xe0000000>;
 };
