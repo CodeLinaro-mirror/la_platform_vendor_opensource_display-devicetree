@@ -34,9 +34,9 @@
 				cell-index = <0>;
 				qcom,mdss-dsi-panel-width = <1200>;
 				qcom,mdss-dsi-panel-height = <1200>;
-				qcom,mdss-dsi-h-front-porch = <88>;
-				qcom,mdss-dsi-h-back-porch = <148>;
-				qcom,mdss-dsi-h-pulse-width = <44>;
+				qcom,mdss-dsi-h-front-porch = <28>;
+				qcom,mdss-dsi-h-back-porch = <68>;
+				qcom,mdss-dsi-h-pulse-width = <14>;
 				qcom,mdss-dsi-h-sync-skew = <0>;
 				qcom,mdss-dsi-v-back-porch = <36>;
 				qcom,mdss-dsi-v-front-porch = <4>;

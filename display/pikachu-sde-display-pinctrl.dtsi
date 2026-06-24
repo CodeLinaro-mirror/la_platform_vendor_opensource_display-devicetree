@@ -87,4 +87,32 @@
 			};
 		};
 	};
+
+	pmx_sde_te: pmx_sde_te {
+		sde_te_active: sde_te_active {
+			mux {
+				pins = "gpio34";
+				function = "mdp_vsync";
+			};
+
+			config {
+				pins = "gpio34";
+				drive-strength = <2>;   /* 2 mA */
+				bias-pull-down;         /* PULL DOWN */
+			};
+		};
+
+		sde_te_suspend: sde_te_suspend {
+			mux {
+				pins = "gpio34";
+				function = "mdp_vsync";
+			};
+
+			config {
+				pins = "gpio34";
+				drive-strength = <2>;   /* 2 mA */
+				bias-pull-down;         /* PULL DOWN */
+			};
+		};
+	};
 };
