@@ -51,11 +51,7 @@
 		iommu-addresses = <&smmu_sde_unsec 0x7ffe0000 0x80020000>,
 					<&smmu_sde_unsec 0x0 0x00020000>,
 					<&smmu_sde_unsec1 0x7ffe0000 0x80020000>,
-					<&smmu_sde_unsec1 0x0 0x00020000>,
-					<&smmu_sde_sec 0x7ffe0000 0x80020000>,
-					<&smmu_sde_sec 0x0 0x00020000>,
-					<&smmu_sde_sec1 0x7ffe0000 0x80020000>,
-					<&smmu_sde_sec1 0x0 0x00020000>;
+					<&smmu_sde_unsec1 0x0 0x00020000>;
 	};
 
 	smmu_sde_unsec: qcom,smmu_sde_unsec_cb@ae00000 {
@@ -368,8 +364,8 @@
 				<0 140000>,
 				<0 310000>;
 
-		qcom,sde-sspp-vig-blocks {
-			vcm@0 {
+		sde_sspp_vig_blocks_0: qcom,sde-sspp-vig-blocks {
+			vcm_0: vcm@0 {
 				cell-index = <0>;
 				qcom,sde-vig-top-off = <0x700>;
 				qcom,sde-vig-csc-off = <0x1a00>;
@@ -389,7 +385,7 @@
 				qcom,sde-ucsc-alpha-dither = <0x700 0x00010000>;
 			};
 
-			vcm@1 {
+			vcm_1: vcm@1 {
 				cell-index = <1>;
 				qcom,sde-fp16-igc = <0x280 0x00010000>;
 				qcom,sde-fp16-unmult = <0x280 0x00010000>;
@@ -403,8 +399,8 @@
 			};
 		};
 
-		qcom,sde-sspp-dma-blocks {
-			dgm@0 {
+		sde_sspp_dma_blocks_0: qcom,sde-sspp-dma-blocks {
+			dgm_0: dgm@0 {
 				cell-index = <0>;
 				qcom,sde-dma-top-off = <0x700>;
 				qcom,sde-fp16-igc = <0x200 0x00010000>;
@@ -418,7 +414,7 @@
 				qcom,sde-ucsc-alpha-dither = <0x700 0x00010000>;
 			};
 
-			dgm@1 {
+			dgm_1: dgm@1 {
 				cell-index = <1>;
 				qcom,sde-fp16-igc = <0x200 0x00010000>;
 				qcom,sde-fp16-unmult = <0x200 0x00010000>;
@@ -432,7 +428,7 @@
 			};
 		};
 
-		qcom,sde-dspp-blocks {
+		sde_dspp_blocks_0: qcom,sde-dspp-blocks {
 			qcom,sde-dspp-igc = <0x1260 0x00050000>;
 			qcom,sde-dspp-hsic = <0x800 0x00010007>;
 			qcom,sde-dspp-memcolor = <0x880 0x00010007>;
@@ -737,8 +733,8 @@
 				<0 140000>,
 				<0 310000>;
 
-		qcom,sde-sspp-vig-blocks {
-			vcm@0 {
+		sde_sspp_vig_blocks_1: qcom,sde-sspp-vig-blocks {
+			vcm_2: vcm@0 {
 				cell-index = <0>;
 				qcom,sde-vig-top-off = <0x700>;
 				qcom,sde-vig-csc-off = <0x1a00>;
@@ -758,7 +754,7 @@
 				qcom,sde-ucsc-alpha-dither = <0x700 0x00010000>;
 			};
 
-			vcm@1 {
+			vcm_3: vcm@1 {
 				cell-index = <1>;
 				qcom,sde-fp16-igc = <0x280 0x00010000>;
 				qcom,sde-fp16-unmult = <0x280 0x00010000>;
@@ -772,8 +768,8 @@
 			};
 		};
 
-		qcom,sde-sspp-dma-blocks {
-			dgm@0 {
+		sde_sspp_dma_blocks_1: qcom,sde-sspp-dma-blocks {
+			dgm_2: dgm@0 {
 				cell-index = <0>;
 				qcom,sde-dma-top-off = <0x700>;
 				qcom,sde-fp16-igc = <0x200 0x00010000>;
@@ -787,7 +783,7 @@
 				qcom,sde-ucsc-alpha-dither = <0x700 0x00010000>;
 			};
 
-			dgm@1 {
+			dgm_3: dgm@1 {
 				cell-index = <1>;
 				qcom,sde-fp16-igc = <0x200 0x00010000>;
 				qcom,sde-fp16-unmult = <0x200 0x00010000>;
@@ -801,7 +797,7 @@
 			};
 		};
 
-		qcom,sde-dspp-blocks {
+		sde_dspp_blocks_1: qcom,sde-dspp-blocks {
 			qcom,sde-dspp-igc = <0x1260 0x00050000>;
 			qcom,sde-dspp-hsic = <0x800 0x00010007>;
 			qcom,sde-dspp-memcolor = <0x880 0x00010007>;
