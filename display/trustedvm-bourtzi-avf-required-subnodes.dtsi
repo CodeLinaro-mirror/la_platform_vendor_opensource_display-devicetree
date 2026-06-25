@@ -39,6 +39,7 @@
 		&dsi_vtdr6130_amoled_qsync_144hz_cmd
 		&dsi_vtdr6130_amoled_qsync_144hz_video
 		&dsi_vtdr6130_amoled_video
+		&goodix_berlin_0
 		&mdss_dsi0
 		&mdss_dsi_phy0
 		&mdss_mdp
