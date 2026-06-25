@@ -77,6 +77,21 @@
 	qcom,mdss-dsi-bl-max-level = <1023>;
 	qcom,mdss-brightness-max-level = <1023>;
 	qcom,platform-reset-gpio = <&tlmm 65 0>;
+	qcom,platform-bklight-en-gpio = <&tlmm 114 0>;
+	qcom,skip-panel-power-off;
+	qcom,panel-i2c-right = <&i2c0>;
+	qcom,panel-i2c-left = <&i2c4>;
+};
+
+&dsi_jbd_gen2_dual_380x500_120hz_video_calibrated {
+	qcom,panel-supply-entries = <&dsi_panel_pwr_supply_uled>;
+	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_external";
+	qcom,mdss-dsi-bl-min-level = <1>;
+	qcom,mdss-dsi-bl-max-level = <1023>;
+	qcom,mdss-brightness-max-level = <1023>;
+	qcom,platform-reset-gpio = <&tlmm 65 0>;
+	qcom,platform-bklight-en-gpio = <&tlmm 114 0>;
+	qcom,skip-panel-power-off;
 	qcom,panel-i2c-right = <&i2c0>;
 	qcom,panel-i2c-left = <&i2c4>;
 };
@@ -88,6 +103,8 @@
 	qcom,mdss-dsi-bl-max-level = <1023>;
 	qcom,mdss-brightness-max-level = <1023>;
 	qcom,platform-reset-gpio = <&tlmm 65 0>;
+	qcom,platform-bklight-en-gpio = <&tlmm 114 0>;
+	qcom,skip-panel-power-off;
 	qcom,panel-i2c-left = <&i2c4>;
 };
 
