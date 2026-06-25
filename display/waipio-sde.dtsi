@@ -4,10 +4,10 @@
  */
 
 #include <dt-bindings/regulator/qcom,rpmh-regulator-levels.h>
-#include <dt-bindings/clock/qcom,dispcc-waipio.h>
-#include <dt-bindings/clock/qcom,gcc-waipio.h>
+#include <dt-bindings/clock/qcom,gcc-sm8450.h>
 #include <dt-bindings/interconnect/qcom,waipio.h>
 #include <dt-bindings/clock/qcom,rpmh.h>
+#include <dt-bindings/clock/qcom,sm8450-dispcc.h>
 #include "waipio-sde-common.dtsi"
 
 &soc {

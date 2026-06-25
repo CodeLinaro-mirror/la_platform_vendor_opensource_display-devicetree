@@ -4,7 +4,7 @@
  */
 
 #include "waipio-sde-display-common.dtsi"
-#include <dt-bindings/clock/qcom,dispcc-waipio.h>
+#include <dt-bindings/clock/qcom,sm8450-dispcc.h>
 
 &soc {
 	display_panel_avdd: display_gpio_regulator@1 {
