@@ -8,16 +8,16 @@
 #include "art-sde-display-common.dtsi"
 
 &soc {
+	sde_wb0: qcom,wb-display@0 {
+		compatible = "qcom,wb-display";
+		cell-index = <0>;
+		label = "wb_display0";
+	};
+
 	sde_wb1: qcom,wb-display@1 {
 		compatible = "qcom,wb-display";
 		cell-index = <1>;
 		label = "wb_display1";
-	};
-
-	sde_wb2: qcom,wb-display@2 {
-		compatible = "qcom,wb-display";
-		cell-index = <2>;
-		label = "wb_display2";
 	};
 
 	display_panel_avdd: display_gpio_regulator@1 {
@@ -103,7 +103,7 @@
 };
 
 &mdss_mdp {
-	connectors = <&sde_dsi &sde_dsi1 &smmu_sde_unsec &smmu_sde_sec &sde_wb1 &sde_wb2 &sde_dp>;
+	connectors = <&sde_dsi &sde_dsi1 &smmu_sde_unsec &smmu_sde_sec &sde_wb0 &sde_wb1 &sde_dp>;
 };
 
 &dsi_vtdr6130_amoled_cmd {
