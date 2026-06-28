@@ -60,16 +60,6 @@
 		reg = <0x0 0xF8C60000 0x0 0x02B00000>;
 		label = "cont_splash_region";
 	};
-
-	lut_dma_memory_0: lut_dma_region_0 {
-		reg = <0x0 0xFB75C000 0x0 0x2000>;
-		label = "lut dma region 0";
-	};
-
-	lut_dma_memory_1: lut_dma_region_1 {
-		reg = <0x0 0xFB75E000 0x0 0x2000>;
-		label = "lut dma region 1";
-	};
 };
 
 &sde_dsi {
