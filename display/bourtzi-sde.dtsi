@@ -175,7 +175,6 @@
 
 	qcom,sde-ib-bw-vote = <2500000 0 1600000>;
 	qcom,sde-has-idle-pc;
-	qcom,sde-vm-exclude-reg-names = "sid_phys";
 	qcom,platform-supply-entries {
 		#address-cells = <1>;
 		#size-cells = <0>;
