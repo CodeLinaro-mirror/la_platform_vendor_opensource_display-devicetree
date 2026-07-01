@@ -15,6 +15,7 @@ dtbo-$(CONFIG_ARCH_ART) += display/art-sde.dtbo \
 		display/art-sde-display-qrd-sku2-overlay.dtbo \
 		display/art-sde-display-qrd-sku2-185hz-overlay.dtbo \
 		display/art-sde-display-qrd-sku2-165hz-overlay.dtbo \
+		display/art-sde-display-hdk-overlay.dtbo \
 		display/artl-sde.dtbo \
 		display/artl-sde-display-mtp-overlay.dtbo \
 		display/artl-sde-display-qrd-sku1-overlay.dtbo \
