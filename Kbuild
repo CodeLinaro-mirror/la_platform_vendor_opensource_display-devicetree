@@ -130,7 +130,7 @@ dtbo-$(CONFIG_ARCH_BOURTZI) += display/bourtzi-sde.dtbo \
 		display/bourtzi-sde-display-rcm-lcd-overlay.dtbo
 else
 dtbo-$(CONFIG_ARCH_BOURTZI) += display/trustedvm-bourtzi-sde-display-mtp-amoled-overlay.dtbo \
-		display/b/display/trustedvm-bourtzi-sde-display-qrd-amoled-overlay.dtbo
+		display/trustedvm-bourtzi-sde-display-qrd-amoled-overlay.dtbo
 endif
 
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
