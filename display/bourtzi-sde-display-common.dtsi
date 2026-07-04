@@ -450,6 +450,10 @@
 	qcom,mdss-dsi-panel-status-value = <0x9c>;
 	qcom,mdss-dsi-panel-status-read-length = <1>;
 
+	/delete-property/ qcom,mdss-dsi-panel-name;
+	qcom,mdss-dsi-panel-name =
+		"vtdr6130 amoled cmd mode dsi visionox panel with DSC bourtzi";
+
 	qcom_mdss_dsi_display_timings_29: qcom,mdss-dsi-display-timings {
 		timing_0_30: timing@0 {
 			qcom,mdss-dsi-panel-phy-timings = [00 1c 08 07 17 22 07
@@ -490,6 +494,10 @@
 	qcom,mdss-dsi-panel-status-value = <0x9c>;
 	qcom,mdss-dsi-panel-status-read-length = <1>;
 
+	/delete-property/ qcom,mdss-dsi-panel-name;
+	qcom,mdss-dsi-panel-name =
+		"vtdr6130 amoled cmd mode 120hz dsi visionox panel with DSC bourtzi";
+
 	qcom_mdss_dsi_display_timings_33: qcom,mdss-dsi-display-timings {
 		timing_0_34: timing@0 {
 			qcom,mdss-dsi-panel-phy-timings = [00 19 06 06 15 20 07
@@ -527,6 +535,10 @@
 
 	qcom,mdss-dsi-panel-hdr-enabled;
 
+	/delete-property/ qcom,mdss-dsi-panel-name;
+	qcom,mdss-dsi-panel-name =
+		"vtdr6130 amoled cmd mode dsi visionox panel with DSC bourtzi";
+
 	qcom_mdss_dsi_display_timings_37: qcom,mdss-dsi-display-timings {
 		timing_0_38: timing@0 {
 			qcom,mdss-dsi-panel-phy-timings = [00 13 05 04 13 1e 05
@@ -556,6 +568,10 @@
 
 	qcom,mdss-dsi-panel-hdr-enabled;
 
+	/delete-property/ qcom,mdss-dsi-panel-name;
+	qcom,mdss-dsi-panel-name =
+		"vtdr6130 amoled video mode dsi visionox panel with DSC bourtzi";
+
 	qcom_mdss_dsi_display_timings_40: qcom,mdss-dsi-display-timings {
 		timing_0_41: timing@0 {
 			qcom,mdss-dsi-panel-phy-timings = [00 13 05 04 13 1e 05
@@ -578,6 +594,10 @@
 
 	qcom,mdss-dsi-panel-hdr-enabled;
 
+	/delete-property/ qcom,mdss-dsi-panel-name;
+	qcom,mdss-dsi-panel-name =
+		"vtdr6130 amoled cmd mode dsi visionox panel with DSC bourtzi";
+
 	qcom_mdss_dsi_display_timings_42: qcom,mdss-dsi-display-timings {
 		timing_0_43: timing@0 {
 			qcom,mdss-dsi-panel-phy-timings = [00 0f 03 03 11 1d 04
@@ -599,6 +619,10 @@
 	qcom,mdss-dsi-panel-status-read-length = <1>;
 
 	qcom,mdss-dsi-panel-hdr-enabled;
+
+	/delete-property/ qcom,mdss-dsi-panel-name;
+	qcom,mdss-dsi-panel-name =
+		"vtdr6130 amoled video mode dsi visionox panel with DSC bourtzi";
 
 	qcom_mdss_dsi_display_timings_44: qcom,mdss-dsi-display-timings {
 		timing_0_45: timing@0 {
@@ -627,6 +651,10 @@
 	qcom,mdss-dsi-panel-status-value = <0x9c>;
 	qcom,mdss-dsi-panel-status-read-length = <1>;
 
+	/delete-property/ qcom,mdss-dsi-panel-name;
+	qcom,mdss-dsi-panel-name =
+		"vtdr6130 amoled video mode dsi visionox panel with DSC bourtzi";
+
 	qcom_mdss_dsi_display_timings_46: qcom,mdss-dsi-display-timings {
 		timing_0_47: timing@0 {
 			qcom,mdss-dsi-panel-phy-timings = [00 1c 08 07 17 22 07
@@ -652,6 +680,10 @@
 	qcom,mdss-dsi-panel-status-value = <0x9c>;
 	qcom,mdss-dsi-panel-status-read-length = <1>;
 
+	/delete-property/ qcom,mdss-dsi-panel-name;
+	qcom,mdss-dsi-panel-name =
+		"vtdr6130 amoled video mode 120hz dsi visionox panel with DSC bourtzi";
+
 	qcom_mdss_dsi_display_timings_48: qcom,mdss-dsi-display-timings {
 		timing_0_49: timing@0 {
 			qcom,mdss-dsi-panel-phy-timings = [00 19 06 06 15 14 07
@@ -674,6 +706,10 @@
 
 	qcom,mdss-dsi-panel-hdr-enabled;
 
+	/delete-property/ qcom,mdss-dsi-panel-name;
+	qcom,mdss-dsi-panel-name =
+		"vtdr6130 amoled qsync cmd mode dsi visionox panel with DSC bourtzi";
+
 	qcom_mdss_dsi_display_timings_50: qcom,mdss-dsi-display-timings {
 		timing_0_51: timing@0 {
 			qcom,mdss-dsi-panel-phy-timings = [00 1c 08 07 17 22 07
@@ -695,6 +731,10 @@
 	qcom,mdss-dsi-panel-status-read-length = <1>;
 
 	qcom,mdss-dsi-panel-hdr-enabled;
+
+	/delete-property/ qcom,mdss-dsi-panel-name;
+	qcom,mdss-dsi-panel-name =
+		"vtdr6130 amoled qsync video mode dsi visionox panel with DSC bourtzi";
 
 	qcom_mdss_dsi_display_timings_52: qcom,mdss-dsi-display-timings {
 		timing_0_53: timing@0 {
