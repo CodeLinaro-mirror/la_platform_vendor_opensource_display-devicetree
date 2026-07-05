@@ -135,15 +135,6 @@
 	};
 };
 
-&reserved_memory {
-	splash_memory: splash_region {
-		#address-cells = <2>;
-		#size-cells = <2>;
-		reg = <0x0 0xb8000000 0x0 0x02b00000>;
-		label = "cont_splash_region";
-	};
-};
-
 &mdss_mdp {
 	clocks =
 		<&gcc GCC_DISP_HF_AXI_CLK>,
