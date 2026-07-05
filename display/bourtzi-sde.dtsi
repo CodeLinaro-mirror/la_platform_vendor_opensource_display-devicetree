@@ -8,6 +8,7 @@
 #include <dt-bindings/clock/qcom,sm4450-gcc.h>
 #include <dt-bindings/interconnect/qcom,ravelin.h>
 #include <dt-bindings/clock/qcom,rpmh.h>
+#include <dt-bindings/arm/msm/qti-smmu-proxy-dt-ids.h>
 #include "bourtzi-sde-common.dtsi"
 
 &soc {
@@ -47,7 +48,7 @@
 
 		reg-names = "mdp_phys",
 			"rot_vbif_phys";
-		//qti,smmu-proxy-cb-id = <QTI_SMMU_PROXY_ROTATOR_CB>;
+		qti,smmu-proxy-cb-id = <QTI_SMMU_PROXY_ROTATOR_CB>;
 
 		#list-cells = <1>;
 		qcom,mdss-rot-mode = <1>;
@@ -158,7 +159,7 @@
 	clock-rate = <0 0 506000000 506000000 19200000 506000000 200000000>;
 	clock-max-rate = <0 0 608000000 608000000 19200000 608000000 300000000>;
 
-	//qti,smmu-proxy-cb-id = <QTI_SMMU_PROXY_DISPLAY_CB>;
+	qti,smmu-proxy-cb-id = <QTI_SMMU_PROXY_DISPLAY_CB>;
 
 	vdd-supply = <&disp_cc_mdss_core_gdsc>;
 	#power-domain-cells = <0>;
