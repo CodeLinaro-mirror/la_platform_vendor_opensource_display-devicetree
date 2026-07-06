@@ -1,0 +1,17 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
+/dts-v1/;
+/plugin/;
+
+#include "seca-sde-hwvirt.dtsi"
+
+/ {
+	model = "Qualcomm Technologies, Inc. SA8x87p QAM Gunyah VM";
+	compatible = "qcom,sa8787p", "qcom,qam";
+	qcom,msm-id = <742 0x10000>, <742 0x10001>;
+	qcom,board-id = <0x10025 0x0>, <0x10025 0x1>, <0x10019 0x0>, <0x10019 0x1>;
+};
+
