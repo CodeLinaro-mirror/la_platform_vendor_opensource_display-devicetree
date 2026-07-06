@@ -6,7 +6,7 @@
 /dts-v1/;
 /plugin/;
 
-#include "seca-sde-hwvirt.dtsi"
+#include "seca-sde-hwvirt-gunyah.dtsi"
 
 / {
 	model = "Qualcomm Technologies, Inc. SA8x87p QAM Gunyah VM";
