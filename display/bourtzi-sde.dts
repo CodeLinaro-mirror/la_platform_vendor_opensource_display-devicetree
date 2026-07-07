@@ -10,7 +10,7 @@
 
 / {
 	model = "Qualcomm Technologies, Inc. Bourtzi";
-	compatible = "qcom,bourtzi-atp", "qcom,atp", "qcom,bourtzi";
+	compatible = "qcom,bourtzi";
 	qcom,msm-id = <776 0x10000>, <777 0x10000>;
 	qcom,board-id = <0 0>, <0 0x600>;
 };
