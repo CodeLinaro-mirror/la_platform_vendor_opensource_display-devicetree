@@ -8,6 +8,7 @@
 #include <dt-bindings/clock/qcom,sm4450-gcc.h>
 #include <dt-bindings/interconnect/qcom,ravelin.h>
 #include <dt-bindings/clock/qcom,rpmh.h>
+#include <dt-bindings/arm/msm/qti-smmu-proxy-dt-ids.h>
 #include "bourtzi-sde-common.dtsi"
 
 &soc {
@@ -47,7 +48,7 @@
 
 		reg-names = "mdp_phys",
 			"rot_vbif_phys";
-		//qti,smmu-proxy-cb-id = <QTI_SMMU_PROXY_ROTATOR_CB>;
+		qti,smmu-proxy-cb-id = <QTI_SMMU_PROXY_ROTATOR_CB>;
 
 		#list-cells = <1>;
 		qcom,mdss-rot-mode = <1>;
@@ -111,7 +112,7 @@
 
 	smmu_sde_iommu_region_partition: smmu_sde_iommu_region_partition {
 		iommu-addresses = <&smmu_sde_unsec 0x0 0x0 0x0 0x00020000>,
-			<&smmu_sde_unsec 0x0 0x100000000 0x0 0xffffffff>,
+			<&smmu_sde_unsec 0x0 0xfc800000  0x0 0x02b00000>,
 			<&smmu_sde_sec 0x0 0x0 0x0 0x00020000>;
 	};
 
@@ -134,15 +135,6 @@
 	};
 };
 
-&reserved_memory {
-	splash_memory: splash_region {
-		#address-cells = <2>;
-		#size-cells = <2>;
-		reg = <0x0 0xb8000000 0x0 0x02b00000>;
-		label = "cont_splash_region";
-	};
-};
-
 &mdss_mdp {
 	clocks =
 		<&gcc GCC_DISP_HF_AXI_CLK>,
@@ -158,7 +150,7 @@
 	clock-rate = <0 0 506000000 506000000 19200000 506000000 200000000>;
 	clock-max-rate = <0 0 608000000 608000000 19200000 608000000 300000000>;
 
-	//qti,smmu-proxy-cb-id = <QTI_SMMU_PROXY_DISPLAY_CB>;
+	qti,smmu-proxy-cb-id = <QTI_SMMU_PROXY_DISPLAY_CB>;
 
 	vdd-supply = <&disp_cc_mdss_core_gdsc>;
 	#power-domain-cells = <0>;
@@ -174,7 +166,6 @@
 
 	qcom,sde-ib-bw-vote = <2500000 0 1600000>;
 	qcom,sde-has-idle-pc;
-	qcom,sde-vm-exclude-reg-names = "sid_phys";
 	qcom,platform-supply-entries {
 		#address-cells = <1>;
 		#size-cells = <0>;

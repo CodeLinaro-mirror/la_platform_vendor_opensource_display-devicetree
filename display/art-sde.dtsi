@@ -70,8 +70,8 @@
 	qcom,sde-dspp-ltm-off = <0x3300 0x3300 0x3300 0x3300>;
 	qcom,hw-fence-sw-version = <0x1>;
 
-	nvmem-cells = <&ssip_config>;
-	nvmem-cell-names = "ssip_config";
+	nvmem-cells = <&ssip_config>, <&disp_qultiv_fuse>;
+	nvmem-cell-names = "ssip_config", "disp_qultiv_fuse";
 	qcom,sde-vm-exclude-reg-names = "mdp_phys", "vbif_phys",
 					"regdma_phys", "ipcc_reg",
 					"swfuse_phys";

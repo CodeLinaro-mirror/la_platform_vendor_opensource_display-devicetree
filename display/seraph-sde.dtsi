@@ -274,9 +274,4 @@
 		no-map;
 		reg = <0x0 0xa2c00000 0x0 0x700000>;
 	};
-
-	splash_memory: splash_region {
-		reg = <0x0 0xb8000000 0x0 0x09600000>;
-		label = "cont_splash_region";
-	};
 };

@@ -52,6 +52,7 @@
 #include "dsi-panel-dual-rdp370f-rgb-video.dtsi"
 #include "dsi-panel-rdp370f-rgb-video.dtsi"
 #include "dsi-panel-ext-bridge-1080p.dtsi"
+#include "dsi-panel-il97712a-dsc-10bit-cmd.dtsi"
 #include "dsi-panel-ili97680a-dsc-10bit-cmd.dtsi"
 #include "art-sde-display-pinctrl-common.dtsi"
 
@@ -594,14 +595,63 @@
 	};
 };
 
+&dsi_il97712a_amoled_dsc_10b_cmd {
+	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
+	qcom,dsi-select-sec-clocks = "pll_byte_clk1", "pll_dsi_clk1";
+
+	qcom_mdss_dsi_display_timings_370:qcom,mdss-dsi-display-timings {
+		timing_0_371:timing@0 {
+			qcom,mdss-dsi-panel-phy-timings = [00 34 0D 0D 1E 1B 0D
+					0D 0C 02 04 00 29 12];
+			qcom,display-topology = <2 2 1>;
+			qcom,default-topology-index = <0>;
+		};
+
+		timing_1_372:timing@1 {
+			qcom,mdss-dsi-panel-phy-timings = [00 2C 0C 0C 1D 1A 0C
+					0C 0B 02 04 00 24 11];
+			qcom,display-topology = <2 2 1>;
+			qcom,default-topology-index = <0>;
+		};
+
+		timing_2_373:timing@2 {
+			qcom,mdss-dsi-panel-phy-timings = [00 24 0A 0A 1A 18 0A
+					0A 09 02 04 00 1E 0F];
+			qcom,display-topology = <2 2 1>;
+			qcom,default-topology-index = <0>;
+		};
+
+		timing_3_374:timing@3 {
+			qcom,mdss-dsi-panel-phy-timings = [00 24 0A 0A 1A 18 0A
+					0A 09 02 04 00 1E 0F];
+			qcom,display-topology = <2 2 1>;
+			qcom,default-topology-index = <0>;
+		};
+
+		timing_4_375:timing@4 {
+			qcom,mdss-dsi-panel-phy-timings = [00 24 0A 0A 1A 18 0A
+					0A 09 02 04 00 1E 0F];
+			qcom,display-topology = <2 2 1>;
+			qcom,default-topology-index = <0>;
+		};
+	};
+};
+
 &dsi_ili97680a_amoled_dsc_10b_cmd {
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
 	qcom,dsi-select-sec-clocks = "pll_byte_clk1", "pll_dsi_clk1";
 
 	qcom_mdss_dsi_display_timings_359:qcom,mdss-dsi-display-timings {
 		timing_0_360:timing@0 {
-			qcom,mdss-dsi-panel-phy-timings = [00 2C 0C 0C 1D 1B 0C
-					0C 0B 02 04 00 23 11];
+			qcom,mdss-dsi-panel-phy-timings = [00 2E 0C 0C 1D 27 0C
+					0D 0B 02 04 00 25 24];
+			qcom,display-topology = <2 2 1>;
+			qcom,default-topology-index = <0>;
+		};
+
+		timing_1_361:timing@1 {
+			qcom,mdss-dsi-panel-phy-timings = [00 2E 0C 0C 1D 27 0C
+					0D 0B 02 04 00 25 24];
 			qcom,display-topology = <2 2 1>;
 			qcom,default-topology-index = <0>;
 		};
