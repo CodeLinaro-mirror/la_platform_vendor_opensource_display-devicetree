@@ -274,7 +274,8 @@ dtbo-$(CONFIG_ARCH_KHAJE) += display/khaje-sde.dtbo \
 		display/khaje-iot-sde-display-idp-lp4-overlay.dtbo
 
 dtbo-$(CONFIG_ARCH_SCUBA) += display/scuba-iot-sde.dtbo \
-                display/scuba-iot-sde-display-idp-overlay.dtbo
+		display/scuba-iot-sde-display-idp-overlay.dtbo \
+		display/scuba-iot-sde-display-idp-lp4-overlay.dtbo
 
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
 		CONFIG_OS_DTS := false
