@@ -73,7 +73,7 @@
 		};
 	};
 
-	dsi_panel_pwr_supply_labibb: dsi_panel_pwr_supply_labibb {
+	dsi_panel_pwr_supply_lcd_labibb: dsi_panel_pwr_supply_lcd_labibb {
 		#address-cells = <1>;
 		#size-cells = <0>;
 
@@ -82,27 +82,27 @@
 			qcom,supply-name = "vddio";
 			qcom,supply-min-voltage = <1800000>;
 			qcom,supply-max-voltage = <2000000>;
-			qcom,supply-enable-load = <200000>;
-			qcom,supply-disable-load = <80>;
-			qcom,supply-post-on-sleep = <10>;
+			qcom,supply-enable-load = <220000>;
+			qcom,supply-disable-load = <8000>;
+			qcom,supply-post-on-sleep = <20>;
 		};
 
 		qcom_panel_supply_entry_1_3: qcom,panel-supply-entry@1 {
 			reg = <1>;
-			qcom,supply-name = "extdvdd";
-			qcom,supply-min-voltage = <1300000>;
-			qcom,supply-max-voltage = <1300000>;
-			qcom,supply-enable-load = <100000>;
-			qcom,supply-disable-load = <100>;
-			qcom,supply-post-on-sleep = <10>;
-			qcom,supply-post-off-sleep = <10>;
+			qcom,supply-name = "vdd";
+			qcom,supply-min-voltage = <1200000>;
+			qcom,supply-max-voltage = <1250000>;
+			qcom,supply-enable-load = <200000>;
+			qcom,supply-disable-load = <0>;
+			qcom,supply-post-on-sleep = <0>;
+			qcom,supply-post-off-sleep = <2>;
 		};
 
 		qcom_panel_supply_entry_2: qcom,panel-supply-entry@2 {
 			reg = <0>;
 			qcom,supply-name = "lab";
 			qcom,supply-min-voltage = <5400000>;
-			qcom,supply-max-voltage = <5600000>;
+			qcom,supply-max-voltage = <6000000>;
 			qcom,supply-enable-load = <0>;
 			qcom,supply-disable-load = <0>;
 		 };
@@ -111,7 +111,7 @@
 			reg = <1>;
 			qcom,supply-name = "ibb";
 			qcom,supply-min-voltage = <5400000>;
-			qcom,supply-max-voltage = <5600000>;
+			qcom,supply-max-voltage = <6000000>;
 			qcom,supply-enable-load = <0>;
 			qcom,supply-disable-load = <0>;
 			qcom,supply-post-on-sleep = <20>;
@@ -534,6 +534,7 @@
 			qcom,display-topology = <1 1 1>;
 			qcom,default-topology-index = <0>;
 		};
+
 		timing_1_39: timing@1 {
 			qcom,mdss-dsi-panel-phy-timings = [00 13 05 04 13 1e 05
 				05 06 02 04 00 12 0a];
@@ -611,10 +612,13 @@
 
 &dsi_vtdr6130_amoled_video {
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
-
+	qcom,dsi-select-sec-clocks = "pll_byte_clk1", "pll_dsi_clk1";
 	qcom,dsi-supported-dfps-list = <144 120 90 60>;
 	qcom,mdss-dsi-pan-enable-dynamic-fps;
 	qcom,mdss-dsi-pan-fps-update = "dfps_immediate_porch_mode_vfp";
+
+	qcom,dsi-dyn-clk-enable;
+	qcom,dsi-dyn-clk-type = "constant-fps-adjust-hfp";
 
 	qcom,esd-check-enabled;
 	qcom,mdss-dsi-panel-status-check-mode = "reg_read";
@@ -629,6 +633,7 @@
 				07 08 02 04 00 19 0c];
 			qcom,display-topology = <1 1 1>;
 			qcom,default-topology-index = <0>;
+			qcom,dsi-dyn-clk-list = <847480320 844537680 841595040>;
 		};
 	};
 };
