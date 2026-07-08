@@ -44,6 +44,7 @@
 			&dsi_nt37801_amoled_video_cphy_spr
 			&dsi_nt37801_amoled_video_ddicspr
 			&dsi_nt37802_amoled_cmd_cphy
+			&dsi_nt37802_amoled_cmd_dphy
 			&dsi_nt37802_amoled_cmd_i2c_cphy
 			&dsi_nt37802_amoled_cmd_i2c_dphy
 			&dsi_nt37802_amoled_video_i2c_cphy
@@ -169,6 +170,7 @@
 			&qcom_mdss_dsi_display_timings_358
 			&qcom_mdss_dsi_display_timings_36
 			&qcom_mdss_dsi_display_timings_362
+			&qcom_mdss_dsi_display_timings_38
 			&qcom_mdss_dsi_display_timings_41
 			&qcom_mdss_dsi_display_timings_43
 			&qcom_mdss_dsi_display_timings_47
@@ -298,6 +300,7 @@
 			&timing_0_359
 			&timing_0_363
 			&timing_0_37
+			&timing_0_39
 			&timing_0_4
 			&timing_0_42
 			&timing_0_44
