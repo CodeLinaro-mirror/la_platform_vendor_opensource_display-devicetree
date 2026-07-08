@@ -16,6 +16,7 @@
 #include "dsi-panel-r66451-dsc-fhd-plus-144hz-video-cphy.dtsi"
 #include "dsi-panel-sim-video.dtsi"
 #include "dsi-panel-ext-bridge-1080p.dtsi"
+#include "dsi-panel-il7807s-1080p-video.dtsi"
 #include "dsi-panel-ili9881p-720-video.dtsi"
 #include "dsi-panel-ext-bridge-4k30p.dtsi"
 #include <dt-bindings/clock/qcom,rpmh.h>
@@ -147,6 +148,21 @@
 		qcom,dsi-ctrl = <&mdss_dsi0>;
 		qcom,dsi-phy = <&mdss_dsi_phy0>;
 		qcom,mdp = <&mdss_mdp>;
+	};
+};
+
+&dsi_il7807s_1080p_video {
+	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
+	qcom,mdss-dsi-t-clk-post = <0x0d>;
+	qcom,mdss-dsi-t-clk-pre = <0x19>;
+
+	qcom,mdss-dsi-display-timings {
+		timing@0{
+			qcom,mdss-dsi-panel-phy-timings = [00 1D 08 07 17 22 08
+			08 08 02 04 00 19 0D];
+			qcom,display-topology = <1 0 1>;
+			qcom,default-topology-index = <0>;
+		};
 	};
 };
 
