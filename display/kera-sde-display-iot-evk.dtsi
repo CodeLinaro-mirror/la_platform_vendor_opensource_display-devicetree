@@ -302,9 +302,6 @@
 	qcom,aux-en-gpio = <&tlmm 177 1>;
 	qcom,aux-sel-gpio = <&tlmm 178 0>;
 	qcom,dp-gpio-aux-switch;
-<<<<<<< HEAD   (f106a7 Merge 3ff4a7d7e628e488e6095ff2ec97279c77665f47 on remote bra)
-=======
 	qcom,mst-enable;
 	qcom,dp-cec-feature;
->>>>>>> CHANGE (c8f164 ARM: dts: msm: add dp-cec-feature for kera evk)
 };
