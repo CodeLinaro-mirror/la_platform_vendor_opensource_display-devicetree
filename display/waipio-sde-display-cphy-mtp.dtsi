@@ -11,7 +11,7 @@
 
 &sde_dsi {
 	extvdd-supply = <&L1D>;
-	qcom,dsi-default-panel = <&dsi_r66451_amoled_120hz_cmd_cphy>;
+	qcom,dsi-default-panel = <&dsi_r66451_amoled_144hz_video_cphy>;
 };
 
 &qupv3_se4_i2c {
@@ -42,7 +42,7 @@
 		pinctrl-0 = <&ts_active>;
 		pinctrl-1 = <&ts_int_suspend &ts_reset_suspend>;
 		pinctrl-2 = <&ts_release>;
-		panel = <&dsi_r66451_amoled_120hz_cmd_cphy>;
+		panel = <&dsi_r66451_amoled_video>;
 
 		focaltech,trusted-touch-mode = "vm_mode";
 		focaltech,touch-environment = "pvm";
