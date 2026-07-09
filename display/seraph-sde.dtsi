@@ -22,15 +22,23 @@
 				<&lsr_non_secure_cb 0x0 0x4b000000>,
 				<&lsr_non_secure_cb 0x70000000 0x1000>,
 				<&lsr_non_secure_cb 0xdb000000 0x25000000>,
-				<&smmu_sde_sec 0x0 0x4b000000>,
-				<&smmu_sde_sec 0x70000000 0x1000>,
-				<&smmu_sde_sec 0xdb000000 0x25000000>;
+				<&smmu_sde_sec 0x0 0x26800000>,
+				<&smmu_sde_sec 0x4b000000 0xb5000000>,
+				<&lsr_sec_nonpixel_cb 0x0 0x01000000>,
+				<&lsr_sec_nonpixel_cb 0x26800000 0xd9800000>,
+				<&lsr_sec_pixel_cb 0x0 0x26800000>,
+				<&lsr_sec_pixel_cb 0x4b000000 0xb5000000>;
 	};
 
 	non_secure_sde_lsr_cb_group: cvp_non_secure_sde_lsr_cb_group {
 			qcom,iommu-faults = "non-fatal";
 			dma-coherent;
 			qcom,iommu-earlymap; /* for cont-splash */
+	};
+
+	secure_sde_lsr_cb_group: cvp_secure_sde_lsr_cb_group {
+			qcom,iommu-faults = "non-fatal";
+			dma-coherent;
 	};
 
 	smmu_sde_unsec: qcom,smmu_sde_unsec_cb {
@@ -49,6 +57,7 @@
 		memory-region = <&smmu_sde_lsr_iommu_region_partition>;
 		qcom,iommu-faults = "non-fatal";
 		qcom,iommu-vmid = <0xa>;
+		qcom,iommu-group = <&secure_sde_lsr_cb_group>;
 	};
 
 	msm_lsr: qcom,lsr@a900000 {
@@ -176,6 +185,27 @@
 			buffer-types = <0xfff>;
 			dma-coherent;
 			qcom,iommu-group = <&dcp_cb_group>;
+		};
+
+		lsr_sec_nonpixel_cb: lsr_sec_nonpixel_cb {
+			compatible = "qcom,msm-lsr,context-bank";
+			label = "lsr_sec_nonpixel";
+			iommus = <&apps_smmu 0x0524 0x0>, <&apps_smmu 0x2124 0x0>;
+			buffer-types = <0xfff>;
+			dma-coherent;
+			qcom,iommu-vmid = <0x9>;
+			memory-region = <&smmu_sde_lsr_iommu_region_partition>;
+		};
+
+		lsr_sec_pixel_cb: lsr_sec_pixel_cb {
+			compatible = "qcom,msm-lsr,context-bank";
+			label = "lsr_sec_pixel";
+			iommus = <&apps_smmu 0x0523 0x0>, <&apps_smmu 0x2123 0x0>;
+			buffer-types = <0xfff>;
+			dma-coherent;
+			qcom,iommu-vmid = <0xa>;
+			qcom,iommu-group = <&secure_sde_lsr_cb_group>;
+			memory-region = <&smmu_sde_lsr_iommu_region_partition>;
 		};
 	};
 };
