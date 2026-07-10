@@ -535,19 +535,28 @@
 
 	qcom,mdss-dsi-panel-hdr-enabled;
 
+<<<<<<< HEAD
 	/delete-property/ qcom,mdss-dsi-panel-name;
 	qcom,mdss-dsi-panel-name =
 		"vtdr6130 amoled cmd mode dsi visionox panel with DSC bourtzi";
 
 	qcom_mdss_dsi_display_timings_37: qcom,mdss-dsi-display-timings {
 		timing_0_38: timing@0 {
+=======
+	qcom,mdss-dsi-display-timings {
+		timing@0 {
+>>>>>>> 97eda10 (ARM: dts: msm: add vtdr6130 amoled qsync, 90hz, 60hz panel support)
 			qcom,mdss-dsi-panel-phy-timings = [00 13 05 04 13 1e 05
 				05 06 02 04 00 12 0a];
 			qcom,display-topology = <1 1 1>;
 			qcom,default-topology-index = <0>;
 		};
 
+<<<<<<< HEAD
 		timing_1_39: timing@1 {
+=======
+		timing@1 {
+>>>>>>> 97eda10 (ARM: dts: msm: add vtdr6130 amoled qsync, 90hz, 60hz panel support)
 			qcom,mdss-dsi-panel-phy-timings = [00 13 05 04 13 1e 05
 				05 06 02 04 00 12 0a];
 			qcom,display-topology = <1 1 1>;
@@ -568,12 +577,17 @@
 
 	qcom,mdss-dsi-panel-hdr-enabled;
 
+<<<<<<< HEAD
 	/delete-property/ qcom,mdss-dsi-panel-name;
 	qcom,mdss-dsi-panel-name =
 		"vtdr6130 amoled video mode dsi visionox panel with DSC bourtzi";
 
 	qcom_mdss_dsi_display_timings_40: qcom,mdss-dsi-display-timings {
 		timing_0_41: timing@0 {
+=======
+	qcom,mdss-dsi-display-timings {
+		timing@0 {
+>>>>>>> 97eda10 (ARM: dts: msm: add vtdr6130 amoled qsync, 90hz, 60hz panel support)
 			qcom,mdss-dsi-panel-phy-timings = [00 13 05 04 13 1e 05
 				05 06 02 04 00 12 0a];
 			qcom,display-topology = <1 1 1>;
@@ -594,12 +608,17 @@
 
 	qcom,mdss-dsi-panel-hdr-enabled;
 
+<<<<<<< HEAD
 	/delete-property/ qcom,mdss-dsi-panel-name;
 	qcom,mdss-dsi-panel-name =
 		"vtdr6130 amoled cmd mode dsi visionox panel with DSC bourtzi";
 
 	qcom_mdss_dsi_display_timings_42: qcom,mdss-dsi-display-timings {
 		timing_0_43: timing@0 {
+=======
+	qcom,mdss-dsi-display-timings {
+		timing@0 {
+>>>>>>> 97eda10 (ARM: dts: msm: add vtdr6130 amoled qsync, 90hz, 60hz panel support)
 			qcom,mdss-dsi-panel-phy-timings = [00 0f 03 03 11 1d 04
 				04 03 02 04 00 0d 09];
 			qcom,display-topology = <1 1 1>;
@@ -620,12 +639,17 @@
 
 	qcom,mdss-dsi-panel-hdr-enabled;
 
+<<<<<<< HEAD
 	/delete-property/ qcom,mdss-dsi-panel-name;
 	qcom,mdss-dsi-panel-name =
 		"vtdr6130 amoled video mode dsi visionox panel with DSC bourtzi";
 
 	qcom_mdss_dsi_display_timings_44: qcom,mdss-dsi-display-timings {
 		timing_0_45: timing@0 {
+=======
+	qcom,mdss-dsi-display-timings {
+		timing@0 {
+>>>>>>> 97eda10 (ARM: dts: msm: add vtdr6130 amoled qsync, 90hz, 60hz panel support)
 			qcom,mdss-dsi-panel-phy-timings = [00 0f 03 03 11 1d 04
 				04 03 02 04 00 0d 09];
 			qcom,display-topology = <1 1 1>;
@@ -636,13 +660,10 @@
 
 &dsi_vtdr6130_amoled_video {
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
-	qcom,dsi-select-sec-clocks = "pll_byte_clk1", "pll_dsi_clk1";
+
 	qcom,dsi-supported-dfps-list = <144 120 90 60>;
 	qcom,mdss-dsi-pan-enable-dynamic-fps;
 	qcom,mdss-dsi-pan-fps-update = "dfps_immediate_porch_mode_vfp";
-
-	qcom,dsi-dyn-clk-enable;
-	qcom,dsi-dyn-clk-type = "constant-fps-adjust-hfp";
 
 	qcom,esd-check-enabled;
 	qcom,mdss-dsi-panel-status-check-mode = "reg_read";
@@ -661,7 +682,6 @@
 				07 08 02 04 00 19 0c];
 			qcom,display-topology = <1 1 1>;
 			qcom,default-topology-index = <0>;
-			qcom,dsi-dyn-clk-list = <847480320 844537680 841595040>;
 		};
 	};
 };
@@ -706,12 +726,17 @@
 
 	qcom,mdss-dsi-panel-hdr-enabled;
 
+<<<<<<< HEAD
 	/delete-property/ qcom,mdss-dsi-panel-name;
 	qcom,mdss-dsi-panel-name =
 		"vtdr6130 amoled qsync cmd mode dsi visionox panel with DSC bourtzi";
 
 	qcom_mdss_dsi_display_timings_50: qcom,mdss-dsi-display-timings {
 		timing_0_51: timing@0 {
+=======
+	qcom,mdss-dsi-display-timings {
+		timing@0 {
+>>>>>>> 97eda10 (ARM: dts: msm: add vtdr6130 amoled qsync, 90hz, 60hz panel support)
 			qcom,mdss-dsi-panel-phy-timings = [00 1c 08 07 17 22 07
 				07 08 02 04 00 19 0c];
 			qcom,display-topology = <1 1 1>;
@@ -732,12 +757,17 @@
 
 	qcom,mdss-dsi-panel-hdr-enabled;
 
+<<<<<<< HEAD
 	/delete-property/ qcom,mdss-dsi-panel-name;
 	qcom,mdss-dsi-panel-name =
 		"vtdr6130 amoled qsync video mode dsi visionox panel with DSC bourtzi";
 
 	qcom_mdss_dsi_display_timings_52: qcom,mdss-dsi-display-timings {
 		timing_0_53: timing@0 {
+=======
+	qcom,mdss-dsi-display-timings {
+		timing@0 {
+>>>>>>> 97eda10 (ARM: dts: msm: add vtdr6130 amoled qsync, 90hz, 60hz panel support)
 			qcom,mdss-dsi-panel-phy-timings = [00 1c 08 07 17 22 07
 				07 08 02 04 00 19 0c];
 			qcom,display-topology = <1 1 1>;
