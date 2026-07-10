@@ -132,8 +132,12 @@
 
 	qcom,mdss-dsi-display-timings {
 		timing@0 {
+			qcom,mdss-dsi-panel-clockrate = <813936000>;
+			qcom,partial-update-enabled = "single_roi";
+			qcom,panel-roi-alignment = <540 40 40 40 1080 40>;
 			qcom,mdss-dsi-panel-phy-timings =
 			[25 1F 08 0A 06 02 04 A0
+			25 1F 08 0A 06 02 04 A0
 			25 1F 08 0A 06 02 04 A0
 			25 1F 08 0A 06 02 04 A0
 			25 1F 09 0A 06 02 04 A0];
