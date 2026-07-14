@@ -15,7 +15,6 @@
 			&config_311
 			&config_313
 			&config_315
-			&config_321
 			&config_6
 			&config_8
 			&dgm_0
@@ -92,7 +91,6 @@
 			&mux_310
 			&mux_312
 			&mux_314
-			&mux_320
 			&mux_5
 			&mux_7
 			&pmx_sde
