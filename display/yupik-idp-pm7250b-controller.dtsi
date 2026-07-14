@@ -1,0 +1,184 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
+#include "yupik-sde-display.dtsi"
+
+/*==============================*/
+/*     Display Related Start    */
+/*==============================*/
+&tlmm {
+	display_vdd_default: display_vdd_default {
+		mux {
+			pins = "gpio80";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio80";
+			drive-strength = <8>;
+			bias-disable = <0>;
+			output-high;
+		};
+	};
+};
+
+&soc {
+	display_vdd: display_vdd {
+		compatible = "regulator-fixed";
+		regulator-name = "display_vdd";
+		regulator-min-microvolt = <3300000>;
+		regulator-max-microvolt = <3300000>;
+		//gpio = <&tlmm 54 GPIO_ACTIVE_HIGH>;
+		gpio = <&tlmm 80 1>;
+		enable-active-high;
+		pinctrl-names = "default";
+		pinctrl-0 = <&display_vdd_default>;
+	};
+};
+
+&pm8350c_gpios {
+	lcd_backlight_ctrl {
+		lcd_backlight_ctrl_default: lcd_backlight_ctrl_default {
+			pins = "gpio9";
+			function = "func1";
+			input-disable;
+			output-low;
+			bias-disable;
+			power-source = <0>;
+			qcom,drive-strength = <2>;
+		};
+	};
+};
+
+&dsi_panel_pwr_supply {
+	#address-cells = <1>;
+	#size-cells = <0>;
+
+	qcom,panel-supply-entry@0 {
+		reg = <0>;
+		qcom,supply-name = "vdd";
+		qcom,supply-min-voltage = <1800000>;
+		qcom,supply-max-voltage = <1800000>;
+		qcom,supply-enable-load = <62000>;
+		qcom,supply-disable-load = <80>;
+		qcom,supply-post-on-sleep = <10>;
+	};
+
+	qcom,panel-supply-entry@1 {
+		reg = <1>;
+		qcom,supply-name = "vddio";
+		qcom,supply-min-voltage = <1800000>;
+		qcom,supply-max-voltage = <1800000>;
+		qcom,supply-enable-load = <62000>;
+		qcom,supply-disable-load = <80>;
+		qcom,supply-post-on-sleep = <10>;
+	};
+
+	qcom,panel-supply-entry@2 {
+		reg = <2>;
+		qcom,supply-name = "vcc";
+		qcom,supply-min-voltage = <3300000>;
+		qcom,supply-max-voltage = <3300000>;
+		qcom,supply-enable-load = <0>;
+		qcom,supply-disable-load = <0>;
+		qcom,supply-post-on-sleep = <10>;
+	};
+
+	qcom,panel-supply-entry@3 {
+		reg = <3>;
+		qcom,supply-name = "avdd";
+		qcom,supply-min-voltage = <5500000>;
+		qcom,supply-max-voltage = <5500000>;
+		qcom,supply-enable-load = <0>;
+		qcom,supply-disable-load = <0>;
+	};
+};
+
+&sde_dsi_active {
+        mux {
+                pins = "gpio18";
+        };
+
+        config {
+                pins = "gpio18";
+        };
+};
+
+&sde_dsi_suspend {
+        mux {
+                pins = "gpio18";
+        };
+
+        config {
+                pins = "gpio18";
+        };
+};
+
+&sde_te_active {
+        mux {
+		pins = "gpio54";
+        };
+
+        config {
+                pins = "gpio54";
+	};
+};
+
+&sde_te_suspend {
+        mux {
+                pins = "gpio54";
+	};
+
+        config {
+                pins = "gpio54";
+	};
+};
+
+&sde_dsi {
+	status = "ok";
+	vdd-supply = <&L18B>;
+	vddio-supply = <&L12C>;
+	vcc-supply = <&display_vdd>;
+	pwms = <&pm8350c_pwm_2 0 0>;
+	/delete-property/ lab-supply;
+	/delete-property/ ibb-supply;
+
+	pinctrl-names = "panel_active", "panel_suspend", "pwm_pin";
+	pinctrl-0 = <&sde_dsi_active &sde_te_active>;
+	pinctrl-1 = <&sde_dsi_suspend &sde_te_suspend>;
+	pinctrl-2 = <&lcd_backlight_ctrl_default>;
+	qcom,dsi-default-panel = <&dsi_il7807s_1080p_video>;
+	boot-panel-param = "disabled";
+
+};
+
+&dsi_il7807s_1080p_video {
+	qcom,panel-supply-entries = <&dsi_panel_pwr_supply>;
+	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_pwm";
+	pwms = <&pm8350c_pwm_2 0 0>;
+	qcom,bl-pmic-pwm-period-usecs = <100>;
+	qcom,mdss-dsi-bl-min-level = <1>;
+	qcom,mdss-dsi-bl-max-level = <4095>;
+	qcom,platform-en-gpio = <&tlmm 18 0>;
+	qcom,platform-te-gpio = <&tlmm 54 0>;
+	qcom,platform-reset-gpio = <&tlmm 112 0>;
+	qcom,platform-bklight-en-gpio = <&tlmm 96 0>;
+};
+
+&fsa4480 {
+	status = "disabled";
+};
+
+&sde_wb {
+	status = "disabled";
+};
+
+&sde_dp {
+	qcom,dp-aux-switch = <&redriver>;
+};
+
+&mdss_mdp {
+	connectors = <&smmu_sde_unsec &smmu_sde_sec &sde_dp &sde_dsi &sde_rscc>;
+};
