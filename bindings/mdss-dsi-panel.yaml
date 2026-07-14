@@ -1137,7 +1137,7 @@ properties:
       The default value is 6000 with 60 fps.
     $ref: /schemas/types.yaml#/definitions/uint32
 
-  qqcom,mdss-dsi-reset-sequence:
+  qcom,mdss-dsi-reset-sequence:
     description: >
       An array that lists the
       sequence of reset gpio values and sleeps
@@ -1145,6 +1145,13 @@ properties:
       as below:
       --> Reset GPIO value
       --> Sleep value (in ms)
+
+  qcom,platform-reset-gpio-release-delay:
+    description: >
+      Specify the delay value in milliseconds required
+      after panel gpio reset and before shutting down power
+      rails if sleep in command is not sent.
+    $ref: /schemas/types.yaml#/definitions/uint32
 
   qcom,partial-update-enabled:
     description: >
@@ -1222,6 +1229,13 @@ properties:
       ratio of peak brightness to contrast. Value is specified in nits units.
       To obtain real blackness level, this value should be divided by factor of
       10000.
+
+  qcom,mdss-dsi-shared-cmd-buf-page-size:
+    description: >
+      The shared command buffer page size is defined to allocate the shared
+      memory according to the actual mode requirements. The page size is 4K,
+      and the allocated shared buffer size is calculated as
+      mdss-dsi-shared-cmd-buf-page-size * PAGE_SIZE.
 
   qcom,mdss-dsi-lp11-init:
     description: >
@@ -1884,6 +1898,7 @@ examples:
         qcom,mdss-dsi-te-check-enable;
         qcom,mdss-dsi-te-using-wd;
         qcom,mdss-dsi-te-using-te-pin;
+        qcom,mdss-dsi-shared-cmd-buf-page-size = <10>;
         qcom,qsync-enable;
         qcom,mdss-dsi-qsync-min-refresh-rate = <30>;
         qcom,mdss-dsi-te-dcs-command = <1>;
@@ -1948,6 +1963,7 @@ examples:
         qcom,mdss-tear-check-rd-ptr-trigger-intr = <1281>;
         qcom,mdss-tear-check-frame-rate = <6000>;
         qcom,mdss-dsi-reset-sequence = <1 2>, <0 10>, <1 10>;
+        qcom,platform-reset-gpio-release-delay = <120>;
         qcom,dcs-cmd-by-left;
         qcom,mdss-dsi-lp11-init;
         qcom,mdss-dsi-init-delay-us = <100>;

@@ -8,12 +8,6 @@
 #include "art-sde-display-common.dtsi"
 
 &soc {
-	sde_wb0: qcom,wb-display@0 {
-		compatible = "qcom,wb-display";
-		cell-index = <0>;
-		label = "wb_display0";
-	};
-
 	sde_wb1: qcom,wb-display@1 {
 		compatible = "qcom,wb-display";
 		cell-index = <1>;
@@ -109,7 +103,7 @@
 };
 
 &mdss_mdp {
-	connectors = <&sde_dsi &sde_dsi1 &smmu_sde_unsec &smmu_sde_sec &sde_wb0 &sde_wb1 &sde_wb2 &sde_dp>;
+	connectors = <&sde_dsi &sde_dsi1 &smmu_sde_unsec &smmu_sde_sec &sde_wb1 &sde_wb2 &sde_dp>;
 };
 
 &dsi_vtdr6130_amoled_cmd {
@@ -325,4 +319,55 @@
 	qcom,video-psr-enable;
 	qcom,dsi-qsync-avr-step-fps = <120>;
 	qcom,mdss-dsi-qsync-min-refresh-rate = <1>;
+};
+
+&dsi_nt37802_amoled_video_vhm_i2c_cphy {
+	qcom,mdss-esync;
+	qcom,mdss-esync-hsync-milli-pulse-width = <500>;
+	qcom,mdss-esync-emsync-fps = <120>;
+	qcom,mdss-esync-emsync-milli-pulse-width = <500>;
+
+	qcom,qsync-enable;
+	qcom,vrr-enable;
+	qcom,video-psr-enable;
+	qcom,dsi-qsync-avr-step-fps = <120>;
+	qcom,mdss-dsi-qsync-min-refresh-rate = <1>;
+};
+
+&dsi_nt37802_amoled_cmd_i2c_cphy {
+	qcom,mdss-dsi-display-timings {
+		timing@0 {
+			qcom,partial-update-enabled = "single_roi";
+			qcom,panel-roi-alignment = <720 40 720 40 1440 40>;
+		};
+
+		timing@1 {
+			qcom,partial-update-enabled = "single_roi";
+			qcom,panel-roi-alignment = <720 40 720 40 1440 40>;
+		};
+
+		timing@2 {
+			qcom,partial-update-enabled = "single_roi";
+			qcom,panel-roi-alignment = <720 40 720 40 1440 40>;
+		};
+	};
+};
+
+&dsi_nt37802_amoled_cmd_cphy {
+	qcom,mdss-dsi-display-timings {
+		timing@0 {
+			qcom,partial-update-enabled = "single_roi";
+			qcom,panel-roi-alignment = <720 40 720 40 1440 40>;
+		};
+
+		timing@1 {
+			qcom,partial-update-enabled = "single_roi";
+			qcom,panel-roi-alignment = <720 40 720 40 1440 40>;
+		};
+
+		timing@2 {
+			qcom,partial-update-enabled = "single_roi";
+			qcom,panel-roi-alignment = <720 40 720 40 1440 40>;
+		};
+	};
 };
