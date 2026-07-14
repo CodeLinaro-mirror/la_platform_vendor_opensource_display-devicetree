@@ -312,7 +312,7 @@
 		memory-region = <&smmu_sde_iommu_region_partition>;
 		qcom,iommu-faults = "non-fatal";
 		qcom,iommu-earlymap; /* for cont-splash */
-		dma-coherent-hint-cached;
+		dma-coherent;
 	};
 
 	smmu_sde_sec: qcom,smmu_sde_sec_cb {
