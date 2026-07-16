@@ -133,7 +133,6 @@
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
 
 	qcom,dsi-dyn-clk-enable;
-	qcom,dsi-dyn-clk-list = <606979440 604450359 601921278>;
 
 	qcom,mdss-dsi-panel-status-check-mode = "reg_read";
 	qcom,mdss-dsi-panel-status-command = [06 01 00 01 00 00 01 0a];
@@ -154,6 +153,7 @@
 			qcom,default-topology-index = <0>;
 
 			qcom,panel-roi-alignment = <720 180 180 180 1440 180>;
+			qcom,dsi-dyn-clk-list = <606979440 604450359 601921278>;
 		};
 	};
 };
@@ -162,7 +162,6 @@
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
 
 	qcom,dsi-dyn-clk-enable;
-	qcom,dsi-dyn-clk-list = <534712320 532484352 530256384>;
 	qcom,dsi-dyn-clk-type = "constant-fps-adjust-hfp";
 
 	qcom,mdss-dsi-qsync-min-refresh-rate = <55>;
@@ -183,6 +182,7 @@
 				05 06 02 04 00 12 0a];
 			qcom,display-topology = <2 2 1>;
 			qcom,default-topology-index = <0>;
+			qcom,dsi-dyn-clk-list = <534712320 532484352 530256384>;
 		};
 	};
 };
@@ -253,7 +253,6 @@
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
 
 	qcom,dsi-dyn-clk-enable;
-	qcom,dsi-dyn-clk-list = <195173804 194360579 193547355>;
 
 	qcom,mdss-dsi-display-timings {
 		timing@0 {
@@ -261,6 +260,7 @@
 				19 03 02 04 00 00 00];
 			qcom,display-topology = <2 2 1>;
 			qcom,default-topology-index = <0>;
+			qcom,dsi-dyn-clk-list = <195173804 194360579 193547355>;
 		};
 	};
 };
@@ -269,7 +269,6 @@
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
 
 	qcom,dsi-dyn-clk-enable;
-	qcom,dsi-dyn-clk-list = <394178400 392535990 387608760>;
 	qcom,dsi-dyn-clk-type = "constant-fps-adjust-hfp";
 
 	qcom,mdss-dsi-display-timings {
@@ -278,6 +277,7 @@
 				19 03 02 04 00 00 00];
 			qcom,display-topology = <2 2 1>;
 			qcom,default-topology-index = <0>;
+			qcom,dsi-dyn-clk-list = <394178400 392535990 387608760>;
 		};
 	};
 };
@@ -286,7 +286,6 @@
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
 
 	qcom,dsi-dyn-clk-enable;
-	qcom,dsi-dyn-clk-list = <327096544 325733641 324370739>;
 
 	qcom,esd-check-enabled;
 	qcom,mdss-dsi-panel-status-check-mode = "reg_read";
@@ -301,6 +300,7 @@
 				04 03 02 04 00 10 14];
 			qcom,display-topology = <1 1 1>;
 			qcom,default-topology-index = <0>;
+			qcom,dsi-dyn-clk-list = <327096544 325733641 324370739>;
 		};
 	};
 };
