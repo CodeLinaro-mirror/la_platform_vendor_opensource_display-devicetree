@@ -4,7 +4,10 @@
  */
 
 #include "coast-sde-display-common.dtsi"
+#include <dt-bindings/interrupt-controller/arm-gic.h>
+#include <dt-bindings/soc/qcom,ipcc.h>
+#include <dt-bindings/mailbox/qcom-ipcc.h>
 
 &mdss_mdp {
-	connectors = <&sde_dsi &sde_dsi1>;
+	connectors = <&sde_dsi &sde_dsi1 &smmu_sde_unsec>;
 };
