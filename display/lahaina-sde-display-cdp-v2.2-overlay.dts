@@ -1,0 +1,16 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
+/dts-v1/;
+/plugin/;
+
+#include "lahaina-sde-display-cdp.dtsi"
+
+/ {
+	model = "Qualcomm Technologies, Inc. Lahaina CDP v2.2";
+	compatible = "qcom,lahaina-cdp", "qcom,lahaina", "qcom,cdp";
+	qcom,msm-id = <415 0x20000>;
+	qcom,board-id = <0x20201 0>;
+};
