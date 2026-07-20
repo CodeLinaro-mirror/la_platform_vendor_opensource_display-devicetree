@@ -10,16 +10,16 @@
 
 / {
 	model = "Qualcomm Technologies, Inc. SA8797 Single LV Guest Virtual Machine";
-	compatible = "qcom,sa8797p-adp-star", "qcom,sa8797p-adp", "qcom,qam";
+	compatible = "qcom,quinvm";
 	qcom,msm-id = <690 0x10000>, <690 0x20000>, <690 0x10001>;
-	qcom,board-id = <0x10025 0x0>, <0x01010025 0x1>;
+	qcom,board-id = <0x0 0x2000002>;
 };
 
 /*
- * Override nordy-sde-hwvirt.dtsi for LVGVM:
- * - use guest-specific virtio kms client ids
+ * Override nordy-sde-hwvirt.dtsi for QuinVM LVGVM:
+ * - use LV guest-specific virtio kms client ids
  * - remove secure SMMU context banks/connectors not supported by LVGVM
- * - update non-secure SMMU SID assignments
+ * - update non-secure SMMU SID assignments for LV
  */
 &virtio_kms1 {
 	compatible = "qcom,virtio-kms";
