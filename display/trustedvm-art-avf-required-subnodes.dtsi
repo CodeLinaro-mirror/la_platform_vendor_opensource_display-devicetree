@@ -51,6 +51,7 @@
 						&dsi_nt37802_amoled_video_i2c_cphy
 						&dsi_nt37802_amoled_video_psr_vhm
 						&dsi_nt37802_amoled_video_vhm_cphy
+						&dsi_nt37802_amoled_video_vhm_i2c_cphy
 						&dsi_panel_pwr_ext_ddic_supply
 						&dsi_panel_pwr_supply
 						&dsi_panel_pwr_supply_avdd
