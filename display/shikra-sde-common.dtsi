@@ -15,12 +15,10 @@
 		status = "ok";
 		reg = <0x5e00000 0x8f030>,
 		      <0x5eb0000 0x2008>,
-		      <0x5e8f000 0x02c>,
-		      <0xc125ba4 0x20>;
+		      <0x5e8f000 0x02c>;
 		reg-names = "mdp_phys",
 			   "vbif_phys",
-			   "sid_phys",
-			   "sde_imem_phys";
+			   "sid_phys";
 
 		/* interrupt config */
 		interrupts = <GIC_SPI 186 IRQ_TYPE_LEVEL_HIGH>;
@@ -77,6 +75,8 @@
 						0xb0 0xc8 0xe0 0xf8 0x110>;
 
 		qcom,sde-mixer-stage-base-layer;
+
+		qcom,sde-max-trusted-vm-displays = <1>;
 
 		qcom,sde-max-per-pipe-bw-kbps = <2700000 2700000>;
 
@@ -207,11 +207,11 @@
 		interrupt-parent = <&mdss_mdp>;
 		interrupts = <4 0>;
 
-		qcom,ctrl-supply-entries {
+		qcom_ctrl_supply_entries: qcom,ctrl-supply-entries {
 			#address-cells = <1>;
 			#size-cells = <0>;
 
-			qcom,ctrl-supply-entry@0 {
+			qcom_ctrl_supply_entry_0: qcom,ctrl-supply-entry@0 {
 				reg = <0>;
 				qcom,supply-name = "vdda-1p2";
 				qcom,supply-min-voltage = <1200000>;
@@ -221,11 +221,11 @@
 			};
 		};
 
-		qcom,core-supply-entries {
+		qcom_core_supply_entries: qcom,core-supply-entries {
 			#address-cells = <1>;
 			#size-cells = <0>;
 
-			qcom,core-supply-entry@0 {
+			qcom_core_supply_entry_0: qcom,core-supply-entry@0 {
 				reg = <0>;
 				qcom,supply-name = "refgen";
 				qcom,supply-min-voltage = <0>;
@@ -261,10 +261,10 @@
 						00 00 10 0f
 						00 00 10 8f];
 		qcom,platform-regulator-settings = [1d 1d 1d 1d 1d];
-		qcom,phy-supply-entries {
+		qcom_phy_supply_entries: qcom,phy-supply-entries {
 			#address-cells = <1>;
 			#size-cells = <0>;
-			qcom,phy-supply-entry@0 {
+			qcom_phy_supply_entry_0: qcom,phy-supply-entry@0 {
 				reg = <0>;
 				qcom,supply-name = "vdda-0p9";
 				qcom,supply-min-voltage =

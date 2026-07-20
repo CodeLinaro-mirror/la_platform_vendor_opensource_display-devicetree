@@ -8,6 +8,7 @@
 #include <dt-bindings/interconnect/qcom,shikra.h>
 
 #include "shikra-sde-common.dtsi"
+#include  "trustedvm-shikra-avf-required-subnodes.dtsi"
 
 &soc {
 	/* dummy display clock provider */
@@ -30,6 +31,13 @@
 };
 
 &mdss_mdp {
+		reg = <0x0 0x5e00000 0x0 0x8f030>,
+			<0x0 0x5eb0000 0x0 0x2008>,
+			<0x0 0x5e8f000 0x0 0x02c>;
+		reg-names = "mdp_phys",
+			"vbif_phys",
+			"sid_phys";
+
 		clocks =
 			<&clock_cpucc GCC_DISP_HF_AXI_CLK>,
 			<&clock_cpucc GCC_DISP_THROTTLE_CORE_CLK>,
@@ -41,22 +49,18 @@
 		clock-names = "gcc_bus", "throttle_clk", "div_clk",
 				"iface_clk", "core_clk", "vsync_clk",
 				"lut_clk";
-		clock-rate = <0 0 0 0 256000000 19200000 192000000>;
-		clock-max-rate = <0 0 0 0 384000000 19200000 384000000>;
-
-		power-domains = <&dispcc DISP_CC_MDSS_CORE_GDSC>;
 
 		qcom,sde-vm-exclude-reg-names = "sid_phys";
-		qcom,tvm-include-reg = <0x05f20000 0x10000>,
-					<0x5f30000 0x100>,
-					<0x5f31000 0x100>,
-					<0x5f32000 0x100>,
-					<0x5f33000 0x100>;
+		qcom,sde-hw-version = <0x60050000>;
 		qcom,sde-trusted-vm-env;
 };
 
 &mdss_dsi0 {
-	vdda-1p2-supply = <&L5A>;
+	reg =   <0x0 0x5e94000 0x0 0x400>,
+		<0x0 0x5f08000 0x0 0x4>,
+		<0x0 0x5e6b800 0x0 0x300>;
+	reg-names = "dsi_ctrl", "disp_cc_base", "mdp_intf_base";
+
 	clocks =
 		<&clock_cpucc DISP_CC_MDSS_BYTE0_CLK>,
 		<&clock_cpucc DISP_CC_MDSS_BYTE0_CLK_SRC>,
@@ -69,11 +73,12 @@
 };
 
 &mdss_dsi_phy0 {
-	vdda-0p9-supply = <&VDD_MX_LEVEL>;
-	qcom,panel-allow-phy-poweroff;
-	qcom,dsi-pll-ssc-en;
-	qcom,dsi-pll-ssc-mode = "down-spread";
-	pll_codes_region = <&dsi_pll_codes_data>;
-	memory-region = <&dfps_data_memory>;
+	reg = <0x0 0x5e94400 0x0 0x588>,
+		<0x0 0x5e94800 0x0 0x188>,
+		<0x0 0x5e01400 0x0 0x100>,
+		<0x0 0x5e94200 0x0 0x100>;
+	reg-names = "dsi_phy", "pll_base", "phy_clamp_base",
+		"dyn_refresh_base";
+
 	qcom,dsi-pll-in-trusted-vm;
 };

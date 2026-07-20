@@ -6,12 +6,12 @@
 &tlmm {
 	pmx_sde: pmx_sde {
 		sde_dsi_active: sde_dsi_active {
-			mux {
+			mux: mux {
 				pins = "gpio3";
 				function = "gpio";
 			};
 
-			config {
+			config: config {
 				pins = "gpio3";
 				drive-strength = <8>;   /* 8 mA */
 				bias-disable = <0>;   /* no pull */
@@ -19,12 +19,12 @@
 		};
 
 		sde_dsi_suspend: sde_dsi_suspend {
-			mux {
+			mux_1: mux {
 				pins = "gpio3";
 				function = "gpio";
 			};
 
-			config {
+			config_1: config {
 				pins = "gpio3";
 				drive-strength = <2>;   /* 2 mA */
 				bias-pull-down;         /* PULL DOWN */
@@ -34,12 +34,12 @@
 
 	pmx_sde_te: pmx_sde_te {
 		sde_te_active: sde_te_active {
-			mux {
+			mux_2: mux {
 				pins = "gpio86";
 				function = "mdp_vsync_p";
 			};
 
-			config {
+			config_2: config {
 				pins = "gpio86";
 				drive-strength = <2>;   /* 2 mA */
 				bias-pull-down;         /* PULL DOWN */
@@ -47,12 +47,12 @@
 		};
 
 		sde_te_suspend: sde_te_suspend {
-			mux {
+			mux_3: mux {
 				pins = "gpio86";
 				function = "mdp_vsync_p";
 			};
 
-			config {
+			config_3: config {
 				pins = "gpio86";
 				drive-strength = <2>;   /* 2 mA */
 				bias-pull-down;         /* PULL DOWN */

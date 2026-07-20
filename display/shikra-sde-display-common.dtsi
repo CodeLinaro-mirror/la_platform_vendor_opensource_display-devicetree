@@ -93,8 +93,8 @@
 	qcom,mdss-dsi-pan-fps-update = "dfps_immediate_porch_mode_vfp";
 	qcom,dsi-dyn-clk-enable;
 	qcom,dsi-dyn-clk-type = "constant-fps-adjust-vfp";
-	qcom,mdss-dsi-display-timings {
-		timing@0 {
+	qcom_mdss_dsi_display_timings_404: qcom,mdss-dsi-display-timings {
+		timing_0_405: timing@0 {
 			qcom,mdss-dsi-panel-timings =
 				[22 18 07 08 04 02 04 A0
 				22 18 07 08 04 02 04 A0
