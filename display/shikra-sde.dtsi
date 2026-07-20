@@ -60,9 +60,11 @@
 
 		power-domains = <&dispcc DISP_CC_MDSS_CORE_GDSC>;
 
-		interconnects = <&mmrt_virt MASTER_MDP_PORT0 &mc_virt SLAVE_EBI_CH0>,
+		interconnects = <&mmrt_virt MASTER_MDP_PORT0 &mem_noc SLAVE_LLCC>,
+				<&mc_virt MASTER_LLCC &mc_virt SLAVE_EBI_CH0>,
 				<&mem_noc MASTER_AMPSS_M0 &config_noc SLAVE_DISPLAY_CFG>;
-		interconnect-names = "qcom,sde-data-bus0", "qcom,sde-reg-bus";
+		interconnect-names = "qcom,sde-data-bus0", "qcom,sde-ebi-bus",
+					"qcom,sde-reg-bus";
 
 		qcom,sde-ib-bw-vote = <2400000 0 1600000>;
 };
