@@ -248,13 +248,13 @@
 					05 00 00 00 0A 00 01 28
 					05 00 00 00 78 00 01 10];
 				qcom,mdss-dsi-timing-switch-command = [
-					15 00 00 00 00 00 02 2F 30
-					15 00 00 00 00 00 02 6D 00
+					15 00 00 40 00 00 02 2F 30
+					15 00 00 10 00 00 02 6D 00
 				];
 				qcom,mdss-dsi-on-command-state = "dsi_lp_mode";
 				qcom,mdss-dsi-off-command-state = "dsi_hs_mode";
 				qcom,mdss-dsi-timing-switch-command-state =
-					"dsi_lp_mode";
+					"dsi_hs_mode";
 				qcom,compression-mode = "dsc";
 				qcom,mdss-dsc-version = <0x12>;
 				qcom,mdss-dsc-slice-height = <20>;
@@ -451,13 +451,13 @@
 					05 00 00 00 0A 00 01 28
 					05 00 00 00 78 00 01 10];
 				qcom,mdss-dsi-timing-switch-command = [
-					15 00 00 00 00 00 02 2F 30
-					15 00 00 00 00 00 02 6D 0B
+					15 00 00 40 00 00 02 2F 30
+					15 00 00 10 00 00 02 6D 0B
 				];
 				qcom,mdss-dsi-on-command-state = "dsi_lp_mode";
 				qcom,mdss-dsi-off-command-state = "dsi_hs_mode";
 				qcom,mdss-dsi-timing-switch-command-state =
-					"dsi_lp_mode";
+					"dsi_hs_mode";
 				qcom,compression-mode = "dsc";
 				qcom,mdss-dsc-version = <0x12>;
 				qcom,mdss-dsc-slice-height = <20>;
@@ -655,13 +655,13 @@
 					05 00 00 00 0A 00 01 28
 					05 00 00 00 78 00 01 10];
 				qcom,mdss-dsi-timing-switch-command = [
-					15 00 00 00 00 00 02 2F 30
-					15 00 00 00 00 00 02 6D 01
+					15 00 00 40 00 00 02 2F 30
+					15 00 00 10 00 00 02 6D 01
 				];
 				qcom,mdss-dsi-on-command-state = "dsi_lp_mode";
 				qcom,mdss-dsi-off-command-state = "dsi_hs_mode";
 				qcom,mdss-dsi-timing-switch-command-state =
-					"dsi_lp_mode";
+					"dsi_hs_mode";
 				qcom,compression-mode = "dsc";
 				qcom,mdss-dsc-version = <0x12>;
 				qcom,mdss-dsc-slice-height = <20>;
