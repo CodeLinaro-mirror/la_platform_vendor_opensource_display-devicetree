@@ -59,6 +59,7 @@
 		qcom,dp-aux-switch = <&wcd_usbss>;
 		qcom,ext-disp = <&ext_disp>;
 		usb-controller = <&usb0>;
+		qcom,mst-enable;
 	};
 };
 

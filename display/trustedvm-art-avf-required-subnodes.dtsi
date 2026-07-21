@@ -76,6 +76,7 @@
 						&dsi_vtdr6130_amoled_qsync_144hz_cmd
 						&dsi_vtdr6130_amoled_qsync_144hz_video
 						&dsi_vtdr6130_amoled_video
+						&dsi_il97712a_amoled_dsc_10b_cmd
 						&dsi_ili97680a_amoled_dsc_10b_cmd
 						&mdss_dsi0
 						&mdss_dsi1
@@ -171,6 +172,7 @@
 						&qcom_mdss_dsi_display_timings_353
 						&qcom_mdss_dsi_display_timings_356
 						&qcom_mdss_dsi_display_timings_359
+						&qcom_mdss_dsi_display_timings_370
 						&qcom_mdss_dsi_display_timings_36
 						&qcom_mdss_dsi_display_timings_41
 						&qcom_mdss_dsi_display_timings_43
@@ -303,6 +305,7 @@
 						&timing_0_354
 						&timing_0_357
 						&timing_0_360
+						&timing_0_371
 						&timing_0_37
 						&timing_0_42
 						&timing_0_44
@@ -391,6 +394,7 @@
 						&timing_1_332
 						&timing_1_352
 						&timing_1_354
+						&timing_1_372
 						&timing_1_38
 						&timing_1_45
 						&timing_1_59
@@ -420,6 +424,7 @@
 						&timing_2_333
 						&timing_2_352
 						&timing_2_354
+						&timing_2_373
 						&timing_2_39
 						&timing_2_46
 						&timing_2_60
@@ -436,6 +441,7 @@
 						&timing_3_237
 						&timing_3_248
 						&timing_3_285
+						&timing_3_374
 						&timing_3_40
 						&timing_3_75
 						&timing_3_91
@@ -449,6 +455,7 @@
 						&timing_4_222
 						&timing_4_238
 						&timing_4_249
+						&timing_4_375
 						&timing_4_76
 						&timing_4_92
 						&timing_5

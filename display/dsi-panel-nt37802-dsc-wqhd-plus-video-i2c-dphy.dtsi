@@ -27,6 +27,7 @@
 		qcom,mdss-dsi-dma-trigger = "trigger_sw";
 		qcom,mdss-dsi-mdp-trigger = "none";
 		qcom,mdss-dsi-reset-sequence =<1 1>, <0 1>, <1 10>;
+		qcom,platform-reset-gpio-release-delay = <120>;
 		qcom,mdss-pan-physical-width-dimension = <74>;
 		qcom,mdss-pan-physical-height-dimension = <156>;
 		qcom,mdss-dsi-tx-eot-append;
@@ -48,6 +49,7 @@
 		 * ###############################################################
 		 */
 		qcom,spr-pentile-pack-type = "BG-RG Type B";
+		qcom,mdss-dsi-shared-cmd-buf-page-size = <5>;
 
 		qcom_mdss_dsi_display_timings_3: qcom,mdss-dsi-display-timings {
 			timing_0_4: timing@0 {
