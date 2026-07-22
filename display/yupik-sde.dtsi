@@ -231,6 +231,7 @@
 
 		qcom,max-pclk-frequency-khz = <675000>;
 		qcom,max-horizontal-width = <4096>;
+		qcom,pll-clk-factor = <1>;
 
 		vdda-1p2-supply = <&L6B>;
 		vdda-0p9-supply = <&L1B>;
