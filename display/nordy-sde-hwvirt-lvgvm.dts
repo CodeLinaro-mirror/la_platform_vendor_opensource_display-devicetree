@@ -6,7 +6,7 @@
 /dts-v1/;
 /plugin/;
 
-#include "nordy-sde-hwvirt.dtsi"
+#include "nordy-sde-hwvirt-gunyah.dtsi"
 
 / {
 	model = "Qualcomm Technologies, Inc. SA8797 Single LV Guest Virtual Machine";
@@ -31,7 +31,11 @@
 	iommu-addresses = <&smmu_sde_unsec 0x7ffe0000 0x80020000>,
 			  <&smmu_sde_unsec 0x0 0x00020000>,
 			  <&smmu_sde_unsec1 0x7ffe0000 0x80020000>,
-			  <&smmu_sde_unsec1 0x0 0x00020000>;
+			  <&smmu_sde_unsec1 0x0 0x00020000>,
+			  <&smmu_sde_sec 0x7ffe0000 0x80020000>,
+			  <&smmu_sde_sec 0x0 0x00020000>,
+			  <&smmu_sde_sec1 0x7ffe0000 0x80020000>,
+			  <&smmu_sde_sec1 0x0 0x00020000>;
 };
 
 &smmu_sde_unsec {
@@ -45,22 +49,22 @@
 };
 
 &smmu_sde_sec {
-	status = "disabled";
+	iommus = <&apps_smmu_1 0x03E9 0x0000>;
 };
 
 &smmu_sde_sec1 {
-	status = "disabled";
+	iommus = <&apps_smmu_1 0x0409 0x0000>;
 };
 
 &mdss_mdp {
-	connectors = <&smmu_sde_unsec>;
+	connectors = <&smmu_sde_unsec &smmu_sde_sec>;
 	/delete-property/ qcom,sde-dspp-spr-off;
 	/delete-property/ qcom,sde-dspp-spr-size;
 	/delete-property/ qcom,sde-dspp-spr-version;
 };
 
 &mdss_mdp1 {
-	connectors = <&smmu_sde_unsec1>;
+	connectors = <&smmu_sde_unsec1 &smmu_sde_sec1>;
 	/delete-property/ qcom,sde-dspp-spr-off;
 	/delete-property/ qcom,sde-dspp-spr-size;
 	/delete-property/ qcom,sde-dspp-spr-version;
