@@ -8,6 +8,11 @@
 &dsi_dual_rdp370f_rgb_vid {
 	qcom,panel-supply-entries = <&dsi_panel_pwr_supply>;
 	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_i2c";
+	qcom,mdss-dsi-bl-ctrl-i2c-subtype = "isl97900";
+	qcom,panel-i2c-right = <&qupv3_se4_i2c>;
+	qcom,panel-i2c-left = <&qupv3_se4_i2c>;
+	qcom,panel-i2c-left-slave-addr = <0x28>;
+	qcom,panel-i2c-right-slave-addr = <0x29>;
 	qcom,panel-rgb-left-led = <&rgb_led_left>;
 	qcom,panel-rgb-right-led = <&rgb_led_right>;
 	qcom,mdss-dsi-bl-min-level = <1>;
@@ -19,6 +24,11 @@
 &dsi_rdp370f_rgb_vid {
 	qcom,panel-supply-entries = <&dsi_panel_pwr_supply>;
 	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_i2c";
+	qcom,mdss-dsi-bl-ctrl-i2c-subtype = "isl97900";
+	qcom,panel-i2c-right = <&qupv3_se4_i2c>;
+	qcom,panel-i2c-left = <&qupv3_se4_i2c>;
+	qcom,panel-i2c-left-slave-addr = <0x28>;
+	qcom,panel-i2c-right-slave-addr = <0x29>;
 	qcom,panel-rgb-left-led = <&rgb_led_left>;
 	qcom,panel-rgb-right-led = <&rgb_led_right>;
 	qcom,mdss-dsi-bl-min-level = <1>;
@@ -30,6 +40,11 @@
 &dsi_rdp340x_rgb_dual_1440x1440_60hz_video {
 	qcom,panel-supply-entries = <&dsi_panel_pwr_supply>;
 	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_i2c";
+	qcom,mdss-dsi-bl-ctrl-i2c-subtype = "isl97900";
+	qcom,panel-i2c-right = <&qupv3_se4_i2c>;
+	qcom,panel-i2c-left = <&qupv3_se4_i2c>;
+	qcom,panel-i2c-left-slave-addr = <0x28>;
+	qcom,panel-i2c-right-slave-addr = <0x29>;
 	qcom,panel-rgb-left-led = <&rgb_led_left>;
 	qcom,panel-rgb-right-led = <&rgb_led_right>;
 	qcom,mdss-dsi-bl-min-level = <1>;
@@ -41,6 +56,11 @@
 &dsi_rdp340x_rgb_1440x1440_60hz_video {
 	qcom,panel-supply-entries = <&dsi_panel_pwr_supply>;
 	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_i2c";
+	qcom,mdss-dsi-bl-ctrl-i2c-subtype = "isl97900";
+	qcom,panel-i2c-right = <&qupv3_se4_i2c>;
+	qcom,panel-i2c-left = <&qupv3_se4_i2c>;
+	qcom,panel-i2c-left-slave-addr = <0x28>;
+	qcom,panel-i2c-right-slave-addr = <0x29>;
 	qcom,panel-rgb-left-led = <&rgb_led_left>;
 	qcom,panel-rgb-right-led = <&rgb_led_right>;
 	qcom,mdss-dsi-bl-min-level = <1>;
@@ -52,6 +72,11 @@
 &dsi_rdp340x_rgb_dual_1200x1200_90hz_video {
 	qcom,panel-supply-entries = <&dsi_panel_pwr_supply>;
 	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_i2c";
+	qcom,mdss-dsi-bl-ctrl-i2c-subtype = "isl97900";
+	qcom,panel-i2c-right = <&qupv3_se4_i2c>;
+	qcom,panel-i2c-left = <&qupv3_se4_i2c>;
+	qcom,panel-i2c-left-slave-addr = <0x28>;
+	qcom,panel-i2c-right-slave-addr = <0x29>;
 	qcom,panel-rgb-left-led = <&rgb_led_left>;
 	qcom,panel-rgb-right-led = <&rgb_led_right>;
 	qcom,mdss-dsi-bl-min-level = <1>;
@@ -63,6 +88,11 @@
 &dsi_rdp340x_rgb_1200x1200_90hz_video {
 	qcom,panel-supply-entries = <&dsi_panel_pwr_supply>;
 	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_i2c";
+	qcom,mdss-dsi-bl-ctrl-i2c-subtype = "isl97900";
+	qcom,panel-i2c-right = <&qupv3_se4_i2c>;
+	qcom,panel-i2c-left = <&qupv3_se4_i2c>;
+	qcom,panel-i2c-left-slave-addr = <0x28>;
+	qcom,panel-i2c-right-slave-addr = <0x29>;
 	qcom,panel-rgb-left-led = <&rgb_led_left>;
 	qcom,panel-rgb-right-led = <&rgb_led_right>;
 	qcom,mdss-dsi-bl-min-level = <1>;

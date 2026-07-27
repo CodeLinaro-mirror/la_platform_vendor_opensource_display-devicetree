@@ -246,4 +246,5 @@
 	qcom,aux-en-gpio = <&tlmm 177 1>;
 	qcom,aux-sel-gpio = <&tlmm 178 0>;
 	qcom,dp-gpio-aux-switch;
+	qcom,mst-enable;
 };
