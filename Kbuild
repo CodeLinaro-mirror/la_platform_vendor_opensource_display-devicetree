@@ -3,6 +3,7 @@ dtbo-$(CONFIG_ARCH_ART) += display/art-sde.dtbo \
 		display/art-sde-display-rumi-overlay.dtbo \
 		display/art-sde-display-atp-overlay.dtbo \
 		display/art-sde-display-atp-lp6-overlay.dtbo \
+		display/art-sde-display-atp-firewheel-overlay.dtbo \
 		display/art-sde-display-cdp-overlay.dtbo \
 		display/art-sde-display-mtp-fig-st54l-overlay.dtbo \
 		display/art-sde-display-mtp-fig-bt-st54l-overlay.dtbo \
