@@ -28,6 +28,8 @@
 #include "dsi-panel-nt37802-dsc-wqhd-plus-cmd-i2c-cphy.dtsi"
 #include "dsi-panel-nt37802-dsc-wqhd-plus-cmd-i2c-cphy_spr.dtsi"
 #include "dsi-panel-nt37802-dsc-wqhd-plus-video-i2c-cphy.dtsi"
+#include "dsi-panel-nt37802-dsc-10bit-wqhd-plus-cmd-cphy.dtsi"
+#include "dsi-panel-nt37802-dsc-10bit-wqhd-plus-cmd-i2c-cphy.dtsi"
 #include "dsi-panel-sharp-dsc-4k-cmd.dtsi"
 #include "dsi-panel-sharp-dsc-4k-video.dtsi"
 #include "dsi-panel-sharp-dsc-qhd-plus-cmd.dtsi"
@@ -1181,6 +1183,26 @@
 	};
 };
 
+&dsi_nt37802_amoled_cmd_10b_cphy {
+	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
+	qcom,esd-check-enabled;
+	qcom,esd-check-host-controlled;
+	qcom,mdss-dsi-panel-status-check-mode = "reg_read";
+	qcom,mdss-dsi-panel-status-command = [06 01 00 01 00 00 01 0a];
+	qcom,mdss-dsi-panel-status-command-state = "dsi_lp_mode";
+	qcom,mdss-dsi-panel-status-value = <0x9c>;
+	qcom,mdss-dsi-panel-status-read-length = <1>;
+
+	qcom_mdss_dsi_display_timings_352: qcom,mdss-dsi-display-timings {
+		timing_0_353: timing@0 {
+			qcom,mdss-dsi-panel-phy-timings = [00 00 00 00 24 23 08
+				19 08 02 04 00 00 00];
+			qcom,display-topology = <2 2 1>;
+			qcom,default-topology-index = <0>;
+		};
+	};
+};
+
 &dsi_nt37802_amoled_video_cphy {
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
 	qcom,esd-check-enabled;
@@ -1272,6 +1294,26 @@
 
 		timing_3_354: timing@3 {
 			qcom,mdss-dsi-panel-phy-timings = [00 00 00 00 23 23 08
+				19 08 02 04 00 00 00];
+			qcom,display-topology = <2 2 1>;
+			qcom,default-topology-index = <0>;
+		};
+	};
+};
+
+&dsi_nt37802_amoled_cmd_i2c_10b_cphy {
+	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
+	qcom,esd-check-enabled;
+	qcom,esd-check-host-controlled;
+	qcom,mdss-dsi-panel-status-check-mode = "reg_read";
+	qcom,mdss-dsi-panel-status-command = [06 01 00 01 00 00 01 0a];
+	qcom,mdss-dsi-panel-status-command-state = "dsi_lp_mode";
+	qcom,mdss-dsi-panel-status-value = <0x9c>;
+	qcom,mdss-dsi-panel-status-read-length = <1>;
+
+	qcom_mdss_dsi_display_timings_355: qcom,mdss-dsi-display-timings {
+		timing_0_355: timing@0 {
+			qcom,mdss-dsi-panel-phy-timings = [00 00 00 00 24 23 08
 				19 08 02 04 00 00 00];
 			qcom,display-topology = <2 2 1>;
 			qcom,default-topology-index = <0>;
