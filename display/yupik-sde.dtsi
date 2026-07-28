@@ -356,6 +356,10 @@
         };
 };
 
+&mdss_mdp {
+	edp_panel_1080p_video: qcom,mdss_edp_panel_1080p_video {
+	};
+};
 
 &mdss_dsi0 {
 	vdda-1p2-supply = <&L6B>;
