@@ -15,6 +15,7 @@ dtbo-$(CONFIG_ARCH_YUPIK) += display/yupik-sde.dtbo \
 		display/yupikp-sde-display-rb3-gen2-corekit-overlay.dtbo \
 		display/yupikp-sde-display-aio-bar-overlay.dtbo \
 		display/yupikp-sde-display-360-camera-overlay.dtbo \
+		display/yupik-idp-pm7250b-controller-overlay.dtbo \
 		display/yupik-sde-display-idp-overlay.dtbo \
 		display/yupik-sde-display-iot-qrd-overlay.dtbo \
 		display/yupik-sde-display-qrd-overlay.dtbo
