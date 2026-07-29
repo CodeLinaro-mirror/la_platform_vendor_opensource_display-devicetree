@@ -56,6 +56,7 @@
 #include "dsi-panel-rdp370f-rgb-video.dtsi"
 #include "dsi-panel-ext-bridge-1080p.dtsi"
 #include "pebble-sde-display-pinctrl-common.dtsi"
+#include "dsi-panel-co5300-amoled-480p-cmd.dtsi"
 
 &soc {
 	dsi_panel_pwr_supply_sim: dsi_panel_pwr_supply_sim {
@@ -1865,6 +1866,23 @@
 			qcom,mdss-dsi-panel-phy-timings = [00 47 13 13 27 23 12
 				13 10 02 04 00 38 17];
 			qcom,display-topology = <2 2 2>;
+			qcom,default-topology-index = <0>;
+		};
+	};
+};
+
+&dsi_sec_co5300_amoled_480p_cmd {
+	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
+	qcom,dsi-select-sec-clocks = "pll_byte_clk1", "pll_dsi_clk1";
+	qcom,panel-supply-entries = <&dsi_panel_pwr_ext_ddic_supply>;
+	qcom,mdss-dsi-bl-min-level = <15>;
+	qcom,mdss-dsi-bl-max-level = <4095>;
+	qcom,platform-reset-gpio = <&tlmm 210 0>;
+	qcom,mdss-dsi-display-timings {
+		timing@0 {
+			qcom,mdss-dsi-panel-phy-timings = [00 0C 03 03 10 1D
+				03 03 03 02 02 04 0B 0B];
+			qcom,display-topology = <1 0 1>;
 			qcom,default-topology-index = <0>;
 		};
 	};
