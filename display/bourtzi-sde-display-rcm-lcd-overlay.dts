@@ -12,6 +12,6 @@
 	model = "Qualcomm Technologies, Inc. Bourtzi RCM + WCN3998 + tioman + lcd + 4GB";
 	compatible = "qcom,bourtzi-rcm",  "qcom,bourtzip-rcm",  "qcom,bourtzi", "qcom,bourtzip", "qcom,rcm";
 	qcom,msm-id = <776 0x10000>, <777 0x10000>;
-	qcom,board-id = <0x30015 0x600>;
+	qcom,board-id = <0x30015 0x600>, <0x40015 0x0>;
 };
 
