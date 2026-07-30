@@ -1046,8 +1046,15 @@
 		};
 
 		timing_2_352: timing@2 {
-			qcom,mdss-dsi-panel-phy-timings = [00 00 00 00 1e 17 04
-				19 03 02 04 00 00 00];
+			qcom,mdss-dsi-panel-phy-timings = [00 00 00 00 23 23 08
+				19 08 02 04 00 00 00];
+			qcom,display-topology = <2 2 1>;
+			qcom,default-topology-index = <0>;
+		};
+
+		timing_3_352: timing@3 {
+			qcom,mdss-dsi-panel-phy-timings = [00 00 00 00 23 23 08
+				19 08 02 04 00 00 00];
 			qcom,display-topology = <2 2 1>;
 			qcom,default-topology-index = <0>;
 		};
@@ -1086,8 +1093,15 @@
 		};
 
 		timing_2_354: timing@2 {
-			qcom,mdss-dsi-panel-phy-timings = [00 00 00 00 1e 17 04
-				19 03 02 04 00 00 00];
+			qcom,mdss-dsi-panel-phy-timings = [00 00 00 00 23 23 08
+				19 08 02 04 00 00 00];
+			qcom,display-topology = <2 2 1>;
+			qcom,default-topology-index = <0>;
+		};
+
+		timing_3_354: timing@3 {
+			qcom,mdss-dsi-panel-phy-timings = [00 00 00 00 23 23 08
+				19 08 02 04 00 00 00];
 			qcom,display-topology = <2 2 1>;
 			qcom,default-topology-index = <0>;
 		};

@@ -368,6 +368,11 @@
 			qcom,partial-update-enabled = "single_roi";
 			qcom,panel-roi-alignment = <720 40 720 40 1440 40>;
 		};
+
+		timing@3 {
+			qcom,partial-update-enabled = "single_roi";
+			qcom,panel-roi-alignment = <720 40 720 40 1440 40>;
+		};
 	};
 };
 
@@ -398,6 +403,11 @@
 		};
 
 		timing@2 {
+			qcom,partial-update-enabled = "single_roi";
+			qcom,panel-roi-alignment = <720 40 720 40 1440 40>;
+		};
+
+		timing@3 {
 			qcom,partial-update-enabled = "single_roi";
 			qcom,panel-roi-alignment = <720 40 720 40 1440 40>;
 		};
