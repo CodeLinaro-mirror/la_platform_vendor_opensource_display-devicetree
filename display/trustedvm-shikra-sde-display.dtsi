@@ -30,3 +30,11 @@
 &sde_dsi {
 		qcom,dsi-default-panel = <&dsi_dlc0697_fhd_60_video>;
 };
+
+&i2c4 {
+	status = "okay";
+
+	gt9xx_0: gt9xx-i2c@5d {
+		panel = <&dsi_dlc0697_fhd_60_video>;
+	};
+};
