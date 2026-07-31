@@ -279,6 +279,12 @@ properties:
   qcom,hbr2-3-pre-emphasis:
     description: Specifies the pre-emphasis levels for HBR2 and HBR3 rates.
 
+  qcom,lane-tuning-params:
+    description: |
+      An optional list of <id, value> pairs specifying additional lane tuning
+      parameters to be applied by the DCP firmware. Parameters omitted from
+      this list are left at the DCP firmware's own platform-specific defaults.
+
   compatible:
    const: qcom,msm-ext-disp-audio-codec-rx
 
@@ -533,6 +539,9 @@ examples:
                 <0x02 0x0e 0x16 0xff>,
                 <0x02 0x11 0xff 0xff>,
                 <0x04 0xff 0xff 0xff>;
+
+      qcom,lane-tuning-params = <0x01 0xf9>,
+                <0x02 0xf2>;
 
       qcom,ctrl-supply-entries {
       #address-cells = <1>;
