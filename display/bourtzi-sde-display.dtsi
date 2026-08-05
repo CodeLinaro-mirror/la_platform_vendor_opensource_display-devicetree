@@ -70,7 +70,7 @@
 	disp_rdump_memory: disp_rdump_region@e1000000 {
 		#address-cells = <2>;
 		#size-cells = <2>;
-		reg = <0x0 0xb8000000 0x0 0x00800000>;
+		reg = <0x0 0xb8000000 0x0 0x00D0000>;
 		label = "disp_rdump_region";
 	};
 };
