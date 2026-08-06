@@ -11,8 +11,8 @@
 
 / {
 	model = "Qualcomm Technologies, Inc. Coast MTP + LP4 + WCN7750 + UFS2.2 + WCD9395 QMP";
-	compatible = "qcom,coast-mtp", "qcom,mtp", "qcom,coast";
-	qcom,msm-id = <761 0x10000>;
+	compatible = "qcom,coast-mtp", "qcom,coastp-mtp", "qcom,mtp", "qcom,coast", "qcom,coastp";
+	qcom,msm-id = <761 0x10000>, <797 0x10000>;
 	qcom,board-id = <0x10008 0x0>, <0x10108 0x0>, <0x20008 0x0>, <0x20108 0x0>,
 			<0x30008 0x0>, <0x30108 0x0>;
 };
