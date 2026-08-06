@@ -31,9 +31,11 @@
 				17000 15500 30000 8000 3000>;
 		qcom,mdss-dsi-panel-peak-brightness = <4200000>;
 		qcom,mdss-dsi-panel-blackness-level = <3230>;
+		qcom,mdss-pan-physical-width-dimension = <69>;
+		qcom,mdss-pan-physical-height-dimension = <154>;
 
-		qcom,mdss-dsi-display-timings {
-			timing@0 {
+		qcom_mdss_dsi_display_timings_36: qcom,mdss-dsi-display-timings {
+			timing_0_37: timing@0 {
 				cell-index = <0>;
 				qcom,mdss-dsi-panel-width = <1080>;
 				qcom,mdss-dsi-panel-height = <2408>;

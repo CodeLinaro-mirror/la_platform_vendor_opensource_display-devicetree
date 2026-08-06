@@ -20,12 +20,6 @@
 		label = "wb_display1";
 	};
 
-	sde_wb2: qcom,wb-display@2 {
-		compatible = "qcom,wb-display";
-		cell-index = <2>;
-		label = "wb_display2";
-	};
-
 	display_panel_avdd: display_gpio_regulator@1 {
 		compatible = "qti-regulator-fixed";
 		regulator-name = "display_panel_avdd";
@@ -55,26 +49,18 @@
 		pinctrl-0 = <&sde_disp0_vdd_active>;
 	};
 
-	disp_rdump_memory: disp_rdump_region@0xfaf60000 {
-		reg = <0xfaf60000 0x00800000>;
+	disp_rdump_memory: disp_rdump_region@0xf8c600000 {
+		#address-cells = <1>;
+		#size-cells = <1>;
+		reg = <0xf8c60000 0x00800000>;
 		label = "disp_rdump_region";
 	};
 };
 
 &reserved_memory {
 	splash_memory: splash_region {
-		reg = <0x0 0xF8C7A000 0x0 0x2AE2000>;
+		reg = <0x0 0xF8C60000 0x0 0x02B00000>;
 		label = "cont_splash_region";
-	};
-
-	lut_dma_memory_0: lut_dma_region_0 {
-		reg = <0x0 0xFB75C000 0x0 0x2000>;
-		label = "lut dma region 0";
-	};
-
-	lut_dma_memory_1: lut_dma_region_1 {
-		reg = <0x0 0xFB75E000 0x0 0x2000>;
-		label = "lut dma region 1";
 	};
 };
 
@@ -109,7 +95,7 @@
 };
 
 &mdss_mdp {
-	connectors = <&sde_dsi &sde_dsi1 &smmu_sde_unsec &smmu_sde_sec &sde_wb0 &sde_wb1 &sde_wb2 &sde_dp>;
+	connectors = <&sde_dsi &sde_dsi1 &smmu_sde_unsec &smmu_sde_sec &sde_wb0 &sde_wb1 &sde_dp>;
 };
 
 &dsi_vtdr6130_amoled_cmd {
@@ -312,4 +298,68 @@
 	qcom,video-psr-enable;
 	qcom,dsi-qsync-avr-step-fps = <120>;
 	qcom,mdss-dsi-qsync-min-refresh-rate = <1>;
+};
+
+&dsi_nt37802_amoled_video_vhm_cphy {
+	qcom,mdss-esync;
+	qcom,mdss-esync-hsync-milli-pulse-width = <500>;
+	qcom,mdss-esync-emsync-fps = <120>;
+	qcom,mdss-esync-emsync-milli-pulse-width = <500>;
+
+	qcom,qsync-enable;
+	qcom,vrr-enable;
+	qcom,video-psr-enable;
+	qcom,dsi-qsync-avr-step-fps = <120>;
+	qcom,mdss-dsi-qsync-min-refresh-rate = <1>;
+};
+
+&dsi_nt37802_amoled_video_vhm_i2c_cphy {
+	qcom,mdss-esync;
+	qcom,mdss-esync-hsync-milli-pulse-width = <500>;
+	qcom,mdss-esync-emsync-fps = <120>;
+	qcom,mdss-esync-emsync-milli-pulse-width = <500>;
+
+	qcom,qsync-enable;
+	qcom,vrr-enable;
+	qcom,video-psr-enable;
+	qcom,dsi-qsync-avr-step-fps = <120>;
+	qcom,mdss-dsi-qsync-min-refresh-rate = <1>;
+};
+
+&dsi_nt37802_amoled_cmd_i2c_cphy {
+	qcom,mdss-dsi-display-timings {
+		timing@0 {
+			qcom,partial-update-enabled = "single_roi";
+			qcom,panel-roi-alignment = <720 40 720 40 1440 40>;
+		};
+
+		timing@1 {
+			qcom,partial-update-enabled = "single_roi";
+			qcom,panel-roi-alignment = <720 40 720 40 1440 40>;
+		};
+
+		timing@2 {
+			qcom,partial-update-enabled = "single_roi";
+			qcom,panel-roi-alignment = <720 40 720 40 1440 40>;
+		};
+	};
+};
+
+&dsi_nt37802_amoled_cmd_cphy {
+	qcom,mdss-dsi-display-timings {
+		timing@0 {
+			qcom,partial-update-enabled = "single_roi";
+			qcom,panel-roi-alignment = <720 40 720 40 1440 40>;
+		};
+
+		timing@1 {
+			qcom,partial-update-enabled = "single_roi";
+			qcom,panel-roi-alignment = <720 40 720 40 1440 40>;
+		};
+
+		timing@2 {
+			qcom,partial-update-enabled = "single_roi";
+			qcom,panel-roi-alignment = <720 40 720 40 1440 40>;
+		};
+	};
 };

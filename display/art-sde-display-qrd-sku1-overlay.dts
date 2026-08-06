@@ -14,10 +14,14 @@
 			   "qcom,qrd";
 	qcom,msm-id = <707 0x10000>, <707 0x20000>, <755 0x10000>, <755 0x20000>,
 		<708 0x10000>, <708 0x20000>;
-	qcom,board-id = <0x1000b 0>;
+	qcom,board-id = <0x1000b 0>, <0x1001000b 0>;
 };
 
 &sde_dsi {
 	exvdd-supply = <&display_panel_vdd>;
 	qcom,dsi-default-panel = <&dsi_nt37802_amoled_cmd_i2c_cphy>;
+};
+
+&sde_dp {
+	/delete-property/ qcom,dp-aux-switch;
 };

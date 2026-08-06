@@ -98,10 +98,10 @@
 		qcom,sde-dest-scaler-off = <0x0 0x8000 0x10000 0x18000>;
 		qcom,sde-dest-scaler-size = <0x800>;
 
-		qcom,sde-wb-off = <0x16d000 0x16e000 0x16f000>;
+		qcom,sde-wb-off = <0x16e000 0x16f000>;
 		qcom,sde-wb-size = <0x54>;
 		qcom,sde-wb-xin-id = <0xa 6>;
-		qcom,sde-wb-id = <1 2 3>;
+		qcom,sde-wb-id = <2 3>;
 
 		qcom,sde-intf-off = <0x18e000 0x18f000 0x190000 0x191000>;
 		qcom,sde-intf-size = <0x4bc>;
@@ -155,10 +155,10 @@
 		qcom,sde-mixer-blend-op-off = <0x40 0x70 0xa0 0xd0 0x100 0x130
 						0x160 0x190 0x1c0 0x1f0 0x220>;
 
-		qcom,sde-max-per-pipe-bw-kbps = <4500000 4500000
-						4500000 4500000
-						4500000 4500000
-						4500000 4500000>;
+		qcom,sde-max-per-pipe-bw-kbps = <5700000 5700000
+						5700000 5700000
+						5700000 5700000
+						5700000 5700000>;
 
 		qcom,sde-max-per-pipe-bw-high-kbps = <7100000 7100000
 							7100000 7100000
@@ -200,8 +200,8 @@
 		qcom,sde-has-dest-scaler;
 		qcom,sde-max-trusted-vm-displays = <1>;
 
-		qcom,sde-max-bw-low-kbps = <21400000>;
-		qcom,sde-max-bw-high-kbps = <30200000>;
+		qcom,sde-max-bw-low-kbps = <26300000>;
+		qcom,sde-max-bw-high-kbps = <40100000>;
 		qcom,sde-min-core-ib-kbps = <2500000>;
 		qcom,sde-min-llcc-ib-kbps = <0>;
 		qcom,sde-min-dram-ib-kbps = <800000>;

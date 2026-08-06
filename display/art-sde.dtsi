@@ -10,7 +10,7 @@
 &soc {
 	smmu_sde_iommu_region_partition: smmu_sde_iommu_region_partition {
 		iommu-addresses = <&smmu_sde_unsec 0x0 0x0 0x0 0x00020000>,
-				  <&smmu_sde_unsec 0x0 0xf8c7a000  0x0 0x02ae2000>,
+				  <&smmu_sde_unsec 0x0 0xf8c60000  0x0 0x02b00000>,
 				  <&smmu_sde_sec 0x0 0x0 0x0 0x00020000>;
 	};
 
@@ -39,6 +39,12 @@
 		};
 	};
 
+	qcom_msmhdcp: qcom,msm_hdcp {
+		compatible = "qcom,msm-hdcp";
+		qcom,op-label = "hfi";
+		status = "ok";
+	};
+
 	sde_dp: qcom,dp_display {
 		compatible = "qcom,dp-display";
 		status = "ok";
@@ -53,6 +59,7 @@
 		qcom,dp-aux-switch = <&wcd_usbss>;
 		qcom,ext-disp = <&ext_disp>;
 		usb-controller = <&usb0>;
+		qcom,mst-enable;
 	};
 };
 
@@ -63,8 +70,8 @@
 	qcom,sde-dspp-ltm-off = <0x3300 0x3300 0x3300 0x3300>;
 	qcom,hw-fence-sw-version = <0x1>;
 
-	nvmem-cells = <&ssip_config>;
-	nvmem-cell-names = "ssip_config";
+	nvmem-cells = <&ssip_config>, <&disp_qultiv_fuse>;
+	nvmem-cell-names = "ssip_config", "disp_qultiv_fuse";
 	qcom,sde-vm-exclude-reg-names = "mdp_phys", "vbif_phys",
 					"regdma_phys", "ipcc_reg",
 					"swfuse_phys";

@@ -99,10 +99,10 @@
 		qcom,sde-dest-scaler-off = <0x0 0x8000 0x10000 0x18000>;
 		qcom,sde-dest-scaler-size = <0x800>;
 
-		qcom,sde-wb-off = <0x16d000 0x16e000 0x16f000>;
+		qcom,sde-wb-off = <0x16e000 0x16f000>;
 		qcom,sde-wb-size = <0x54>;
 		qcom,sde-wb-xin-id = <0xa 6>;
-		qcom,sde-wb-id = <1 2 3>;
+		qcom,sde-wb-id = <2 3>;
 
 		qcom,sde-intf-off = <0x18e000 0x18f000 0x190000 0x191000>;
 		qcom,sde-intf-size = <0x4bc>;
@@ -228,9 +228,6 @@
 		qcom,sde-dspp-qrtc-off = <0x3c00 0x3c00 0x3c00 0x3c00>;
 		qcom,sde-dspp-qrtc-size = <0x6c>;
 		qcom,sde-dspp-qrtc-version = <0x00010000>;
-
-		qcom,sde-lm-noise-off = <0x320>;
-		qcom,sde-lm-noise-version = <0x00010000>;
 
 		qcom,sde-uidle-off = <0x6000>;
 		qcom,sde-uidle-size = <0x80>;

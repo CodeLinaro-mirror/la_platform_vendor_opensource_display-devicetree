@@ -10,10 +10,3 @@
 	connectors = <&sde_dsi &smmu_sde_unsec &smmu_sde_sec>;
 };
 
-
-&reserved_memory {
-	splash_memory: splash_region {
-		reg = <0x0 0xa9800000 0x0 0x02b00000>;
-		label = "cont_splash_region";
-	};
-};

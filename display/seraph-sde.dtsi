@@ -39,6 +39,7 @@
 		memory-region = <&smmu_sde_lsr_iommu_region_partition>;
 		qcom,iommu-faults = "non-fatal";
 		qcom,iommu-group = <&non_secure_sde_lsr_cb_group>;
+		qcom,iommu-earlymap; /* for cont-splash */
 		dma-coherent;
 	};
 
@@ -67,7 +68,7 @@
 		power-domains = <&lsrcc LSR_CC_LSR_NOC_GDSC>, <&lsrcc LSR_CC_MVS0_GDSC>,
 				<&lsrcc LSR_CC_MVS0C_GDSC>;
 		power-domain-names = "lsr_noc_gdsc", "lsr_mvs0_gdsc", "lsr_mvs0c_gdsc";
-		gdsc_has_hw_pc = <0x1 0x1 0x1>;
+		gdsc_has_hw_pc = <0x1 0x1 0x0>;
 		/* Clocks */
 		clock-names = "lsr_axi_clock", "core_axi_clock", "sleep_clk", "lsr_freerun_clk",
 				"core_freerun_clk", "lsr_clk", "core_clk", "lsr_cc_mvs0_clk_src";
@@ -86,7 +87,10 @@
 				"lsr_freerun_clk", "core_freerun_clk", "lsr_clk", "core_clk",
 				"lsr_cc_mvs0_clk_src";
 		qcom,clock-configs = <0x0 0x0 0x0 0x0 0x0 0x1 0x0 0x1>;
-		qcom,allowed-clock-rates = <280000000 350000000 450000000 500000000 550000000>;
+		qcom,allowed-core-clock-rates = <280000000 350000000 450000000 500000000
+						550000000 550000000 550000000>;
+		qcom,controller-clk-corner-rates = <520000000 650000000 800000000 880000000
+						940000000 1250000000 1250000000>;
 		resets = <&lsrcc LSR_CC_MVS0C_CLK_ARES>,
 			<&lsrcc LSR_CC_MVS0C_FREERUN_CLK_ARES>,
 			<&lsrcc LSR_CC_MVS0_FREERUN_CLK_ARES>,
@@ -269,10 +273,5 @@
 	lsr_mem: lsr_region@a2c00000 {
 		no-map;
 		reg = <0x0 0xa2c00000 0x0 0x700000>;
-	};
-
-	splash_memory: splash_region {
-		reg = <0x0 0xb8000000 0x0 0x09600000>;
-		label = "cont_splash_region";
 	};
 };

@@ -580,6 +580,8 @@
 			qcom,display-topology = <1 1 1>;
 			qcom,default-topology-index = <0>;
 			qcom,dsi-dyn-clk-list = <847480320 850422960 853365600>;
+			qcom,partial-update-enabled = "single_roi";
+			qcom,panel-roi-alignment = <540 40 40 40 1080 40>;
 		};
 
 		timing@1 {
@@ -588,6 +590,8 @@
 			qcom,display-topology = <1 1 1>;
 			qcom,default-topology-index = <0>;
 			qcom,dsi-dyn-clk-list = <847480320 850422960 853365600>;
+			qcom,partial-update-enabled = "single_roi";
+			qcom,panel-roi-alignment = <540 40 40 40 1080 40>;
 		};
 
 		timing@2 {
@@ -596,6 +600,8 @@
 			qcom,display-topology = <1 1 1>;
 			qcom,default-topology-index = <0>;
 			qcom,dsi-dyn-clk-list = <847480320 850422960 853365600>;
+			qcom,partial-update-enabled = "single_roi";
+			qcom,panel-roi-alignment = <540 40 40 40 1080 40>;
 		};
 
 		timing@3 {
@@ -604,6 +610,8 @@
 			qcom,display-topology = <1 1 1>;
 			qcom,default-topology-index = <0>;
 			qcom,dsi-dyn-clk-list = <847480320 850422960 853365600>;
+			qcom,partial-update-enabled = "single_roi";
+			qcom,panel-roi-alignment = <540 40 40 40 1080 40>;
 		};
 	};
 };
