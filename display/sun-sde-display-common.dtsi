@@ -39,6 +39,7 @@
 #include "dsi-panel-vtdr6130-qsync-dsc-fhd-plus-144hz-cmd.dtsi"
 #include "dsi-panel-vtdr6130-qsync-dsc-fhd-plus-144hz-video.dtsi"
 #include "dsi-panel-ext-bridge-1080p.dtsi"
+#include "dsi-panel-ext-bridge-4k60.dtsi"
 
 #include "sun-sde-display-pinctrl.dtsi"
 
@@ -773,6 +774,10 @@
 			qcom,display-topology = <1 0 1>;
 		};
 	};
+};
+
+&dsi_ext_bridge_4k60 {
+	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
 };
 
 &dsi_sharp_4k_dsc_cmd {
