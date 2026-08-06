@@ -65,6 +65,12 @@ dtbo-$(CONFIG_ARCH_COAST) += display/coast-sde.dtbo \
 		display/coast-sde-display-mtp-overlay.dtbo \
 		display/coast-sde-display-qrd-overlay.dtbo \
 		display/coast-sde-display-rcm-overlay.dtbo
+else
+dtbo-$(CONFIG_ARCH_COAST) += display/trustedvm-coast-sde-display-atp-overlay.dtbo \
+		display/trustedvm-coast-sde-display-cdp-overlay.dtbo \
+		display/trustedvm-coast-sde-display-mtp-overlay.dtbo \
+		display/trustedvm-coast-sde-display-qrd-overlay.dtbo \
+		display/trustedvm-coast-sde-display-rcm-overlay.dtbo
 endif
 
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
