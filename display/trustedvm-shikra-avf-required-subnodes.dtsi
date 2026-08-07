@@ -1,0 +1,39 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
+&non_devices_common {
+	required-subnodes-display = <
+						&clock_cpucc
+						&config
+						&config_1
+						&config_2
+						&config_3
+						&dsi_dlc0697_fhd_60_video
+						&mdss_dsi0
+						&mdss_dsi_phy0
+						&mdss_mdp
+						&mux
+						&mux_1
+						&mux_2
+						&mux_3
+						&pmx_sde
+						&pmx_sde_te
+						&qcom_core_supply_entries
+						&qcom_core_supply_entry_0
+						&qcom_ctrl_supply_entries
+						&qcom_ctrl_supply_entry_0
+						&qcom_mdss_dsi_display_timings_404
+						&qcom_phy_supply_entries
+						&qcom_phy_supply_entry_0
+						&sde_dsi
+						&sde_dsi_active
+						&sde_dsi_suspend
+						&sde_te_active
+						&sde_te_suspend
+						&smmu_sde_iommu_region_partition
+						&smmu_sde_unsec
+						&timing_0_405
+	>;
+};

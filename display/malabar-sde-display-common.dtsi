@@ -587,13 +587,7 @@
 			qcom,qsync-mode-min-refresh-rate = <40>;
 		};
 
-		timing_8: timing@8 { /* FHD+ 144FPS cmd mode*/
-			qcom,mdss-dsi-panel-phy-timings = [00 1a 06 06 16 20 07
-				06 07 02 04 00 16 0b];
-			qcom,display-topology = <1 1 1>;
-			qcom,default-topology-index = <0>;
-			qcom,qsync-mode-min-refresh-rate = <60>;
-		};
+		/delete-node/ timing@8; /* FHD+ 144FPS cmd mode*/
 
 		/delete-node/ timing@9; /* WQHD 1FPS cmd mode*/
 

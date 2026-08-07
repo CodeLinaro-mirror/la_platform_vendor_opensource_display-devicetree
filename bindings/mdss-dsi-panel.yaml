@@ -563,7 +563,9 @@ properties:
       "bl_ctrl_pwm" = Backlight controlled by PWM gpio.
       "bl_ctrl_wled" = Backlight controlled by WLED.
       "bl_ctrl_dcs" = Backlight controlled by DCS commands.
-      "bl_ctrl_external" = Backlight controlled by externally
+      "bl_ctrl_external" = Backlight controlled by externally.
+      "bl_ctrl_i2c" = Backlight controlled by I2C (see
+      qcom,mdss-dsi-bl-ctrl-i2c-subtype for controller selection).
       other: Unknown backlight control. (default)
     $ref: /schemas/types.yaml#/definitions/string-array
     default: other
@@ -575,7 +577,9 @@ properties:
       "bl_ctrl_pwm" = Backlight controlled by PWM gpio.
       "bl_ctrl_wled" = Backlight controlled by WLED.
       "bl_ctrl_dcs" = Backlight controlled by DCS commands.
-      "bl_ctrl_external" = Backlight controlled by externally
+      "bl_ctrl_external" = Backlight controlled by externally.
+      "bl_ctrl_i2c" = Backlight controlled by I2C (see
+      qcom,mdss-dsi-bl-ctrl-i2c-subtype for controller selection).
       other: Unknown backlight control. (default)
     $ref: /schemas/types.yaml#/definitions/string-array
     default: other
@@ -1701,11 +1705,24 @@ properties:
 
   qcom,mdss-panel-i2c-on-command:
     description: >
-      Byte stream of multiple I2C commands for panel initialization
-      byte 0: I2C slave address
-      byte 1: Delay in miliseconds
-      byte 2: Payload length in bytes
-      byte 3 and beyond: Payload data.
+      Byte stream of one or more I2C commands sent during panel enable.
+      Each command in the stream has the following fixed header followed
+      by a variable-length payload:
+        byte 0: 7-bit I2C slave address
+        byte 1: Post-command delay in milliseconds (0 = no delay)
+        byte 2: Payload length in bytes (N)
+        byte 3 .. byte (3+N-1): Payload data (register address + data bytes)
+      Multiple commands are concatenated back-to-back in the byte stream.
+
+  qcom,mdss-panel-i2c-off-command:
+    description: >
+      Byte stream of one or more I2C commands sent during panel disable.
+      Uses the same per-command wire format as qcom,mdss-panel-i2c-on-command:
+        byte 0: 7-bit I2C slave address
+        byte 1: Post-command delay in milliseconds (0 = no delay)
+        byte 2: Payload length in bytes (N)
+        byte 3 .. byte (3+N-1): Payload data (register address + data bytes)
+      Multiple commands are concatenated back-to-back in the byte stream.
 
   qcom,panel-i2c-left:
     description: >
@@ -1714,6 +1731,36 @@ properties:
   qcom,panel-i2c-right:
     description: >
       Phandle to the I2C controller used for the right panel interface.
+
+  qcom,panel-i2c-left-slave-addr:
+    description: >
+      7-bit I2C slave address of the backlight controller connected to
+      the left panel's I2C adapter (qcom,panel-i2c-left).
+    $ref: /schemas/types.yaml#/definitions/uint32
+    minimum: 0x08
+    maximum: 0x77
+
+  qcom,panel-i2c-right-slave-addr:
+    description: >
+      7-bit I2C slave address of the backlight controller connected to
+      the right panel's I2C adapter (qcom,panel-i2c-right).
+    $ref: /schemas/types.yaml#/definitions/uint32
+    minimum: 0x08
+    maximum: 0x77
+
+  qcom,mdss-dsi-bl-ctrl-i2c-subtype:
+    description: >
+      Selects the I2C backlight controller variant when
+      qcom,mdss-dsi-bl-pmic-control-type is "bl_ctrl_i2c".
+      "isl97900" = ISL97900 RGB LED controller (default).
+                   Slave addresses are taken from
+                   qcom,panel-i2c-left-slave-addr /
+                   qcom,panel-i2c-right-slave-addr.
+      "jbd4040"  = JBD4040 luminance controller.
+                   Slave address 0x58 is fixed in the driver.
+    $ref: /schemas/types.yaml#/definitions/string
+    enum: [isl97900, jbd4040]
+    default: isl97900
 
   qcom,dba-panel:
     description: >

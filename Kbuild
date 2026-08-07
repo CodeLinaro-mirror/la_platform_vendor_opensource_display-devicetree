@@ -59,6 +59,21 @@ dtbo-$(CONFIG_ARCH_CANOE) += display/trustedvm-canoe-sde-display-mtp-overlay.dtb
 endif
 
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
+dtbo-$(CONFIG_ARCH_COAST) += display/coast-sde.dtbo \
+		display/coast-sde-display-atp-overlay.dtbo \
+		display/coast-sde-display-cdp-overlay.dtbo \
+		display/coast-sde-display-mtp-overlay.dtbo \
+		display/coast-sde-display-qrd-overlay.dtbo \
+		display/coast-sde-display-rcm-overlay.dtbo
+else
+dtbo-$(CONFIG_ARCH_COAST) += display/trustedvm-coast-sde-display-atp-overlay.dtbo \
+		display/trustedvm-coast-sde-display-cdp-overlay.dtbo \
+		display/trustedvm-coast-sde-display-mtp-overlay.dtbo \
+		display/trustedvm-coast-sde-display-qrd-overlay.dtbo \
+		display/trustedvm-coast-sde-display-rcm-overlay.dtbo
+endif
+
+ifneq ($(CONFIG_ARCH_QTI_VM), y)
 dtbo-$(CONFIG_ARCH_ALOR) += display/alor-sde.dtbo \
 		display/alor-sde-display-atp-overlay.dtbo \
 		display/alor-sde-display-cdp-overlay.dtbo \
@@ -175,9 +190,11 @@ dtbo-$(CONFIG_ARCH_BOURTZI) += display/bourtzi-sde.dtbo \
 		display/bourtzi-sde-display-cdp-amoled-overlay.dtbo \
 		display/bourtzi-sde-display-atp-amoled-overlay.dtbo \
 		display/bourtzi-sde-display-rcm-amoled-overlay.dtbo \
-		display/bourtzi-sde-display-qrd-amoled-overlay.dtbo
+		display/bourtzi-sde-display-qrd-amoled-overlay.dtbo \
+		display/bourtzi-sde-display-rcm-lcd-overlay.dtbo
 else
-dtbo-$(CONFIG_ARCH_BOURTZI) += display/trustedvm-bourtzi-sde-display-mtp-amoled-overlay.dtbo
+dtbo-$(CONFIG_ARCH_BOURTZI) += display/trustedvm-bourtzi-sde-display-mtp-amoled-overlay.dtbo \
+		display/trustedvm-bourtzi-sde-display-qrd-amoled-overlay.dtbo
 endif
 
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
