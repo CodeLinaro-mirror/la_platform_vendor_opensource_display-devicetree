@@ -9,6 +9,6 @@
 #include "shikra-sde.dtsi"
 
 / {
-	qcom,msm-id = <756 0x10000>, <758 0x10000>;
+	qcom,msm-id = <756 0x10000>, <758 0x10000>, <759 0x10000>;
 	qcom,board-id = <0 0>;
 };
