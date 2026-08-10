@@ -6,20 +6,20 @@
 /dts-v1/;
 /plugin/;
 
-#include "nordy-sde-hwvirt-gunyah.dtsi"
+#include "nordy-sde-hwvirt.dtsi"
 
 / {
 	model = "Qualcomm Technologies, Inc. SA8797 Single LV Guest Virtual Machine";
-	compatible = "qcom,sa8797p-adp-star", "qcom,sa8797p-adp", "qcom,qam";
+	compatible = "qcom,quinvm";
 	qcom,msm-id = <690 0x10000>, <690 0x20000>, <690 0x10001>;
-	qcom,board-id = <0x10025 0x0>, <0x01010025 0x1>;
+	qcom,board-id = <0x0 0x2000002>;
 };
 
 /*
- * Override nordy-sde-hwvirt.dtsi for LVGVM:
- * - use guest-specific virtio kms client ids
+ * Override nordy-sde-hwvirt.dtsi for QuinVM LVGVM:
+ * - use LV guest-specific virtio kms client ids
  * - remove secure SMMU context banks/connectors not supported by LVGVM
- * - update non-secure SMMU SID assignments
+ * - update non-secure SMMU SID assignments for LV
  */
 &virtio_kms1 {
 	compatible = "qcom,virtio-kms";
@@ -31,11 +31,7 @@
 	iommu-addresses = <&smmu_sde_unsec 0x7ffe0000 0x80020000>,
 			  <&smmu_sde_unsec 0x0 0x00020000>,
 			  <&smmu_sde_unsec1 0x7ffe0000 0x80020000>,
-			  <&smmu_sde_unsec1 0x0 0x00020000>,
-			  <&smmu_sde_sec 0x7ffe0000 0x80020000>,
-			  <&smmu_sde_sec 0x0 0x00020000>,
-			  <&smmu_sde_sec1 0x7ffe0000 0x80020000>,
-			  <&smmu_sde_sec1 0x0 0x00020000>;
+			  <&smmu_sde_unsec1 0x0 0x00020000>;
 };
 
 &smmu_sde_unsec {
@@ -49,22 +45,22 @@
 };
 
 &smmu_sde_sec {
-	iommus = <&apps_smmu_1 0x03E9 0x0000>;
+	status = "disabled";
 };
 
 &smmu_sde_sec1 {
-	iommus = <&apps_smmu_1 0x0409 0x0000>;
+	status = "disabled";
 };
 
 &mdss_mdp {
-	connectors = <&smmu_sde_unsec &smmu_sde_sec>;
+	connectors = <&smmu_sde_unsec>;
 	/delete-property/ qcom,sde-dspp-spr-off;
 	/delete-property/ qcom,sde-dspp-spr-size;
 	/delete-property/ qcom,sde-dspp-spr-version;
 };
 
 &mdss_mdp1 {
-	connectors = <&smmu_sde_unsec1 &smmu_sde_sec1>;
+	connectors = <&smmu_sde_unsec1>;
 	/delete-property/ qcom,sde-dspp-spr-off;
 	/delete-property/ qcom,sde-dspp-spr-size;
 	/delete-property/ qcom,sde-dspp-spr-version;
