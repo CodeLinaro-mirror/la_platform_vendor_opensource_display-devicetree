@@ -5,9 +5,7 @@
 
 #include "dsi-panel-nt36525-truly-hd-plus-vid.dtsi"
 #include "dsi-panel-td4330-truly-v2-singlemipi-fhd-vid.dtsi"
-#include "dsi-panel-ft8726-dsc-fhd-plus-video.dtsi"
-#include "dsi-panel-ft8726-dsc-fhd-plus-90hz-video.dtsi"
-#include "dsi-panel-ft8726-dsc-fhd-plus-60hz-video.dtsi"
+#include "dsi-panel-ft8726-no-dsc-fhd-plus-60hz-video.dtsi"
 #include "dsi-panel-td4330-truly-v2-singlemipi-fhd-cmd.dtsi"
 #include "dsi-panel-sim-video.dtsi"
 
@@ -214,9 +212,8 @@
         };
 };
 
-&dsi_ft8726_fhd_plus_60_video {
+&dsi_ft8726_fhd_plus_no_dsc_60_video {
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
-
 	qcom,qsync-enable;
 	qcom,mdss-dsi-qsync-min-refresh-rate = <48>;
 	qcom,esd-check-enabled;
@@ -228,9 +225,13 @@
 
 	qcom,mdss-dsi-display-timings {
 		timing@0 {
-			qcom,mdss-dsi-panel-phy-timings = [00 10 03 03 11 1e 04
-				04 03 02 04 00 0e 09];
-			qcom,display-topology = <1 1 1>;
+			qcom,mdss-dsi-panel-phy-timings = [
+				26 20 09 0B 06 02 04 a0
+				26 20 09 0B 06 02 04 a0
+				26 20 09 0B 06 02 04 a0
+				26 20 09 0B 06 02 04 a0
+				26 1F 09 0B 06 02 04 a0];
+			qcom,display-topology = <1 0 1>;
 			qcom,default-topology-index = <0>;
 		};
 	};
