@@ -21,7 +21,7 @@
 		qcom,mdss-dsi-lane-0-state;
 		qcom,mdss-dsi-dma-trigger = "trigger_sw";
 		qcom,mdss-dsi-mdp-trigger = "none";
-		qcom,mdss-dsi-reset-sequence = <1 10>, <0 10>, <1 20>;
+		qcom,mdss-dsi-reset-sequence = <1 10>, <0 10>, <1 270>;
 
 		qcom,mdss-panel-i2c-on-command = [
 			/* SRAM initialization */
