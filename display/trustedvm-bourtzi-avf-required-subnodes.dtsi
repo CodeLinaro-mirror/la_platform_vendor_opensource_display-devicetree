@@ -25,7 +25,7 @@
 		&dsi_ft8726_fhd_plus_60_video
 		&dsi_ft8726_fhd_plus_90_video
 		&dsi_panel_pwr_supply_amoled
-		&dsi_panel_pwr_supply_labibb
+		&dsi_panel_pwr_supply_lcd_labibb
 		&dsi_panel_pwr_supply_lcd
 		&dsi_panel_pwr_supply_sim
 		&dsi_pll_codes_data

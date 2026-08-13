@@ -5,6 +5,13 @@
 
 #include "coast-sde-display-common.dtsi"
 
+&soc {
+	sde_wb0: qcom,wb-display@0 {
+		compatible = "qcom,wb-display";
+		cell-index = <0>;
+		label = "wb_display0";
+	};
+};
 
 &sde_dsi {
 	vddio-supply = <&L1G_E0>;
@@ -19,7 +26,7 @@
 };
 
 &mdss_mdp {
-	connectors = <&sde_dsi &sde_dsi1>;
+	connectors = <&sde_dsi &sde_dsi1 &smmu_sde_sec &smmu_sde_unsec &sde_wb0>;
 };
 
 &dsi_vtdr6130_amoled_cmd {

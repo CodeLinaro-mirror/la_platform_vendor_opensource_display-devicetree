@@ -78,12 +78,14 @@
 };
 
 &sde_dsi {
-	pinctrl-names = "default", "panel_active", "panel_suspend", "pwm_pin";
-	pinctrl-0 = <&sx1508q_lcd0_vdd_1v8_active &sx1508q_lcd0_vsp_active
-			&sx1508q_lcd0_vsn_active &sx1508q_lcd0_bl_active>;
-	pinctrl-1 = <&sde_dsi_active &sde_te_active>;
-	pinctrl-2 = <&sde_dsi_suspend &sde_te_suspend>;
-	pinctrl-3 = <&lcd_backlight_pwm_default>;
+	pinctrl-names = "panel_active", "panel_suspend", "pwm_pin";
+	pinctrl-0 = <&sde_dsi_active &sde_te_active
+		&sx1508q_lcd0_vdd_1v8_active &sx1508q_lcd0_vsp_active
+		&sx1508q_lcd0_vsn_active &sx1508q_lcd0_bl_active>;
+	pinctrl-1 = <&sde_dsi_suspend &sde_te_suspend
+		&sx1508q_lcd0_vdd_1v8_sleep &sx1508q_lcd0_vsp_sleep
+		&sx1508q_lcd0_vsn_sleep &sx1508q_lcd0_bl_sleep>;
+	pinctrl-2 = <&lcd_backlight_pwm_default>;
 
 	qcom,dsi-default-panel = <&dsi_ili9881p_hd_plus_video>;
 };

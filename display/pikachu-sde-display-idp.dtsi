@@ -3,6 +3,7 @@
  * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
  */
 
+#include <dt-bindings/gpio/gpio.h>
 #include "pikachu-sde-display.dtsi"
 
 &dsi_dual_rdp370f_rgb_vid {
@@ -95,6 +96,9 @@
 	qcom,skip-panel-power-off;
 	qcom,panel-i2c-right = <&i2c0>;
 	qcom,panel-i2c-left = <&i2c4>;
+	qcom,panel-calibration-enabled;
+	qcom,panel-calibration-mtd-left = <&jbd4040_fmc_left>;
+	qcom,panel-calibration-mtd-right = <&jbd4040_fmc_right>;
 };
 
 &dsi_jbd_gen2_380x500_120hz_video {
@@ -107,6 +111,44 @@
 	qcom,platform-bklight-en-gpio = <&tlmm 114 0>;
 	qcom,skip-panel-power-off;
 	qcom,panel-i2c-left = <&i2c4>;
+};
+
+&spi2 {
+	cs-gpios = <&tlmm 3 GPIO_ACTIVE_LOW>,
+		   <&tlmm 63 GPIO_ACTIVE_LOW>;
+	num-cs = <2>;
+
+	pinctrl-names = "default",
+			"sleep";
+	pinctrl-0 = <&qup_spi2_mosi_active>, <&qup_spi2_miso_active>,
+		    <&qup_spi2_clk_active>;
+	pinctrl-1 = <&qup_spi2_cs_gpio_sleep>;
+
+	status = "ok";
+
+	jbd4040_fmc_left: flash@0 {
+		compatible = "jedec,spi-nor";
+		reg = <0>;
+		spi-max-frequency = <25000000>;
+
+		#address-cells = <1>;
+		#size-cells = <1>;
+
+		spi-rx-bus-width = <1>;
+		spi-tx-bus-width = <1>;
+	};
+
+	jbd4040_fmc_right: flash@1 {
+		compatible = "jedec,spi-nor";
+		reg = <1>;
+		spi-max-frequency = <25000000>;
+
+		#address-cells = <1>;
+		#size-cells = <1>;
+
+		spi-rx-bus-width = <1>;
+		spi-tx-bus-width = <1>;
+	};
 };
 
 &sde_dsi {

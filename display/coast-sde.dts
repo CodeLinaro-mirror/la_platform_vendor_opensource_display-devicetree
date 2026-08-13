@@ -9,6 +9,6 @@
 #include "coast-sde.dtsi"
 
 / {
-	qcom,msm-id = <761 0x10000>;
+	qcom,msm-id = <761 0x10000>, <797 0x10000>;
 	qcom,board-id = <0 0>;
 };
