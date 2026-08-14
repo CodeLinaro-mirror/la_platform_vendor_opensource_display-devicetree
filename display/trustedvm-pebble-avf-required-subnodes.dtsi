@@ -15,7 +15,6 @@
 			&config_311
 			&config_313
 			&config_315
-			&config_321
 			&config_6
 			&config_8
 			&dgm_0
@@ -47,10 +46,12 @@
 			&dsi_nt37802_amoled_cmd_dphy
 			&dsi_nt37802_amoled_cmd_i2c_cphy
 			&dsi_nt37802_amoled_cmd_i2c_dphy
+			&dsi_nt37802_amoled_video_dphy
 			&dsi_nt37802_amoled_video_i2c_cphy
 			&dsi_nt37802_amoled_video_i2c_dphy
 			&dsi_nt37802_amoled_video_psr_vhm
 			&dsi_nt37802_amoled_video_vhm_cphy
+			&dsi_nt37802_amoled_video_vhm_i2c_cphy
 			&dsi_panel_pwr_ext_ddic_supply
 			&dsi_panel_pwr_supply
 			&dsi_panel_pwr_supply_avdd
@@ -92,7 +93,6 @@
 			&mux_310
 			&mux_312
 			&mux_314
-			&mux_320
 			&mux_5
 			&mux_7
 			&pmx_sde
@@ -105,7 +105,9 @@
 			&qcom_mdss_dsi_display_timings_122
 			&qcom_mdss_dsi_display_timings_124
 			&qcom_mdss_dsi_display_timings_130
+			&qcom_mdss_dsi_display_timings_131
 			&qcom_mdss_dsi_display_timings_137
+			&qcom_mdss_dsi_display_timings_138
 			&qcom_mdss_dsi_display_timings_14
 			&qcom_mdss_dsi_display_timings_143
 			&qcom_mdss_dsi_display_timings_145
@@ -171,10 +173,13 @@
 			&qcom_mdss_dsi_display_timings_36
 			&qcom_mdss_dsi_display_timings_362
 			&qcom_mdss_dsi_display_timings_38
+			&qcom_mdss_dsi_display_timings_403
+			&qcom_mdss_dsi_display_timings_404
 			&qcom_mdss_dsi_display_timings_41
 			&qcom_mdss_dsi_display_timings_43
 			&qcom_mdss_dsi_display_timings_47
 			&qcom_mdss_dsi_display_timings_49
+			&qcom_mdss_dsi_display_timings_5
 			&qcom_mdss_dsi_display_timings_51
 			&qcom_mdss_dsi_display_timings_53
 			&qcom_mdss_dsi_display_timings_55
@@ -235,7 +240,9 @@
 			&timing_0_125
 			&timing_0_13
 			&timing_0_131
+			&timing_0_132
 			&timing_0_138
+			&timing_0_139
 			&timing_0_144
 			&timing_0_146
 			&timing_0_15
@@ -302,6 +309,8 @@
 			&timing_0_37
 			&timing_0_39
 			&timing_0_4
+			&timing_0_403
+			&timing_0_404
 			&timing_0_42
 			&timing_0_44
 			&timing_0_48
@@ -310,6 +319,7 @@
 			&timing_0_54
 			&timing_0_56
 			&timing_0_58
+			&timing_0_6
 			&timing_0_62
 			&timing_0_64
 			&timing_0_66
@@ -387,7 +397,9 @@
 			&timing_1_283
 			&timing_1_322
 			&timing_1_332
+			&timing_1_352
 			&timing_1_354
+			&timing_1_359
 			&timing_1_38
 			&timing_1_45
 			&timing_1_59
@@ -415,7 +427,9 @@
 			&timing_2_284
 			&timing_2_323
 			&timing_2_333
+			&timing_2_352
 			&timing_2_354
+			&timing_2_359
 			&timing_2_39
 			&timing_2_46
 			&timing_2_60

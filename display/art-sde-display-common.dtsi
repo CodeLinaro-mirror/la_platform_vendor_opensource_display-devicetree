@@ -26,6 +26,7 @@
 #include "dsi-panel-nt37802-dsc-wqhd-plus-video-vhm-cphy.dtsi"
 #include "dsi-panel-nt37802-dsc-wqhd-plus-video-vhm-i2c-cphy.dtsi"
 #include "dsi-panel-nt37802-dsc-wqhd-plus-cmd-i2c-cphy.dtsi"
+#include "dsi-panel-nt37802-dsc-wqhd-plus-cmd-i2c-cphy_spr.dtsi"
 #include "dsi-panel-nt37802-dsc-wqhd-plus-video-i2c-cphy.dtsi"
 #include "dsi-panel-sharp-dsc-4k-cmd.dtsi"
 #include "dsi-panel-sharp-dsc-4k-video.dtsi"
@@ -86,6 +87,7 @@
 			qcom,supply-enable-load = <154000>;
 			qcom,supply-disable-load = <277>;
 			qcom,supply-post-on-sleep = <20>;
+			qcom,supply-pre-off-sleep = <6>;
 		};
 
 		qcom_panel_supply_entry_1: qcom,panel-supply-entry@1 {
@@ -95,7 +97,9 @@
 			qcom,supply-max-voltage = <1200000>;
 			qcom,supply-enable-load = <220000>;
 			qcom,supply-disable-load = <3>;
+			qcom,supply-pre-on-sleep = <3>;
 			qcom,supply-post-on-sleep = <0>;
+			qcom,supply-pre-off-sleep = <3>;
 		};
 
 		qcom_panel_supply_entry_2: qcom,panel-supply-entry@2 {
@@ -105,6 +109,7 @@
 			qcom,supply-max-voltage = <3000000>;
 			qcom,supply-enable-load = <10000>;
 			qcom,supply-disable-load = <1>;
+			qcom,supply-pre-on-sleep = <2>;
 			qcom,supply-post-on-sleep = <0>;
 		};
 
@@ -524,6 +529,12 @@
 
 &dsi_nt37802_amoled_video_i2c_cphy {
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
+	qcom,esd-check-enabled;
+	qcom,mdss-dsi-panel-status-check-mode = "reg_read";
+	qcom,mdss-dsi-panel-status-command = [06 01 00 01 00 00 01 0a];
+	qcom,mdss-dsi-panel-status-command-state = "dsi_lp_mode";
+	qcom,mdss-dsi-panel-status-value = <0x9c>;
+	qcom,mdss-dsi-panel-status-read-length = <1>;
 
 	qcom_mdss_dsi_display_timings_356: qcom,mdss-dsi-display-timings {
 		timing_0_357: timing@0 {
@@ -1132,6 +1143,12 @@
 
 &dsi_nt37802_amoled_cmd_cphy {
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
+	qcom,esd-check-enabled;
+	qcom,mdss-dsi-panel-status-check-mode = "reg_read";
+	qcom,mdss-dsi-panel-status-command = [06 01 00 01 00 00 01 0a];
+	qcom,mdss-dsi-panel-status-command-state = "dsi_lp_mode";
+	qcom,mdss-dsi-panel-status-value = <0x9c>;
+	qcom,mdss-dsi-panel-status-read-length = <1>;
 
 	qcom_mdss_dsi_display_timings_351: qcom,mdss-dsi-display-timings {
 		timing_0_352: timing@0 {
@@ -1149,8 +1166,15 @@
 		};
 
 		timing_2_352: timing@2 {
-			qcom,mdss-dsi-panel-phy-timings = [00 00 00 00 1e 17 04
-				19 03 02 04 00 00 00];
+			qcom,mdss-dsi-panel-phy-timings = [00 00 00 00 23 23 08
+				19 08 02 04 00 00 00];
+			qcom,display-topology = <2 2 1>;
+			qcom,default-topology-index = <0>;
+		};
+
+		timing_3_352: timing@3 {
+			qcom,mdss-dsi-panel-phy-timings = [00 00 00 00 23 23 08
+				19 08 02 04 00 00 00];
 			qcom,display-topology = <2 2 1>;
 			qcom,default-topology-index = <0>;
 		};
@@ -1159,6 +1183,12 @@
 
 &dsi_nt37802_amoled_video_cphy {
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
+	qcom,esd-check-enabled;
+	qcom,mdss-dsi-panel-status-check-mode = "reg_read";
+	qcom,mdss-dsi-panel-status-command = [06 01 00 01 00 00 01 0a];
+	qcom,mdss-dsi-panel-status-command-state = "dsi_lp_mode";
+	qcom,mdss-dsi-panel-status-value = <0x9c>;
+	qcom,mdss-dsi-panel-status-read-length = <1>;
 
 	qcom_mdss_dsi_display_timings_136: qcom,mdss-dsi-display-timings {
 		timing_0_136: timing@0 {
@@ -1172,6 +1202,12 @@
 
 &dsi_nt37802_amoled_video_vhm_cphy {
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
+	qcom,esd-check-enabled;
+	qcom,mdss-dsi-panel-status-check-mode = "reg_read";
+	qcom,mdss-dsi-panel-status-command = [06 01 00 01 00 00 01 0a];
+	qcom,mdss-dsi-panel-status-command-state = "dsi_lp_mode";
+	qcom,mdss-dsi-panel-status-value = <0x9c>;
+	qcom,mdss-dsi-panel-status-read-length = <1>;
 
 	qcom_mdss_dsi_display_timings_137: qcom,mdss-dsi-display-timings {
 		timing_0_138: timing@0 {
@@ -1185,6 +1221,12 @@
 
 &dsi_nt37802_amoled_video_vhm_i2c_cphy {
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
+	qcom,esd-check-enabled;
+	qcom,mdss-dsi-panel-status-check-mode = "reg_read";
+	qcom,mdss-dsi-panel-status-command = [06 01 00 01 00 00 01 0a];
+	qcom,mdss-dsi-panel-status-command-state = "dsi_lp_mode";
+	qcom,mdss-dsi-panel-status-value = <0x9c>;
+	qcom,mdss-dsi-panel-status-read-length = <1>;
 
 	qcom_mdss_dsi_display_timings_138: qcom,mdss-dsi-display-timings {
 		timing_0_139: timing@0 {
@@ -1222,8 +1264,42 @@
 		};
 
 		timing_2_354: timing@2 {
-			qcom,mdss-dsi-panel-phy-timings = [00 00 00 00 1e 17 04
-				19 03 02 04 00 00 00];
+			qcom,mdss-dsi-panel-phy-timings = [00 00 00 00 23 23 08
+				19 08 02 04 00 00 00];
+			qcom,display-topology = <2 2 1>;
+			qcom,default-topology-index = <0>;
+		};
+
+		timing_3_354: timing@3 {
+			qcom,mdss-dsi-panel-phy-timings = [00 00 00 00 23 23 08
+				19 08 02 04 00 00 00];
+			qcom,display-topology = <2 2 1>;
+			qcom,default-topology-index = <0>;
+		};
+	};
+};
+
+&dsi_nt37802_amoled_cmd_i2c_cphy_spr {
+	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
+	qcom,esd-check-enabled;
+	qcom,esd-check-host-controlled;
+	qcom,mdss-dsi-panel-status-check-mode = "reg_read";
+	qcom,mdss-dsi-panel-status-command = [06 01 00 01 00 00 01 0a];
+	qcom,mdss-dsi-panel-status-command-state = "dsi_lp_mode";
+	qcom,mdss-dsi-panel-status-value = <0x9c>;
+	qcom,mdss-dsi-panel-status-read-length = <1>;
+
+	qcom_mdss_dsi_display_timings_403: qcom,mdss-dsi-display-timings {
+		timing_0_404: timing@0 {
+			qcom,mdss-dsi-panel-phy-timings = [00 00 00 00 23 23 08
+				19 08 02 04 00 00 00];
+			qcom,display-topology = <2 2 1>;
+			qcom,default-topology-index = <0>;
+		};
+
+		timing_1_404: timing@1 {
+			qcom,mdss-dsi-panel-phy-timings = [00 00 00 00 23 23 08
+				19 08 02 04 00 00 00];
 			qcom,display-topology = <2 2 1>;
 			qcom,default-topology-index = <0>;
 		};

@@ -4,7 +4,7 @@
  */
 
 &mdss_mdp {
-	dsi_jbd_gen2_dual_380x500_60hz_video: qcom,mdss_dsi_jbd_gen2_dual_380x500_60hz_video {
+	dsi_jbd_gen2_dual_380x500_120hz_video_calibrated: qcom,mdss_dsi_jbd_gen2_dual_380x500_120hz_video_calibrated {
 		qcom,mdss-dsi-panel-name =
 			"JBD uLED video mode dsi i2c panel without DSC";
 		qcom,mdss-dsi-panel-type = "dsi_video_mode";
@@ -22,6 +22,8 @@
 		qcom,mdss-dsi-dma-trigger = "trigger_sw";
 		qcom,mdss-dsi-mdp-trigger = "none";
 		qcom,mdss-dsi-reset-sequence = <1 10>, <0 10>, <1 20>;
+		qcom,mdss-dsi-panel-calibration-enabled;
+
 		qcom,mdss-panel-i2c-on-command = [
 			/*
 			 * byte 0: I2C slave address
@@ -34,22 +36,39 @@
 			/* Enable i2c */
 			58 00 05 20 0e 04 02 00
 
+			/* Interrupt mask register */
+			58 00 07 20 10 44 FF FF 00 00
+			58 00 07 20 10 4C FF FF 00 00
+			58 00 07 20 10 54 FF FF 00 00
+			58 00 07 20 10 5C FF FF 00 00
+			58 00 07 20 10 64 FF FF 00 00
+			58 00 07 20 10 6C FF FF 00 00
+			58 00 07 20 0B 0A FF FF 00 00
+
 			/* Mipi initialization */
 			/* Enable dsi */
 			58 00 07 20 10 04 01 00 00 00
-			/* Enable eotp feature. skip this reg if the feature is not enabled in host */
+			/* Enable eotp feature. */
+			/* Skip this reg if the feature is not enabled in host */
 			58 00 07 20 10 0c 07 00 00 00
 			/* Internal clk dividers */
 			58 00 07 20 10 2c 08 00 00 00
-			/* Which channel is valid from video mode, 2'b00: VC 0 is valid; 2'b01: VC 1 is valid; 2'b10: VC 2 is valid; 2'b11: VC 3 is valid */
+			/* Which channel is valid from video mode */
+			/* 2'b00: VC 0 is valid; 2'b01: VC 1 is valid */
+			/* 2'b10: VC 2 is valid; 2'b11: VC 3 is valid */
 			58 00 07 20 10 30 01 00 00 00
-			/* Which channel is valid from video mode, 2'b00: VC 0 is valid; 2'b01: VC 1 is valid; 2'b10: VC 2 is valid; 2'b11: VC 3 is valid */
+			/* Which channel is valid from video mode */
+			/* 2'b00: VC 0 is valid; 2'b01: VC 1 is valid */
+			/* 2'b10: VC 2 is valid; 2'b11: VC 3 is valid */
 			58 00 07 20 10 34 00 00 00 00
-			/* ip_tx_delay, should be matched to dphy data rate, 0x380 is for 500Mbps dphy data rate */
+			/* ip_tx_delay, should be matched to dphy data rate */
+			/* 0x380 is for 500Mbps dphy data rate */
 			58 00 07 20 10 38 80 03 00 00
 			/* Enable dphy */
 			58 00 07 20 20 00 7d 00 00 00
-			/* THS-Settle, 150~300MHz: 0x6; 300~400 MHz: 0x8; 400~500 MHz: 0xb; 500~600 MHz: 0xe; 600~700 MHz: 0x10; 700~800 MHz: 0x12; 800~1000 MHz: 0x16; */
+			/* THS-Settle, 150~300MHz: 0x6; 300~400 MHz: 0x8 */
+			/* 400~500 MHz: 0xb; 500~600 MHz: 0xe; 600~700 MHz: 0x10 */
+			/* 700~800 MHz: 0x12; 800~1000 MHz: 0x16; */
 			/* 1000~1200MHz: 0x1e; 1200~1400MHz: 0x23 */
 			58 00 07 20 21 e0 0e 00 00 00
 			/* Enable continuous clock mode */
@@ -59,7 +78,9 @@
 
 			/* Panel initialization */
 			/* Pixel current */
-			58 00 05 20 01 00 19 00
+			59 00 05 20 01 00 5a 00
+			5a 00 05 20 01 00 32 00
+			5b 00 05 20 01 00 19 00
 			/* Sf bit 10 with refresh frequency 240Hz */
 			58 00 05 20 0a 00 0c 00
 			/* Enable panel display */
@@ -67,7 +88,7 @@
 			/* Enable panel data load */
 			58 00 05 20 0a 04 02 00
 			/* luminance */
-			58 00 05 20 0a 14 c4 09
+			58 00 05 20 0a 14 00 08
 
 			/* Algorithm initialization */
 			/* X-axis start coordinate */
@@ -82,8 +103,6 @@
 			58 00 05 20 0a 24 06 0a
 			/* 1'b0: cmd mode, 1'b1: video mode */
 			58 00 05 20 0b 06 01 00
-			/* Enable horizontal flip for Green panel */
-			5A 00 05 20 02 0e 01 00
 			/* Algorithm initialization demura setting 1 */
 			58 00 05 20 0d 30 02 00
 			/* Algorithm initialization demura setting 2*/
@@ -99,7 +118,7 @@
 		qcom,mdss-dsi-display-timings {
 			timing@0 {
 				cell-index = <0>;
-				qcom,mdss-dsi-panel-framerate = <60>;
+				qcom,mdss-dsi-panel-framerate = <120>;
 				qcom,mdss-dsi-panel-width = <380>;
 				qcom,mdss-dsi-panel-height = <500>;
 				qcom,mdss-dsi-h-front-porch = <20>;
@@ -126,4 +145,3 @@
 		};
 	};
 };
-

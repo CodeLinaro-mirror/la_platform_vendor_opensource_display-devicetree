@@ -1,6 +1,9 @@
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
 dtbo-$(CONFIG_ARCH_ART) += display/art-sde.dtbo \
 		display/art-sde-display-rumi-overlay.dtbo \
+		display/art-sde-display-atp-overlay.dtbo \
+		display/art-sde-display-atp-lp6-overlay.dtbo \
+		display/art-sde-display-atp-firewheel-overlay.dtbo \
 		display/art-sde-display-cdp-overlay.dtbo \
 		display/art-sde-display-mtp-fig-st54l-overlay.dtbo \
 		display/art-sde-display-mtp-fig-bt-st54l-overlay.dtbo \
@@ -56,6 +59,21 @@ dtbo-$(CONFIG_ARCH_CANOE) += display/trustedvm-canoe-sde-display-mtp-overlay.dtb
 # 		display/trustedvm-alor-interposer-sde-display-mtp-overlay.dtbo \
 # 		display/trustedvm-alor-interposer-sde-display-rcm-overlay.dtbo \
 # 		display/trustedvm-alor-interposer-sde-display-qrd-overlay.dtbo
+endif
+
+ifneq ($(CONFIG_ARCH_QTI_VM), y)
+dtbo-$(CONFIG_ARCH_COAST) += display/coast-sde.dtbo \
+		display/coast-sde-display-atp-overlay.dtbo \
+		display/coast-sde-display-cdp-overlay.dtbo \
+		display/coast-sde-display-mtp-overlay.dtbo \
+		display/coast-sde-display-qrd-overlay.dtbo \
+		display/coast-sde-display-rcm-overlay.dtbo
+else
+dtbo-$(CONFIG_ARCH_COAST) += display/trustedvm-coast-sde-display-atp-overlay.dtbo \
+		display/trustedvm-coast-sde-display-cdp-overlay.dtbo \
+		display/trustedvm-coast-sde-display-mtp-overlay.dtbo \
+		display/trustedvm-coast-sde-display-qrd-overlay.dtbo \
+		display/trustedvm-coast-sde-display-rcm-overlay.dtbo
 endif
 
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
@@ -175,9 +193,11 @@ dtbo-$(CONFIG_ARCH_BOURTZI) += display/bourtzi-sde.dtbo \
 		display/bourtzi-sde-display-cdp-amoled-overlay.dtbo \
 		display/bourtzi-sde-display-atp-amoled-overlay.dtbo \
 		display/bourtzi-sde-display-rcm-amoled-overlay.dtbo \
-		display/bourtzi-sde-display-qrd-amoled-overlay.dtbo
+		display/bourtzi-sde-display-qrd-amoled-overlay.dtbo \
+		display/bourtzi-sde-display-rcm-lcd-overlay.dtbo
 else
-dtbo-$(CONFIG_ARCH_BOURTZI) += display/trustedvm-bourtzi-sde-display-mtp-amoled-overlay.dtbo
+dtbo-$(CONFIG_ARCH_BOURTZI) += display/trustedvm-bourtzi-sde-display-mtp-amoled-overlay.dtbo \
+		display/trustedvm-bourtzi-sde-display-qrd-amoled-overlay.dtbo
 endif
 
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
@@ -259,10 +279,12 @@ dtbo-$(CONFIG_ARCH_KHAJE) += display/khaje-sde.dtbo \
 		display/khaje-sde-display-atp-overlay.dtbo \
 		display/khaje-sde-display-idp-nopmi-overlay.dtbo \
 		display/khaje-sde-display-qrd-nopmi-overlay.dtbo \
-		display/khaje-sde-display-qrd-nowcd9375-overlay.dtbo
+		display/khaje-sde-display-qrd-nowcd9375-overlay.dtbo \
+		display/khaje-iot-sde-display-idp-lp4-overlay.dtbo
 
 dtbo-$(CONFIG_ARCH_SCUBA) += display/scuba-iot-sde.dtbo \
-                display/scuba-iot-sde-display-idp-overlay.dtbo
+		display/scuba-iot-sde-display-idp-overlay.dtbo \
+		display/scuba-iot-sde-display-idp-lp4-overlay.dtbo
 
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
 		CONFIG_OS_DTS := false
@@ -275,7 +297,8 @@ ifneq ($(CONFIG_ARCH_QTI_VM), y)
 			display/seraph-sde-display-idp-overlay.dtbo \
 			display/seraph-sde-display-idp-no-display-overlay.dtbo \
 			display/seraph-sde-display-rumi-overlay.dtbo \
-			display/seraphp-sde-display-qar-overlay.dtbo
+			display/seraphp-sde-display-qar-overlay.dtbo \
+			display/seraphp-sde-display-qar-v2-overlay.dtbo
 		endif
 endif
 
