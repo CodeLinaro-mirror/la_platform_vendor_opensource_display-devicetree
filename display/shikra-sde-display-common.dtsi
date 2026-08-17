@@ -63,8 +63,10 @@
 	connectors = <&sde_dsi &smmu_sde_sec &smmu_sde_unsec>;
 };
 
+// Bridge-ITP/EITP
 &dsi_ext_bridge_1080p {
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
+	qcom,mdss-dsi-ext-bridge-hpd;
 
 	qcom,mdss-dsi-display-timings {
 		timing@0 {
@@ -74,12 +76,23 @@
 	};
 };
 
-// DLC
+// DLC-ITP/ITPS/EITP
 &dsi_dlc0697_fhd_60_video {
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
 	qcom,platform-reset-gpio = <&tlmm 3 0>;
 
 	qcom,esd-check-enabled;
+	qcom,mdss-dsi-panel-status-check-mode = "reg_read";
+	qcom,mdss-dsi-panel-status-command = [06 01 00 01 00 00 01 0a];
+	qcom,mdss-dsi-panel-status-command-state = "dsi_hs_mode";
+	qcom,mdss-dsi-panel-status-value = <0x9c>;
+	qcom,mdss-dsi-panel-on-check-value = <0x9c>;
+	qcom,mdss-dsi-panel-status-read-length = <1>;
+	qcom,dsi-supported-dfps-list = <60 30>;
+	qcom,mdss-dsi-pan-enable-dynamic-fps;
+	qcom,mdss-dsi-pan-fps-update = "dfps_immediate_porch_mode_vfp";
+	qcom,dsi-dyn-clk-enable;
+	qcom,dsi-dyn-clk-type = "constant-fps-adjust-vfp";
 	qcom,mdss-dsi-display-timings {
 		timing@0 {
 			qcom,mdss-dsi-panel-timings =
@@ -89,11 +102,12 @@
 				22 1E 07 08 04 02 04 A0];
 			qcom,display-topology = <1 0 1>;
 			qcom,default-topology-index = <0>;
+			qcom,dsi-dyn-clk-list = <791467200 787467200>;
 		};
 	};
 };
 
-// COTS
+// RPI-COTS
 &dsi_ili9881p_720p_video {
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
 	qcom,platform-reset-gpio = <&tlmm 3 0>;
@@ -111,7 +125,7 @@
 	};
 };
 
-// ATP
+// VTDR-ATP
 &dsi_vtdr6130_amoled_nodsc_60hz_cmd {
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
 	qcom,platform-reset-gpio = <&tlmm 3 0>;
@@ -128,3 +142,10 @@
 		};
 	};
 };
+
+// FHD-SLT
+&dsi_sim_fhd_vid {
+	qcom,panel-supply-entries = <&dsi_panel_pwr_supply_sim>;
+	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_dcs";
+};
+

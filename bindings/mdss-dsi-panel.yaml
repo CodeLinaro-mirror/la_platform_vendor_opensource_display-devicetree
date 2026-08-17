@@ -1137,7 +1137,7 @@ properties:
       The default value is 6000 with 60 fps.
     $ref: /schemas/types.yaml#/definitions/uint32
 
-  qqcom,mdss-dsi-reset-sequence:
+  qcom,mdss-dsi-reset-sequence:
     description: >
       An array that lists the
       sequence of reset gpio values and sleeps
@@ -1145,6 +1145,13 @@ properties:
       as below:
       --> Reset GPIO value
       --> Sleep value (in ms)
+
+  qcom,platform-reset-gpio-release-delay:
+    description: >
+      Specify the delay value in milliseconds required
+      after panel gpio reset and before shutting down power
+      rails if sleep in command is not sent.
+    $ref: /schemas/types.yaml#/definitions/uint32
 
   qcom,partial-update-enabled:
     description: >
@@ -1222,6 +1229,13 @@ properties:
       ratio of peak brightness to contrast. Value is specified in nits units.
       To obtain real blackness level, this value should be divided by factor of
       10000.
+
+  qcom,mdss-dsi-shared-cmd-buf-page-size:
+    description: >
+      The shared command buffer page size is defined to allocate the shared
+      memory according to the actual mode requirements. The page size is 4K,
+      and the allocated shared buffer size is calculated as
+      mdss-dsi-shared-cmd-buf-page-size * PAGE_SIZE.
 
   qcom,mdss-dsi-lp11-init:
     description: >
@@ -1685,6 +1699,22 @@ properties:
       in shared display feature.
     $ref: /schemas/types.yaml#/definitions/uint32
 
+  qcom,mdss-panel-i2c-on-command:
+    description: >
+      Byte stream of multiple I2C commands for panel initialization
+      byte 0: I2C slave address
+      byte 1: Delay in miliseconds
+      byte 2: Payload length in bytes
+      byte 3 and beyond: Payload data.
+
+  qcom,panel-i2c-left:
+    description: >
+      Phandle to the I2C controller used for the left panel interface.
+
+  qcom,panel-i2c-right:
+    description: >
+      Phandle to the I2C controller used for the right panel interface.
+
   qcom,dba-panel:
     description: >
       Indicates whether the current panel is used as a display bridge
@@ -1771,6 +1801,21 @@ properties:
       Timing node property to dynamically disable RSC solver for
       high FPS usecase due to lower bitclk rate.
 
+  qcom,mdss-dms-vid-type:
+    description: >
+      A string that specifies type of dynamic mode(timing node) switch for video
+      mode panel.
+      "dms-vid-seamless" - seamless mode switch for video panel.
+      "dms-vid-non-seamless" - non-seamless mode switch for video
+        panel.
+      If this property is not present, mode switch(mainly resolution switch)
+      is not supported for video panel.
+
+  qcom,dms-vid-maintain-const-clk:
+    description: >
+      A bool type indicates whether the dsi clock is constant for seamless
+      mode switch on video panel.
+
 required:
   - compatible
   - status
@@ -1853,6 +1898,7 @@ examples:
         qcom,mdss-dsi-te-check-enable;
         qcom,mdss-dsi-te-using-wd;
         qcom,mdss-dsi-te-using-te-pin;
+        qcom,mdss-dsi-shared-cmd-buf-page-size = <10>;
         qcom,qsync-enable;
         qcom,mdss-dsi-qsync-min-refresh-rate = <30>;
         qcom,mdss-dsi-te-dcs-command = <1>;
@@ -1878,6 +1924,8 @@ examples:
         qcom,mdss-dsi-stream = <0>;
         qcom,mdss-dsi-mdp-trigger = <0>;
         qcom,mdss-dsi-dma-trigger = <0>;
+        qcom,mdss-dms-vid-type = "dms-vid-non-seamless";
+        qcom,dms-vid-maintain-const-clk;
         qcom,mdss-dsi-panel-framerate = <60>;
         qcom,mdss-dsi-panel-timings = [7d 25 1d 00 37 33
                                        22 27 1e 03 04 00];
@@ -1915,6 +1963,7 @@ examples:
         qcom,mdss-tear-check-rd-ptr-trigger-intr = <1281>;
         qcom,mdss-tear-check-frame-rate = <6000>;
         qcom,mdss-dsi-reset-sequence = <1 2>, <0 10>, <1 10>;
+        qcom,platform-reset-gpio-release-delay = <120>;
         qcom,dcs-cmd-by-left;
         qcom,mdss-dsi-lp11-init;
         qcom,mdss-dsi-init-delay-us = <100>;
