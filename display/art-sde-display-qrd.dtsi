@@ -233,11 +233,6 @@
 	qcom,dsi-default-panel = <&dsi_nt37802_amoled_cmd_cphy>;
 };
 
-&sde_dp {
-	qcom,lane-tuning-params = <0x01 0xf9>,
-				  <0x02 0xf2>;
-};
-
 &spi19 {
 	synaptics_tcm@0 {
 		panel = <&dsi_ili97680a_amoled_dsc_10b_cmd
@@ -269,4 +264,6 @@
 				<0x22 0x2e 0x36 0x00>,
 				<0x22 0x31 0x00 0x00>,
 				<0x24 0x00 0x00 0x00>;
+	qcom,lane-tuning-params = <0x01 0xff>,
+				<0x02 0xf2>;
 };
