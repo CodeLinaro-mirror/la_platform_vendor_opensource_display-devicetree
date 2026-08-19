@@ -8,15 +8,26 @@
 #include <dt-bindings/clock/qcom,sm4450-gcc.h>
 #include <dt-bindings/interconnect/qcom,ravelin.h>
 #include <dt-bindings/clock/qcom,rpmh.h>
-#include "ravelin-sde-common.dtsi"
+#include <dt-bindings/arm/msm/qti-smmu-proxy-dt-ids.h>
+#include "bourtzi-sde-common.dtsi"
 
 &soc {
+	smmu_sde_iommu_region_partition: smmu_sde_iommu_region_partition {
+		iommu-addresses = <&smmu_sde_unsec 0x0 0x0 0x0 0x00020000>,
+			<&smmu_sde_unsec 0x0 0xfc800000  0x0 0x02b00000>,
+			<&smmu_sde_sec 0x0 0x0 0x0 0x00020000>,
+			<&smmu_rot_unsec 0x0 0x0 0x0 0x00020000>,
+			<&smmu_rot_sec 0x0 0x0 0x0 0x00020000>;
+	};
+
 	sde_rscc: qcom,sde_rscc@af20000 {
 		cell-index = <0>;
 		compatible = "qcom,sde-rsc";
 		status="ok";
-		reg = <0xaf20000 0x4d68>,
-			<0xaf30000 0x3fd4>;
+		#address-cells = <2>;
+		#size-cells = <2>;
+		reg = <0x0 0xaf20000 0x0 0x4d68>,
+			<0x0 0xaf30000 0x0 0x3fd4>;
 		reg-names = "drv", "wrapper";
 		qcom,sde-rsc-version = <4>;
 
@@ -38,12 +49,14 @@
 	mdss_rotator: qcom,mdss_rotator {
 		compatible = "qcom,sde_rotator";
 		status="ok";
-		reg = <0xae00000 0xac000>,
-		      <0xaeb0000 0x2008>;
-
+		#address-cells = <2>;
+		#size-cells = <2>;
+		reg = <0x0 0xae00000 0x0 0xac000>,
+		      <0x0 0xaeb0000 0x0 0x2008>;
 
 		reg-names = "mdp_phys",
 			"rot_vbif_phys";
+		qti,smmu-proxy-cb-id = <QTI_SMMU_PROXY_ROTATOR_CB>;
 
 		#list-cells = <1>;
 		qcom,mdss-rot-mode = <1>;
@@ -80,11 +93,16 @@
 		qcom,mdss-default-ot-wr-limit = <32>;
 
 		qcom,mdss-sbuf-headroom = <20>;
+		qcom,rottop-offset = <0x0A9000>;
+		qcom,sspp-offset = <0x0A9100>;
+		qcom,wb-offset = <0x0A9300>;
+		qcom,regdma-ram-offset = <0x0A9600>;
+		qcom,regdma-offset = <0x0AB600>;
 
 		smmu_rot_unsec: qcom,smmu_rot_unsec_cb {
 			compatible = "qcom,smmu_sde_rot_unsec";
 			iommus = <&apps_smmu 0x081C 0x400>;
-			qcom,iommu-dma-addr-pool = <0x00020000 0xfffe0000>;
+			memory-region = <&smmu_sde_iommu_region_partition>;
 			qcom,iommu-faults = "non-fatal";
 			dma-coherent;
 		};
@@ -93,17 +111,11 @@
 			compatible = "qcom,smmu_sde_rot_sec";
 			iommus = <&apps_smmu 0x81D 0x0>,
 					<&apps_smmu 0xC1D 0x0>;
-			qcom,iommu-dma-addr-pool = <0x00020000 0xfffe0000>;
+			memory-region = <&smmu_sde_iommu_region_partition>;
 			qcom,iommu-faults = "non-fatal";
 			qcom,iommu-vmid = <0xa>;
 			dma-coherent;
 		};
-	};
-
-	smmu_sde_iommu_region_partition: smmu_sde_iommu_region_partition {
-		iommu-addresses = <&smmu_sde_unsec 0x0 0x0 0x0 0x00020000>,
-			<&smmu_sde_unsec 0x0 0x10000000 0x0 0xffffffff>,
-			<&smmu_sde_sec 0x0 0x0 0x0 0x00020000>;
 	};
 
 	smmu_sde_unsec: qcom,smmu_sde_unsec_cb {
@@ -140,6 +152,8 @@
 	clock-rate = <0 0 506000000 506000000 19200000 506000000 200000000>;
 	clock-max-rate = <0 0 608000000 608000000 19200000 608000000 300000000>;
 
+	qti,smmu-proxy-cb-id = <QTI_SMMU_PROXY_DISPLAY_CB>;
+
 	vdd-supply = <&disp_cc_mdss_core_gdsc>;
 	#power-domain-cells = <0>;
 	#list-cells = <1>;
@@ -154,7 +168,6 @@
 
 	qcom,sde-ib-bw-vote = <2500000 0 1600000>;
 	qcom,sde-has-idle-pc;
-	qcom,sde-vm-exclude-reg-names = "sid_phys";
 	qcom,platform-supply-entries {
 		#address-cells = <1>;
 		#size-cells = <0>;
@@ -192,5 +205,4 @@
 	qcom,dsi-pll-ssc-en;
 	qcom,dsi-pll-ssc-mode = "down-spread";
 	pll_codes_region = <&dsi_pll_codes_data>;
-
 };

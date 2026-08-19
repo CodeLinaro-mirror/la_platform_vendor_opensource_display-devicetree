@@ -129,6 +129,19 @@ dtbo-$(CONFIG_ARCH_RAVELIN) += display/trustedvm-ravelin-sde-display-idp-overlay
 endif
 
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
+dtbo-$(CONFIG_ARCH_BOURTZI) += display/bourtzi-sde.dtbo \
+		display/bourtzi-sde-display-mtp-amoled-overlay.dtbo \
+		display/bourtzi-sde-display-cdp-amoled-overlay.dtbo \
+		display/bourtzi-sde-display-atp-amoled-overlay.dtbo \
+		display/bourtzi-sde-display-rcm-amoled-overlay.dtbo \
+		display/bourtzi-sde-display-qrd-amoled-overlay.dtbo \
+		display/bourtzi-sde-display-rcm-lcd-overlay.dtbo
+else
+dtbo-$(CONFIG_ARCH_BOURTZI) += display/trustedvm-bourtzi-sde-display-mtp-amoled-overlay.dtbo \
+		display/trustedvm-bourtzi-sde-display-qrd-amoled-overlay.dtbo
+endif
+
+ifneq ($(CONFIG_ARCH_QTI_VM), y)
 dtbo-$(CONFIG_ARCH_TUNA) += display/tuna-sde.dtbo \
 		display/tuna-sde-display-atp-overlay.dtbo \
 		display/tuna-sde-display-cdp-overlay.dtbo \
