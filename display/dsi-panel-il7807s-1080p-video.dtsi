@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 &mdss_mdp {
 	dsi_il7807s_1080p_video: qcom,mdss_dsi_il7807s_1080p_video {
 		qcom,mdss-dsi-panel-name = "il7807s 1080p video mode dsi panel";
@@ -318,7 +323,7 @@
 					05 01 00 00 78 00 02 11 00
 					05 01 00 00 14 00 02 29 00
 					05 01 00 00 00 00 02 35 00];
-				qcom,mdss-dsi-off-command =[
+				qcom,mdss-dsi-off-command = [
 					05 01 00 00 28 00 02 28 00
 					05 01 00 00 78 00 02 10 00
 				];

@@ -3,6 +3,7 @@
  * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
  */
 
+#include <dt-bindings/gpio/gpio.h>
 #include "yupik-sde-display.dtsi"
 
 /*==============================*/
@@ -18,7 +19,7 @@
 		config {
 			pins = "gpio80";
 			drive-strength = <8>;
-			bias-disable = <0>;
+			bias-disable;
 			output-high;
 		};
 	};
@@ -30,8 +31,7 @@
 		regulator-name = "display_vdd";
 		regulator-min-microvolt = <3300000>;
 		regulator-max-microvolt = <3300000>;
-		//gpio = <&tlmm 54 GPIO_ACTIVE_HIGH>;
-		gpio = <&tlmm 80 1>;
+		gpio = <&tlmm 80 GPIO_ACTIVE_HIGH>;
 		enable-active-high;
 		pinctrl-names = "default";
 		pinctrl-0 = <&display_vdd_default>;
@@ -97,42 +97,42 @@
 };
 
 &sde_dsi_active {
-        mux {
-                pins = "gpio18";
-        };
+	mux {
+		pins = "gpio18";
+	};
 
-        config {
-                pins = "gpio18";
-        };
+	config {
+		pins = "gpio18";
+	};
 };
 
 &sde_dsi_suspend {
-        mux {
-                pins = "gpio18";
-        };
+	mux {
+		pins = "gpio18";
+	};
 
-        config {
-                pins = "gpio18";
-        };
+	config {
+		pins = "gpio18";
+	};
 };
 
 &sde_te_active {
-        mux {
+	mux {
 		pins = "gpio54";
-        };
+	};
 
-        config {
-                pins = "gpio54";
+	config {
+		pins = "gpio54";
 	};
 };
 
 &sde_te_suspend {
-        mux {
-                pins = "gpio54";
+	mux {
+		pins = "gpio54";
 	};
 
-        config {
-                pins = "gpio54";
+	config {
+		pins = "gpio54";
 	};
 };
 
@@ -181,4 +181,21 @@
 
 &mdss_mdp {
 	connectors = <&smmu_sde_unsec &smmu_sde_sec &sde_dp &sde_dsi &sde_rscc>;
+};
+
+&qupv3_se4_i2c {
+	status = "ok";
+	#address-cells = <1>;
+	#size-cells = <0>;
+	clock-frequency = <400000>;
+	qcom,i2c-touch-active = "tchip,ilitek";
+
+	cap_touch@41 {
+		compatible = "tchip,ilitek";
+		reg = <0x41>;
+		interrupt-parent = <&tlmm>;
+		interrupts = <19 0x1004>;
+		touch,irq-gpio = <&tlmm 19 0x1004>;
+		touch,swapx2y = <0>;
+	};
 };
