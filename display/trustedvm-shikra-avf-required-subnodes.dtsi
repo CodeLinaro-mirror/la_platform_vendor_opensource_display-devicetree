@@ -11,6 +11,7 @@
 						&config_2
 						&config_3
 						&dsi_dlc0697_fhd_60_video
+						&gt9xx_0
 						&mdss_dsi0
 						&mdss_dsi_phy0
 						&mdss_mdp

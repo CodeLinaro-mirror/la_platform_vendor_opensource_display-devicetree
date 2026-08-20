@@ -1,6 +1,9 @@
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
 dtbo-$(CONFIG_ARCH_ART) += display/art-sde.dtbo \
 		display/art-sde-display-rumi-overlay.dtbo \
+		display/art-sde-display-atp-overlay.dtbo \
+		display/art-sde-display-atp-lp6-overlay.dtbo \
+		display/art-sde-display-atp-firewheel-overlay.dtbo \
 		display/art-sde-display-cdp-overlay.dtbo \
 		display/art-sde-display-mtp-fig-st54l-overlay.dtbo \
 		display/art-sde-display-mtp-fig-bt-st54l-overlay.dtbo \
@@ -156,7 +159,8 @@ dtbo-$(CONFIG_ARCH_SHIKRA) += display/shikra-sde.dtbo \
 		display/shikra-sde-display-itp-overlay.dtbo \
 		display/shikra-sde-display-eitp-overlay.dtbo \
 		display/shikra-sde-display-atp-overlay.dtbo \
-		display/shikra-sde-display-itps-overlay.dtbo
+		display/shikra-sde-display-itps-overlay.dtbo \
+		display/shikra-sde-display-iqs-overlay.dtbo
 else
 dtbo-$(CONFIG_ARCH_SHIKRA) += display/trustedvm-shikra-sde-display-itps-eitp-overlay.dtbo
 endif
@@ -276,10 +280,12 @@ dtbo-$(CONFIG_ARCH_KHAJE) += display/khaje-sde.dtbo \
 		display/khaje-sde-display-atp-overlay.dtbo \
 		display/khaje-sde-display-idp-nopmi-overlay.dtbo \
 		display/khaje-sde-display-qrd-nopmi-overlay.dtbo \
-		display/khaje-sde-display-qrd-nowcd9375-overlay.dtbo
+		display/khaje-sde-display-qrd-nowcd9375-overlay.dtbo \
+		display/khaje-iot-sde-display-idp-lp4-overlay.dtbo
 
 dtbo-$(CONFIG_ARCH_SCUBA) += display/scuba-iot-sde.dtbo \
-                display/scuba-iot-sde-display-idp-overlay.dtbo
+		display/scuba-iot-sde-display-idp-overlay.dtbo \
+		display/scuba-iot-sde-display-idp-lp4-overlay.dtbo
 
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
 		CONFIG_OS_DTS := false
@@ -292,7 +298,8 @@ ifneq ($(CONFIG_ARCH_QTI_VM), y)
 			display/seraph-sde-display-idp-overlay.dtbo \
 			display/seraph-sde-display-idp-no-display-overlay.dtbo \
 			display/seraph-sde-display-rumi-overlay.dtbo \
-			display/seraphp-sde-display-qar-overlay.dtbo
+			display/seraphp-sde-display-qar-overlay.dtbo \
+			display/seraphp-sde-display-qar-v2-overlay.dtbo
 		endif
 endif
 

@@ -381,6 +381,10 @@
 	qcom,mdss-dsi-panel-status-value = <0x9c>;
 	qcom,mdss-dsi-panel-status-read-length = <1>;
 
+	/delete-property/ qcom,mdss-dsi-panel-name;
+	qcom,mdss-dsi-panel-name =
+		"ft8726 lcd video mode dsi focaltech panel with DSC bourtzi";
+
 	qcom_mdss_dsi_display_timings_23: qcom,mdss-dsi-display-timings {
 		timing_0_24: timing@0 {
 			qcom,mdss-dsi-panel-phy-timings = [00 1c 07 07 17 15 07
@@ -408,6 +412,9 @@
 	qcom,mdss-dsi-panel-status-value = <0x9c>;
 	qcom,mdss-dsi-panel-status-read-length = <1>;
 
+	/delete-property/ qcom,mdss-dsi-panel-name;
+	qcom,mdss-dsi-panel-name =
+		"ft8726 lcd video mode dsi focaltech panel with DSC bourtzi";
 	qcom_mdss_dsi_display_timings_25: qcom,mdss-dsi-display-timings {
 		timing_0_26: timing@0 {
 			qcom,mdss-dsi-panel-phy-timings = [00 16 05 05 14 1f 06
@@ -430,6 +437,9 @@
 	qcom,mdss-dsi-panel-status-value = <0x9c>;
 	qcom,mdss-dsi-panel-status-read-length = <1>;
 
+	/delete-property/ qcom,mdss-dsi-panel-name;
+	qcom,mdss-dsi-panel-name =
+		"ft8726 lcd video mode dsi focaltech panel with DSC bourtzi";
 	qcom_mdss_dsi_display_timings_27: qcom,mdss-dsi-display-timings {
 		timing_0_28: timing@0 {
 			qcom,mdss-dsi-panel-phy-timings = [00 10 03 03 11 1e 04
