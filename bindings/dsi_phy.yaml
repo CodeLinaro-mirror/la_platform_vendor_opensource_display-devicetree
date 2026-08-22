@@ -120,6 +120,41 @@ properties:
   qcom,dsi-phy-shared:
     description: Boolean value indicating if the DSI phy is shared between dual displays.
 
+  qcom,platform-phy-rescode-offset:
+    description: >
+      Signed offset for drive strength fine-tuning of single-ended logic HIGH (TOP)
+      and LOW (BOT) in D-PHY and C-PHY mode, and mid-level (MID) in C-PHY mode only.
+      MID offset is only used in C-PHY mode. These properties are forwarded to DCP
+      via HFI so DCP can program the PHY hardware registers directly.
+    $ref: /schemas/types.yaml#/definitions/uint32-array
+
+  qcom,platform-phy-hstx-str-ctrl:
+    description: >
+      Overrides the drive strength of single-ended logic HIGH and LOW in D-PHY mode
+      (data rate > 1.5 Gbps) and C-PHY mode. These properties are forwarded to DCP
+      via HFI so DCP can program the PHY hardware registers directly.
+    $ref: /schemas/types.yaml#/definitions/uint32-array
+
+  qcom,platform-phy-ldo-0p4-vreg-level:
+    description: >
+      Adjusts the Tx DC level of Vhigh (VOHHS) and Vlow (VOLHS) for D-PHY and C-PHY.
+      These properties are forwarded to DCP via HFI so DCP can program the PHY hardware
+      registers directly.
+    $ref: /schemas/types.yaml#/definitions/uint32
+
+  qcom,platform-phy-ldo-0p2-vreg-level:
+    description: >
+      Adjusts the Tx DC level of VCPTX for C-PHY mode and is not required for D-PHY.
+      These properties are forwarded to DCP via HFI so DCP can program the PHY hardware
+      registers directly.
+    $ref: /schemas/types.yaml#/definitions/uint32
+
+  qcom,platform-phy-de-emphasis-ctrl:
+    description: >
+      Enables and configures D-PHY de-emphasis. These properties are forwarded to DCP
+      via HFI so DCP can program the PHY hardware registers directly.
+    $ref: /schemas/types.yaml#/definitions/uint32
+
 required:
   - compatible
   - reg

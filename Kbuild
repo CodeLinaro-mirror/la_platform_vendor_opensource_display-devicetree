@@ -13,7 +13,9 @@ dtbo-$(CONFIG_ARCH_ART) += display/art-sde.dtbo \
 		display/art-sde-display-rcm-peach-sn300u-overlay.dtbo \
 		display/art-sde-display-qrd-sku1-overlay.dtbo \
 		display/art-sde-display-qrd-sku2-overlay.dtbo \
+		display/art-sde-display-qrd-sku2-185hz-overlay.dtbo \
 		display/art-sde-display-qrd-sku2-165hz-overlay.dtbo \
+		display/art-sde-display-hdk-overlay.dtbo \
 		display/artl-sde.dtbo \
 		display/artl-sde-display-mtp-overlay.dtbo \
 		display/artl-sde-display-qrd-sku1-overlay.dtbo \
@@ -169,14 +171,11 @@ endif
 
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
 dtbo-$(CONFIG_ARCH_BOURTZI) += display/bourtzi-sde.dtbo \
-		display/bourtzi-sde-display-atp-overlay.dtbo \
 		display/bourtzi-sde-display-mtp-amoled-overlay.dtbo \
-		display/bourtzi-sde-display-rumi-overlay.dtbo \
-		display/bourtzi-sde-display-qrd-overlay.dtbo \
-		display/bourtzi-sde-display-rcm-amoled-overlay.dtbo \
-		display/bourtzi-sde-display-rcm-lcd-overlay.dtbo \
 		display/bourtzi-sde-display-cdp-amoled-overlay.dtbo \
-		display/bourtzi-sde-display-cdp-lcd-overlay.dtbo
+		display/bourtzi-sde-display-atp-amoled-overlay.dtbo \
+		display/bourtzi-sde-display-rcm-amoled-overlay.dtbo \
+		display/bourtzi-sde-display-qrd-amoled-overlay.dtbo
 else
 dtbo-$(CONFIG_ARCH_BOURTZI) += display/trustedvm-bourtzi-sde-display-mtp-amoled-overlay.dtbo
 endif
