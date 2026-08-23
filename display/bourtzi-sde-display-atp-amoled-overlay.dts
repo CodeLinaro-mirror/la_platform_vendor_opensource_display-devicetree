@@ -6,11 +6,11 @@
 /dts-v1/;
 /plugin/;
 
-#include "bourtzi-sde-display-atp.dtsi"
+#include "bourtzi-sde-display-mtp-amoled.dtsi"
 
 / {
 	model = "Qualcomm Technologies, Inc. Bourtzi ATP + WCN3998 + tioman";
-	compatible = "qcom,bourtzi-atp", "qcom,atp", "qcom,bourtzi";
-	qcom,msm-id = <776 0x10000>;
+	compatible = "qcom,bourtzi-atp", "qcom,bourtzip-atp", "qcom,bourtzi", "qcom,bourtzip", "qcom,atp";
+	qcom,msm-id = <776 0x10000>, <777 0x10000>;
 	qcom,board-id = <0x10021 0x0>;
 };

@@ -6,6 +6,7 @@
 #include <dt-bindings/clock/qcom,sm4450-gcc.h>
 #include <dt-bindings/clock/qcom,sm4450-dispcc.h>
 #include "bourtzi-sde-common.dtsi"
+#include "trustedvm-bourtzi-avf-required-subnodes.dtsi"
 
 &soc {
 	/* dummy display clock provider */
@@ -16,9 +17,7 @@
 	};
 
 	smmu_sde_iommu_region_partition: smmu_sde_iommu_region_partition {
-		iommu-addresses = <&smmu_sde_unsec 0x0 0x0 0x0 0x00020000>,
-			<&smmu_sde_unsec 0x0 0x100000000 0x0 0xffffffff>,
-			<&smmu_sde_sec 0x0 0x0 0x0 0x00020000>;
+		iommu-addresses = <&smmu_sde_unsec 0x0 0x0 0x0 0x00020000>;
 	};
 
 	smmu_sde_unsec: qcom,smmu_sde_unsec_cb {
@@ -44,7 +43,6 @@
 		"regdma_phys",
 		"sid_phys";
 
-	qcom,sde-vm-exclude-reg-names = "sid_phys";
 	qcom,tvm-include-reg = <0xaf20000 0x4d68>,
 				<0xaf30000 0x3fd4>;
 
