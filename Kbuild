@@ -147,7 +147,8 @@ dtbo-$(CONFIG_ARCH_SUN) += display/sun-sde.dtbo \
 		display/sun-sde-display-mtp-qmp1000-v8-overlay.dtbo \
 		display/sun-sde-display-hdk-overlay.dtbo \
 		display/sun-sde-display-hdk-sec-hdmi-overlay.dtbo \
-		display/sun-sde-display-cdp-no-display-overlay.dtbo
+		display/sun-sde-display-cdp-no-display-overlay.dtbo \
+		display/sun-sde-display-iot-vc-overlay.dtbo
 else
 dtbo-$(CONFIG_ARCH_SUN) += display/trustedvm-sun-sde-display-cdp-overlay.dtbo \
 		display/trustedvm-sun-sde-display-mtp-overlay.dtbo \
