@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 &mdss_mdp {
 	dsi_nt36672e_fhd_plus_144hz_video_cphy: qcom,mdss_dsi_nt36672e_fhd_plus_cphy_144hz_video {
 		qcom,mdss-dsi-panel-name =

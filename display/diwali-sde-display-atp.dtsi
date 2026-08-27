@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 #include "diwali-sde-display.dtsi"
 
 &dsi_r66451_amoled_cmd_cphy {
