@@ -1,0 +1,113 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
+#include "sun-sde-display.dtsi"
+
+&tlmm {
+	lt9611_pins: lt9611_pins {
+		mux {
+			pins = "gpio69", "gpio60", "gpio214", "gpio83";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio69", "gpio60", "gpio214", "gpio83";
+			drive-strength = <8>;
+			bias-disable = <0>;
+		};
+	};
+};
+
+&qupv3_hub_i2c4 {
+	status = "ok";
+
+	lt9611: lt,lt9611@2f {
+		compatible = "lt,lt9611uxc";
+		reg = <0x2f>;
+		status = "ok";
+		interrupt-parent = <&tlmm>;
+		interrupts = <69 0>;
+		interrupt-names = "lt_irq";
+		lt,irq-gpio = <&tlmm 69 0x0>;
+		lt,reset-gpio = <&tlmm 60 0x0>;
+		lt,hdmi-3p3-en = <&tlmm 214 0x0>;
+		lt,hdmi-1p2-en = <&tlmm 83 0x0>;
+		lt,non-pluggable;
+
+		pinctrl-names = "default";
+		pinctrl-0 = <&lt9611_pins>;
+
+		lt,preferred-mode = "1920x1080";
+
+		lt,customize-modes {
+			lt,customize-mode-id@0 {
+				lt,mode-h-active = <1920>;
+				lt,mode-h-front-porch = <88>;
+				lt,mode-h-pulse-width = <44>;
+				lt,mode-h-back-porch = <148>;
+				lt,mode-h-active-high;
+				lt,mode-v-active = <1080>;
+				lt,mode-v-front-porch = <4>;
+				lt,mode-v-pulse-width = <5>;
+				lt,mode-v-back-porch = <36>;
+				lt,mode-v-active-high;
+				lt,mode-clock-in-khz = <148500>;
+			};
+
+			lt,customize-mode-id@1 {
+				lt,mode-h-active = <3840>;
+				lt,mode-h-front-porch = <176>;
+				lt,mode-h-pulse-width = <88>;
+				lt,mode-h-back-porch = <400>;
+				lt,mode-h-active-high;
+				lt,mode-v-active = <2160>;
+				lt,mode-v-front-porch = <8>;
+				lt,mode-v-pulse-width = <10>;
+				lt,mode-v-back-porch = <72>;
+				lt,mode-v-active-high;
+				lt,mode-clock-in-khz = <608040>;
+			};
+		};
+
+		ports {
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			port@0 {
+				reg = <0>;
+				lt9611_in_0: endpoint {
+					remote-endpoint = <&ext_dsi_1_out>;
+				};
+			};
+		};
+	};
+};
+
+&dsi_ext_bridge_1080p {
+	qcom,dsi-ctrl-num = <1>;
+	qcom,dsi-phy-num = <1>;
+	qcom,dsi-select-clocks = "pll_byte_clk1", "pll_dsi_clk1";
+	qcom,mdss-dsi-ext-bridge-hpd;
+};
+
+&sde_dsi {
+	qcom,dsi-default-panel = <&dsi_ext_bridge_1080p>;
+
+	ports {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		port@0 {
+			reg = <0>;
+			ext_dsi_1_out: endpoint {
+				remote-endpoint = <&lt9611_in_0>;
+			};
+		};
+	};
+};
+
+&battery_charger {
+	qcom,display-panels = <&dsi_ext_bridge_1080p>;
+};
