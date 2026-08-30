@@ -39,6 +39,8 @@
 		enable-1p2-gpios = <&tlmm 16 0>; 	/* 1V2 enable */
 
 		lt,cont-splash-en;
+		lt,audio-support;
+		lt,ext-disp = <&ext_disp>;
 		vdd-supply = <&lt9611uxc_1v2_vreg>;
 		vcc-supply = <&lt9611uxc_3v3_vreg>;
 
