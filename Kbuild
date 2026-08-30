@@ -147,7 +147,8 @@ dtbo-$(CONFIG_ARCH_SUN) += display/sun-sde.dtbo \
 		display/sun-sde-display-mtp-qmp1000-v8-overlay.dtbo \
 		display/sun-sde-display-hdk-overlay.dtbo \
 		display/sun-sde-display-hdk-sec-hdmi-overlay.dtbo \
-		display/sun-sde-display-cdp-no-display-overlay.dtbo
+		display/sun-sde-display-cdp-no-display-overlay.dtbo \
+		display/sun-sde-display-iot-vc-overlay.dtbo
 else
 dtbo-$(CONFIG_ARCH_SUN) += display/trustedvm-sun-sde-display-cdp-overlay.dtbo \
 		display/trustedvm-sun-sde-display-mtp-overlay.dtbo \
@@ -159,7 +160,8 @@ dtbo-$(CONFIG_ARCH_SHIKRA) += display/shikra-sde.dtbo \
 		display/shikra-sde-display-itp-overlay.dtbo \
 		display/shikra-sde-display-eitp-overlay.dtbo \
 		display/shikra-sde-display-atp-overlay.dtbo \
-		display/shikra-sde-display-itps-overlay.dtbo
+		display/shikra-sde-display-itps-overlay.dtbo \
+		display/shikra-sde-display-iqs-overlay.dtbo
 else
 dtbo-$(CONFIG_ARCH_SHIKRA) += display/trustedvm-shikra-sde-display-itps-eitp-overlay.dtbo
 endif

@@ -55,7 +55,7 @@
 		compatible = "i2c-mux-gpio";
 		i2c-parent = <&qupv3_se4_i2c>;
 		mux-gpios = <&tlmm 78 GPIO_ACTIVE_HIGH>;
-		settle-time-us = <15>;
+		settle-time-us = <70>;
 
 		#address-cells = <1>;
 		#size-cells = <0>;
@@ -74,6 +74,29 @@
 	};
 };
 
+&tlmm {
+	bist_gpio_active: bist-gpio-active {
+		pins = "gpio64";
+		function = "gpio";
+		drive-strength = <2>;
+		bias-pull-down;
+		output-low;
+	};
+
+	bist_gpio_suspend: bist-gpio-suspend {
+		pins = "gpio64";
+		function = "gpio";
+		drive-strength = <2>;
+		bias-pull-down;
+		output-low;
+	};
+};
+
+&sde_dsi {
+	pinctrl-0 = <&sde_dsi_active &sde_te_active &bist_gpio_active>;
+	pinctrl-1 = <&sde_dsi_suspend &sde_te_suspend &bist_gpio_suspend>;
+};
+
 &dsi_jbd4020_dual_640x480_60hz_video {
 	qcom,panel-supply-entries = <&dsi_panel_pwr_supply>;
 	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_i2c";
@@ -81,7 +104,6 @@
 	qcom,mdss-dsi-bl-max-level = <1023>;
 	qcom,mdss-brightness-max-level = <1023>;
 	qcom,platform-reset-gpio = <&tlmm 93 0>;
-	qcom,platform-bist-gpio = <&tlmm 64 0>;
 	qcom,panel-i2c-left  = <&left_eye_i2c>;
 	qcom,panel-i2c-right  = <&right_eye_i2c>;
 };
