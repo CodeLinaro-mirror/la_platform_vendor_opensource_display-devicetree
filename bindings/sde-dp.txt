@@ -72,6 +72,7 @@ DP Controller: Required properties:
 					programmable values.
 - qcom,max-pclk-frequency-khz:	An integer specifying the max. pixel clock in KHz supported by Display Port.
 - qcom,mst-enable:		MST feature enable control node.
+- qcom,custom-altmode-payload:	A property to use customized altmode payload data.
 - qcom,dsc-feature-enable:	DSC feature enable control node.
 - qcom,fec-feature-enable:	FEC feature enable control node.
 - qcom,pll-clk-factor: 		A u32 value indicating the factor to be multipled to rate.
