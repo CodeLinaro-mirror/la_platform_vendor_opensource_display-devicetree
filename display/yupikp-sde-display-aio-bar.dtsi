@@ -41,6 +41,8 @@
 		vdd-supply = <&vdd_1v2_lt9611>;
 		vcc-supply = <&vcc_3v3_lt9611>;
 
+		lt,audio-support;
+		lt,ext-disp = <&ext_disp>;
 		lt,reset-gpio-active-high;
 		lt,preferred-mode = "3840x2160";
 
