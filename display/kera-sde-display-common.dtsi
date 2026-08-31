@@ -16,6 +16,7 @@
 #include "dsi-panel-dlc0697-fhd-60hz-video.dtsi"
 #include "dsi-panel-ili9881p-720p-video.dtsi"
 #include "dsi-panel-ext-bridge-1080p.dtsi"
+#include "dsi-panel-ext-bridge-4k60.dtsi"
 #include "dsi-panel-vtdr6130-dsc-fhd-plus-cmd.dtsi"
 #include "dsi-panel-vtdr6130-dsc-fhd-plus-video.dtsi"
 #include "dsi-panel-vtdr6130-dsc-fhd-plus-120hz-cmd.dtsi"
