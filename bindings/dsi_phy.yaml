@@ -155,6 +155,13 @@ properties:
       via HFI so DCP can program the PHY hardware registers directly.
     $ref: /schemas/types.yaml#/definitions/uint32
 
+  qcom,platform-phy-pemph-ctrl:
+    description: >
+      Overrides the global pre-emphasis control settings (PEMPH_CTRL_0 and
+      PEMPH_CTRL_1) for D-PHY and C-PHY mode. These properties are forwarded to
+      DCP via HFI so DCP can program the PHY hardware registers directly.
+    $ref: /schemas/types.yaml#/definitions/uint32-array
+
 required:
   - compatible
   - reg
