@@ -6,8 +6,7 @@
 /dts-v1/;
 /plugin/;
 
-#include "bourtzi-sde-display-mtp-amoled.dtsi"
-
+#include "bourtzi-sde-display-qrd-amoled.dtsi"
 / {
 	model = "Qualcomm Technologies, Inc. Bourtzi QRD + evros + apache + tioman";
 	compatible = "qcom,bourtzi-qrd", "qcom,bourtzip-qrd", "qcom,bourtzi", "qcom,bourtzip", "qcom,qrd";
