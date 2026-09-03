@@ -115,6 +115,16 @@
 	qcom,platform-reset-gpio = <&tlmm 210 0>;
 };
 
+&dsi_nt37802_amoled_cmd_10b_cphy {
+	qcom,panel-supply-entries = <&dsi_panel_pwr_supply>;
+	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_dcs";
+	qcom,mdss-dsi-bl-min-level = <15>;
+	qcom,mdss-dsi-bl-max-level = <4095>;
+	qcom,mdss-brightness-max-level = <8191>;
+	qcom,mdss-dsi-bl-inverted-dbv;
+	qcom,platform-reset-gpio = <&tlmm 210 0>;
+};
+
 &dsi_nt37802_amoled_video_vhm_cphy {
 	qcom,panel-supply-entries = <&dsi_panel_pwr_supply>;
 	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_dcs";
@@ -149,6 +159,16 @@
 };
 
 &dsi_nt37802_amoled_cmd_i2c_cphy {
+	qcom,panel-supply-entries = <&dsi_panel_pwr_ext_ddic_supply>;
+	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_dcs";
+	qcom,mdss-dsi-bl-min-level = <15>;
+	qcom,mdss-dsi-bl-max-level = <4095>;
+	qcom,mdss-brightness-max-level = <8191>;
+	qcom,mdss-dsi-bl-inverted-dbv;
+	qcom,platform-reset-gpio = <&tlmm 210 0>;
+};
+
+&dsi_nt37802_amoled_cmd_i2c_10b_cphy {
 	qcom,panel-supply-entries = <&dsi_panel_pwr_ext_ddic_supply>;
 	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_dcs";
 	qcom,mdss-dsi-bl-min-level = <15>;
@@ -242,7 +262,9 @@
 			&dsi_nt37802_amoled_video_vhm_cphy
 			&dsi_nt37802_amoled_video_cphy
 			&dsi_nt37802_amoled_video_vhm_i2c_cphy
-			&dsi_nt37802_amoled_cmd_i2c_cphy_spr>;
+			&dsi_nt37802_amoled_cmd_i2c_cphy_spr
+			&dsi_nt37802_amoled_cmd_10b_cphy
+			&dsi_nt37802_amoled_cmd_i2c_10b_cphy>;
 	};
 };
 
