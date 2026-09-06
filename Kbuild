@@ -141,16 +141,15 @@ endif
 
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
 dtbo-$(CONFIG_ARCH_BOURTZI) += display/bourtzi-sde.dtbo \
-		display/bourtzi-sde-display-atp-overlay.dtbo \
 		display/bourtzi-sde-display-mtp-amoled-overlay.dtbo \
-		display/bourtzi-sde-display-rumi-overlay.dtbo \
-		display/bourtzi-sde-display-qrd-overlay.dtbo \
-		display/bourtzi-sde-display-rcm-amoled-overlay.dtbo \
-		display/bourtzi-sde-display-rcm-lcd-overlay.dtbo \
 		display/bourtzi-sde-display-cdp-amoled-overlay.dtbo \
-		display/bourtzi-sde-display-cdp-lcd-overlay.dtbo
+		display/bourtzi-sde-display-atp-amoled-overlay.dtbo \
+		display/bourtzi-sde-display-rcm-amoled-overlay.dtbo \
+		display/bourtzi-sde-display-qrd-amoled-overlay.dtbo \
+		display/bourtzi-sde-display-rcm-lcd-overlay.dtbo
 else
-dtbo-$(CONFIG_ARCH_BOURTZI) += display/trustedvm-bourtzi-sde-display-mtp-amoled-overlay.dtbo
+dtbo-$(CONFIG_ARCH_BOURTZI) += display/trustedvm-bourtzi-sde-display-mtp-amoled-overlay.dtbo \
+		display/trustedvm-bourtzi-sde-display-qrd-amoled-overlay.dtbo
 endif
 
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
@@ -214,7 +213,8 @@ dtbo-$(CONFIG_ARCH_VIENNA) += display/vienna-sde.dtbo \
 		display/vienna-sde-display-rcm-overlay.dtbo
 
 dtbo-$(CONFIG_ARCH_SCUBA) += display/scuba-iot-sde.dtbo \
-                display/scuba-iot-sde-display-idp-overlay.dtbo
+                display/scuba-iot-sde-display-idp-overlay.dtbo \
+		display/scuba-iot-sde-display-idp-lp4-overlay.dtbo
 
 dtbo-$(CONFIG_ARCH_KHAJE) += display/khaje-sde.dtbo \
 		display/khaje-sde-display-idp-overlay.dtbo \
@@ -224,7 +224,8 @@ dtbo-$(CONFIG_ARCH_KHAJE) += display/khaje-sde.dtbo \
 		display/khaje-sde-display-atp-overlay.dtbo \
 		display/khaje-sde-display-idp-nopmi-overlay.dtbo \
 		display/khaje-sde-display-qrd-nopmi-overlay.dtbo \
-		display/khaje-sde-display-qrd-nowcd9375-overlay.dtbo
+		display/khaje-sde-display-qrd-nowcd9375-overlay.dtbo \
+		display/khaje-iot-sde-display-idp-lp4-overlay.dtbo
 
 dtbo-$(CONFIG_ARCH_BENGAL) += display/bengal-sde.dtbo \
 		display/bengal-sde-display-idp-overlay.dtbo \

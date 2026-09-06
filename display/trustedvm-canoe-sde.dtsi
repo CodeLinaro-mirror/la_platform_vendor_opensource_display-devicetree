@@ -66,6 +66,30 @@
 	clock-names = "gcc_bus", "iface_clk", "branch_clk", "core_clk",
 		"vsync_clk", "lut_clk", "ssip_clk";
 	qcom,sde-trusted-vm-env;
+
+	qcom,sde-sspp-type = "vig", "vig",
+			"dma", "dma", "dma", "dma";
+	qcom,sde-sspp-off = <0x2c000 0x35000
+			0x98000 0xa1000 0xaa000 0xb3000>;
+	qcom,sde-sspp-xin-id = <0 4 1 5 9 13>;
+	qcom,sde-sspp-excl-rect = <1 1 1 1 1 1>;
+	qcom,sde-sspp-smart-dma-priority = <5 6 1 2 3 4>;
+
+	qcom,sde-max-per-pipe-bw-kbps = <4500000 4500000
+					4500000 4500000
+					4500000 4500000>;
+
+	qcom,sde-max-per-pipe-bw-high-kbps = <7100000 7100000
+						7100000 7100000
+						7100000 7100000>;
+	/* offsets are relative to "mdp_phys + qcom,sde-off */
+	qcom,sde-sspp-clk-ctrl =
+			<0x4330 0>, <0x6330 0>,
+			<0x24330 0>, <0x26330 0>, <0x28330 0>, <0x2a330 0>;
+	qcom,sde-sspp-clk-status =
+			<0x4334 0>, <0x6334 0>,
+			<0x24334 0>, <0x26334 0>, <0x28334 0>, <0x2a334 0>;
+
 };
 
 &mdss_dsi0 {
