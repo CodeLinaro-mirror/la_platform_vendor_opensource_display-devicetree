@@ -413,3 +413,21 @@
 		};
 	};
 };
+
+&dsi_nt37802_amoled_fhd_cmd_cphy {
+	qcom,mdss-dsi-display-timings {
+		timing@0 {
+			qcom,partial-update-enabled = "single_roi";
+			qcom,panel-roi-alignment = <540 20 540 20 1080 20>;
+		};
+	};
+};
+
+&dsi_nt37802_amoled_fhd_cmd_i2c_cphy {
+	qcom,mdss-dsi-display-timings {
+		timing@0 {
+			qcom,partial-update-enabled = "single_roi";
+			qcom,panel-roi-alignment = <540 20 540 20 1080 20>;
+		};
+	};
+};
