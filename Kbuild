@@ -100,7 +100,8 @@ dtbo-$(CONFIG_ARCH_PEBBLE) += display/pebble-sde.dtbo \
 		display/pebble-sde-display-mtp-overlay.dtbo \
 		display/pebble-sde-display-qrd-overlay.dtbo \
 		display/pebble-sde-display-rcm-overlay.dtbo \
-		display/pebble-sde-display-atp-overlay.dtbo
+		display/pebble-sde-display-atp-overlay.dtbo \
+		display/pebble-sde-display-hdk-overlay.dtbo
 else
 dtbo-$(CONFIG_ARCH_PEBBLE) += display/trustedvm-pebble-sde-display-mtp-overlay.dtbo \
 		display/trustedvm-pebble-sde-display-cdp-overlay.dtbo \
