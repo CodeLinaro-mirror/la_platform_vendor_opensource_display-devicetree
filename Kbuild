@@ -160,7 +160,9 @@ ifneq ($(CONFIG_ARCH_QTI_VM), y)
 dtbo-$(CONFIG_ARCH_SHIKRA) += display/shikra-sde.dtbo \
 		display/shikra-sde-display-atp-overlay.dtbo \
 		display/shikra-sde-display-cqs-cqm-evk-overlay.dtbo \
-		display/shikra-sde-display-iqs-evk-overlay.dtbo
+		display/shikra-sde-display-iqs-evk-overlay.dtbo \
+		display/shikra-sde-display-atp-low-ram-overlay.dtbo \
+		display/shikra-sde-display-cqs-cqm-evk-low-ram-overlay.dtbo
 else
 dtbo-$(CONFIG_ARCH_SHIKRA) += display/trustedvm-shikra-sde-display-itps-eitp-overlay.dtbo
 endif
