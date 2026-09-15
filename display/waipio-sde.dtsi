@@ -159,9 +159,9 @@
 	sde_rscc: qcom,sde_rscc@af20000 {
 		cell-index = <0>;
 		compatible = "qcom,sde-rsc";
-		status = "ok";
 		reg = <0xaf20000 0x4d68>,
 			<0xaf30000 0x3fd4>;
+		status = "ok";
 		reg-names = "drv", "wrapper";
 		qcom,sde-rsc-version = <4>;
 
@@ -219,7 +219,6 @@
 
 	mmcx-supply = <&VDD_MMCX_LEVEL>;
 	vdd-supply = <&disp_cc_mdss_core_gdsc>;
-	#power-domain-cells = <0>;
 	#list-cells = <1>;
 
 

@@ -51,6 +51,20 @@
 	qcom,platform-reset-gpio = <&tlmm 0 0>;
 };
 
+&dsi_r66451_amoled_120hz_cmd_cphy {
+        qcom,panel-supply-entries = <&dsi_panel_pwr_supply_extvdd>;
+        qcom,panel-sec-supply-entries = <&dsi_panel_pwr_supply_extvdd>;
+        qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_dcs";
+        qcom,mdss-dsi-sec-bl-pmic-control-type = "bl_ctrl_dcs";
+        qcom,mdss-dsi-bl-min-level = <10>;
+        qcom,mdss-dsi-bl-max-level = <4095>;
+        qcom,mdss-brightness-max-level = <8191>;
+        qcom,mdss-dsi-bl-inverted-dbv;
+        qcom,platform-reset-gpio = <&tlmm 0 0>;
+        qcom,platform-sec-reset-gpio = <&tlmm 4 0>;
+};
+
+
 &dsi_panel_pwr_supply_extvdd {
 	qcom,panel-supply-entry@0 {
 		reg = <0>;
