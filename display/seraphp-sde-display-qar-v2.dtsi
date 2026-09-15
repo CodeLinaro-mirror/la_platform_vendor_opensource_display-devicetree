@@ -40,7 +40,7 @@
 		compatible = "i2c-mux-gpio";
 		i2c-parent = <&qupv3_se10_i2c>;
 		mux-gpios = <&tlmm 78 GPIO_ACTIVE_HIGH>;
-		settle-time-us = <15>;
+		settle-time-us = <70>;
 
 		#address-cells = <1>;
 		#size-cells = <0>;

@@ -1762,6 +1762,55 @@ properties:
     enum: [isl97900, jbd4040]
     default: isl97900
 
+  qcom,panel-calibration-enabled:
+    description: >
+      Boolean property that enables the panel calibration feature.
+      When present, the driver reads per-panel calibration data from an
+      external storage device and applies it during panel initialisation.
+      The storage backend is selected by qcom,panel-calibration-storage.
+      If this property is absent, calibration is disabled and the remaining
+      calibration properties are ignored.
+
+  qcom,panel-calibration-storage:
+    description: >
+      String that selects the storage backend used to hold the panel
+      calibration data. Only meaningful when qcom,panel-calibration-enabled
+      is present.
+      "spi" = Calibration data is stored in an SPI NOR flash device.
+              The driver looks up the left and right flash devices via
+              qcom,panel-calibration-left / qcom,panel-calibration-right
+              phandles and accesses them through the SPI bus.
+      "mtd" = Calibration data is stored in an MTD (Memory Technology
+              Device) partition. The driver looks up the left and right
+              MTD devices via qcom,panel-calibration-left /
+              qcom,panel-calibration-right phandles.
+    $ref: /schemas/types.yaml#/definitions/string
+    enum: [spi, mtd]
+
+  qcom,panel-calibration-left:
+    description: >
+      Phandle to the calibration storage device for the left panel.
+      The node type depends on qcom,panel-calibration-storage:
+        - "spi": phandle to an SPI device node whose SPI bus is used
+          to read the left-panel calibration data.
+        - "mtd": phandle to an MTD device node whose partition holds
+          the left-panel calibration data.
+      This property is optional; if absent, left-panel calibration is
+      skipped.
+    $ref: /schemas/types.yaml#/definitions/phandle
+
+  qcom,panel-calibration-right:
+    description: >
+      Phandle to the calibration storage device for the right panel.
+      The node type depends on qcom,panel-calibration-storage:
+        - "spi": phandle to an SPI device node whose SPI bus is used
+          to read the right-panel calibration data.
+        - "mtd": phandle to an MTD device node whose partition holds
+          the right-panel calibration data.
+      This property is optional; if absent, right-panel calibration is
+      skipped.
+    $ref: /schemas/types.yaml#/definitions/phandle
+
   qcom,dba-panel:
     description: >
       Indicates whether the current panel is used as a display bridge
@@ -2057,6 +2106,11 @@ examples:
         qcom,mdss-dsc-rc-override_v1;
         qcom,adjust-timer-wakeup-ms = <1>;
         qcom,platform-reset-gpio = <&tlmm 0 0>;
+
+        qcom,panel-calibration-enabled;
+        qcom,panel-calibration-storage = "spi";
+        qcom,panel-calibration-left = <&sim_calib_flash_left>;
+        qcom,panel-calibration-right = <&sim_calib_flash_right>;
 
         qcom,dsi-dyn-clk-enable;
         qcom,dsi-dyn-clk-type = "adjust-hfp";

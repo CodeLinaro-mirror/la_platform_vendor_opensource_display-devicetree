@@ -97,8 +97,9 @@
 	qcom,panel-i2c-right = <&i2c0>;
 	qcom,panel-i2c-left = <&i2c4>;
 	qcom,panel-calibration-enabled;
-	qcom,panel-calibration-mtd-left = <&jbd4040_fmc_left>;
-	qcom,panel-calibration-mtd-right = <&jbd4040_fmc_right>;
+	qcom,panel-calibration-storage = "spi";
+	qcom,panel-calibration-left = <&jbd4040_fmc_left>;
+	qcom,panel-calibration-right = <&jbd4040_fmc_right>;
 };
 
 &dsi_jbd_gen2_380x500_120hz_video {
@@ -126,25 +127,24 @@
 
 	status = "ok";
 
+	/*
+	 * JBD4040 calibration flash devices.
+	 * To read flash device using mtd drivers use:
+	 * compatible = "jedec,spi-nor".
+	 */
 	jbd4040_fmc_left: flash@0 {
-		compatible = "jedec,spi-nor";
+		compatible = "qcom,panel-spi-flash";
 		reg = <0>;
 		spi-max-frequency = <25000000>;
-
-		#address-cells = <1>;
-		#size-cells = <1>;
 
 		spi-rx-bus-width = <1>;
 		spi-tx-bus-width = <1>;
 	};
 
 	jbd4040_fmc_right: flash@1 {
-		compatible = "jedec,spi-nor";
+		compatible = "qcom,panel-spi-flash";
 		reg = <1>;
 		spi-max-frequency = <25000000>;
-
-		#address-cells = <1>;
-		#size-cells = <1>;
 
 		spi-rx-bus-width = <1>;
 		spi-tx-bus-width = <1>;

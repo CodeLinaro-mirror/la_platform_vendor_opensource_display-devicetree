@@ -100,7 +100,8 @@ dtbo-$(CONFIG_ARCH_PEBBLE) += display/pebble-sde.dtbo \
 		display/pebble-sde-display-mtp-overlay.dtbo \
 		display/pebble-sde-display-qrd-overlay.dtbo \
 		display/pebble-sde-display-rcm-overlay.dtbo \
-		display/pebble-sde-display-atp-overlay.dtbo
+		display/pebble-sde-display-atp-overlay.dtbo \
+		display/pebble-sde-display-hdk-overlay.dtbo
 else
 dtbo-$(CONFIG_ARCH_PEBBLE) += display/trustedvm-pebble-sde-display-mtp-overlay.dtbo \
 		display/trustedvm-pebble-sde-display-cdp-overlay.dtbo \
@@ -147,7 +148,8 @@ dtbo-$(CONFIG_ARCH_SUN) += display/sun-sde.dtbo \
 		display/sun-sde-display-mtp-qmp1000-v8-overlay.dtbo \
 		display/sun-sde-display-hdk-overlay.dtbo \
 		display/sun-sde-display-hdk-sec-hdmi-overlay.dtbo \
-		display/sun-sde-display-cdp-no-display-overlay.dtbo
+		display/sun-sde-display-cdp-no-display-overlay.dtbo \
+		display/sun-sde-display-iot-vc-overlay.dtbo
 else
 dtbo-$(CONFIG_ARCH_SUN) += display/trustedvm-sun-sde-display-cdp-overlay.dtbo \
 		display/trustedvm-sun-sde-display-mtp-overlay.dtbo \
@@ -156,11 +158,11 @@ endif
 
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
 dtbo-$(CONFIG_ARCH_SHIKRA) += display/shikra-sde.dtbo \
-		display/shikra-sde-display-itp-overlay.dtbo \
-		display/shikra-sde-display-eitp-overlay.dtbo \
 		display/shikra-sde-display-atp-overlay.dtbo \
-		display/shikra-sde-display-itps-overlay.dtbo \
-		display/shikra-sde-display-iqs-overlay.dtbo
+		display/shikra-sde-display-cqs-cqm-evk-overlay.dtbo \
+		display/shikra-sde-display-iqs-evk-overlay.dtbo \
+		display/shikra-sde-display-atp-low-ram-overlay.dtbo \
+		display/shikra-sde-display-cqs-cqm-evk-low-ram-overlay.dtbo
 else
 dtbo-$(CONFIG_ARCH_SHIKRA) += display/trustedvm-shikra-sde-display-itps-eitp-overlay.dtbo
 endif
