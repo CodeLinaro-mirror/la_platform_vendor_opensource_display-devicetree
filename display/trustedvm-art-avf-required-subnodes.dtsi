@@ -64,6 +64,7 @@
 						&dsi_sharp_4k_dsc_video
 						&dsi_sharp_qhd_plus_dsc_cmd
 						&dsi_sharp_qhd_plus_dsc_video
+						&dsi_1600x2560_dual_sim_cmd
 						&dsi_sim_cmd
 						&dsi_sim_dsc_10b_cmd
 						&dsi_sim_dsc_375_cmd
@@ -137,6 +138,7 @@
 						&qcom_mdss_dsi_display_timings_185
 						&qcom_mdss_dsi_display_timings_189
 						&qcom_mdss_dsi_display_timings_191
+						&qcom_mdss_dsi_display_timings_192
 						&qcom_mdss_dsi_display_timings_193
 						&qcom_mdss_dsi_display_timings_195
 						&qcom_mdss_dsi_display_timings_197
@@ -203,6 +205,7 @@
 						&qcom_mdss_dsi_display_timings_79
 						&qcom_mdss_dsi_display_timings_81
 						&qcom_mdss_dsi_display_timings_83
+						&qcom_mdss_dsi_display_timings_84
 						&qcom_mdss_dsi_display_timings_85
 						&qcom_mdss_dsi_display_timings_87
 						&qcom_mdss_dsi_display_timings_93
@@ -277,6 +280,12 @@
 						&timing_0_19
 						&timing_0_190
 						&timing_0_192
+						&timing_0_192_240
+						&timing_0_192_185
+						&timing_0_192_165
+						&timing_0_192_120
+						&timing_0_192_60
+						&timing_0_192_30
 						&timing_0_194
 						&timing_0_196
 						&timing_0_198
@@ -333,6 +342,7 @@
 						&timing_0_54
 						&timing_0_56
 						&timing_0_58
+						&timing_0_60
 						&timing_0_62
 						&timing_0_64
 						&timing_0_66
@@ -343,6 +353,12 @@
 						&timing_0_80
 						&timing_0_82
 						&timing_0_84
+						&timing_0_85_0
+						&timing_0_85_1
+						&timing_0_85_2
+						&timing_0_85_3
+						&timing_0_85_4
+						&timing_0_85_5
 						&timing_0_86
 						&timing_0_88
 						&timing_0_94
