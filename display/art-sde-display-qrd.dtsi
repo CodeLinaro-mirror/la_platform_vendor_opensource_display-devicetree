@@ -5,6 +5,16 @@
 
 #include "art-sde-display.dtsi"
 
+&dsi_il97712a_amoled_dsc_10b_cmd {
+	qcom,panel-supply-entries = <&dsi_panel_pwr_ext_ddic_supply>;
+	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_dcs";
+	qcom,mdss-dsi-bl-min-level = <10>;
+	qcom,mdss-dsi-bl-max-level = <4095>;
+	qcom,mdss-brightness-max-level = <8191>;
+	qcom,mdss-dsi-bl-inverted-dbv;
+	qcom,platform-reset-gpio = <&tlmm 210 0>;
+};
+
 &dsi_ili97680a_amoled_dsc_10b_cmd {
 	qcom,panel-supply-entries = <&dsi_panel_pwr_ext_ddic_supply>;
 	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_dcs";
@@ -148,6 +158,16 @@
 	qcom,platform-reset-gpio = <&tlmm 210 0>;
 };
 
+&dsi_nt37802_amoled_cmd_i2c_cphy_spr {
+	qcom,panel-supply-entries = <&dsi_panel_pwr_ext_ddic_supply>;
+	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_dcs";
+	qcom,mdss-dsi-bl-min-level = <15>;
+	qcom,mdss-dsi-bl-max-level = <4095>;
+	qcom,mdss-brightness-max-level = <8191>;
+	qcom,mdss-dsi-bl-inverted-dbv;
+	qcom,platform-reset-gpio = <&tlmm 210 0>;
+};
+
 &dsi_nt37802_amoled_video_i2c_cphy {
 	qcom,panel-supply-entries = <&dsi_panel_pwr_ext_ddic_supply>;
 	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_dcs";
@@ -217,8 +237,33 @@
 	synaptics_tcm@0 {
 		panel = <&dsi_ili97680a_amoled_dsc_10b_cmd
 			&dsi_nt37802_amoled_cmd_i2c_cphy
+			&dsi_nt37802_amoled_video_i2c_cphy
 			&dsi_nt37802_amoled_cmd_cphy
 			&dsi_nt37802_amoled_video_vhm_cphy
-			&dsi_nt37802_amoled_video_cphy>;
+			&dsi_nt37802_amoled_video_cphy
+			&dsi_nt37802_amoled_video_vhm_i2c_cphy
+			&dsi_nt37802_amoled_cmd_i2c_cphy_spr>;
 	};
+};
+
+&sde_dp {
+	qcom,hbr-rbr-voltage-swing = <0x26 0x30 0x37 0x3f>,
+				<0x31 0x3e 0x3f 0x00>,
+				<0x36 0x3f 0x00 0x00>,
+				<0x3f 0x00 0x00 0x00>;
+	qcom,hbr-rbr-pre-emphasis = <0x20 0x31 0x39 0x3f>,
+				<0x20 0x2f 0x37 0x00>,
+				<0x20 0x2f 0x00 0x00>,
+				<0x22 0x00 0x00 0x00>;
+
+	qcom,hbr2-3-voltage-swing = <0x22 0x32 0x36 0x3a>,
+				<0x29 0x39 0x3f 0x00>,
+				<0x30 0x3f 0x00 0x00>,
+				<0x3f 0x00 0x00 0x00>;
+	qcom,hbr2-3-pre-emphasis = <0x20 0x2c 0x35 0x3b>,
+				<0x22 0x2e 0x36 0x00>,
+				<0x22 0x31 0x00 0x00>,
+				<0x24 0x00 0x00 0x00>;
+	qcom,lane-tuning-params = <0x01 0xff>,
+				<0x02 0xf2>;
 };

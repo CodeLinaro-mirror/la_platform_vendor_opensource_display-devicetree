@@ -27,6 +27,7 @@
 		qcom,mdss-dsi-dma-trigger = "trigger_sw";
 		qcom,mdss-dsi-mdp-trigger = "none";
 		qcom,mdss-dsi-reset-sequence = <1 10>, <0 10>, <1 10>;
+		qcom,platform-reset-gpio-release-delay = <120>;
 		qcom,mdss-pan-physical-width-dimension = <74>;
 		qcom,mdss-pan-physical-height-dimension = <156>;
 
@@ -52,6 +53,11 @@
 		 * ###############################################################
 		 */
 		qcom,spr-pentile-pack-type = "BG-RG Type B";
+		qcom,mdss-dsi-panel-hdr-enabled;
+		qcom,mdss-dsi-panel-hdr-color-primaries = <15150 15750 34250
+			15700 12250 35800 6750 2550>;
+		qcom,mdss-dsi-panel-peak-brightness = <13000000>;
+		qcom,mdss-dsi-panel-blackness-level = <10>;
 
 		qcom_mdss_dsi_display_timings_1: qcom,mdss-dsi-display-timings {
 			timing_0_2: timing@0 {
@@ -214,6 +220,15 @@
 					39 00 00 00 00 00 06 F0 55 AA 52 08 01
 					39 00 00 00 00 00 02 6F 04
 					39 00 00 00 00 00 02 B2 20
+					39 00 00 00 00 00 06 F0 55 AA 52 08 00
+					39 00 00 00 00 00 02 6F 2D
+					39 00 00 00 00 00 18 B5 A8 A8 A8 A8 A8
+					   A8 A8 A8 A8 A8 A8 A8 A8 A8 A8 A8 8E
+					   8E 87 87 50 50 50
+					39 00 00 00 00 00 02 6F 44
+					39 00 00 00 00 00 18 B5 A8 A8 A8 A8 A8
+					   A8 A8 A8 A8 A8 A8 A8 A8 A8 A8 A8 8E
+					   8E 87 87 50 50 50
 					05 00 00 00 78 00 01 11
 					05 01 00 00 78 00 01 29
 					0a 01 00 00 00 00 80 12 00 00 89 30 80
@@ -408,6 +423,15 @@
 					39 00 00 00 00 00 02 D5 56
 					39 00 00 00 00 00 02 6F 03
 					39 00 00 00 00 00 02 B5 35
+					39 00 00 00 00 00 06 F0 55 AA 52 08 00
+					39 00 00 00 00 00 02 6F 2D
+					39 00 00 00 00 00 18 B5 A8 A8 A8 A8 A8
+					   A8 A8 A8 A8 A8 A8 A8 A8 A8 A8 A8 8E
+					   8E 87 87 50 50 50
+					39 00 00 00 00 00 02 6F 44
+					39 00 00 00 00 00 18 B5 A8 A8 A8 A8 A8
+					   A8 A8 A8 A8 A8 A8 A8 A8 A8 A8 A8 8E
+					   8E 87 87 50 50 50
 					05 00 00 00 78 00 01 11
 					05 01 00 00 78 00 01 29
 					0a 01 00 00 00 00 80 12 00 00 89 30 80
@@ -603,6 +627,15 @@
 					39 00 00 00 00 00 02 D5 56
 					39 00 00 00 00 00 02 6F 03
 					39 00 00 00 00 00 02 B5 35
+					39 00 00 00 00 00 06 F0 55 AA 52 08 00
+					39 00 00 00 00 00 02 6F 2D
+					39 00 00 00 00 00 18 B5 A8 A8 A8 A8 A8
+					   A8 A8 A8 A8 A8 A8 A8 A8 A8 A8 A8 8E
+					   8E 87 87 50 50 50
+					39 00 00 00 00 00 02 6F 44
+					39 00 00 00 00 00 18 B5 A8 A8 A8 A8 A8
+					   A8 A8 A8 A8 A8 A8 A8 A8 A8 A8 A8 8E
+					   8E 87 87 50 50 50
 					05 00 00 00 78 00 01 11
 					05 01 00 00 78 00 01 29
 					0a 01 00 00 00 00 80 12 00 00 89 30 80

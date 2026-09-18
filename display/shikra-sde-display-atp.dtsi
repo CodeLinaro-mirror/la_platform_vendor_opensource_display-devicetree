@@ -5,7 +5,96 @@
 
 #include "shikra-sde-display.dtsi"
 
+&tlmm {
+	display_panel_vci_default: display_panel_vci_default {
+		mux {
+			pins = "gpio44";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio44";
+			drive-strength = <8>;
+			bias-disable = <0>;
+			output-high;
+		};
+	};
+
+	display_panel_avdd_default: display_panel_avdd_default {
+		mux {
+			pins = "gpio152";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio152";
+			drive-strength = <8>;
+			bias-disable = <0>;
+			output-high;
+		};
+	};
+
+	display_panel_vddio_default: display_panel_vddio_default {
+		mux {
+			pins = "gpio153";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio153";
+			drive-strength = <8>;
+			bias-disable = <0>;
+			output-high;
+		};
+	};
+};
+
 &soc {
+	display_panel_vci: display_gpio_regulator@0 {
+		compatible = "qti-regulator-fixed";
+		regulator-name = "display_panel_vci";
+		regulator-min-microvolt = <3000000>;
+		regulator-max-microvolt = <3544000>;
+		regulator-enable-ramp-delay = <233>;
+		gpio = <&tlmm 44 0>;
+		enable-active-high;
+		regulator-boot-on;
+		proxy-supply = <&display_panel_vci>;
+		qcom,proxy-consumer-enable;
+		pinctrl-names = "default";
+		pinctrl-0 = <&display_panel_vci_default>;
+	};
+
+	display_panel_avdd: display_gpio_regulator@1 {
+		compatible = "qti-regulator-fixed";
+		regulator-name = "display_panel_avdd";
+		regulator-min-microvolt = <1200000>;
+		regulator-max-microvolt = <1250000>;
+		regulator-enable-ramp-delay = <233>;
+		gpio = <&tlmm 152 0>;
+		enable-active-high;
+		regulator-boot-on;
+		proxy-supply = <&display_panel_avdd>;
+		qcom,proxy-consumer-enable;
+		pinctrl-names = "default";
+		pinctrl-0 = <&display_panel_avdd_default>;
+	};
+
+	display_panel_vddio: display_gpio_regulator@2 {
+		compatible = "qti-regulator-fixed";
+		regulator-name = "display_panel_vddio";
+		regulator-min-microvolt = <1800000>;
+		regulator-max-microvolt = <2000000>;
+		regulator-enable-ramp-delay = <233>;
+		gpio = <&tlmm 153 0>;
+		enable-active-high;
+		regulator-boot-on;
+		proxy-supply = <&display_panel_vddio>;
+		qcom,proxy-consumer-enable;
+		pinctrl-names = "default";
+		pinctrl-0 = <&display_panel_vddio_default>;
+	};
+
 	dsi_panel_pwr_supply_vtdr: dsi_panel_pwr_supply_vtdr {
 		#address-cells = <1>;
 		#size-cells = <0>;
@@ -14,14 +103,35 @@
 			reg = <0>;
 			qcom,supply-name = "vddio";
 			qcom,supply-min-voltage = <1800000>;
-			qcom,supply-max-voltage = <1800000>;
+			qcom,supply-max-voltage = <2000000>;
 			qcom,supply-enable-load = <220000>;
 			qcom,supply-disable-load = <8000>;
 			qcom,supply-post-on-sleep = <20>;
 		};
+
+		qcom,panel-supply-entry@1 {
+			reg = <1>;
+			qcom,supply-name = "vci";
+			qcom,supply-min-voltage = <3000000>;
+			qcom,supply-max-voltage = <3544000>;
+			qcom,supply-enable-load = <10000>;
+			qcom,supply-disable-load = <300>;
+			qcom,supply-post-on-sleep = <1>;
+			qcom,supply-post-off-sleep = <2>;
+		};
+
+		qcom,panel-supply-entry@2 {
+			reg = <2>;
+			qcom,supply-name = "vdd";
+			qcom,supply-min-voltage = <1200000>;
+			qcom,supply-max-voltage = <1250000>;
+			qcom,supply-enable-load = <200000>;
+			qcom,supply-disable-load = <0>;
+			qcom,supply-post-on-sleep = <0>;
+			qcom,supply-post-off-sleep = <2>;
+		};
 	};
 };
-
 
 &dsi_vtdr6130_amoled_nodsc_60hz_cmd {
 	qcom,panel-supply-entries = <&dsi_panel_pwr_supply_vtdr>;
@@ -31,11 +141,11 @@
 	qcom,mdss-brightness-max-level = <8191>;
 	qcom,mdss-dsi-bl-inverted-dbv;
 	qcom,platform-te-gpio = <&tlmm 86 0>;
-	qcom,platform-bklight-en-gpio = <&tlmm 153 0>;
-	qcom,platform-en-gpio = <&tlmm 152 0>;
 };
 
 &sde_dsi {
-	vddio-supply = <&S1A>;
+	vddio-supply = <&display_panel_vddio>;
+	vci-supply = <&display_panel_vci>;
+	avdd-supply = <&display_panel_avdd>;
 	qcom,dsi-default-panel = <&dsi_vtdr6130_amoled_nodsc_60hz_cmd>;
 };

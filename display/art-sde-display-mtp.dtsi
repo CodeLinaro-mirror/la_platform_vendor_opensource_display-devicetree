@@ -62,6 +62,7 @@
 	qcom,mdss-dsi-bl-max-level = <4095>;
 	qcom,mdss-brightness-max-level = <8191>;
 	qcom,mdss-dsi-bl-inverted-dbv;
+	qcom,esd-check-host-controlled;
 	qcom,platform-reset-gpio = <&tlmm 210 0>;
 	qcom,platform-sec-reset-gpio = <&tlmm 211 0>;
 };
@@ -75,6 +76,7 @@
 	qcom,mdss-dsi-bl-max-level = <4095>;
 	qcom,mdss-brightness-max-level = <8191>;
 	qcom,mdss-dsi-bl-inverted-dbv;
+	qcom,esd-check-host-controlled;
 	qcom,platform-reset-gpio = <&tlmm 210 0>;
 	qcom,platform-sec-reset-gpio = <&tlmm 211 0>;
 };

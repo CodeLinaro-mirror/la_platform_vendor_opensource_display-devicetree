@@ -90,7 +90,7 @@
 		qcom_panel_supply_entry_1: qcom,panel-supply-entry@1 {
 			reg = <1>;
 			qcom,supply-name = "vdd";
-			qcom,supply-min-voltage = <1100000>;
+			qcom,supply-min-voltage = <1200000>;
 			qcom,supply-max-voltage = <1200000>;
 			qcom,supply-enable-load = <220000>;
 			qcom,supply-disable-load = <3>;
@@ -147,7 +147,7 @@
 			reg = <2>;
 			qcom,supply-name = "vdd";
 			qcom,supply-min-voltage = <1200000>;
-			qcom,supply-max-voltage = <1292000>;
+			qcom,supply-max-voltage = <1200000>;
 			qcom,supply-enable-load = <200000>;
 			qcom,supply-disable-load = <0>;
 			qcom,supply-post-on-sleep = <0>;
@@ -172,8 +172,8 @@
 		qcom_panel_supply_entry_1_2: qcom,panel-supply-entry@1 {
 			reg = <1>;
 			qcom,supply-name = "vdd";
-			qcom,supply-min-voltage = <1100000>;
-			qcom,supply-max-voltage = <1950000>;
+			qcom,supply-min-voltage = <1200000>;
+			qcom,supply-max-voltage = <1200000>;
 			qcom,supply-enable-load = <220000>;
 			qcom,supply-disable-load = <3>;
 			qcom,supply-post-on-sleep = <0>;
@@ -1071,8 +1071,15 @@
 		};
 
 		timing_2_352: timing@2 {
-			qcom,mdss-dsi-panel-phy-timings = [00 00 00 00 1e 17 04
-				19 03 02 04 00 00 00];
+			qcom,mdss-dsi-panel-phy-timings = [00 00 00 00 23 23 08
+				19 08 02 04 00 00 00];
+			qcom,display-topology = <2 2 1>;
+			qcom,default-topology-index = <0>;
+		};
+
+		timing_3_352: timing@3 {
+			qcom,mdss-dsi-panel-phy-timings = [00 00 00 00 23 23 08
+				19 08 02 04 00 00 00];
 			qcom,display-topology = <2 2 1>;
 			qcom,default-topology-index = <0>;
 		};
@@ -1083,8 +1090,8 @@
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
 	qcom,dsi-select-sec-clocks = "pll_byte_clk1", "pll_dsi_clk1";
 
-	qcom,mdss-dsi-display-timings {
-		timing@0 {
+	qcom_mdss_dsi_display_timings_403: qcom,mdss-dsi-display-timings {
+		timing_0_403: timing@0 {
 			qcom,mdss-dsi-panel-phy-timings = [00 16 05 05 14 1F 06
 				05 06 02 04 00 13 0A];
 			qcom,display-topology = <2 2 1>;
@@ -1097,8 +1104,8 @@
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
 	qcom,dsi-select-sec-clocks = "pll_byte_clk1", "pll_dsi_clk1";
 
-	qcom,mdss-dsi-display-timings {
-		timing@0 {
+	qcom_mdss_dsi_display_timings_404: qcom,mdss-dsi-display-timings {
+		timing_0_404: timing@0 {
 			qcom,mdss-dsi-panel-phy-timings = [00 16 05 05 14 1F 06
 				05 06 02 04 00 13 0A];
 			qcom,display-topology = <2 2 1>;
@@ -1154,8 +1161,15 @@
 		};
 
 		timing_2_354: timing@2 {
-			qcom,mdss-dsi-panel-phy-timings = [00 00 00 00 1e 17 04
-				19 03 02 04 00 00 00];
+			qcom,mdss-dsi-panel-phy-timings = [00 00 00 00 23 23 08
+				19 08 02 04 00 00 00];
+			qcom,display-topology = <2 2 1>;
+			qcom,default-topology-index = <0>;
+		};
+
+		timing_3_354: timing@3 {
+			qcom,mdss-dsi-panel-phy-timings = [00 00 00 00 23 23 08
+				19 08 02 04 00 00 00];
 			qcom,display-topology = <2 2 1>;
 			qcom,default-topology-index = <0>;
 		};
@@ -1170,7 +1184,6 @@
 	qcom,mdss-dsi-pan-enable-dynamic-fps;
 	qcom,mdss-dsi-pan-fps-update = "dfps_immediate_porch_mode_vfp";
 
-	qcom,esd-check-enabled;
 	qcom,mdss-dsi-panel-status-check-mode = "reg_read";
 	qcom,mdss-dsi-panel-status-command = [06 01 00 01 00 00 01 0a];
 	qcom,mdss-dsi-panel-status-command-state = "dsi_lp_mode";
@@ -1506,13 +1519,6 @@
 
 &dsi_sim_vid {
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
-	qcom,dsi-supported-dfps-list = <144 120 90 60 30 10 1>;
-	qcom,mdss-dsi-pan-enable-dynamic-fps;
-	qcom,mdss-dsi-pan-fps-update = "dfps_immediate_porch_mode_vfp";
-
-	qcom,qsync-enable;
-	qcom,dsi-supported-qsync-min-fps-list = <1 1 1 1 1 1 1>;
-	qcom,dsi-qsync-avr-step-list = <288 240 180 120 60 20 0>;
 
 	qcom_mdss_dsi_display_timings_93: qcom,mdss-dsi-display-timings {
 		timing_0_94: timing@0 {
