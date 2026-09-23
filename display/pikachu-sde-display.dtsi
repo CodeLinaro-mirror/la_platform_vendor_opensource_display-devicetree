@@ -63,6 +63,21 @@
 		pinctrl-names = "default";
 		pinctrl-0 = <&display_panel_dvdd_default>;
 	};
+
+	display_panel_avee: display_gpio_regulator@3 {
+		compatible = "qti-regulator-fixed";
+		regulator-name = "display_panel_avee";
+		regulator-min-microvolt = <5500000>;
+		regulator-max-microvolt = <5500000>;
+		regulator-enable-ramp-delay = <233>;
+		gpio = <&tlmm 114 0>;
+		enable-active-high;
+		regulator-boot-on;
+		proxy-supply = <&display_panel_avee>;
+		qcom,proxy-consumer-enable;
+		pinctrl-names = "default";
+		pinctrl-0 = <&display_panel_avee_default>;
+	};
 };
 
 &sde_dsi {
@@ -92,6 +107,7 @@
 	vddio-supply = <&display_panel_vddio>;
 	avdd-supply = <&display_panel_avdd>;
 	dvdd-supply = <&display_panel_dvdd>;
+	avee-supply = <&display_panel_avee>;
 };
 
 &sde_dsi1 {
@@ -121,6 +137,7 @@
 	vddio-supply = <&display_panel_vddio>;
 	avdd-supply = <&display_panel_avdd>;
 	dvdd-supply = <&display_panel_dvdd>;
+	avee-supply = <&display_panel_avee>;
 };
 
 &mdss_mdp {
