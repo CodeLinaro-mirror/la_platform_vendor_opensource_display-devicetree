@@ -1,0 +1,14 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
+#include "shikra-sde-display-atp.dtsi"
+
+&disp_rdump_memory {
+        status = "disabled";
+};
+
+&dfps_data_memory {
+        status = "disabled";
+};
