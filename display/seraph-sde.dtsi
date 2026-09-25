@@ -22,6 +22,7 @@
 				<&lsr_non_secure_cb 0x0 0x4b000000>,
 				<&lsr_non_secure_cb 0x70000000 0x1000>,
 				<&lsr_non_secure_cb 0xdb000000 0x25000000>,
+				<&lsr_non_secure_cb 0xb8000000 0x09600000>,
 				<&smmu_sde_sec 0x0 0x26800000>,
 				<&smmu_sde_sec 0x4b000000 0xb5000000>,
 				<&lsr_sec_nonpixel_cb 0x0 0x01000000>,
