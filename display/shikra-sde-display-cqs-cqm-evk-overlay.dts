@@ -12,7 +12,9 @@
 	model = "Qualcomm Technologies, Inc. Shikra ITP";
 	compatible = "qcom,shikra-cqs", "qcom,shikra-cqm", "qcom,shikra-evk", "qcom,evk";
 	qcom,msm-id = <756 0x10000>, <758 0x10000>;
-	qcom,board-id = <0x10033 0>, <0x20033 0>, <0x30033 0>,
+	qcom,board-id = <0x10033 0>, <0x20033 0>, <0x30033 0>, <0x70033 0>,
+			<0x80033 0>,
 			<0x10033 1>, <0x20033 1>, <0x30033 1>, <0x40033 1>,
+			<0x60033 1>, <0x70033 1>,
 			<0x10033 2>, <0x20033 2>, <0x30033 2>;
 };
