@@ -1685,6 +1685,12 @@ properties:
       DCS command will be triggered for command mode panels
     $ref: /schemas/types.yaml#/definitions/uint32
 
+  qcom,mdss-dsi-dma-schedule-override-en:
+    description: >
+      A boolean to indicate that the DMA schedule line and schedule window
+      values provided by the panel should be honored as-is, including a
+      value of zero, instead of falling back to default values.
+
   qcom,mdss-dsi-mdp-idle-ctrl-en:
     description: >
       A boolean to enable LP11 insertion after transmission of every line.
@@ -2270,8 +2276,9 @@ examples:
         qcom,vdc-bit-per-pixel = <6>;
         qcom,src-color-space = <0>;
         qcom,src-chroma-format = <0>;
-        qcom,mdss-dsi-dma-schedule-line = <5>;
-        qcom,mdss-dsi-dma-schedule-window = <50>;
+        qcom,mdss-dsi-dma-schedule-line = <0>;
+        qcom,mdss-dsi-dma-schedule-window = <5>;
+        qcom,mdss-dsi-dma-schedule-override-en;
       };
     };
 ...
