@@ -94,10 +94,6 @@
 	qcom,platform-sec-reset-gpio = <&tlmm 56 0>;
 };
 
-&display_panel_avdd_default {
-	power-source = <0>;  /* 1.8V */
-};
-
 &dsi_dlc0697_fhd_60_video {
 	qcom,panel-supply-entries = <&dsi_panel_pwr_supply>;
 	qcom,panel-sec-supply-entries = <&dsi_panel_pwr_supply>;
