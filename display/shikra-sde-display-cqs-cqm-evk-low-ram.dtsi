@@ -1,0 +1,23 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
+#include "shikra-sde-display-cqs-cqm-evk.dtsi"
+
+&dsi_dlc0697_fhd_60_video {
+	/delete-property/ qcom,dsi-dyn-clk-enable;
+	/delete-property/ qcom,mdss-dsi-pan-enable-dynamic-fps;
+	qcom,dsi-supported-dfps-list = <>;
+	qcom,dsi-dyn-clk-type = <>;
+	qcom,mdss-dsi-pan-fps-update = <>;
+	qcom,dsi-dyn-clk-list = <>;
+};
+
+&disp_rdump_memory {
+        status = "disabled";
+};
+
+&dfps_data_memory {
+        status = "disabled";
+};
