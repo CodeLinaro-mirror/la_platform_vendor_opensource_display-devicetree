@@ -134,10 +134,6 @@
 	qcom,mdss-dsi-ext-bridge-hpd;
 };
 
-&display_panel_avdd_default {
-	power-source = <0>;  /* 1.8V */
-};
-
 &dsi_dlc0697_fhd_60_video {
 	qcom,panel-supply-entries = <&dsi_panel_pwr_supply>;
 	qcom,panel-sec-supply-entries = <&dsi_panel_pwr_supply>;
@@ -153,8 +149,14 @@
 	qcom,platform-en-gpio = <&pm8550vs_g_gpios 5 0>;
 };
 
+&dsi_ext_bridge_4k60 {
+	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
+	qcom,mdss-dsi-ext-bridge-hpd;
+	qcom,mdss-dsi-ext-bridge-dynamic-topology;
+};
+
 &sde_dsi {
-	qcom,dsi-default-panel = <&dsi_ext_bridge_1080p>;
+	qcom,dsi-default-panel = <&dsi_ext_bridge_4k60>;
 	pinctrl-0 = <&sde_dsi_active &sde_te_active
 		&display_panel_avdd_default
 		&lcd_backlight_en_default>;
@@ -206,10 +208,38 @@
 		pinctrl-names = "default";
 		pinctrl-0 = <&lt9611uxd_pins>;
 
-		lt,preferred-mode = "1920x1080";
+		lt,preferred-mode = "3840x2160";
 
 		lt,customize-modes {
 			lt,customize-mode-id@0 {
+				lt,mode-h-active = <3840>;
+				lt,mode-h-front-porch = <176>;
+				lt,mode-h-pulse-width = <88>;
+				lt,mode-h-back-porch = <296>;
+				lt,mode-h-active-high;
+				lt,mode-v-active = <2160>;
+				lt,mode-v-front-porch = <8>;
+				lt,mode-v-pulse-width = <10>;
+				lt,mode-v-back-porch = <72>;
+				lt,mode-v-active-high;
+				lt,mode-clock-in-khz = <594000>;
+			};
+
+			lt,customize-mode-id@1 {
+				lt,mode-h-active = <3840>;
+				lt,mode-h-front-porch = <176>;
+				lt,mode-h-pulse-width = <88>;
+				lt,mode-h-back-porch = <296>;
+				lt,mode-h-active-high;
+				lt,mode-v-active = <2160>;
+				lt,mode-v-front-porch = <8>;
+				lt,mode-v-pulse-width = <10>;
+				lt,mode-v-back-porch = <72>;
+				lt,mode-v-active-high;
+				lt,mode-clock-in-khz = <297000>;
+			};
+
+			lt,customize-mode-id@2 {
 				lt,mode-h-active = <1920>;
 				lt,mode-h-front-porch = <88>;
 				lt,mode-h-pulse-width = <44>;
@@ -221,6 +251,32 @@
 				lt,mode-v-back-porch = <36>;
 				lt,mode-v-active-high;
 				lt,mode-clock-in-khz = <148500>;
+			};
+
+			lt,customize-mode-id@3 {
+				lt,mode-h-active = <1280>;
+				lt,mode-h-front-porch = <110>;
+				lt,mode-h-pulse-width = <40>;
+				lt,mode-h-back-porch = <220>;
+				lt,mode-h-active-high;
+				lt,mode-v-active = <720>;
+				lt,mode-v-front-porch = <5>;
+				lt,mode-v-pulse-width = <5>;
+				lt,mode-v-back-porch = <20>;
+				lt,mode-v-active-high;
+				lt,mode-clock-in-khz = <74250>;
+			};
+
+			lt,customize-mode-id@4 {
+				lt,mode-h-active = <720>;
+				lt,mode-h-front-porch = <16>;
+				lt,mode-h-pulse-width = <62>;
+				lt,mode-h-back-porch = <60>;
+				lt,mode-v-active = <480>;
+				lt,mode-v-front-porch = <9>;
+				lt,mode-v-pulse-width = <6>;
+				lt,mode-v-back-porch = <30>;
+				lt,mode-clock-in-khz = <27000>;
 			};
 		};
 

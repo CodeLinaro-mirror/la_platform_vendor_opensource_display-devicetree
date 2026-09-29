@@ -1,0 +1,61 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
+#include "shikra-sde-display.dtsi"
+
+&soc {
+	lcd_bias: regulator-lcd-bias {
+		compatible = "regulator-fixed";
+		regulator-name = "lcd_bias";
+		regulator-min-microvolt = <3300000>;
+		regulator-max-microvolt = <3300000>;
+		vin-supply = <&pm8150_l17>;
+		gpio = <&pm8150_gpios 4 0>;
+		enable-active-high;
+		pinctrl-0 = <&lcd_bias_en>;
+		pinctrl-names = "default";
+	};
+};
+
+&pm8150_gpios {
+	lcd_bias_en: lcd-bias-en-state {
+		pins = "gpio4";
+		function = "normal";
+		bias-disable;
+	};
+
+	backlight_en: backlight-en-state {
+		pins = "gpio1";
+		function = "normal";
+		bias-disable;
+	};
+};
+
+&pm8150_l11 {
+	regulator-min-microvolt = <1232000>;
+	regulator-max-microvolt = <1232000>;
+	regulator-allow-set-load;
+};
+
+&dsi_dlc0697_fhd_60_video {
+	qcom,panel-supply-entries = <&dsi_panel_pwr_supply_bias>;
+	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_dcs";
+	qcom,mdss-dsi-bl-min-level = <10>;
+	qcom,mdss-dsi-bl-max-level = <4095>;
+	qcom,mdss-brightness-max-level = <8191>;
+	qcom,mdss-dsi-bl-inverted-dbv;
+	qcom,platform-te-gpio = <&tlmm 86 0>;
+	qcom,platform-bklight-en-gpio = <&pm8150_gpios 1 0>;
+};
+
+&sde_dsi {
+	qcom,dsi-default-panel = <&dsi_dlc0697_fhd_60_video>;
+	vddio-supply = <&S4A>;
+	lcd_bias-supply = <&lcd_bias>;
+};
+
+&mdss_dsi0 {
+	vdda-1p2-supply = <&pm8150_l11>;
+};

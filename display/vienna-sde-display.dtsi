@@ -10,3 +10,9 @@
 	connectors = <&sde_dsi &smmu_sde_unsec &smmu_sde_sec>;
 };
 
+&soc {
+	disp_rdump_memory: disp_rdump_region {
+		reg = <0x0 0xa9800000 0x0 0x02b00000>;
+		label = "disp_rdump_region";
+	};
+};
