@@ -186,6 +186,8 @@
 						&qcom_mdss_dsi_display_timings_355
 						&qcom_mdss_dsi_display_timings_356
 						&qcom_mdss_dsi_display_timings_359
+						&qcom_mdss_dsi_display_timings_361
+						&qcom_mdss_dsi_display_timings_363
 						&qcom_mdss_dsi_display_timings_370
 						&qcom_mdss_dsi_display_timings_36
 						&qcom_mdss_dsi_display_timings_403
@@ -335,6 +337,8 @@
 						&timing_0_355
 						&timing_0_357
 						&timing_0_360
+						&timing_0_362
+						&timing_0_364
 						&timing_0_371
 						&timing_0_37
 						&timing_0_404
