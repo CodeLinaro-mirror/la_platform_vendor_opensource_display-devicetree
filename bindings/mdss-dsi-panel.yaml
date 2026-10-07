@@ -1241,6 +1241,13 @@ properties:
       and the allocated shared buffer size is calculated as
       mdss-dsi-shared-cmd-buf-page-size * PAGE_SIZE.
 
+  qcom,mdss-dsi-non-embedded-tx-cmd-buf-size:
+    description: >
+      The DSI non-embedded TX command buffer size specifies the amount of GEM
+      memory allocated for the TX command buffer based on the largest non-embedded
+      command payload requirement. The size is defined in bytes and is automatically
+      aligned to the system page size if it is not already page-aligned.
+
   qcom,mdss-dsi-lp11-init:
     description: >
       Boolean used to enable the DSI clocks and data lanes (low power 11)
@@ -2001,6 +2008,7 @@ examples:
         qcom,mdss-dsi-te-using-wd;
         qcom,mdss-dsi-te-using-te-pin;
         qcom,mdss-dsi-shared-cmd-buf-page-size = <10>;
+        qcom,mdss-dsi-non-embedded-tx-cmd-buf-size = <262144>;
         qcom,qsync-enable;
         qcom,mdss-dsi-qsync-min-refresh-rate = <30>;
         qcom,mdss-dsi-te-dcs-command = <1>;
