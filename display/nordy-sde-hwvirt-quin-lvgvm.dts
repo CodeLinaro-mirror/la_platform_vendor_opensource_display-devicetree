@@ -37,11 +37,15 @@
 &smmu_sde_unsec {
 	iommus = <&apps_smmu_1 0x03E8 0x0002>,
 		 <&apps_smmu_1 0x03EA 0x0002>;
+		 qcom,iova-max-align-shift = <8>; /* 1 MB */
+		 qcom,iova-best-fit;
 };
 
 &smmu_sde_unsec1 {
 	iommus = <&apps_smmu_1 0x0408 0x0002>,
 		 <&apps_smmu_1 0x040A 0x0002>;
+		 qcom,iova-max-align-shift = <8>; /* 1 MB */
+		 qcom,iova-best-fit;
 };
 
 &smmu_sde_sec {
