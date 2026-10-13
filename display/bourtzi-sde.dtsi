@@ -12,6 +12,14 @@
 #include "bourtzi-sde-common.dtsi"
 
 &soc {
+	smmu_sde_iommu_region_partition: smmu_sde_iommu_region_partition {
+		iommu-addresses = <&smmu_sde_unsec 0x0 0x0 0x0 0x00020000>,
+			<&smmu_sde_unsec 0x0 0xfc800000  0x0 0x02b00000>,
+			<&smmu_sde_sec 0x0 0x0 0x0 0x00020000>,
+			<&smmu_rot_unsec 0x0 0x0 0x0 0x00020000>,
+			<&smmu_rot_sec 0x0 0x0 0x0 0x00020000>;
+	};
+
 	sde_rscc: qcom,sde_rscc@af20000 {
 		cell-index = <0>;
 		compatible = "qcom,sde-rsc";
@@ -94,7 +102,7 @@
 		smmu_rot_unsec: qcom,smmu_rot_unsec_cb {
 			compatible = "qcom,smmu_sde_rot_unsec";
 			iommus = <&apps_smmu 0x081C 0x400>;
-			qcom,iommu-dma-addr-pool = <0x00020000 0xfffe0000>;
+			memory-region = <&smmu_sde_iommu_region_partition>;
 			qcom,iommu-faults = "non-fatal";
 			dma-coherent;
 		};
@@ -103,17 +111,11 @@
 			compatible = "qcom,smmu_sde_rot_sec";
 			iommus = <&apps_smmu 0x81D 0x0>,
 					<&apps_smmu 0xC1D 0x0>;
-			qcom,iommu-dma-addr-pool = <0x00020000 0xfffe0000>;
+			memory-region = <&smmu_sde_iommu_region_partition>;
 			qcom,iommu-faults = "non-fatal";
 			qcom,iommu-vmid = <0xa>;
 			dma-coherent;
 		};
-	};
-
-	smmu_sde_iommu_region_partition: smmu_sde_iommu_region_partition {
-		iommu-addresses = <&smmu_sde_unsec 0x0 0x0 0x0 0x00020000>,
-			<&smmu_sde_unsec 0x0 0xfc800000  0x0 0x02b00000>,
-			<&smmu_sde_sec 0x0 0x0 0x0 0x00020000>;
 	};
 
 	smmu_sde_unsec: qcom,smmu_sde_unsec_cb {
