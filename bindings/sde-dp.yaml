@@ -288,6 +288,21 @@ properties:
       parameters to be applied by the DCP firmware. Parameters omitted from
       this list are left at the DCP firmware's own platform-specific defaults.
 
+  qcom,vendor-name:
+    description: |
+      An optional 8-byte vendor name string used to populate the vendor name field of
+      the DP source product descriptor SDP Infoframe.
+
+  qcom,product-desc:
+    description: |
+      An optional 16-byte product description used to populate the product description
+      field of the DP source product descriptor SDP Infoframe.
+
+  qcom,source-product-desc-sdp-id:
+    description: |
+      An Optional u32 value selecting which GENERICx SDP register block the DP
+      controller uses to transmit a source product description SDP Infoframe.
+
   compatible:
    const: qcom,msm-ext-disp-audio-codec-rx
 
@@ -545,6 +560,10 @@ examples:
 
       qcom,lane-tuning-params = <0x01 0xf9>,
                 <0x02 0xf2>;
+
+      qcom,vendor-name = "qualcomm";
+      qcom,product-desc = "snapdragon";
+      qcom,source-product-desc-sdp-id = <1>;
 
       qcom,ctrl-supply-entries {
       #address-cells = <1>;

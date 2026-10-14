@@ -6,7 +6,7 @@
 /dts-v1/;
 /plugin/;
 
-#include "shikra-sde-display-iqs.dtsi"
+#include "shikra-sde-display-iqs-evk.dtsi"
 
 / {
 	model = "Qualcomm Technologies, Inc. Shikra IQS";
