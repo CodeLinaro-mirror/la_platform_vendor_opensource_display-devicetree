@@ -231,6 +231,7 @@
 
 		qcom,max-pclk-frequency-khz = <675000>;
 		qcom,max-horizontal-width = <4096>;
+		qcom,pll-clk-factor = <1>;
 
 		vdda-1p2-supply = <&L6B>;
 		vdda-0p9-supply = <&L1B>;
@@ -312,7 +313,7 @@
 		memory-region = <&smmu_sde_iommu_region_partition>;
 		qcom,iommu-faults = "non-fatal";
 		qcom,iommu-earlymap; /* for cont-splash */
-		dma-coherent-hint-cached;
+		dma-coherent;
 	};
 
 	smmu_sde_sec: qcom,smmu_sde_sec_cb {

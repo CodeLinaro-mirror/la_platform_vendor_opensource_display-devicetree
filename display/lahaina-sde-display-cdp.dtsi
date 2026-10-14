@@ -123,7 +123,7 @@
 &dsi_sharp_qhd_plus_dsc_cmd {
 	qcom,panel-supply-entries = <&dsi_panel_pwr_supply_avdd>;
 	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_pwm";
-	pwms = <&pm8350c_pwm_2 0 0>;
+	pwms = <&pm8350c_pwm 3 0>;
 	qcom,bl-pmic-pwm-period-usecs = <100>;
 	qcom,mdss-dsi-bl-min-level = <1>;
 	qcom,mdss-dsi-bl-max-level = <4095>;
@@ -224,9 +224,39 @@
 	qcom,platform-sec-reset-gpio = <&tlmm 25 0>;
 };
 
+&qupv3_se4_i2c {
+	#address-cells = <1>;
+	#size-cells = <0>;
+
+	status = "ok";
+	qcom,touch-active = "atmel,maxtouch";
+
+	atmel_mxt_ts@4a {
+		compatible = "atmel,maxtouch";
+		reg = <0x4a>;
+		interrupt-parent = <&tlmm>;
+		interrupts = <23 0x2008>;
+		avdd-supply = <&L3C>;
+		vdd-supply = <&L8C>;
+		pinctrl-names = "pmx_ts_active", "pmx_ts_suspend";
+		pinctrl-0 = <&ts_active>;
+		pinctrl-1 = <&ts_int_suspend &ts_reset_suspend>;
+
+		atmel,xy_switch;
+		atmel,inverty;
+		atmel,invertx;
+		reset-gpios = <&tlmm 22 0x00>;
+		irq-gpios = <&tlmm 23 0x2008>;
+		atmel,panel-coords = <0 0 479 799>;
+		atmel,display-coords = <0 0 339 729>;
+		panel = <&dsi_sharp_qhd_plus_dsc_cmd>;
+	};
+};
+
 
 &sde_dsi {
 	pinctrl-names = "panel_active", "panel_suspend", "pwm_pin";
 	pinctrl-2 = <&lcd_backlight_ctrl_default>;
+	pwms = <&pm8350c_pwm 3 0>;
 	qcom,dsi-default-panel = <&dsi_sw43404_amoled_cmd>;
 };

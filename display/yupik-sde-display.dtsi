@@ -18,7 +18,6 @@
 	};
 };
 
-
 &pm8350c_gpios {
 	pmic_edp_bl_pwm: pmic-edp-bl-pwm-state {
 		pins = "gpio8";

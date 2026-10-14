@@ -41,6 +41,8 @@
 		vdd-supply = <&vdd_1v2_lt9611>;
 		vcc-supply = <&vcc_3v3_lt9611>;
 
+		lt,audio-support;
+		lt,ext-disp = <&ext_disp>;
 		lt,reset-gpio-active-high;
 		lt,preferred-mode = "3840x2160";
 
@@ -92,10 +94,14 @@
 	status = "disabled";
 };
 
+&sde_dp {
+	qcom,custom-altmode-payload;
+};
+
 &sde_wb {
 	status = "disabled";
 };
 
 &mdss_mdp {
-	connectors = <&smmu_sde_unsec &smmu_sde_sec &sde_dsi &sde_rscc>;
+	connectors = <&smmu_sde_unsec &smmu_sde_sec &sde_dsi &sde_rscc &sde_dp>;
 };
