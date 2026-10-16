@@ -140,7 +140,7 @@
 &dsi_sharp_qhd_plus_dsc_cmd {
 	qcom,panel-supply-entries = <&dsi_panel_pwr_supply_avdd>;
 	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_pwm";
-	pwms = <&pm8350c_pwm 0 0>;
+	pwms = <&pm8350c_pwm_2 3 0>;
 	qcom,bl-pmic-pwm-period-usecs = <100>;
 	qcom,mdss-dsi-bl-min-level = <1>;
 	qcom,mdss-dsi-bl-max-level = <4095>;
@@ -278,7 +278,7 @@
 &dsi_nt36672e_fhd_plus_120_video {
 	qcom,panel-supply-entries = <&dsi_panel_pwr_supply_avdd>;
 	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_pwm";
-	pwms = <&pm8350c_pwm 0 0>;
+	pwms = <&pm8350c_pwm_2 3 0>;
 	qcom,bl-pmic-pwm-period-usecs = <100>;
 	qcom,mdss-dsi-bl-min-level = <1>;
 	qcom,mdss-dsi-bl-max-level = <4095>;
@@ -296,7 +296,33 @@
 };
 
 &qupv3_se4_i2c {
+	qcom,i2c-touch-active = "focaltech,fts_ts";
 	focaltech@38 {
+		compatible = "focaltech,fts_ts";
+		reg = <0x38>;
+                interrupt-parent = <&tlmm>;
+                interrupts = <21 0x2008>;
+                focaltech,reset-gpio = <&tlmm 20 0x00>;
+                focaltech,irq-gpio = <&tlmm 21 0x2008>;
+                focaltech,max-touch-number = <5>;
+                focaltech,display-coords = <0 0 1080 2340>;
+                focaltech,touch-type = "primary";
+
+                vdd-supply = <&L3C>;
+                vcc_i2c-supply = <&L8C>;
+
+                pinctrl-names = "pmx_ts_active", "pmx_ts_suspend","pmx_ts_release";
+                pinctrl-0 = <&ts_active>;
+                pinctrl-1 = <&ts_int_suspend &ts_reset_suspend>;
+                pinctrl-2 = <&ts_release>;
+                focaltech,trusted-touch-mode = "vm_mode";
+                focaltech,touch-environment = "pvm";
+                focaltech,trusted-touch-type = "primary";
+                focaltech,trusted-touch-spi-irq = <754>;
+                focaltech,trusted-touch-io-bases = <0x990000 0x910000>;
+                focaltech,trusted-touch-io-sizes = <0x1000 0x4000>;
+                focaltech,trusted-touch-vm-gpio-list = <&tlmm 16 0 &tlmm 17 0 &tlmm 18 0
+                                                &tlmm 19 0 &tlmm 20 0 &tlmm 21 0x2008>;
 		panel = <&dsi_r66451_amoled_cmd
 			&dsi_r66451_amoled_video>;
 	};
