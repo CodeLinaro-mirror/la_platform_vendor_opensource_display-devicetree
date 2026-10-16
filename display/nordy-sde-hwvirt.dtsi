@@ -372,7 +372,7 @@
 		qcom,sde-qos-cpu-mask = <0x3>;
 		qcom,sde-qos-cpu-mask-performance = <0x3>;
 		qcom,sde-qos-cpu-dma-latency = <300>;
-		qcom,sde-qos-cpu-irq-latency = <300>;
+		qcom,sde-qos-cpu-irq-latency = <100>;
 
 		qcom,sde-ipcc-protocol-id = <0x4>;
 		qcom,sde-ipcc-client-dpu-phys-id = <0x14>;
@@ -741,7 +741,7 @@
 		qcom,sde-qos-cpu-mask = <0x3>;
 		qcom,sde-qos-cpu-mask-performance = <0x3>;
 		qcom,sde-qos-cpu-dma-latency = <300>;
-		qcom,sde-qos-cpu-irq-latency = <300>;
+		qcom,sde-qos-cpu-irq-latency = <100>;
 
 		qcom,sde-ipcc-protocol-id = <0x4>;
 		qcom,sde-ipcc-client-dpu-phys-id = <0x14>;
