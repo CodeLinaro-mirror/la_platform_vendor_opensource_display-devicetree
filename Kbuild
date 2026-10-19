@@ -54,11 +54,12 @@ dtbo-y += display/nordy-sde-hwvirt-vm.dtbo \
         display/nordy-sde-hwvirt-quin-vm.dtbo \
         display/lemans-adp-star-hgyvm-display.dtbo \
         display/seca-sde-hwvirt-vm.dtbo \
-        display/seca-sde-hwvirt-quin-vm.dtbo \
-        display/lemans-adp-star-hgyvm-lvgvm.dtbo
+        display/seca-sde-hwvirt-quin-vm.dtbo
 
 dtbo-$(GEN5_LVGVM) += display/nordy-sde-hwvirt-lvgvm.dtbo \
         display/nordy-sde-hwvirt-quin-lvgvm.dtbo
+
+dtbo-$(GEN45_LVGVM) += display/lemans-adp-star-hgyvm-lvgvm.dtbo
 endif
 
 always-y    := $(dtb-y) $(dtbo-y)
