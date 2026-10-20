@@ -72,6 +72,7 @@ DP Controller: Required properties:
 					programmable values.
 - qcom,max-pclk-frequency-khz:	An integer specifying the max. pixel clock in KHz supported by Display Port.
 - qcom,mst-enable:		MST feature enable control node.
+- qcom,custom-altmode-payload:	A property to use customized altmode payload data.
 - qcom,dsc-feature-enable:	DSC feature enable control node.
 - qcom,fec-feature-enable:	FEC feature enable control node.
 - qcom,pll-clk-factor: 		A u32 value indicating the factor to be multipled to rate.
@@ -135,6 +136,8 @@ Optional properties:
 - qcom,display-type:		A property to make the edp or dp display as primary.
 - qcom,no-backlight-support:	A property to denote that there is no backlight support for eDP interface.
 - qcom,dp-ext-hpd:		A property to enable hpd support for externally pluggable sink.
+- qcom,edp-default-panel:	Specifies the default eDP panel.
+- qcom,panel-notifier-support:	A property to enable panel notifier support for eDP panel.
 
 [Optional child nodes]: These nodes are for devices which are
 dependent on msm_ext_disp. If msm_ext_disp is disabled then

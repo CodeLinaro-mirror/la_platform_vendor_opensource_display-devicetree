@@ -14,6 +14,9 @@ dtbo-$(CONFIG_ARCH_YUPIK) += display/yupik-sde.dtbo \
 		display/katmaip-sde-display-rb3-gen2-videocollab-overlay.dtbo \
 		display/katmaip-sde-display-rb3-gen2-visionkit-overlay.dtbo \
 		display/yupikp-sde-display-rb3-gen2-corekit-overlay.dtbo \
+		display/yupikp-sde-display-aio-bar-overlay.dtbo \
+		display/yupikp-sde-display-360-camera-overlay.dtbo \
+		display/yupik-idp-pm7250b-controller-overlay.dtbo \
 		display/yupik-sde-display-idp-overlay.dtbo \
 		display/yupik-sde-display-iot-qrd-overlay.dtbo \
 		display/yupik-sde-display-qrd-overlay.dtbo
@@ -28,7 +31,6 @@ endif
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
 dtbo-$(CONFIG_ARCH_LAHAINA) += display/lahaina-sde.dtbo \
       display/lahaina-sde-display-mtp-overlay.dtbo \
-      display/lahainap-sde-display-mtp-overlay.dtbo \
       display/lahaina-sde-display-mtp-v2.1-overlay.dtbo \
       display/lahaina-sde-display-qrd-overlay.dtbo \
       display/lahaina-sde-display-cdp-v2.2-overlay.dtbo
