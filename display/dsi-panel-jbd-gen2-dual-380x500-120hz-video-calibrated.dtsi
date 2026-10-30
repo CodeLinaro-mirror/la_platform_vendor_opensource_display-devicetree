@@ -23,6 +23,7 @@
 		qcom,mdss-dsi-mdp-trigger = "none";
 		qcom,mdss-dsi-reset-sequence = <1 10>, <0 10>, <1 20>;
 		qcom,mdss-dsi-panel-calibration-enabled;
+		qcom,mdss-dsi-non-embedded-tx-cmd-buf-size = <250000>;
 
 		qcom,mdss-panel-i2c-on-command = [
 			/*

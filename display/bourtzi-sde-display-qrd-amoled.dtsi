@@ -1,0 +1,23 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
+#include "bourtzi-sde-display-mtp-amoled.dtsi"
+
+&dsi_vtdr6130_amoled_120hz_cmd {
+	qcom,mdss-dsi-display-timings {
+		timing@0 {
+			/delete-property/ qcom,partial-update-enabled;
+			/delete-property/ qcom,panel-roi-alignment;
+		};
+		timing@1 {
+			/delete-property/ qcom,partial-update-enabled;
+			/delete-property/ qcom,panel-roi-alignment;
+		};
+		timing@2 {
+			/delete-property/ qcom,partial-update-enabled;
+			/delete-property/ qcom,panel-roi-alignment;
+		};
+	};
+};

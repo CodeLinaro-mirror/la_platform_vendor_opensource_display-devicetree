@@ -44,6 +44,9 @@
 	qcom,sde-ib-bw-vote = <2500000 0 800000>;
 	qcom,sde-has-idle-pc;
 
+	qcom,hw-fence-sw-version = <0x1>;
+	qcom,sde-soccp-controller = <&soccp_pas>;
+
 	mmcx-supply = <&VDD_MMCX_LEVEL>;
 	cx-supply = <&VDD_CX_LEVEL>;
 	mxa-supply = <&VDD_MXA_LEVEL>;

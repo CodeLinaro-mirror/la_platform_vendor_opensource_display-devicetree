@@ -205,8 +205,8 @@
 		lt,audio-support;
 		lt,cec-support;
 
-		pinctrl-names = "default";
-		pinctrl-0 = <&lt9611uxd_pins>;
+		pinctrl-names = "active";
+		pinctrl-0 = <&lt9611uxd_pins &display_panel_avdd_default>;
 
 		lt,preferred-mode = "3840x2160";
 
