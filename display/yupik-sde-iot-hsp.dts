@@ -1,0 +1,25 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
+/dts-v1/;
+/plugin/;
+
+#include "yupik-sde.dtsi"
+
+/ {
+	model = "Qualcomm Technologies, Inc. Yupik IOT HSP SDE";
+	compatible = "qcom,yupik-iot-idp", "qcom,yupik-iot", "qcom,idp";
+
+	/*
+	 * Restrict this base SDE/eDP overlay to Yupik IOT HSP.
+	 * Do not add Kodiak msm-id 575/576 here.
+	 */
+	qcom,msm-id = <497 0x10000>, <498 0x10000>;
+	qcom,board-id = <34 1>;
+
+	/* Yupik IOT HSP PMIC configuration. */
+	qcom,pmic-id = <0x0 0x0 0x0 0x3c>;
+	qcom,pmic-id-size = <4>;
+};
