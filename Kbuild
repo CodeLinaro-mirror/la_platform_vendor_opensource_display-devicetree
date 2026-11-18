@@ -34,6 +34,18 @@ dtbo-$(CONFIG_ARCH_KALAMA) += display/trustedvm-kalama-sde-display-mtp-overlay.d
 endif
 
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
+dtbo-$(CONFIG_ARCH_WAIPIO) += display/waipio-sde.dtbo \
+		display/waipio-sde-display-mtp-overlay.dtbo \
+		display/waipio-sde-display-cphy-mtp-overlay.dtbo
+else
+dtbo-$(CONFIG_ARCH_WAIPIO) += display/trustedvm-waipio-sde-display-mtp-overlay.dtbo \
+		display/trustedvm-waipio-sde-display-cdp-overlay.dtbo \
+		display/trustedvm-waipio-sde-display-rumi-overlay.dtbo \
+		display/trustedvm-waipio-sde-display-qrd-overlay.dtbo \
+		display/trustedvm-waipio-sde-display-cdp-overlay.dtbo
+endif
+
+ifneq ($(CONFIG_ARCH_QTI_VM), y)
 dtbo-$(CONFIG_ARCH_ALOR) += display/alor-sde.dtbo \
 		display/alor-sde-display-atp-overlay.dtbo \
 		display/alor-sde-display-cdp-overlay.dtbo \
@@ -202,7 +214,8 @@ dtbo-$(CONFIG_ARCH_VIENNA) += display/vienna-sde.dtbo \
 		display/vienna-sde-display-rcm-overlay.dtbo
 
 dtbo-$(CONFIG_ARCH_SCUBA) += display/scuba-iot-sde.dtbo \
-                display/scuba-iot-sde-display-idp-overlay.dtbo
+                display/scuba-iot-sde-display-idp-overlay.dtbo \
+		display/scuba-iot-sde-display-idp-lp4-overlay.dtbo
 
 dtbo-$(CONFIG_ARCH_KHAJE) += display/khaje-sde.dtbo \
 		display/khaje-sde-display-idp-overlay.dtbo \
@@ -212,7 +225,8 @@ dtbo-$(CONFIG_ARCH_KHAJE) += display/khaje-sde.dtbo \
 		display/khaje-sde-display-atp-overlay.dtbo \
 		display/khaje-sde-display-idp-nopmi-overlay.dtbo \
 		display/khaje-sde-display-qrd-nopmi-overlay.dtbo \
-		display/khaje-sde-display-qrd-nowcd9375-overlay.dtbo
+		display/khaje-sde-display-qrd-nowcd9375-overlay.dtbo \
+		display/khaje-iot-sde-display-idp-lp4-overlay.dtbo
 
 dtbo-$(CONFIG_ARCH_BENGAL) += display/bengal-sde.dtbo \
 		display/bengal-sde-display-idp-overlay.dtbo \
