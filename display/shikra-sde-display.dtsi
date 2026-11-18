@@ -11,6 +11,14 @@
 		reg = <0x0 0x84C00000 0x0 0x01000000>;
 		label = "disp_rdump_region";
 	};
+
+	ext_disp: qcom,msm-ext-disp {
+		compatible = "qcom,msm-ext-disp";
+
+		ext_disp_audio_codec: qcom,msm-ext-disp-audio-codec-rx {
+			compatible = "qcom,msm-ext-disp-audio-codec-rx";
+		};
+	};
 };
 
 &sde_dsi {

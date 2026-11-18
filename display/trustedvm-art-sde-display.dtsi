@@ -18,6 +18,11 @@
 	qcom,has-vhm-capability;
 };
 
+&dsi_nt37802_amoled_video_vhm_i2c_cphy {
+	qcom,hwfence_sw_override_always;
+	qcom,has-vhm-capability;
+};
+
 &mdss_mdp {
 	connectors = <&sde_dsi &sde_dsi1 &smmu_sde_unsec>;
 };

@@ -102,6 +102,7 @@
 };
 
 &mdss_mdp {
+	qcom,sde-enable-hibernation;
 	connectors = <&sde_dsi &smmu_sde_unsec &smmu_sde_sec &sde_wb0 &sde_wb1 &sde_wb2
 		&sde_wb3 &msm_lsr>;
 };

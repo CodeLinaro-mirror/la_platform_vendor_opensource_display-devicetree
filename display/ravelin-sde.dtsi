@@ -86,11 +86,6 @@
 		qcom,mdss-default-ot-wr-limit = <32>;
 
 		qcom,mdss-sbuf-headroom = <20>;
-		qcom,rottop-offset = <0x0A9000>;
-		qcom,sspp-offset = <0x0A9100>;
-		qcom,wb-offset = <0x0A9300>;
-		qcom,regdma-ram-offset = <0x0A9600>;
-		qcom,regdma-offset = <0x0AB600>;
 
 		smmu_rot_unsec: qcom,smmu_rot_unsec_cb {
 			compatible = "qcom,smmu_sde_rot_unsec";

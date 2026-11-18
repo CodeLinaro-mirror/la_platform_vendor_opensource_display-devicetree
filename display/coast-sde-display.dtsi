@@ -1,0 +1,133 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
+#include "coast-sde-display-common.dtsi"
+
+&soc {
+	sde_wb0: qcom,wb-display@0 {
+		compatible = "qcom,wb-display";
+		cell-index = <0>;
+		label = "wb_display0";
+	};
+};
+
+&sde_dsi {
+	vddio-supply = <&L1G_E0>;
+	vci-supply = <&L19B_E0>;
+	vdd-supply = <&L5F_E0>;
+};
+
+&sde_dsi1 {
+	vddio-supply = <&L1G_E0>;
+	vci-supply = <&L19B_E0>;
+	vdd-supply = <&L5F_E0>;
+};
+
+&mdss_mdp {
+	connectors = <&sde_dsi &sde_dsi1 &smmu_sde_sec &smmu_sde_unsec &sde_wb0>;
+};
+
+&dsi_vtdr6130_amoled_cmd {
+	qcom,ulps-enabled;
+	qcom,mdss-dsi-display-timings {
+		timing@0 {
+			qcom,partial-update-enabled = "single_roi";
+			qcom,panel-roi-alignment = <540 40 40 40 1080 40>;
+		};
+
+		timing@1 {
+			qcom,partial-update-enabled = "single_roi";
+			qcom,panel-roi-alignment = <540 40 40 40 1080 40>;
+		};
+
+		timing@2 {
+			qcom,partial-update-enabled = "single_roi";
+			qcom,panel-roi-alignment = <540 40 40 40 1080 40>;
+		};
+
+		timing@3 {
+			qcom,partial-update-enabled = "single_roi";
+			qcom,panel-roi-alignment = <540 40 40 40 1080 40>;
+		};
+	};
+};
+
+&dsi_vtdr6130_amoled_120hz_cmd {
+	qcom,ulps-enabled;
+	qcom,mdss-dsi-display-timings {
+		timing@0 {
+			qcom,partial-update-enabled = "single_roi";
+			qcom,panel-roi-alignment = <540 40 40 40 1080 40>;
+		};
+
+		timing@1 {
+			qcom,partial-update-enabled = "single_roi";
+			qcom,panel-roi-alignment = <540 40 40 40 1080 40>;
+		};
+
+		timing@2 {
+			qcom,partial-update-enabled = "single_roi";
+			qcom,panel-roi-alignment = <540 40 40 40 1080 40>;
+		};
+	};
+};
+
+&dsi_vtdr6130_amoled_90hz_cmd {
+	qcom,ulps-enabled;
+};
+
+&dsi_vtdr6130_amoled_60hz_cmd {
+	qcom,ulps-enabled;
+};
+
+&dsi_vtdr6130_amoled_qsync_144hz_cmd {
+	qcom,ulps-enabled;
+};
+
+&dsi_sim_cmd {
+	qcom,ulps-enabled;
+	qcom,mdss-dsi-display-timings {
+		timing@0 { /* WQHD 60FPS cmd vid mode*/
+			qcom,panel-roi-alignment = <720 40 720 40 720 40>;
+			qcom,partial-update-enabled = "single_roi";
+		};
+
+		timing@2 { /* FHD 60FPS cmd mode*/
+			qcom,panel-roi-alignment = <540 20 540 20 540 20>;
+			qcom,partial-update-enabled = "single_roi";
+		};
+
+		timing@3 { /* HD 60FPS cmd mode*/
+			qcom,panel-roi-alignment = <360 40 360 40 360 40>;
+			qcom,partial-update-enabled = "single_roi";
+		};
+	};
+};
+
+&dsi_sim_dsc_375_cmd {
+	qcom,ulps-enabled;
+};
+
+&dsi_sim_dsc_10b_cmd {
+	qcom,ulps-enabled;
+};
+
+&dsi_dual_sim_cmd {
+	qcom,ulps-enabled;
+};
+
+&dsi_dual_sim_dsc_375_cmd {
+	qcom,ulps-enabled;
+};
+
+&dsi_sim_sec_hd_cmd {
+	qcom,ulps-enabled;
+	qcom,mdss-dsi-display-timings {
+		timing@0 {
+			qcom,panel-roi-alignment = <720 40 720 40 720 40>;
+			qcom,partial-update-enabled = "single_roi";
+		};
+	};
+};
